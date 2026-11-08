@@ -1,0 +1,59 @@
+---
+import type { WeeklyIssue } from '../data/schema';
+
+interface Props {
+  issue: WeeklyIssue;
+  previousIssue?: WeeklyIssue;
+  nextIssue?: WeeklyIssue;
+  totalIssues: number;
+}
+
+const { issue, previousIssue, nextIssue, totalIssues } = Astro.props;
+---
+
+<section class="masthead">
+  <div class="masthead-meta-row">
+    <span>ISSUE #{issue.issueNumber} · {issue.id}</span>
+    <span>US &amp; EUROPE EDITION · GRADES 7–8 / MUN LEVEL</span>
+    <span>PUBLISHED {issue.publishDate} (06:00 CET/CEST) · COVERAGE: {issue.coveragePeriod}</span>
+  </div>
+
+  <div class="masthead-title-block">
+    <h1 class="masthead-title">AGORA</h1>
+    <p class="masthead-subtitle">
+      Weekly Global Current Affairs, Science, Economics &amp; Model UN Briefing for Young Global Citizens
+    </p>
+  </div>
+
+  <div class="issue-theme-banner">
+    <div style="font-family: var(--font-sans); font-size: 0.76rem; font-weight: 700; color: var(--accent-civic); margin-bottom: 0.25rem;">
+      THIS WEEK'S BIG PICTURE · EDITOR'S BRIEFING
+    </div>
+    <h2 class="issue-theme-title">{issue.themeTitle}</h2>
+    <p class="editors-note">{issue.editorsNote}</p>
+  </div>
+</section>
+
+<nav class="issue-adj-nav no-print" aria-label="Issue Pagination">
+  <div>
+    {previousIssue ? (
+      <a href={`/issues/${previousIssue.id}`} class="btn-secondary">
+        ← Issue #{previousIssue.issueNumber} ({previousIssue.publishDate})
+      </a>
+    ) : (
+      <span style="color: var(--ink-muted);">First Edition (Issue #1)</span>
+    )}
+  </div>
+  <div style="font-weight: 600;">
+    Viewing Issue #{issue.issueNumber} of {totalIssues} · <a href="/archive">View &amp; Print All Past Issues</a>
+  </div>
+  <div>
+    {nextIssue ? (
+      <a href={`/issues/${nextIssue.id}`} class="btn-secondary">
+        Issue #{nextIssue.issueNumber} ({nextIssue.publishDate}) →
+      </a>
+    ) : (
+      <span class="badge badge-civic">Latest Edition</span>
+    )}
+  </div>
+</nav>

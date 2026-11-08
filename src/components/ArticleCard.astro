@@ -1,0 +1,75 @@
+---
+import { renderBodyWithHighlights, type Article } from '../data/schema';
+
+interface Props {
+  article: Article;
+  index: number;
+}
+
+const { article, index } = Astro.props;
+
+function getCategoryBadgeClass(category: string): string {
+  if (category.includes('Science') || category.includes('Environment')) return 'badge-science';
+  if (category.includes('Economy')) return 'badge-econ';
+  return 'badge-civic';
+}
+---
+
+<article class="article-card" data-category={article.category}>
+  <div class="article-meta-top">
+    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+      <span class={`badge ${getCategoryBadgeClass(article.category)}`}>
+        #{index + 1} · {article.category}
+      </span>
+      <span class="badge badge-neutral">{article.region}</span>
+      <span class="badge badge-neutral">Level: {article.difficulty}</span>
+    </div>
+    <span>⏱️ {article.readingTimeMinutes} min read</span>
+  </div>
+
+  <h3 class="article-headline">{article.headline}</h3>
+  <p class="article-subheadline">{article.subheadline}</p>
+
+  <div class="article-body">
+    {article.body.map((para) => (
+      <p set:html={renderBodyWithHighlights(para, article.terms)} />
+    ))}
+  </div>
+
+  <div class="article-takeaways-grid">
+    <div class="why-matters-box">
+      <span class="box-label">💡 WHY IT MATTERS FOR YOU</span>
+      <ul class="why-matters-list">
+        {article.whyItMatters.map((point) => (
+          <li>{point}</li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="think-box">
+      <span class="box-label">💬 DINNER-TABLE / CLASS DISCUSSION QUESTION</span>
+      <p style="margin: 0; font-size: 0.95rem; font-style: italic;">“{article.thinkAboutIt}”</p>
+    </div>
+  </div>
+
+  <div class="article-terms-strip">
+    <strong>Key Words in This Story (Tap highlighted words above or review here):</strong>
+    <div class="article-terms-list">
+      {article.terms.map((t) => (
+        <div>
+          <strong>{t.term}</strong> <em>({t.partOfSpeech})</em>: {t.definition}
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="article-source-row">
+    <span>
+      <strong>Source:</strong>{' '}
+      <a href={article.source.url} target="_blank" rel="noopener noreferrer">
+        {article.source.publisher} — {article.source.title}
+      </a>
+    </span>
+    <span>Published: {article.source.publishedDate}</span>
+  </div>
+</article>

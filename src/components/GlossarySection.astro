@@ -1,0 +1,56 @@
+---
+import type { WeeklyIssue, GlossaryTerm } from '../data/schema';
+
+interface Props {
+  issue: WeeklyIssue;
+}
+
+const { issue } = Astro.props;
+
+const combinedTerms: Array<GlossaryTerm & { sectionLabel: string }> = [
+  ...issue.munSpotlight.terms.map((t) => ({ ...t, sectionLabel: 'MUN Spotlight' })),
+  ...issue.articles.flatMap((a) => a.terms.map((t) => ({ ...t, sectionLabel: a.category }))),
+];
+---
+
+<section aria-labelledby="glossary-section-heading">
+  <div class="section-header">
+    <div>
+      <h2 id="glossary-section-heading" class="section-title">
+        Weekly Vocabulary &amp; Economic Glossary ({combinedTerms.length} Terms)
+      </h2>
+      <span class="section-kicker">ENGLISH-TO-ENGLISH DEFINITIONS &amp; CONTEXT SENTENCES</span>
+    </div>
+
+    <button type="button" id="btn-toggle-quiz" class="btn-secondary quiz-toggle-btn no-print">
+      🧠 Self-Test Flashcard Mode (Hide Definitions)
+    </button>
+  </div>
+
+  <div class="glossary-grid">
+    {combinedTerms.map((item) => (
+      <div class="glossary-card" tabindex="0">
+        <div class="glossary-word-row">
+          <span class="glossary-word">□ {item.term}</span>
+          <span class="glossary-pos">{item.partOfSpeech} · {item.sectionLabel}</span>
+        </div>
+        <p class="glossary-def">{item.definition}</p>
+        <p class="glossary-ex">“{item.example}”</p>
+      </div>
+    ))}
+  </div>
+
+  <script is:inline>
+    (function () {
+      const quizBtn = document.getElementById('btn-toggle-quiz');
+      if (quizBtn) {
+        quizBtn.addEventListener('click', function () {
+          const active = document.body.classList.toggle('quiz-mode-active');
+          quizBtn.textContent = active
+            ? '👁️ Show All Definitions'
+            : '🧠 Self-Test Flashcard Mode (Hide Definitions)';
+        });
+      }
+    })();
+  </script>
+</section>

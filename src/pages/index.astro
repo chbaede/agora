@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import IssueView from '../components/IssueView.astro';
+import { getLatestIssue, getAllIssues, getAdjacentIssues } from '../data/load-issues';
+
+const latest = getLatestIssue();
+const allIssues = getAllIssues();
+const { previous, next } = getAdjacentIssues(latest.id);
+---
+
+<BaseLayout
+  title={`AGORA · Issue #${latest.issueNumber} (${latest.id}) — ${latest.themeTitle}`}
+  currentIssueId={latest.id}
+  activeNav="latest"
+>
+  <IssueView
+    issue={latest}
+    previousIssue={previous}
+    nextIssue={next}
+    totalIssues={allIssues.length}
+  />
+</BaseLayout>

@@ -1,0 +1,30 @@
+---
+import type { ConceptOfTheWeek } from '../data/schema';
+
+interface Props {
+  concept: ConceptOfTheWeek;
+}
+
+const { concept } = Astro.props;
+---
+
+<section class="concept-card" aria-labelledby="concept-heading">
+  <div style="margin-bottom: 0.5rem;">
+    <span class="badge badge-econ">CONCEPT OF THE WEEK · {concept.category}</span>
+  </div>
+  <h3 id="concept-heading" style="font-size: 1.35rem; margin: 0 0 0.65rem; line-height: 1.3;">
+    {concept.title}
+  </h3>
+  <p style="margin: 0 0 0.75rem; font-size: 0.98rem;">{concept.summary}</p>
+
+  <div class="analogy-callout">
+    <strong style="font-family: var(--font-sans); font-size: 0.78rem; display: block; margin-bottom: 0.25rem; color: var(--accent-econ);">
+      🎯 REAL-LIFE ANALOGY
+    </strong>
+    {concept.realWorldAnalogy}
+  </div>
+
+  <p style="margin: 0; font-family: var(--font-sans); font-size: 0.88rem; font-weight: 600; color: var(--ink-primary);">
+    Key Takeaway: {concept.keyTakeaway}
+  </p>
+</section>

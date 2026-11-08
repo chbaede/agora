@@ -1,0 +1,90 @@
+---
+import type { WeeklyIssue } from '../data/schema';
+import { REQUIRED_CATEGORIES } from '../data/schema';
+import Masthead from './Masthead.astro';
+import MunSpotlight from './MunSpotlight.astro';
+import ArticleCard from './ArticleCard.astro';
+import ConceptExplainer from './ConceptExplainer.astro';
+import BookCorner from './BookCorner.astro';
+import GlossarySection from './GlossarySection.astro';
+import PrintWorksheet from './PrintWorksheet.astro';
+
+interface Props {
+  issue: WeeklyIssue;
+  previousIssue?: WeeklyIssue;
+  nextIssue?: WeeklyIssue;
+  totalIssues: number;
+}
+
+const { issue, previousIssue, nextIssue, totalIssues } = Astro.props;
+---
+
+<Masthead
+  issue={issue}
+  previousIssue={previousIssue}
+  nextIssue={nextIssue}
+  totalIssues={totalIssues}
+/>
+
+<MunSpotlight mun={issue.munSpotlight} />
+
+<section aria-labelledby="weekly-stories-heading">
+  <div class="section-header">
+    <h2 id="weekly-stories-heading" class="section-title">
+      This Week's 5 Essential Stories (US &amp; Europe)
+    </h2>
+    <span class="section-kicker">TAP HIGHLIGHTED WORDS FOR INSTANT DEFINITIONS</span>
+  </div>
+
+  <div class="category-filter-bar no-print" role="toolbar" aria-label="Filter stories by category">
+    <button type="button" class="filter-pill active" data-filter="all">
+      All Stories ({issue.articles.length})
+    </button>
+    {REQUIRED_CATEGORIES.map((cat) => (
+      <button type="button" class="filter-pill" data-filter={cat}>
+        {cat}
+      </button>
+    ))}
+  </div>
+
+  <div class="articles-stack" id="articles-container">
+    {issue.articles.map((article, idx) => (
+      <ArticleCard article={article} index={idx} />
+    ))}
+  </div>
+</section>
+
+<div class="dual-feature-grid">
+  <ConceptExplainer concept={issue.conceptOfTheWeek} />
+  <BookCorner book={issue.bookOfTheWeek} />
+</div>
+
+<GlossarySection issue={issue} />
+
+<PrintWorksheet issue={issue} />
+
+<script is:inline>
+  (function () {
+    const filterButtons = document.querySelectorAll('.filter-pill');
+    const articleCards = document.querySelectorAll('.article-card');
+
+    filterButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const selected = btn.getAttribute('data-filter');
+        filterButtons.forEach(function (b) {
+          b.classList.remove('active');
+        });
+        btn.classList.add('active');
+
+        articleCards.forEach(function (card) {
+          const cat = card.getAttribute('data-category');
+          if (!selected || selected === 'all' || cat === selected) {
+            card.removeAttribute('hidden');
+          } else {
+            card.setAttribute('hidden', 'true');
+          }
+        });
+      });
+    });
+  })();
+</script>

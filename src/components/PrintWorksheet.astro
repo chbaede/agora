@@ -1,0 +1,59 @@
+---
+import type { WeeklyIssue } from '../data/schema';
+
+interface Props {
+  issue: WeeklyIssue;
+}
+
+const { issue } = Astro.props;
+---
+
+<section class="print-worksheet" aria-labelledby="worksheet-heading">
+  <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; border-bottom: 2px solid var(--border-strong); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+    <h2 id="worksheet-heading" style="margin: 0; font-size: 1.4rem;">
+      📝 MUN Delegate Prep &amp; Weekly Reflection Worksheet
+    </h2>
+    <span style="font-family: var(--font-sans); font-size: 0.82rem; font-weight: 600;">
+      AGORA Issue #{issue.issueNumber} ({issue.id}) · Name: ______________________ · Date: ____________
+    </span>
+  </div>
+
+  <div style="margin-bottom: 1.25rem;">
+    <strong style="font-family: var(--font-sans); font-size: 0.86rem; display: block;">
+      1. MUN Position Builder — Topic: {issue.munSpotlight.topic}
+    </strong>
+    <p style="margin: 0.25rem 0 0.5rem; font-size: 0.9rem; color: var(--ink-secondary);">
+      Choose a country or bloc from this week's MUN Spotlight. Do you support or oppose the motion? Write two reasons and your opening speech hook:
+    </p>
+    <div class="worksheet-lines">
+      <div class="worksheet-line"></div>
+      <div class="worksheet-line"></div>
+      <div class="worksheet-line"></div>
+    </div>
+  </div>
+
+  <div style="margin-bottom: 1.25rem;">
+    <strong style="font-family: var(--font-sans); font-size: 0.86rem; display: block;">
+      2. Story That Surprised Me Most This Week
+    </strong>
+    <p style="margin: 0.25rem 0 0.5rem; font-size: 0.9rem; color: var(--ink-secondary);">
+      Pick one article from US Current Affairs, Europe, Economy, Science, or Environment. Summarize why it matters in your own words:
+    </p>
+    <div class="worksheet-lines">
+      <div class="worksheet-line"></div>
+      <div class="worksheet-line"></div>
+      <div class="worksheet-line"></div>
+    </div>
+  </div>
+
+  <div>
+    <strong style="font-family: var(--font-sans); font-size: 0.86rem; display: block;">
+      3. Vocabulary Action Challenge (Use 3 New Words from This Issue in Your Own Sentences)
+    </strong>
+    <div class="worksheet-lines">
+      <div class="worksheet-line"></div>
+      <div class="worksheet-line"></div>
+      <div class="worksheet-line"></div>
+    </div>
+  </div>
+</section>

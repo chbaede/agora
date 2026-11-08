@@ -1,0 +1,81 @@
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 14mm;
+  }
+
+  html, body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    font-size: 10pt !important;
+    line-height: 1.48 !important;
+  }
+
+  .no-print,
+  .utility-bar,
+  .issue-adj-nav,
+  .category-filter-bar,
+  .term-popover,
+  .quiz-toggle-btn {
+    display: none !important;
+  }
+
+  .page-shell {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .article-card[ hidden ] {
+    display: block !important;
+  }
+
+  .masthead {
+    border-bottom: 2px solid #000 !important;
+    padding-bottom: 8pt !important;
+    margin-bottom: 12pt !important;
+  }
+
+  .masthead-title {
+    font-size: 24pt !important;
+  }
+
+  .issue-theme-banner,
+  .mun-dossier,
+  .article-card,
+  .concept-card,
+  .book-card,
+  .glossary-card,
+  .print-worksheet {
+    background: #FFFFFF !important;
+    box-shadow: none !important;
+    border-color: #333333 !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .mun-dossier,
+  .article-card {
+    margin-bottom: 10pt !important;
+    padding: 10pt !important;
+  }
+
+  .glossary-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 6pt !important;
+  }
+
+  body.quiz-mode-active .glossary-def {
+    filter: none !important;
+  }
+
+  .print-worksheet {
+    page-break-before: always;
+    border: 1.5pt solid #000 !important;
+  }
+
+  a {
+    color: #000000 !important;
+    text-decoration: underline !important;
+  }
+}

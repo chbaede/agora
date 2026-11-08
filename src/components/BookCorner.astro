@@ -1,0 +1,38 @@
+---
+import type { BookRecommendation } from '../data/schema';
+
+interface Props {
+  book: BookRecommendation;
+}
+
+const { book } = Astro.props;
+---
+
+<section class="book-card" aria-labelledby="book-heading">
+  <div style="display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 0.5rem;">
+    <span class="badge badge-science">📚 WEEKLY ENGLISH BOOK PICK</span>
+    <span class="badge badge-neutral">{book.genre}</span>
+    <span class="badge badge-neutral">Ages {book.ageRange} · {book.pageCount} pages</span>
+  </div>
+
+  <h3 id="book-heading" style="font-size: 1.35rem; margin: 0 0 0.2rem; line-height: 1.3;">
+    {book.title}
+  </h3>
+  <p style="font-family: var(--font-sans); font-size: 0.88rem; font-weight: 600; color: var(--ink-secondary); margin: 0 0 0.8rem;">
+    By {book.author}
+  </p>
+
+  <p style="margin: 0 0 0.75rem; font-size: 0.97rem;">{book.whyReadIt}</p>
+
+  <div style="background: var(--bg-panel); border-radius: 6px; padding: 0.75rem 0.95rem; margin-bottom: 0.75rem; font-size: 0.92rem;">
+    <strong style="font-family: var(--font-sans); font-size: 0.76rem; display: block; margin-bottom: 0.2rem;">
+      💭 READER REFLECTION QUESTION
+    </strong>
+    <em>“{book.discussionPrompt}”</em>
+  </div>
+
+  <div style="font-family: var(--font-sans); font-size: 0.82rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+    <span><strong>Why it shines:</strong> {book.keyTakeaway}</span>
+    <a href={book.referenceUrl} target="_blank" rel="noopener noreferrer">Book Details →</a>
+  </div>
+</section>

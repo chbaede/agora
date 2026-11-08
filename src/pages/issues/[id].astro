@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import IssueView from '../../components/IssueView.astro';
+import { getAllIssues, getAdjacentIssues } from '../../data/load-issues';
+import type { WeeklyIssue } from '../../data/schema';
+
+export function getStaticPaths() {
+  const issues = getAllIssues();
+  return issues.map((issue) => ({
+    params: { id: issue.id },
+    props: { issue, totalIssues: issues.length },
+  }));
+}
+
+interface Props {
+  issue: WeeklyIssue;
+  totalIssues: number;
+}
+
+const { issue, totalIssues } = Astro.props;
+const { previous, next } = getAdjacentIssues(issue.id);
+---
+
+<BaseLayout
+  title={`AGORA · Issue #${issue.issueNumber} (${issue.id}) — ${issue.themeTitle}`}
+  currentIssueId={issue.id}
+  activeNav="latest"
+>
+  <IssueView
+    issue={issue}
+    previousIssue={previous}
+    nextIssue={next}
+    totalIssues={totalIssues}
+  />
+</BaseLayout>

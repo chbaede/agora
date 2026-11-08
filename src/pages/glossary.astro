@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getAllGlossaryTerms, getLatestIssue } from '../data/load-issues';
+
+const allTerms = getAllGlossaryTerms();
+const latest = getLatestIssue();
+---
+
+<BaseLayout
+  title="AGORA Vocabulary & Economics Bank — Cumulative Dictionary"
+  currentIssueId={latest.id}
+  activeNav="glossary"
+>
+  <section class="masthead">
+    <div class="masthead-meta-row">
+      <span>CUMULATIVE VOCABULARY &amp; ECONOMIC DICTIONARY</span>
+      <span>{allTerms.length} TERMS ACROSS ALL ISSUES</span>
+    </div>
+
+    <div class="masthead-title-block" style="padding: 1rem 0 0.5rem;">
+      <h1 class="masthead-title" style="font-size: clamp(2rem, 4.5vw, 3rem);">
+        Global Affairs &amp; Economic Glossary
+      </h1>
+      <p class="masthead-subtitle">
+        Every diplomatic, scientific, and economic term featured in AGORA, explained in clear English with context examples.
+      </p>
+    </div>
+
+    <div style="margin-top: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; font-family: var(--font-sans);">
+      <input
+        id="glossary-search-input"
+        type="search"
+        placeholder="Search any word or definition (e.g., tariff, eurozone, multilateral)..."
+        style="width: 100%; max-width: 460px; padding: 0.55rem 0.85rem; border: 1px solid var(--border-strong); border-radius: 6px; font-family: var(--font-sans); font-size: 0.92rem;"
+      />
+
+      <button type="button" id="btn-cum-quiz" class="btn-secondary no-print">
+        🧠 Toggle Self-Test Flashcard Mode
+      </button>
+    </div>
+  </section>
+
+  <section class="glossary-grid" id="cumulative-glossary-grid">
+    {allTerms.map((item) => (
+      <div
+        class="glossary-card"
+        data-term-search={`${item.term} ${item.definition} ${item.sourceSection} ${item.issueId}`.toLowerCase()}
+      >
+        <div class="glossary-word-row">
+          <span class="glossary-word">{item.term}</span>
+          <span class="glossary-pos">{item.partOfSpeech}</span>
+        </div>
+        <p class="glossary-def">{item.definition}</p>
+        <p class="glossary-ex">“{item.example}”</p>
+        <div style="margin-top: 0.45rem; font-size: 0.76rem; color: var(--ink-muted);">
+          From <a href={`/issues/${item.issueId}`}>Issue #{item.issueNumber} ({item.issueId})</a> · {item.sourceSection}
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <script is:inline>
+    (function () {
+      const searchInput = document.getElementById('glossary-search-input');
+      const cards = document.querySelectorAll('#cumulative-glossary-grid .glossary-card');
+      if (searchInput) {
+        searchInput.addEventListener('input', function (e) {
+          const q = (e.target.value || '').trim().toLowerCase();
+          cards.forEach(function (card) {
+            const text = card.getAttribute('data-term-search') || '';
+            card.style.display = !q || text.includes(q) ? '' : 'none';
+          });
+        });
+      }
+
+      const quizBtn = document.getElementById('btn-cum-quiz');
+      if (quizBtn) {
+        quizBtn.addEventListener('click', function () {
+          document.body.classList.toggle('quiz-mode-active');
+        });
+      }
+    })();
+  </script>
+</BaseLayout>

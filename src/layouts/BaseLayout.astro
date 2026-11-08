@@ -1,0 +1,160 @@
+---
+import '../styles/global.css';
+import '../styles/print.css';
+import { getAllIssues } from '../data/load-issues';
+
+interface Props {
+  title: string;
+  description?: string;
+  currentIssueId?: string;
+  activeNav?: 'latest' | 'archive' | 'glossary';
+}
+
+const {
+  title,
+  description = 'AGORA — Weekly US & European Current Affairs, Science, Economics & MUN Digest for International Middle Schoolers',
+  currentIssueId,
+  activeNav = 'latest',
+} = Astro.props;
+
+const allIssues = getAllIssues();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <header class="utility-bar no-print">
+      <div class="utility-inner">
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="/" class="brand-pill">
+            <span class="brand-dot"></span>
+            AGORA Weekly
+          </a>
+          <a href="/" class={`nav-link ${activeNav === 'latest' ? 'active' : ''}`}>Latest Issue</a>
+          <a href="/archive" class={`nav-link ${activeNav === 'archive' ? 'active' : ''}`}>
+            Past Issues &amp; Print Archive ({allIssues.length})
+          </a>
+          <a href="/glossary" class={`nav-link ${activeNav === 'glossary' ? 'active' : ''}`}>
+            Vocabulary Bank
+          </a>
+        </nav>
+
+        <div class="utility-controls">
+          <label class="issue-switcher-label" for="issue-quick-select">
+            <span>Jump to Issue:</span>
+            <select id="issue-quick-select" class="issue-select" aria-label="Quick jump to any issue">
+              {allIssues.map((iss) => (
+                <option value={`/issues/${iss.id}`} selected={iss.id === currentIssueId}>
+                  Issue #{iss.issueNumber} ({iss.id}) · {iss.publishDate}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <label class="worksheet-toggle" title="Include the 1-page handwritten MUN & Vocabulary worksheet when printing">
+            <input type="checkbox" id="toggle-worksheet-checkbox" checked />
+            <span>Include Study Worksheet</span>
+          </label>
+
+          <button type="button" id="btn-print-packet" class="btn-print">
+            🖨️ Print Weekly Packet
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <slot />
+
+      <footer class="site-footer">
+        <div>
+          <strong>AGORA (`agora.yocto.kr`)</strong> — Weekly Global Current Affairs, Science, Economics &amp; Model UN Digest for Middle School Readers.
+        </div>
+        <div>
+          Published Mondays at 06:00 CET/CEST · <a href="/archive">Browse All Issues</a> · <a href="/glossary">Cumulative Glossary</a>
+        </div>
+      </footer>
+    </main>
+
+    <div id="term-popover" class="term-popover no-print" role="status" aria-live="polite">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem;">
+        <strong id="popover-word" style="font-size:0.95rem; color:#FDE68A;">Term</strong>
+        <button id="popover-close" type="button" style="background:none; border:none; color:#CBD5E1; cursor:pointer; font-size:0.9rem;">✕</button>
+      </div>
+      <div id="popover-def" style="font-size:0.86rem; line-height:1.45;"></div>
+    </div>
+
+    <script is:inline>
+      (function () {
+        const selectEl = document.getElementById('issue-quick-select');
+        if (selectEl) {
+          selectEl.addEventListener('change', function (e) {
+            const targetUrl = e.target.value;
+            if (targetUrl) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+
+        const printBtn = document.getElementById('btn-print-packet');
+        if (printBtn) {
+          printBtn.addEventListener('click', function () {
+            window.print();
+          });
+        }
+
+        const worksheetCheckbox = document.getElementById('toggle-worksheet-checkbox');
+        if (worksheetCheckbox) {
+          worksheetCheckbox.addEventListener('change', function (e) {
+            document.body.classList.toggle('hide-print-worksheet', !e.target.checked);
+          });
+        }
+
+        // Interactive inline glossary highlight popover
+        const popover = document.getElementById('term-popover');
+        const popoverWord = document.getElementById('popover-word');
+        const popoverDef = document.getElementById('popover-def');
+        const popoverClose = document.getElementById('popover-close');
+
+        document.querySelectorAll('.glossary-inline-term').forEach(function (mark) {
+          mark.addEventListener('click', function () {
+            const titleText = mark.getAttribute('title') || '';
+            const termName = mark.textContent || 'Vocabulary';
+            if (popover && popoverWord && popoverDef) {
+              popoverWord.textContent = termName;
+              popoverDef.textContent = titleText;
+              popover.classList.add('visible');
+            }
+          });
+        });
+
+        if (popoverClose && popover) {
+          popoverClose.addEventListener('click', function () {
+            popover.classList.remove('visible');
+          });
+        }
+
+        // Auto-print when opened with ?print=1 from the Archive page
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('worksheet') === '0' && worksheetCheckbox) {
+          worksheetCheckbox.checked = false;
+          document.body.classList.add('hide-print-worksheet');
+        }
+        if (params.get('print') === '1') {
+          window.addEventListener('load', function () {
+            setTimeout(function () {
+              window.print();
+            }, 250);
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

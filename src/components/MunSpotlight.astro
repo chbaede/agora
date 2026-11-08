@@ -1,0 +1,92 @@
+---
+import { renderBodyWithHighlights, type MunSpotlight } from '../data/schema';
+
+interface Props {
+  mun: MunSpotlight;
+}
+
+const { mun } = Astro.props;
+---
+
+<section aria-labelledby="mun-section-heading">
+  <div class="section-header">
+    <h2 id="mun-section-heading" class="section-title">Model UN (MUN) Agenda Spotlight</h2>
+    <span class="section-kicker">DIPLOMACY, BLOC POSITIONS &amp; DEBATE PREP</span>
+  </div>
+
+  <article class="mun-dossier">
+    <div class="mun-header-meta">
+      <span class="badge badge-civic">COMMITTEE: {mun.committee}</span>
+      <span class="badge badge-neutral">REGION: {mun.region}</span>
+    </div>
+
+    <h3 class="mun-topic-title">{mun.topic}</h3>
+
+    <div class="mun-background">
+      {mun.background.map((para) => (
+        <p set:html={renderBodyWithHighlights(para, mun.terms)} />
+      ))}
+    </div>
+
+    <div style="margin-top: 1.25rem;">
+      <div class="box-label">KEY STAKEHOLDER &amp; BLOC POSITIONS</div>
+      <div class="mun-blocs-grid">
+        {mun.blocPositions.map((b) => (
+          <div class="mun-bloc-card">
+            <h4 class="mun-bloc-name">{b.bloc}</h4>
+            <p class="mun-bloc-stance">{b.stance}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mun-debate-box">
+      <div class="mun-motion-banner">
+        <strong style="font-family: var(--font-sans); font-size: 0.78rem; color: var(--accent-civic); display: block; margin-bottom: 0.2rem;">
+          DEBATE MOTION FOR DELEGATES
+        </strong>
+        “{mun.debateMotion}”
+      </div>
+
+      <div class="pro-con-grid">
+        <div class="pro-box">
+          <h4 class="pro-con-title" style="color: #166534;">✓ Arguments FOR the Motion (Pro)</h4>
+          <ul class="pro-con-list">
+            {mun.proArguments.map((arg) => (
+              <li>{arg}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="con-box">
+          <h4 class="pro-con-title" style="color: #991B1B;">✗ Arguments AGAINST the Motion (Con)</h4>
+          <ul class="pro-con-list">
+            {mun.conArguments.map((arg) => (
+              <li>{arg}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div class="speech-starter-box">
+        <span class="speech-starter-label">🎤 60-SECOND OPENING SPEECH STARTER</span>
+        <p style="margin: 0; font-style: italic; font-size: 0.98rem;">“{mun.speechStarter}”</p>
+      </div>
+
+      <div class="article-source-row" style="margin-top: 1rem;">
+        <div>
+          <strong>Verified Sources:</strong>{' '}
+          {mun.sources.map((src, i) => (
+            <span>
+              {i > 0 ? ' · ' : ''}
+              <a href={src.url} target="_blank" rel="noopener noreferrer">
+                {src.publisher}: {src.title}
+              </a>{' '}
+              ({src.publishedDate})
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

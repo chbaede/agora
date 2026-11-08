@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getAllIssues, getLatestIssue } from '../data/load-issues';
+
+const issues = getAllIssues();
+const latest = getLatestIssue();
+---
+
+<BaseLayout
+  title="AGORA Archive — Read & Print All Past Weekly Issues"
+  currentIssueId={latest.id}
+  activeNav="archive"
+>
+  <section class="masthead">
+    <div class="masthead-meta-row">
+      <span>COMPLETE WEEKLY ARCHIVE</span>
+      <span>INSTANT WEB ACCESS &amp; ONE-CLICK A4/LETTER PRINT PACKETS</span>
+    </div>
+
+    <div class="masthead-title-block" style="padding: 1rem 0 0.5rem;">
+      <h1 class="masthead-title" style="font-size: clamp(2rem, 4.5vw, 3rem);">
+        Past Issues &amp; Print Library
+      </h1>
+      <p class="masthead-subtitle">
+        Every weekly edition of AGORA is permanently archived here. Open any issue to read online, or click <strong>“Print Packet”</strong> to immediately print the full issue and student worksheet.
+      </p>
+    </div>
+
+    <div style="margin-top: 1rem; font-family: var(--font-sans);">
+      <label for="archive-search-input" style="font-size: 0.84rem; font-weight: 600; display: block; margin-bottom: 0.35rem;">
+        Filter Past Issues by Keyword, Topic, Country, or Book Title:
+      </label>
+      <input
+        id="archive-search-input"
+        type="search"
+        placeholder="e.g., COP31, Midterm, Eurozone, Voyager, Kamkwamba..."
+        style="width: 100%; max-width: 480px; padding: 0.55rem 0.85rem; border: 1px solid var(--border-strong); border-radius: 6px; font-family: var(--font-sans); font-size: 0.92rem;"
+      />
+    </div>
+  </section>
+
+  <section class="archive-grid" id="archive-list">
+    {issues.map((issue) => (
+      <article
+        class="archive-card"
+        data-search-text={`${issue.id} ${issue.publishDate} ${issue.themeTitle} ${issue.munSpotlight.topic} ${issue.bookOfTheWeek.title} ${issue.articles.map((a) => a.headline).join(' ')}`.toLowerCase()}
+      >
+        <div style="flex: 1 1 520px;">
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.45rem;">
+            <span class="badge badge-civic">Issue #{issue.issueNumber} ({issue.id})</span>
+            <span class="badge badge-neutral">Published: {issue.publishDate}</span>
+            <span class="badge badge-neutral">Coverage: {issue.coveragePeriod}</span>
+          </div>
+
+          <h2 style="font-size: 1.4rem; margin: 0 0 0.45rem; line-height: 1.28;">
+            <a href={`/issues/${issue.id}`} style="color: var(--ink-primary); text-decoration: none;">
+              {issue.themeTitle}
+            </a>
+          </h2>
+
+          <p style="margin: 0 0 0.75rem; font-size: 0.96rem; color: var(--ink-secondary);">
+            {issue.editorsNote}
+          </p>
+
+          <div style="font-family: var(--font-sans); font-size: 0.85rem; background: var(--bg-panel); padding: 0.75rem 1rem; border-radius: 6px;">
+            <div style="margin-bottom: 0.35rem;">
+              <strong>🇺🇳 MUN Spotlight:</strong> {issue.munSpotlight.topic} <em>({issue.munSpotlight.committee})</em>
+            </div>
+            <div style="margin-bottom: 0.35rem;">
+              <strong>📰 5 Articles:</strong>{' '}
+              {issue.articles.map((a, i) => (
+                <span>{i > 0 ? ' · ' : ''}{a.headline}</span>
+              ))}
+            </div>
+            <div>
+              <strong>📚 Book Pick:</strong> <em>{issue.bookOfTheWeek.title}</em> by {issue.bookOfTheWeek.author}
+            </div>
+          </div>
+        </div>
+
+        <div class="archive-actions">
+          <a href={`/issues/${issue.id}`} class="btn-secondary">
+            📖 Read Issue #{issue.issueNumber}
+          </a>
+          <a href={`/issues/${issue.id}?print=1`} class="btn-print" title="Opens this issue and triggers the print dialog with the study worksheet">
+            🖨️ Print Packet (With Worksheet)
+          </a>
+          <a href={`/issues/${issue.id}?print=1&worksheet=0`} class="btn-secondary" title="Opens this issue and prints articles only without the worksheet">
+            🖨️ Print Articles Only
+          </a>
+        </div>
+      </article>
+    ))}
+  </section>
+
+  <script is:inline>
+    (function () {
+      const input = document.getElementById('archive-search-input');
+      const cards = document.querySelectorAll('#archive-list .archive-card');
+      if (input) {
+        input.addEventListener('input', function (e) {
+          const q = (e.target.value || '').trim().toLowerCase();
+          cards.forEach(function (card) {
+            const hay = card.getAttribute('data-search-text') || '';
+            if (!q || hay.includes(q)) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      }
+    })();
+  </script>
+</BaseLayout>
