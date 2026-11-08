@@ -10,7 +10,10 @@ const { book } = Astro.props;
 
 <section class="book-card" aria-labelledby="book-heading">
   <div style="display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 0.75rem;">
-    <span class="badge badge-science">📚 WEEKLY ENGLISH BOOK PICK (추천 영어 원서)</span>
+    <span class="badge badge-science">
+      <span class="lang-en-inline">📚 WEEKLY ENGLISH BOOK PICK</span>
+      <span class="lang-ko-inline">📚 이주의 추천 영어 원서</span>
+    </span>
     <span class="badge badge-neutral">{book.genre}</span>
     <span class="badge badge-neutral">Ages {book.ageRange} · {book.pageCount} pages</span>
   </div>
@@ -43,7 +46,8 @@ const { book } = Astro.props;
 
   <div style="background: var(--bg-panel); border-radius: 6px; padding: 0.75rem 0.95rem; margin: 0.85rem 0 0.75rem; font-size: 0.92rem;">
     <strong style="font-family: var(--font-sans); font-size: 0.76rem; display: block; margin-bottom: 0.2rem;">
-      💭 READER REFLECTION QUESTION (독서 토론 질문)
+      <span class="lang-en-inline">💭 READER REFLECTION QUESTION</span>
+      <span class="lang-ko-inline">💭 독서 토론 질문</span>
     </strong>
     <em class="lang-en-block">“{book.discussionPrompt}”</em>
     <div class="lang-ko-block">“{book.discussionPromptKo}”</div>

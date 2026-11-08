@@ -14,12 +14,16 @@ const combinedTerms: Array<GlossaryTerm & { sectionLabel: string }> = [
 ---
 
 <section aria-labelledby="glossary-section-heading">
-  <div class="section-header">
+  <div class="section-header" style="margin-top: 0.5rem;">
     <div>
       <h2 id="glossary-section-heading" class="section-title">
-        Weekly Vocabulary &amp; Economic Glossary ({combinedTerms.length} Terms)
+        <span class="lang-en-inline">Weekly Vocabulary &amp; Economic Glossary ({combinedTerms.length} Terms)</span>
+        <span class="lang-ko-inline">주간 핵심 영단어 및 시사·경제 용어 사전 ({combinedTerms.length}개 어휘)</span>
       </h2>
-      <span class="section-kicker">ENGLISH &amp; KOREAN DEFINITIONS + CONTEXT SENTENCES (주간 어휘·경제 용어 사전)</span>
+      <span class="section-kicker">
+        <span class="lang-en-inline">CLEAR ENGLISH DEFINITIONS &amp; CONTEXT SENTENCES</span>
+        <span class="lang-ko-inline">영영 풀이·한국어 해설 및 실전 시사 예문</span>
+      </span>
     </div>
 
     <button type="button" id="btn-toggle-quiz" class="btn-secondary quiz-toggle-btn no-print">

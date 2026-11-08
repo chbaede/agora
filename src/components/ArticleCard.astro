@@ -19,7 +19,7 @@ function getCategoryBadgeClass(category: string): string {
   <div class="article-meta-top">
     <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
       <span class={`badge ${getCategoryBadgeClass(article.category)}`}>
-        #{index + 1} · {article.category}
+        STORY #{index + 1} · {article.category}
       </span>
       <span class="badge badge-neutral">{article.region}</span>
       <span class="badge badge-neutral">Level: {article.difficulty}</span>
@@ -67,7 +67,10 @@ function getCategoryBadgeClass(category: string): string {
 
   <div class="article-takeaways-grid">
     <div class="why-matters-box">
-      <span class="box-label">💡 WHY IT MATTERS FOR YOU (왜 중요할까요?)</span>
+      <span class="box-label">
+        <span class="lang-en-inline">💡 WHY IT MATTERS FOR YOU</span>
+        <span class="lang-ko-inline">💡 왜 중요할까요? (핵심 배경과 시사점)</span>
+      </span>
       <ul class="why-matters-list">
         {article.whyItMatters.map((point, i) => (
           <li>
@@ -79,14 +82,20 @@ function getCategoryBadgeClass(category: string): string {
     </div>
 
     <div class="think-box">
-      <span class="box-label">💬 FAMILY / CLASS DISCUSSION QUESTION (부모님과 함께 나누는 질문)</span>
+      <span class="box-label">
+        <span class="lang-en-inline">💬 CRITICAL THINKING &amp; DISCUSSION QUESTION</span>
+        <span class="lang-ko-inline">💬 가족·수업 시간 토론 질문</span>
+      </span>
       <p class="lang-en-block" style="margin: 0; font-size: 0.95rem; font-style: italic;">“{article.thinkAboutIt}”</p>
       <p class="lang-ko-block" style="margin: 0; font-size: 0.93rem;">“{article.thinkAboutItKo}”</p>
     </div>
   </div>
 
   <div class="article-terms-strip">
-    <strong>Key Words in This Story (핵심 영단어 및 시사·경제 용어):</strong>
+    <strong>
+      <span class="lang-en-inline">Key Vocabulary &amp; Concepts in This Story:</span>
+      <span class="lang-ko-inline">이 기사의 핵심 영단어 및 시사·경제 용어:</span>
+    </strong>
     <div class="article-terms-list">
       {article.terms.map((t) => (
         <div>

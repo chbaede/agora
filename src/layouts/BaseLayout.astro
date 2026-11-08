@@ -131,6 +131,11 @@ const allIssues = getAllIssues();
           langButtons.forEach(function (btn) {
             btn.classList.toggle('active', btn.getAttribute('data-lang-switch') === validMode);
           });
+          document.querySelectorAll('.glossary-inline-term').forEach(function (mark) {
+            const attrName = validMode === 'ko' ? 'data-def-ko' : validMode === 'bilingual' ? 'data-def-bi' : 'data-def-en';
+            const updatedTitle = mark.getAttribute(attrName) || mark.getAttribute('data-def-en') || '';
+            mark.setAttribute('title', updatedTitle);
+          });
           try {
             localStorage.setItem('agora-lang-mode', validMode);
           } catch (_e) {}
@@ -184,7 +189,9 @@ const allIssues = getAllIssues();
         const popoverClose = document.getElementById('popover-close');
 
         function showPopoverForMark(mark) {
-          const titleText = mark.getAttribute('title') || '';
+          const currentLang = document.body.getAttribute('data-lang') || 'en';
+          const attrName = currentLang === 'ko' ? 'data-def-ko' : currentLang === 'bilingual' ? 'data-def-bi' : 'data-def-en';
+          const titleText = mark.getAttribute(attrName) || mark.getAttribute('title') || '';
           const termName = mark.textContent || 'Vocabulary';
           if (popover && popoverWord && popoverDef) {
             popoverWord.textContent = termName;

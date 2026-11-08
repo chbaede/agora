@@ -13,7 +13,10 @@ const latest = getLatestIssue();
 >
   <section class="masthead">
     <div class="masthead-meta-row">
-      <span>COMPLETE WEEKLY ARCHIVE (전체 지난 호 아카이브)</span>
+      <span>
+        <span class="lang-en-inline">COMPLETE WEEKLY ARCHIVE</span>
+        <span class="lang-ko-inline">전체 지난 호 아카이브</span>
+      </span>
       <span>INSTANT WEB ACCESS &amp; ONE-CLICK A4/LETTER PRINT PACKETS</span>
     </div>
 
@@ -31,12 +34,13 @@ const latest = getLatestIssue();
 
     <div style="margin-top: 1rem; font-family: var(--font-sans);">
       <label for="archive-search-input" style="font-size: 0.84rem; font-weight: 600; display: block; margin-bottom: 0.35rem;">
-        Filter Past Issues by Keyword, Topic, Country, or Book Title (영어·한국어 키워드 검색):
+        <span class="lang-en-inline">Filter Past Issues by Keyword, Topic, Country, or Book Title:</span>
+        <span class="lang-ko-inline">영어·한국어 키워드로 지난 호 검색:</span>
       </label>
       <input
         id="archive-search-input"
         type="search"
-        placeholder="e.g., COP31, Midterm, 중간선거, 유로존, 보이저, Kamkwamba..."
+        placeholder="e.g., COP31, Midterm, Eurozone, Voyager, Kamkwamba..."
         style="width: 100%; max-width: 520px; padding: 0.55rem 0.85rem; border: 1px solid var(--border-strong); border-radius: 6px; font-family: var(--font-sans); font-size: 0.92rem;"
       />
     </div>
@@ -93,7 +97,9 @@ const latest = getLatestIssue();
               </span>
             </div>
             <div>
-              <strong>📚 Book Pick:</strong> <em>{issue.bookOfTheWeek.title}</em> ({issue.bookOfTheWeek.titleKo}) by {issue.bookOfTheWeek.author}
+              <strong>📚 Book Pick:</strong>{' '}
+              <span class="lang-en-inline"><em>{issue.bookOfTheWeek.title}</em> by {issue.bookOfTheWeek.author}</span>
+              <span class="lang-ko-inline"><em>{issue.bookOfTheWeek.title}</em> ({issue.bookOfTheWeek.titleKo}) — {issue.bookOfTheWeek.author}</span>
             </div>
           </div>
         </div>

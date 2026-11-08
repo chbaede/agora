@@ -9,9 +9,15 @@ const { mun } = Astro.props;
 ---
 
 <section aria-labelledby="mun-section-heading">
-  <div class="section-header">
-    <h2 id="mun-section-heading" class="section-title">Model UN (MUN) Agenda Spotlight</h2>
-    <span class="section-kicker">DIPLOMACY, BLOC POSITIONS &amp; DEBATE PREP (모의유엔 집중 분석)</span>
+  <div class="section-header" style="margin-top: 0.5rem;">
+    <h2 id="mun-section-heading" class="section-title">
+      <span class="lang-en-inline">🇺🇳 Model UN (MUN) Agenda Spotlight</span>
+      <span class="lang-ko-inline">🇺🇳 모의유엔(MUN) 집중 의제 분석</span>
+    </h2>
+    <span class="section-kicker">
+      <span class="lang-en-inline">DIPLOMACY, BLOC POSITIONS &amp; DEBATE PREP</span>
+      <span class="lang-ko-inline">국제 외교·국가 그룹별 입장 및 결의안 찬반 토론 가이드</span>
+    </span>
   </div>
 
   <article class="mun-dossier" data-read-item="mun-spotlight">
@@ -21,7 +27,7 @@ const { mun } = Astro.props;
         <span class="badge badge-neutral">🌍 REGION: {mun.region}</span>
       </div>
       <button type="button" class="btn-mark-read no-print" data-read-toggle="mun-spotlight">
-        ○ Mark MUN Read
+        ○ Mark Read
       </button>
     </div>
 
@@ -56,7 +62,10 @@ const { mun } = Astro.props;
     </div>
 
     <div style="margin-top: 1.25rem;">
-      <div class="box-label">KEY STAKEHOLDER &amp; BLOC POSITIONS (국가·그룹별 주요 입장)</div>
+      <div class="box-label">
+        <span class="lang-en-inline">KEY STAKEHOLDER &amp; BLOC POSITIONS</span>
+        <span class="lang-ko-inline">국가 및 주요 외교 그룹별 입장 (Bloc Positions)</span>
+      </div>
       <div class="mun-blocs-grid">
         {mun.blocPositions.map((b) => (
           <div class="mun-bloc-card">
@@ -71,7 +80,8 @@ const { mun } = Astro.props;
     <div class="mun-debate-box">
       <div class="mun-motion-banner">
         <strong style="font-family: var(--font-sans); font-size: 0.78rem; color: var(--accent-civic); display: block; margin-bottom: 0.2rem;">
-          DEBATE MOTION FOR DELEGATES (토론 결의안 주제)
+          <span class="lang-en-inline">DEBATE MOTION FOR DELEGATES</span>
+          <span class="lang-ko-inline">모의유엔 대표단 토론 결의안 주제 (Debate Motion)</span>
         </strong>
         <div class="lang-en-block">“{mun.debateMotion}”</div>
         <div class="lang-ko-block">“{mun.debateMotionKo}”</div>
@@ -79,7 +89,10 @@ const { mun } = Astro.props;
 
       <div class="pro-con-grid">
         <div class="pro-box">
-          <h4 class="pro-con-title" style="color: #166534;">✓ Arguments FOR the Motion (찬성 측 논거)</h4>
+          <h4 class="pro-con-title" style="color: #166534;">
+            <span class="lang-en-inline">✓ Arguments FOR the Motion</span>
+            <span class="lang-ko-inline">✓ 결의안 찬성 측 핵심 논거 (Pro)</span>
+          </h4>
           <ul class="pro-con-list">
             {mun.proArguments.map((arg, i) => (
               <li>
@@ -91,7 +104,10 @@ const { mun } = Astro.props;
         </div>
 
         <div class="con-box">
-          <h4 class="pro-con-title" style="color: #991B1B;">✗ Arguments AGAINST the Motion (반대 측 논거)</h4>
+          <h4 class="pro-con-title" style="color: #991B1B;">
+            <span class="lang-en-inline">✗ Arguments AGAINST the Motion</span>
+            <span class="lang-ko-inline">✗ 결의안 반대 측 핵심 논거 (Con)</span>
+          </h4>
           <ul class="pro-con-list">
             {mun.conArguments.map((arg, i) => (
               <li>
@@ -104,24 +120,33 @@ const { mun } = Astro.props;
       </div>
 
       <div class="speech-starter-box">
-        <span class="speech-starter-label">🎤 60-SECOND OPENING SPEECH STARTER (1분 기조연설 시작 문장)</span>
+        <span class="speech-starter-label">
+          <span class="lang-en-inline">🎤 60-SECOND OPENING SPEECH STARTER</span>
+          <span class="lang-ko-inline">🎤 1분 기조연설(Opening Speech) 시작 문장 예시</span>
+        </span>
         <p class="lang-en-block" style="margin: 0; font-style: italic; font-size: 0.98rem;">“{mun.speechStarter}”</p>
         <p class="lang-ko-block" style="margin: 0; font-size: 0.94rem;">“{mun.speechStarterKo}”</p>
       </div>
 
       <div id="mun-vote-studio" class="mun-vote-studio no-print">
         <strong style="font-size: 0.88rem; color: var(--accent-civic); display: block;">
-          🗳️ Interactive MUN Delegate Poll: How Would You Vote on This Motion? (모의유엔 대표단 찬반 투표)
+          <span class="lang-en-inline">🗳️ Interactive MUN Delegate Poll: How Would You Vote on This Motion?</span>
+          <span class="lang-ko-inline">🗳️ 모의유엔 대표단 찬반 표결 연습: 여러분이라면 어떻게 투표하시겠습니까?</span>
         </strong>
         <div class="vote-btn-group">
           <button type="button" class="vote-btn" data-mun-vote="pro">
-            👍 Vote FOR Motion (찬성 표결)
+            <span class="lang-en-inline">👍 Vote FOR Motion</span>
+            <span class="lang-ko-inline">👍 결의안 찬성 (FOR)</span>
           </button>
           <button type="button" class="vote-btn" data-mun-vote="con">
-            👎 Vote AGAINST Motion (반대 표결)
+            <span class="lang-en-inline">👎 Vote AGAINST Motion</span>
+            <span class="lang-ko-inline">👎 결의안 반대 (AGAINST)</span>
           </button>
         </div>
-        <div id="mun-vote-response" style="font-size: 0.86rem; color: var(--ink-secondary); display: none;"></div>
+        <div id="mun-vote-response" style="font-size: 0.86rem; color: var(--ink-secondary); display: none;">
+          <div id="mun-vote-response-en" class="lang-en-block"></div>
+          <div id="mun-vote-response-ko" class="lang-ko-block"></div>
+        </div>
       </div>
 
       <div class="article-source-row" style="margin-top: 1rem;">

@@ -1,6 +1,5 @@
 ---
 import type { WeeklyIssue } from '../data/schema';
-import { REQUIRED_CATEGORIES } from '../data/schema';
 import Masthead from './Masthead.astro';
 import MunSpotlight from './MunSpotlight.astro';
 import ArticleCard from './ArticleCard.astro';
@@ -17,6 +16,65 @@ interface Props {
 }
 
 const { issue, previousIssue, nextIssue, totalIssues } = Astro.props;
+
+const shortCatLabels: Record<string, { icon: string; en: string; ko: string }> = {
+  'US Current Affairs': { icon: '🇺🇸', en: 'US Affairs', ko: '미국 시사' },
+  'Europe Current Affairs': { icon: '🇪🇺', en: 'Europe', ko: '유럽 시사' },
+  'Economy & Business': { icon: '💶', en: 'Economy', ko: '경제·금융' },
+  'Science & Technology': { icon: '🚀', en: 'Science', ko: '과학·우주' },
+  'Environment & Global Society': { icon: '🌱', en: 'Climate', ko: '환경·기후' },
+};
+
+const deckPages = [
+  {
+    index: 0,
+    num: '01',
+    icon: '📋',
+    shortEn: 'Cover & TOC',
+    shortKo: '표지·목차',
+    fullEn: 'Cover Briefing & Table of Contents',
+    fullKo: '이번 주 표지 브리핑 및 전체 목차',
+  },
+  {
+    index: 1,
+    num: '02',
+    icon: '🇺🇳',
+    shortEn: 'MUN Spotlight',
+    shortKo: '모의유엔(MUN)',
+    fullEn: `MUN Spotlight: ${issue.munSpotlight.committee}`,
+    fullKo: `모의유엔 집중 분석: ${issue.munSpotlight.committee}`,
+  },
+  ...issue.articles.map((art, i) => {
+    const meta = shortCatLabels[art.category] ?? { icon: '📰', en: `Story ${i + 1}`, ko: `기사 ${i + 1}` };
+    return {
+      index: i + 2,
+      num: `0${i + 3}`,
+      icon: meta.icon,
+      shortEn: `Story ${i + 1}: ${meta.en}`,
+      shortKo: `기사 ${i + 1}: ${meta.ko}`,
+      fullEn: `Story ${i + 1} (${art.category}): ${art.headline}`,
+      fullKo: `기사 ${i + 1} (${meta.ko}): ${art.headlineKo}`,
+    };
+  }),
+  {
+    index: 7,
+    num: '08',
+    icon: '💡',
+    shortEn: 'Concept & Book',
+    shortKo: '개념·추천원서',
+    fullEn: 'Concept of the Week & Weekly Book Pick',
+    fullKo: '이주의 핵심 개념 해설 및 추천 영어 원서',
+  },
+  {
+    index: 8,
+    num: '09',
+    icon: '🧠',
+    shortEn: 'Vocab & Quiz',
+    shortKo: '단어장·퀴즈',
+    fullEn: 'Vocabulary Glossary, Weekly Quiz & Worksheet',
+    fullKo: '핵심 단어장, 3분 시사 퀴즈 및 워크시트',
+  },
+];
 ---
 
 <Masthead
@@ -26,159 +84,577 @@ const { issue, previousIssue, nextIssue, totalIssues } = Astro.props;
   totalIssues={totalIssues}
 />
 
-<section class="hero-stats-grid" aria-label="This Week by the Numbers">
-  <div class="stat-card">
-    <div class="stat-number">~200 Nations</div>
-    <div class="stat-label lang-en-block">Gathering at COP31 in Antalya under Türkiye &amp; Australia co-leadership</div>
-    <div class="stat-label lang-ko-block">튀르키예·호주 공동 의장국 체제로 안탈리아 COP31 기후총회에 모인 참가국</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-number">435 Seats</div>
-    <div class="stat-label lang-en-block">US House of Representatives flipped in the Nov 3 midterm elections</div>
-    <div class="stat-label lang-ko-block">11월 3일 미국 중간선거로 다수당이 교체된 연방 하원 전체 의석수</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-number">82.9% GDP</div>
-    <div class="stat-label lang-en-block">European Union government debt-to-GDP ratio tracked by Eurostat</div>
-    <div class="stat-label lang-ko-block">유럽통계청(Eurostat)이 발표한 유럽연합(EU) 평균 GDP 대비 국가채무비율</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-number">25.9B km</div>
-    <div class="stat-label lang-en-block">One full Light-Day distance reached by NASA's Voyager 1 probe</div>
-    <div class="stat-label lang-ko-block">NASA 보이저 1호가 인류 역사상 최초로 도달한 지구로부터 ‘1광일’ 거리</div>
-  </div>
-</section>
-
-<section id="reading-progress-bar" class="reading-progress-card no-print" aria-label="Weekly Reading Progress">
-  <div class="progress-track-wrap">
-    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.88rem; font-weight: 700;">
-      <span class="lang-en-block">🎯 Weekly Reading Progress (Check off stories as you finish!)</span>
-      <span class="lang-ko-block">🎯 이번 주 학습 진행률 (다 읽은 기사의 ‘Mark Read’ 버튼을 눌러보세요!)</span>
-      <span id="progress-counter-text">0 / 6 Completed (0%)</span>
+<!-- Interactive Magazine Deck Navigation Bar -->
+<div class="deck-controller-shell no-print" id="deck-top-anchor">
+  <div class="deck-top-meta-bar">
+    <div id="reading-progress-bar" class="deck-progress-inline" aria-label="Weekly Reading Progress">
+      <span class="lang-en-inline">🎯 Reading Progress:</span>
+      <span class="lang-ko-inline">🎯 학습 완료율:</span>
+      <div class="deck-mini-bar-outer">
+        <div id="progress-bar-fill" class="deck-mini-bar-fill"></div>
+      </div>
+      <span id="progress-counter-text" style="font-weight: 700; color: var(--accent-civic);">0 / 6 Read</span>
+      <button type="button" id="btn-reset-progress" class="deck-reset-link" title="Reset reading checkmarks">
+        Reset
+      </button>
     </div>
-    <div class="progress-bar-outer">
-      <div id="progress-bar-fill" class="progress-bar-fill"></div>
+
+    <div class="deck-mode-Hints">
+      <span class="deck-swipe-hint">
+        <span class="lang-en-inline">💡 Tip: Use <strong>Next →</strong>, keyboard <strong>← / →</strong>, or swipe to flip pages</span>
+        <span class="lang-ko-inline">💡 팁: 오른쪽 <strong>다음 페이지 →</strong> 버튼이나 키보드 방향키(<strong>← / →</strong>), 좌우 스와이프로 넘겨보세요</span>
+      </span>
+      <button type="button" id="btn-toggle-view-mode" class="btn-view-mode">
+        <span class="lang-en-inline">📜 Switch to Scroll-All View</span>
+        <span class="lang-ko-inline">📜 한 페이지 연속 스크롤로 보기</span>
+      </button>
     </div>
   </div>
-  <button type="button" id="btn-reset-progress" class="btn-secondary" style="font-size: 0.78rem; padding: 0.3rem 0.65rem;">
-    Reset Progress
-  </button>
-</section>
 
-<MunSpotlight mun={issue.munSpotlight} />
-
-<section aria-labelledby="weekly-stories-heading">
-  <div class="section-header">
-    <h2 id="weekly-stories-heading" class="section-title">
-      This Week's 5 Essential Stories (US &amp; Europe)
-    </h2>
-    <span class="section-kicker">TAP HIGHLIGHTED WORDS FOR INSTANT DEFINITIONS (노란색 단어를 누르면 뜻이 열립니다)</span>
-  </div>
-
-  <div class="category-filter-bar no-print" role="toolbar" aria-label="Filter stories by category">
-    <button type="button" class="filter-pill active" data-filter="all">
-      All Stories ({issue.articles.length})
-    </button>
-    {REQUIRED_CATEGORIES.map((cat) => (
-      <button type="button" class="filter-pill" data-filter={cat}>
-        {cat}
+  <!-- Horizontal Page Tabs Strip -->
+  <nav class="deck-tabs-strip" role="tablist" aria-label="Issue Pages">
+    {deckPages.map((p, idx) => (
+      <button
+        type="button"
+        role="tab"
+        class={`deck-tab-pill ${idx === 0 ? 'active' : ''}`}
+        data-goto-slide={p.index}
+        aria-selected={idx === 0 ? 'true' : 'false'}
+      >
+        <span class="deck-tab-num">{p.num}</span>
+        <span>{p.icon}</span>
+        <span class="lang-en-inline">{p.shortEn}</span>
+        <span class="lang-ko-inline">{p.shortKo}</span>
       </button>
     ))}
-  </div>
+  </nav>
 
-  <div class="articles-stack" id="articles-container">
-    {issue.articles.map((article, idx) => (
-      <ArticleCard article={article} index={idx} />
-    ))}
-  </div>
-</section>
+  <!-- Primary Left / Right Page Turner Bar (Top) -->
+  <div class="deck-turner-bar">
+    <button type="button" class="btn-page-turn prev" id="btn-prev-top" disabled>
+      ← <span class="lang-en-inline">Prev Page</span><span class="lang-ko-inline">이전 페이지</span>
+    </button>
 
-<div class="dual-feature-grid">
-  <ConceptExplainer concept={issue.conceptOfTheWeek} />
-  <BookCorner book={issue.bookOfTheWeek} />
+    <div class="deck-page-indicator">
+      <span class="badge badge-civic" id="current-page-badge">PAGE 1 / {deckPages.length}</span>
+      <strong id="current-page-title-en" class="lang-en-inline">{deckPages[0].fullEn}</strong>
+      <strong id="current-page-title-ko" class="lang-ko-inline">{deckPages[0].fullKo}</strong>
+    </div>
+
+    <button type="button" class="btn-page-turn next" id="btn-next-top">
+      <span id="next-btn-label-en" class="lang-en-inline">Next: MUN Spotlight →</span>
+      <span id="next-btn-label-ko" class="lang-ko-inline">다음: 모의유엔(MUN) →</span>
+    </button>
+  </div>
 </div>
 
-<GlossarySection issue={issue} />
+<!-- Magazine Deck Viewport: 1 Slide Per Story/Section -->
+<div class="deck-viewport" id="deck-viewport">
+  <!-- Floating Left/Right Side Arrow Flippers for Desktop/Tablet -->
+  <button
+    type="button"
+    class="deck-side-arrow left no-print"
+    id="btn-side-prev"
+    aria-label="Previous Page"
+    title="Previous Page (←)"
+    disabled
+  >
+    ‹
+  </button>
+  <button
+    type="button"
+    class="deck-side-arrow right no-print"
+    id="btn-side-next"
+    aria-label="Next Page"
+    title="Next Page (→)"
+  >
+    ›
+  </button>
 
-<section id="weekly-quiz-section" class="quiz-section-card no-print" aria-labelledby="quiz-heading">
-  <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; border-bottom: 2px solid var(--border-strong); padding-bottom: 0.5rem; margin-bottom: 0.5rem;">
-    <h2 id="quiz-heading" style="margin: 0; font-size: 1.4rem;">
-      ⚡ 3-Minute Weekly Current Affairs &amp; Economics Quiz (주간 시사 퀴즈)
-    </h2>
-    <span style="font-size: 0.82rem; font-weight: 600; color: var(--accent-civic);">
-      Click an answer to check your understanding!
-    </span>
+  <!-- ===================================================================== -->
+  <!-- PAGE 1 (SLIDE 0): COVER BRIEFING, KEY NUMBERS & VISUAL TABLE OF CONTENTS -->
+  <!-- ===================================================================== -->
+  <div class="deck-slide active" data-slide-index="0">
+    <div class="issue-theme-banner" style="margin-top: 0;">
+      <div style="font-family: var(--font-sans); font-size: 0.76rem; font-weight: 700; color: var(--accent-civic); margin-bottom: 0.25rem;">
+        <span class="lang-en-inline">THIS WEEK'S BIG PICTURE · EDITOR'S BRIEFING</span>
+        <span class="lang-ko-inline">이번 주의 빅픽처 · 에디터 브리핑</span>
+      </div>
+      <h2 class="issue-theme-title lang-en-block">{issue.themeTitle}</h2>
+      <h2 class="issue-theme-title lang-ko-block">{issue.themeTitleKo}</h2>
+      <p class="editors-note lang-en-block">{issue.editorsNote}</p>
+      <p class="editors-note lang-ko-block">{issue.editorsNoteKo}</p>
+    </div>
+
+    <section class="hero-stats-grid" aria-label="This Week by the Numbers">
+      <div class="stat-card">
+        <div class="stat-number">~200 Nations</div>
+        <div class="stat-label lang-en-block">Gathering at COP31 in Antalya under Türkiye &amp; Australia co-leadership</div>
+        <div class="stat-label lang-ko-block">튀르키예·호주 공동 의장국 체제로 안탈리아 COP31 기후총회에 모인 참가국</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">435 Seats</div>
+        <div class="stat-label lang-en-block">US House of Representatives flipped in the Nov 3 midterm elections</div>
+        <div class="stat-label lang-ko-block">11월 3일 미국 중간선거로 다수당이 교체된 연방 하원 전체 의석수</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">82.9% GDP</div>
+        <div class="stat-label lang-en-block">European Union government debt-to-GDP ratio tracked by Eurostat</div>
+        <div class="stat-label lang-ko-block">유럽통계청(Eurostat)이 발표한 유럽연합(EU) 평균 GDP 대비 국가채무비율</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">25.9B km</div>
+        <div class="stat-label lang-en-block">One full Light-Day distance reached by NASA's Voyager 1 probe</div>
+        <div class="stat-label lang-ko-block">NASA 보이저 1호가 인류 역사상 최초로 도달한 지구로부터 ‘1광일’ 거리</div>
+      </div>
+    </section>
+
+    <!-- Visual Table of Contents (Interactive Card Grid) -->
+    <section class="toc-overview-section no-print" aria-labelledby="toc-heading">
+      <div class="section-header" style="margin-top: 1.25rem; margin-bottom: 1rem;">
+        <h2 id="toc-heading" class="section-title">
+          <span class="lang-en-inline">📖 Inside This Week's Edition (Tap Any Story to Open Its Page)</span>
+          <span class="lang-ko-inline">📖 이번 주 수록 기사 한눈에 보기 (카드를 누르면 해당 페이지로 이동합니다)</span>
+        </h2>
+        <span class="section-kicker">
+          <span class="lang-en-inline">1 STORY PER PAGE · RIGHT-FLIP MAGAZINE READER</span>
+          <span class="lang-ko-inline">한 페이지에 기사 하나씩 집중해서 읽는 매거진 뷰</span>
+        </span>
+      </div>
+
+      <div class="toc-cards-grid">
+        <!-- TOC Card: Page 2 (MUN Spotlight) -->
+        <button type="button" class="toc-card toc-card-featured" data-goto-slide="1">
+          <div class="toc-card-thumb-wrap">
+            <img src={issue.munSpotlight.imageUrl} alt={issue.munSpotlight.topic} class="toc-card-thumb" loading="lazy" />
+            <span class="toc-page-pill">PAGE 02 · 🇺🇳 MUN SPOTLIGHT</span>
+          </div>
+          <div class="toc-card-body">
+            <div class="toc-card-cat">{issue.munSpotlight.committee} · {issue.munSpotlight.region}</div>
+            <h3 class="toc-card-title lang-en-block">{issue.munSpotlight.topic}</h3>
+            <h3 class="toc-card-title lang-ko-block">{issue.munSpotlight.topicKo}</h3>
+            <span class="toc-card-cta">
+              <span class="lang-en-inline">Open Page 02 →</span>
+              <span class="lang-ko-inline">2페이지 열기 →</span>
+            </span>
+          </div>
+        </button>
+
+        <!-- TOC Cards: Pages 3–7 (5 Essential Stories) -->
+        {issue.articles.map((art, idx) => (
+          <button type="button" class="toc-card" data-goto-slide={idx + 2}>
+            <div class="toc-card-thumb-wrap">
+              <img
+                src={art.imageUrl}
+                alt={art.headline}
+                class={`toc-card-thumb ${art.imageUrl.endsWith('.png') ? 'toc-thumb-contain' : ''}`}
+                loading="lazy"
+              />
+              <span class="toc-page-pill">PAGE 0{idx + 3} · STORY #{idx + 1}</span>
+            </div>
+            <div class="toc-card-body">
+              <div class="toc-card-cat">{art.category} · ⏱️ {art.readingTimeMinutes} min</div>
+              <h3 class="toc-card-title lang-en-block">{art.headline}</h3>
+              <h3 class="toc-card-title lang-ko-block">{art.headlineKo}</h3>
+              <span class="toc-card-cta">
+                <span class="lang-en-inline">Read Story #{idx + 1} (Page 0{idx + 3}) →</span>
+                <span class="lang-ko-inline">기사 #{idx + 1} 읽기 (0{idx + 3}페이지) →</span>
+              </span>
+            </div>
+          </button>
+        ))}
+
+        <!-- TOC Card: Page 8 (Concept & Book) -->
+        <button type="button" class="toc-card" data-goto-slide="7">
+          <div class="toc-card-thumb-wrap toc-thumb-gradient-econ">
+            <img src={issue.bookOfTheWeek.coverImageUrl} alt={issue.bookOfTheWeek.title} class="toc-card-thumb toc-thumb-contain" loading="lazy" />
+            <span class="toc-page-pill">PAGE 08 · 💡 CONCEPT &amp; 📚 BOOK</span>
+          </div>
+          <div class="toc-card-body">
+            <div class="toc-card-cat">{issue.conceptOfTheWeek.category} + Weekly Book Pick</div>
+            <h3 class="toc-card-title lang-en-block">{issue.conceptOfTheWeek.title} &amp; “{issue.bookOfTheWeek.title}”</h3>
+            <h3 class="toc-card-title lang-ko-block">{issue.conceptOfTheWeek.titleKo} &amp; 『{issue.bookOfTheWeek.titleKo}』</h3>
+            <span class="toc-card-cta">
+              <span class="lang-en-inline">Open Page 08 →</span>
+              <span class="lang-ko-inline">8페이지 열기 →</span>
+            </span>
+          </div>
+        </button>
+
+        <!-- TOC Card: Page 9 (Glossary, Quiz & Worksheet) -->
+        <button type="button" class="toc-card" data-goto-slide="8">
+          <div class="toc-card-thumb-wrap toc-thumb-gradient-quiz">
+            <div class="toc-quiz-graphic">🧠 17 Key Terms + ⚡ 3-Min Quiz</div>
+            <span class="toc-page-pill">PAGE 09 · 🧠 VOCAB &amp; ⚡ QUIZ</span>
+          </div>
+          <div class="toc-card-body">
+            <div class="toc-card-cat">Interactive Flashcards · 3-Question Quiz · Study Worksheet</div>
+            <h3 class="toc-card-title lang-en-block">Weekly Vocabulary Bank &amp; Self-Check Quiz</h3>
+            <h3 class="toc-card-title lang-ko-block">주간 핵심 어휘 사전 &amp; 3분 시사 퀴즈</h3>
+            <span class="toc-card-cta">
+              <span class="lang-en-inline">Open Page 09 →</span>
+              <span class="lang-ko-inline">9페이지 열기 →</span>
+            </span>
+          </div>
+        </button>
+      </div>
+
+      <div style="text-align: center; margin-top: 1.5rem;">
+        <button type="button" class="btn-start-reading" data-goto-slide="1">
+          <span class="lang-en-inline">Start Reading Issue #{issue.issueNumber} — Flip to Page 02 (🇺🇳 MUN Spotlight) →</span>
+          <span class="lang-ko-inline">제{issue.issueNumber}호 읽기 시작 — 02페이지(🇺🇳 모의유엔 집중 분석)로 넘기기 →</span>
+        </button>
+      </div>
+    </section>
   </div>
 
-  <div class="quiz-q-block" data-quiz-q="1">
-    <strong class="lang-en-block">1. What is created when one political party controls the US White House and another party wins a majority in Congress?</strong>
-    <strong class="lang-ko-block">1. 미국에서 백악관(대통령)과 의회 다수당을 서로 다른 정당이 차지하는 정치 구도를 무엇이라고 부르나요?</strong>
-    <div class="quiz-options">
-      <button type="button" class="quiz-opt-btn" data-correct="true">A) Divided government (분점 정부)</button>
-      <button type="button" class="quiz-opt-btn" data-correct="false">B) Unanimity rule (만장일치제)</button>
-      <button type="button" class="quiz-opt-btn" data-correct="false">C) Fiscal stimulus (재정 부양책)</button>
+  <!-- ===================================================================== -->
+  <!-- PAGE 2 (SLIDE 1): MUN SPOTLIGHT -->
+  <!-- ===================================================================== -->
+  <div class="deck-slide" data-slide-index="1">
+    <MunSpotlight mun={issue.munSpotlight} />
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- PAGES 3 TO 7 (SLIDES 2 TO 6): 1 PAGE PER ESSENTIAL STORY -->
+  <!-- ===================================================================== -->
+  {issue.articles.map((article, idx) => (
+    <div class="deck-slide" data-slide-index={idx + 2}>
+      <div class="section-header" style="margin-top: 0.5rem;">
+        <h2 class="section-title">
+          <span class="lang-en-inline">
+            {shortCatLabels[article.category]?.icon ?? '📰'} Essential Story #{idx + 1} of {issue.articles.length} · {article.category}
+          </span>
+          <span class="lang-ko-inline">
+            {shortCatLabels[article.category]?.icon ?? '📰'} 이번 주 필수 기사 #{idx + 1} · {shortCatLabels[article.category]?.ko ?? article.category}
+          </span>
+        </h2>
+        <span class="section-kicker">
+          <span class="lang-en-inline">TAP HIGHLIGHTED WORDS FOR INSTANT DEFINITIONS</span>
+          <span class="lang-ko-inline">노란색 단어를 누르면 영영·한국어 해설이 열립니다</span>
+        </span>
+      </div>
+      <ArticleCard article={article} index={idx} />
     </div>
-    <div class="quiz-feedback">
-      ✓ Correct! Under divided government, both parties must negotiate bipartisan compromises to pass federal budgets. (정답! 분점 정부에서는 예산안과 법안 통과를 위해 여야 간 초당적 타협이 필수적입니다.)
+  ))}
+
+  <!-- ===================================================================== -->
+  <!-- PAGE 8 (SLIDE 7): CONCEPT OF THE WEEK & WEEKLY ENGLISH BOOK PICK -->
+  <!-- ===================================================================== -->
+  <div class="deck-slide" data-slide-index="7">
+    <div class="section-header" style="margin-top: 0.5rem;">
+      <h2 class="section-title">
+        <span class="lang-en-inline">💡 Concept of the Week &amp; 📚 Weekly Book Recommendation</span>
+        <span class="lang-ko-inline">💡 이주의 핵심 개념 &amp; 📚 추천 영어 원서</span>
+      </h2>
+      <span class="section-kicker">
+        <span class="lang-en-inline">DEEPENING BACKGROUND KNOWLEDGE FOR MIDDLE SCHOOL READERS</span>
+        <span class="lang-ko-inline">배경지식과 문해력을 넓혀주는 심화 코너</span>
+      </span>
+    </div>
+    <div class="dual-feature-grid" style="margin-top: 1rem;">
+      <ConceptExplainer concept={issue.conceptOfTheWeek} />
+      <BookCorner book={issue.bookOfTheWeek} />
     </div>
   </div>
 
-  <div class="quiz-q-block" data-quiz-q="2">
-    <strong class="lang-en-block">2. Why do economists compare a country's national debt to its GDP (Gross Domestic Product) instead of looking only at the raw debt number?</strong>
-    <strong class="lang-ko-block">2. 경제학자들이 국가 부채를 볼 때 단순 금액이 아니라 ‘GDP 대비 국가채무비율’을 확인하는 이유는 무엇인가요?</strong>
-    <div class="quiz-options">
-      <button type="button" class="quiz-opt-btn" data-correct="false">A) Because GDP measures distance in space (우주 거리를 재기 위해)</button>
-      <button type="button" class="quiz-opt-btn" data-correct="true">B) Because comparing debt to annual economic output shows how affordable the debt is (연간 경제 생산 규모와 비교해야 상환 능력을 알 수 있어서)</button>
-      <button type="button" class="quiz-opt-btn" data-correct="false">C) Because eurozone countries have no taxes (유로존에는 세금이 없어서)</button>
-    </div>
-    <div class="quiz-feedback">
-      ✓ Spot on! Just like a loan compared to a person's annual income, the debt-to-GDP ratio shows whether borrowing matches the size of the economy. (정답! 개인의 부채를 연 소득과 비교하듯, 국가 부채도 경제 규모인 GDP와 비교해야 건전성을 알 수 있습니다.)
-    </div>
+  <!-- ===================================================================== -->
+  <!-- PAGE 9 (SLIDE 8): VOCABULARY GLOSSARY, WEEKLY QUIZ & STUDY WORKSHEET -->
+  <!-- ===================================================================== -->
+  <div class="deck-slide" data-slide-index="8">
+    <GlossarySection issue={issue} />
+
+    <section id="weekly-quiz-section" class="quiz-section-card no-print" aria-labelledby="quiz-heading">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; border-bottom: 2px solid var(--border-strong); padding-bottom: 0.5rem; margin-bottom: 0.5rem;">
+        <h2 id="quiz-heading" style="margin: 0; font-size: 1.4rem;">
+          <span class="lang-en-inline">⚡ 3-Minute Weekly Current Affairs &amp; Economics Quiz</span>
+          <span class="lang-ko-inline">⚡ 3분 주간 시사·경제 확인 퀴즈</span>
+        </h2>
+        <span style="font-size: 0.82rem; font-weight: 600; color: var(--accent-civic);">
+          <span class="lang-en-inline">Click an answer to check your understanding!</span>
+          <span class="lang-ko-inline">정답을 클릭해 이번 주 학습 내용을 점검해 보세요!</span>
+        </span>
+      </div>
+
+      <div class="quiz-q-block" data-quiz-q="1">
+        <strong class="lang-en-block">1. What is created when one political party controls the US White House and another party wins a majority in Congress?</strong>
+        <strong class="lang-ko-block">1. 미국에서 백악관(대통령)과 의회 다수당을 서로 다른 정당이 차지하는 정치 구도를 무엇이라고 부르나요?</strong>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn" data-correct="true">
+            <span class="lang-en-inline">A) Divided government</span>
+            <span class="lang-ko-inline">A) 분점 정부 (Divided government)</span>
+          </button>
+          <button type="button" class="quiz-opt-btn" data-correct="false">
+            <span class="lang-en-inline">B) Unanimity rule</span>
+            <span class="lang-ko-inline">B) 만장일치제 (Unanimity rule)</span>
+          </button>
+          <button type="button" class="quiz-opt-btn" data-correct="false">
+            <span class="lang-en-inline">C) Fiscal stimulus</span>
+            <span class="lang-ko-inline">C) 재정 부양책 (Fiscal stimulus)</span>
+          </button>
+        </div>
+        <div class="quiz-feedback">
+          <span class="lang-en-block">✓ Correct! Under divided government, both parties must negotiate bipartisan compromises to pass federal budgets and laws.</span>
+          <span class="lang-ko-block">✓ 정답입니다! 분점 정부(Divided government)에서는 예산안과 법안 통과를 위해 여야 간 초당적(bipartisan) 타협이 필수적입니다.</span>
+        </div>
+      </div>
+
+      <div class="quiz-q-block" data-quiz-q="2">
+        <strong class="lang-en-block">2. Why do economists compare a country's national debt to its GDP (Gross Domestic Product) instead of looking only at the raw debt number?</strong>
+        <strong class="lang-ko-block">2. 경제학자들이 국가 부채를 볼 때 단순 금액이 아니라 ‘GDP 대비 국가채무비율’을 확인하는 이유는 무엇인가요?</strong>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn" data-correct="false">
+            <span class="lang-en-inline">A) Because GDP measures distance in space</span>
+            <span class="lang-ko-inline">A) 우주 거리를 재기 위해서</span>
+          </button>
+          <button type="button" class="quiz-opt-btn" data-correct="true">
+            <span class="lang-en-inline">B) Because comparing debt to annual economic output shows how affordable the debt is</span>
+            <span class="lang-ko-inline">B) 연간 경제 생산 규모(GDP)와 비교해야 실제 상환 능력을 알 수 있어서</span>
+          </button>
+          <button type="button" class="quiz-opt-btn" data-correct="false">
+            <span class="lang-en-inline">C) Because eurozone countries have no taxes</span>
+            <span class="lang-ko-inline">C) 유로존 국가에는 세금이 없어서</span>
+          </button>
+        </div>
+        <div class="quiz-feedback">
+          <span class="lang-en-block">✓ Spot on! Just like comparing a loan to a family's annual income, the debt-to-GDP ratio shows whether borrowing matches the size of the economy.</span>
+          <span class="lang-ko-block">✓ 정답입니다! 가계 부채를 연 소득과 비교하듯, 국가 부채도 연간 경제 규모인 GDP와 비교해야 재정 건전성을 정확히 판단할 수 있습니다.</span>
+        </div>
+      </div>
+
+      <div class="quiz-q-block" data-quiz-q="3">
+        <strong class="lang-en-block">3. At a distance of one light-day (~25.9 billion km), how long does a round-trip radio signal (message + reply) take between Earth and Voyager 1?</strong>
+        <strong class="lang-ko-block">3. 지구에서 ‘1광일(약 259억 km)’ 떨어진 보이저 1호에 전파 신호를 보내고 답장을 받기까지 왕복 몇 시간이 걸리나요?</strong>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn" data-correct="false">
+            <span class="lang-en-inline">A) 12 hours</span>
+            <span class="lang-ko-inline">A) 12시간</span>
+          </button>
+          <button type="button" class="quiz-opt-btn" data-correct="false">
+            <span class="lang-en-inline">B) 24 hours</span>
+            <span class="lang-ko-inline">B) 24시간</span>
+          </button>
+          <button type="button" class="quiz-opt-btn" data-correct="true">
+            <span class="lang-en-inline">C) 48 hours (24 hours there + 24 hours back)</span>
+            <span class="lang-ko-inline">C) 왕복 48시간 (가는 데 24시간 + 오는 데 24시간)</span>
+          </button>
+        </div>
+        <div class="quiz-feedback">
+          <span class="lang-en-block">✓ Exactly right! Radio waves travel at the speed of light, taking 24 hours to reach Voyager 1 and another 24 hours for its reply to return to Earth.</span>
+          <span class="lang-ko-block">✓ 정답입니다! 전파는 빛의 속도로 이동하므로 가는 데 24시간, 보이저 1호의 응답이 돌아오는 데 24시간으로 총 48시간이 걸립니다.</span>
+        </div>
+      </div>
+    </section>
+
+    <PrintWorksheet issue={issue} />
+  </div>
+</div>
+
+<!-- Bottom Page Turner Bar -->
+<div class="deck-turner-bar deck-turner-bottom no-print">
+  <button type="button" class="btn-page-turn prev" id="btn-prev-bottom" disabled>
+    ← <span class="lang-en-inline">Previous Page</span><span class="lang-ko-inline">이전 페이지</span>
+  </button>
+
+  <div class="deck-dots" id="deck-dots-container" aria-label="Page Indicators">
+    {deckPages.map((p, idx) => (
+      <button
+        type="button"
+        class={`deck-dot ${idx === 0 ? 'active' : ''}`}
+        data-goto-slide={p.index}
+        title={`Page ${p.num}: ${p.shortEn}`}
+        aria-label={`Go to Page ${p.num}`}
+      />
+    ))}
   </div>
 
-  <div class="quiz-q-block" data-quiz-q="3">
-    <strong class="lang-en-block">3. At a distance of one light-day (~25.9 billion km), how long does a round-trip radio signal (message + reply) take between Earth and Voyager 1?</strong>
-    <strong class="lang-ko-block">3. 지구에서 ‘1광일(약 259억 km)’ 떨어진 보이저 1호에 전파 신호를 보내고 답장을 받기까지 왕복 몇 시간이 걸리나요?</strong>
-    <div class="quiz-options">
-      <button type="button" class="quiz-opt-btn" data-correct="false">A) 12 hours (12시간)</button>
-      <button type="button" class="quiz-opt-btn" data-correct="false">B) 24 hours (24시간)</button>
-      <button type="button" class="quiz-opt-btn" data-correct="true">C) 48 hours — 24h there and 24h back (왕복 48시간)</button>
-    </div>
-    <div class="quiz-feedback">
-      ✓ Exactly right! Light takes 24 hours to reach Voyager 1 and another 24 hours for its reply to return to Earth. (정답! 가는 데 24시간, 응답이 돌아오는 데 24시간으로 총 48시간이 걸립니다.)
-    </div>
-  </div>
-</section>
+  <button type="button" class="btn-page-turn next" id="btn-next-bottom">
+    <span id="next-btn-bottom-en" class="lang-en-inline">Next: MUN Spotlight →</span>
+    <span id="next-btn-bottom-ko" class="lang-ko-inline">다음: 모의유엔(MUN) →</span>
+  </button>
+</div>
 
-<PrintWorksheet issue={issue} />
-
-<script is:inline>
+<script is:inline define:vars={{ deckPagesMeta: deckPages, issueId: issue.id }}>
   (function () {
-    // 1. Category filter pills
-    const filterButtons = document.querySelectorAll('.filter-pill');
-    const articleCards = document.querySelectorAll('.article-card');
+    // 1. Horizontal Magazine Deck Page Controller
+    const slides = Array.from(document.querySelectorAll('.deck-slide'));
+    const tabButtons = Array.from(document.querySelectorAll('.deck-tab-pill'));
+    const dotButtons = Array.from(document.querySelectorAll('.deck-dot'));
+    const gotoTriggers = Array.from(document.querySelectorAll('[data-goto-slide]'));
 
-    filterButtons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        const selected = btn.getAttribute('data-filter');
-        filterButtons.forEach(function (b) {
-          b.classList.remove('active');
-        });
-        btn.classList.add('active');
+    const prevTop = document.getElementById('btn-prev-top');
+    const nextTop = document.getElementById('btn-next-top');
+    const prevBottom = document.getElementById('btn-prev-bottom');
+    const nextBottom = document.getElementById('btn-next-bottom');
+    const sidePrev = document.getElementById('btn-side-prev');
+    const sideNext = document.getElementById('btn-side-next');
 
-        articleCards.forEach(function (card) {
-          const cat = card.getAttribute('data-category');
-          if (!selected || selected === 'all' || cat === selected) {
-            card.removeAttribute('hidden');
-          } else {
-            card.setAttribute('hidden', 'true');
-          }
-        });
+    const pageBadge = document.getElementById('current-page-badge');
+    const pageTitleEn = document.getElementById('current-page-title-en');
+    const pageTitleKo = document.getElementById('current-page-title-ko');
+    const nextLabelEn = document.getElementById('next-btn-label-en');
+    const nextLabelKo = document.getElementById('next-btn-label-ko');
+    const nextBottomEn = document.getElementById('next-btn-bottom-en');
+    const nextBottomKo = document.getElementById('next-btn-bottom-ko');
+    const viewModeBtn = document.getElementById('btn-toggle-view-mode');
+    const topAnchor = document.getElementById('deck-top-anchor');
+
+    const totalSlides = slides.length;
+    let currentSlide = 0;
+    let isScrollAllMode = false;
+
+    function goToSlide(targetIdx, shouldScroll) {
+      if (isScrollAllMode) {
+        isScrollAllMode = false;
+        document.body.classList.remove('deck-scroll-all');
+        updateViewModeButtonText();
+      }
+
+      const clamped = Math.max(0, Math.min(totalSlides - 1, targetIdx));
+      const direction = clamped >= currentSlide ? 'right' : 'left';
+      currentSlide = clamped;
+
+      slides.forEach(function (slide, idx) {
+        const active = idx === currentSlide;
+        slide.classList.toggle('active', active);
+        slide.classList.remove('anim-right', 'anim-left');
+        if (active) {
+          slide.classList.add(direction === 'right' ? 'anim-right' : 'anim-left');
+        }
+      });
+
+      tabButtons.forEach(function (tab, idx) {
+        const active = idx === currentSlide;
+        tab.classList.toggle('active', active);
+        tab.setAttribute('aria-selected', active ? 'true' : 'false');
+        if (active && tab.scrollIntoView) {
+          tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+      });
+
+      dotButtons.forEach(function (dot, idx) {
+        dot.classList.toggle('active', idx === currentSlide);
+      });
+
+      const meta = deckPagesMeta[currentSlide] || deckPagesMeta[0];
+      if (pageBadge) pageBadge.textContent = 'PAGE ' + (currentSlide + 1) + ' / ' + totalSlides;
+      if (pageTitleEn) pageTitleEn.textContent = meta.fullEn;
+      if (pageTitleKo) pageTitleKo.textContent = meta.fullKo;
+
+      const isFirst = currentSlide === 0;
+      const isLast = currentSlide === totalSlides - 1;
+
+      [prevTop, prevBottom, sidePrev].forEach(function (btn) {
+        if (btn) btn.disabled = isFirst;
+      });
+      [nextTop, nextBottom, sideNext].forEach(function (btn) {
+        if (btn) btn.disabled = isLast;
+      });
+
+      if (!isLast) {
+        const nextMeta = deckPagesMeta[currentSlide + 1];
+        if (nextLabelEn) nextLabelEn.textContent = 'Next: ' + nextMeta.shortEn + ' →';
+        if (nextLabelKo) nextLabelKo.textContent = '다음: ' + nextMeta.shortKo + ' →';
+        if (nextBottomEn) nextBottomEn.textContent = 'Next: ' + nextMeta.shortEn + ' →';
+        if (nextBottomKo) nextBottomKo.textContent = '다음: ' + nextMeta.shortKo + ' →';
+      } else {
+        if (nextLabelEn) nextLabelEn.textContent = '✓ End of Issue';
+        if (nextLabelKo) nextLabelKo.textContent = '✓ 마지막 페이지';
+        if (nextBottomEn) nextBottomEn.textContent = '✓ End of Issue';
+        if (nextBottomKo) nextBottomKo.textContent = '✓ 마지막 페이지';
+      }
+
+      if (shouldScroll && topAnchor) {
+        const rect = topAnchor.getBoundingClientRect();
+        if (rect.top < 0 || rect.top > 180) {
+          topAnchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    }
+
+    gotoTriggers.forEach(function (el) {
+      el.addEventListener('click', function () {
+        const idx = parseInt(el.getAttribute('data-goto-slide') || '0', 10);
+        goToSlide(idx, true);
       });
     });
 
+    [prevTop, prevBottom, sidePrev].forEach(function (btn) {
+      if (btn) {
+        btn.addEventListener('click', function () {
+          if (currentSlide > 0) goToSlide(currentSlide - 1, true);
+        });
+      }
+    });
+
+    [nextTop, nextBottom, sideNext].forEach(function (btn) {
+      if (btn) {
+        btn.addEventListener('click', function () {
+          if (currentSlide < totalSlides - 1) goToSlide(currentSlide + 1, true);
+        });
+      }
+    });
+
+    // Keyboard Left / Right arrow support
+    document.addEventListener('keydown', function (e) {
+      if (isScrollAllMode) return;
+      const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
+      if (tag === 'input' || tag === 'select' || tag === 'textarea') return;
+      if (e.key === 'ArrowRight' && currentSlide < totalSlides - 1) {
+        goToSlide(currentSlide + 1, true);
+      } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
+        goToSlide(currentSlide - 1, true);
+      }
+    });
+
+    // Mobile Touch Swipe Left / Right support
+    const viewport = document.getElementById('deck-viewport');
+    let touchStartX = 0;
+    let touchStartY = 0;
+    if (viewport) {
+      viewport.addEventListener('touchstart', function (e) {
+        if (e.changedTouches && e.changedTouches[0]) {
+          touchStartX = e.changedTouches[0].screenX;
+          touchStartY = e.changedTouches[0].screenY;
+        }
+      }, { passive: true });
+
+      viewport.addEventListener('touchend', function (e) {
+        if (isScrollAllMode || !e.changedTouches || !e.changedTouches[0]) return;
+        const dx = e.changedTouches[0].screenX - touchStartX;
+        const dy = e.changedTouches[0].screenY - touchStartY;
+        // Trigger horizontal page flip if horizontal swipe > 60px and dominant over vertical scroll
+        if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+          if (dx < 0 && currentSlide < totalSlides - 1) {
+            goToSlide(currentSlide + 1, true);
+          } else if (dx > 0 && currentSlide > 0) {
+            goToSlide(currentSlide - 1, true);
+          }
+        }
+      }, { passive: true });
+    }
+
+    function updateViewModeButtonText() {
+      if (!viewModeBtn) return;
+      if (isScrollAllMode) {
+        viewModeBtn.innerHTML = '<span class="lang-en-inline">📖 Switch to 1-Page Flip View</span><span class="lang-ko-inline">📖 페이지 넘기기 모드로 보기</span>';
+      } else {
+        viewModeBtn.innerHTML = '<span class="lang-en-inline">📜 Switch to Scroll-All View</span><span class="lang-ko-inline">📜 한 페이지 연속 스크롤로 보기</span>';
+      }
+    }
+
+    if (viewModeBtn) {
+      viewModeBtn.addEventListener('click', function () {
+        isScrollAllMode = !isScrollAllMode;
+        document.body.classList.toggle('deck-scroll-all', isScrollAllMode);
+        updateViewModeButtonText();
+      });
+    }
+
+    goToSlide(0, false);
+
     // 2. Reading Progress Tracker
-    const STORAGE_KEY = 'agora-read-items-2026-W45';
+    const STORAGE_KEY = 'agora-read-items-' + issueId;
     const readButtons = document.querySelectorAll('[data-read-toggle]');
     const progressFill = document.getElementById('progress-bar-fill');
     const progressText = document.getElementById('progress-counter-text');
@@ -195,7 +671,7 @@ const { issue, previousIssue, nextIssue, totalIssues } = Astro.props;
       const done = readSet.size;
       const pct = Math.round((done / total) * 100);
       if (progressFill) progressFill.style.width = pct + '%';
-      if (progressText) progressText.textContent = done + ' / ' + total + ' Completed (' + pct + '%)';
+      if (progressText) progressText.textContent = done + ' / ' + total + ' Read (' + pct + '%)';
 
       readButtons.forEach(function (btn) {
         const id = btn.getAttribute('data-read-toggle');
@@ -232,9 +708,12 @@ const { issue, previousIssue, nextIssue, totalIssues } = Astro.props;
     }
     renderReadProgress();
 
-    // 3. Interactive MUN Delegate Vote Poll
+    // 3. Interactive MUN Delegate Vote Poll (Language-aware!)
     const voteButtons = document.querySelectorAll('[data-mun-vote]');
     const voteResponse = document.getElementById('mun-vote-response');
+    const voteResponseEn = document.getElementById('mun-vote-response-en');
+    const voteResponseKo = document.getElementById('mun-vote-response-ko');
+
     voteButtons.forEach(function (btn) {
       btn.addEventListener('click', function () {
         const choice = btn.getAttribute('data-mun-vote');
@@ -243,17 +722,21 @@ const { issue, previousIssue, nextIssue, totalIssues } = Astro.props;
         });
         if (choice === 'pro') {
           btn.classList.add('selected-pro');
-          if (voteResponse) {
+          if (voteResponse && voteResponseEn && voteResponseKo) {
             voteResponse.style.display = 'block';
-            voteResponse.textContent =
-              'You voted FOR the motion! Tip for your speech: Emphasize binding solar/wind grid investments and preventing carbon leakage. (찬성 표결! 기조연설에서 구속력 있는 친환경 전력망 투자와 탄소 누출 방지를 강조해 보세요.)';
+            voteResponseEn.textContent =
+              '✓ You voted FOR the motion! Tip for your opening speech: Emphasize binding solar/wind grid investments and preventing carbon leakage.';
+            voteResponseKo.textContent =
+              '✓ 찬성(FOR) 표결을 선택하셨습니다! 기조연설 팁: 구속력 있는 친환경 전력망 투자와 탄소 누출 방지의 중요성을 강조해 보세요.';
           }
         } else {
           btn.classList.add('selected-con');
-          if (voteResponse) {
+          if (voteResponse && voteResponseEn && voteResponseKo) {
             voteResponse.style.display = 'block';
-            voteResponse.textContent =
-              'You voted AGAINST the motion! Tip for your speech: Emphasize fair development timelines and technology transfer over punitive border taxes. (반대 표결! 기조연설에서 처벌적 국경세 대신 기술 이전과 공정한 전환 일정을 강조해 보세요.)';
+            voteResponseEn.textContent =
+              '✓ You voted AGAINST the motion! Tip for your opening speech: Emphasize fair development timelines and technology transfer over punitive border taxes.';
+            voteResponseKo.textContent =
+              '✓ 반대(AGAINST) 표결을 선택하셨습니다! 기조연설 팁: 처벌적 국경세 대신 기술 이전과 공정한 전환 일정을 강조해 보세요.';
           }
         }
       });

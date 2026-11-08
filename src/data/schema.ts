@@ -463,12 +463,17 @@ export function renderBodyWithHighlights(paragraph: string, terms: GlossaryTerm[
       });
 
     if (matched) {
-      const koSuffix = matched.definitionKo ? ` | [뜻] ${matched.definitionKo}` : '';
-      const defAttr = escapeHtml(
-        `${matched.term} (${matched.partOfSpeech}): ${matched.definition}${koSuffix} — Example: ${matched.example}`
+      const defEn = escapeHtml(
+        `${matched.term} (${matched.partOfSpeech}): ${matched.definition} — Example: ${matched.example}`
+      );
+      const defKo = escapeHtml(
+        `${matched.term} (${matched.partOfSpeech}): ${matched.definitionKo} — 예문: ${matched.example}`
+      );
+      const defBi = escapeHtml(
+        `${matched.term} (${matched.partOfSpeech}): ${matched.definition} | [한국어 뜻] ${matched.definitionKo} — Example: ${matched.example}`
       );
       const termAttr = escapeHtml(matched.term.trim().toLowerCase());
-      return `<mark class="glossary-inline-term" data-term="${termAttr}" title="${defAttr}" tabindex="0">${innerText}</mark>`;
+      return `<mark class="glossary-inline-term" data-term="${termAttr}" data-def-en="${defEn}" data-def-ko="${defKo}" data-def-bi="${defBi}" title="${defEn}" tabindex="0">${innerText}</mark>`;
     }
     return `<strong>${innerText}</strong>`;
   });

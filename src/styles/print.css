@@ -16,8 +16,19 @@
   .issue-adj-nav,
   .category-filter-bar,
   .term-popover,
-  .quiz-toggle-btn {
+  .quiz-toggle-btn,
+  .deck-controller-shell,
+  .deck-turner-bar,
+  .deck-side-arrow,
+  .toc-overview-section {
     display: none !important;
+  }
+
+  .deck-slide {
+    display: block !important;
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 
   .page-shell {

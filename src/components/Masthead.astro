@@ -27,16 +27,6 @@ const { issue, previousIssue, nextIssue, totalIssues } = Astro.props;
       국제학교 중학생과 부모님을 위한 주간 미국·유럽 시사·과학·경제 및 모의유엔(MUN) 브리핑
     </p>
   </div>
-
-  <div class="issue-theme-banner">
-    <div style="font-family: var(--font-sans); font-size: 0.76rem; font-weight: 700; color: var(--accent-civic); margin-bottom: 0.25rem;">
-      THIS WEEK'S BIG PICTURE · EDITOR'S BRIEFING (이번 주의 핵심 흐름)
-    </div>
-    <h2 class="issue-theme-title lang-en-block">{issue.themeTitle}</h2>
-    <h2 class="issue-theme-title lang-ko-block">{issue.themeTitleKo}</h2>
-    <p class="editors-note lang-en-block">{issue.editorsNote}</p>
-    <p class="editors-note lang-ko-block">{issue.editorsNoteKo}</p>
-  </div>
 </section>
 
 <nav class="issue-adj-nav no-print" aria-label="Issue Pagination">
@@ -46,11 +36,19 @@ const { issue, previousIssue, nextIssue, totalIssues } = Astro.props;
         ← Issue #{previousIssue.issueNumber} ({previousIssue.publishDate})
       </a>
     ) : (
-      <span style="color: var(--ink-muted);">First Edition (Issue #1)</span>
+      <span style="color: var(--ink-muted);">
+        <span class="lang-en-inline">First Edition (Issue #1)</span>
+        <span class="lang-ko-inline">창간호 (제1호)</span>
+      </span>
     )}
   </div>
   <div style="font-weight: 600;">
-    Viewing Issue #{issue.issueNumber} of {totalIssues} · <a href="/archive">View &amp; Print All Past Issues (지난 호 보기/인쇄)</a>
+    <span class="lang-en-inline">Viewing Issue #{issue.issueNumber} of {totalIssues} · </span>
+    <span class="lang-ko-inline">전체 {totalIssues}호 중 제{issue.issueNumber}호 열람 중 · </span>
+    <a href="/archive">
+      <span class="lang-en-inline">View &amp; Print All Past Issues</span>
+      <span class="lang-ko-inline">전체 지난 호 보기 및 인쇄</span>
+    </a>
   </div>
   <div>
     {nextIssue ? (
@@ -58,7 +56,10 @@ const { issue, previousIssue, nextIssue, totalIssues } = Astro.props;
         Issue #{nextIssue.issueNumber} ({nextIssue.publishDate}) →
       </a>
     ) : (
-      <span class="badge badge-civic">Latest Edition</span>
+      <span class="badge badge-civic">
+        <span class="lang-en-inline">Latest Edition</span>
+        <span class="lang-ko-inline">최신 발행호</span>
+      </span>
     )}
   </div>
 </nav>
