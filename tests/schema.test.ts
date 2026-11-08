@@ -24,7 +24,7 @@ function createValidMockIssue(id: string, issueNumber: number, bookTitle: string
       region: 'Transatlantic & Global',
       background: [
         'Governments in the United States and the European Union are racing to build green industries while protecting domestic jobs.',
-        'At the same time, developing nations argue that carbon border taxes and massive industrial subsidies can create unfair trade barriers.',
+        'At the same time, developing nations argue that **carbon leakage** rules and massive industrial subsidies can create unfair trade barriers.',
       ],
       blocPositions: [
         { bloc: 'European Union', stance: 'Supports the Carbon Border Adjustment Mechanism (CBAM) to prevent carbon leakage.' },
@@ -170,14 +170,32 @@ describe('AGORA schema & commit validators', () => {
     expect(check.errors.some((e) => e.includes('Duplicate book'))).toBe(true);
   });
 
-  it('renders inline glossary highlights safely and preserves non-glossary bold phrases', () => {
+  it('renders inline glossary highlights safely, matches phrase-wrapped terms, includes example, and preserves non-glossary bold phrases', () => {
     const html = renderBodyWithHighlights(
-      'The EU debated a new **tariff** during **last Monday** talks.',
-      [{ term: 'tariff', partOfSpeech: 'noun', definition: 'A tax on imports.', example: 'Tariffs rose.' }]
+      'The EU debated a new **tariff** and **one light-day** milestone during **last Monday** talks.',
+      [
+        { term: 'tariff', partOfSpeech: 'noun', definition: 'A tax on imports.', example: 'Tariffs rose.' },
+        { term: 'light-day', partOfSpeech: 'noun', definition: 'Distance light travels in 24h.', example: 'Voyager reached one light-day.' },
+      ]
     );
     expect(html).toContain('class="glossary-inline-term"');
     expect(html).toContain('data-term="tariff"');
+    expect(html).toContain('data-term="light-day"');
+    expect(html).toContain('Example: Tariffs rose.');
     expect(html).toContain('<strong>last Monday</strong>');
+  });
+
+  it('rejects issues where a defined glossary term is not highlighted in the text', () => {
+    const issueWithOrphan = createValidMockIssue('2026-W45', 1, 'The Boy Who Harnessed the Wind');
+    issueWithOrphan.articles[0].terms.push({
+      term: 'orphaned-word',
+      partOfSpeech: 'noun',
+      definition: 'A word never highlighted in the article body.',
+      example: 'This should fail validation.',
+    });
+    const res = validateIssueData(issueWithOrphan);
+    expect(res.valid).toBe(false);
+    expect(res.errors.some((e) => e.includes('orphaned-word'))).toBe(true);
   });
 });
 

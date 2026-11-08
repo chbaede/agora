@@ -123,14 +123,24 @@ const allIssues = getAllIssues();
         const popoverDef = document.getElementById('popover-def');
         const popoverClose = document.getElementById('popover-close');
 
+        function showPopoverForMark(mark) {
+          const titleText = mark.getAttribute('title') || '';
+          const termName = mark.textContent || 'Vocabulary';
+          if (popover && popoverWord && popoverDef) {
+            popoverWord.textContent = termName;
+            popoverDef.textContent = titleText;
+            popover.classList.add('visible');
+          }
+        }
+
         document.querySelectorAll('.glossary-inline-term').forEach(function (mark) {
           mark.addEventListener('click', function () {
-            const titleText = mark.getAttribute('title') || '';
-            const termName = mark.textContent || 'Vocabulary';
-            if (popover && popoverWord && popoverDef) {
-              popoverWord.textContent = termName;
-              popoverDef.textContent = titleText;
-              popover.classList.add('visible');
+            showPopoverForMark(mark);
+          });
+          mark.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              showPopoverForMark(mark);
             }
           });
         });
@@ -158,3 +168,4 @@ const allIssues = getAllIssues();
     </script>
   </body>
 </html>
+

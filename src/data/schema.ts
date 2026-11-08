@@ -171,6 +171,15 @@ export function validateIssueData(raw: unknown): { valid: boolean; errors: strin
         }
       });
     }
+    if (Array.isArray(mun.terms) && Array.isArray(mun.background)) {
+      const renderedMun = mun.background.map((p) => renderBodyWithHighlights(p, mun.terms)).join(' ');
+      for (const t of mun.terms) {
+        const attr = `data-term="${escapeHtml(t.term.trim().toLowerCase())}"`;
+        if (!renderedMun.includes(attr)) {
+          errors.push(`munSpotlight term "${t.term}" is not highlighted with **...** in munSpotlight.background.`);
+        }
+      }
+    }
   }
 
   // Validate Articles
@@ -197,6 +206,15 @@ export function validateIssueData(raw: unknown): { valid: boolean; errors: strin
             errors.push(`articles[${idx}].terms[${tIdx}] is missing term, definition, or example.`);
           }
         });
+        if (Array.isArray(art.body)) {
+          const renderedBody = art.body.map((p) => renderBodyWithHighlights(p, art.terms)).join(' ');
+          for (const t of art.terms) {
+            const attr = `data-term="${escapeHtml(t.term.trim().toLowerCase())}"`;
+            if (!renderedBody.includes(attr)) {
+              errors.push(`articles[${idx}] term "${t.term}" is not highlighted with **...** in articles[${idx}].body.`);
+            }
+          }
+        }
       }
       if (!art.source || !art.source.publisher?.trim() || !isValidHttpsUrl(art.source.url)) {
         errors.push(`articles[${idx}].source must have a valid HTTPS non-placeholder URL.`);
@@ -332,17 +350,23 @@ export function renderBodyWithHighlights(paragraph: string, terms: GlossaryTerm[
     const normalized = innerText.trim().toLowerCase();
     const matched =
       termMap.get(normalized) ??
-      Array.from(termMap.values()).find(
-        (t) =>
-          normalized.startsWith(t.term.trim().toLowerCase()) ||
-          t.term.trim().toLowerCase().startsWith(normalized)
-      );
+      Array.from(termMap.values()).find((t) => {
+        const target = t.term.trim().toLowerCase();
+        return (
+          normalized.startsWith(target) ||
+          target.startsWith(normalized) ||
+          normalized.includes(target)
+        );
+      });
 
     if (matched) {
-      const defAttr = escapeHtml(`${matched.term} (${matched.partOfSpeech}): ${matched.definition}`);
-      const termAttr = escapeHtml(matched.term.toLowerCase());
+      const defAttr = escapeHtml(
+        `${matched.term} (${matched.partOfSpeech}): ${matched.definition} — Example: ${matched.example}`
+      );
+      const termAttr = escapeHtml(matched.term.trim().toLowerCase());
       return `<mark class="glossary-inline-term" data-term="${termAttr}" title="${defAttr}" tabindex="0">${innerText}</mark>`;
     }
     return `<strong>${innerText}</strong>`;
   });
 }
+
