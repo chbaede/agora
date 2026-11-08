@@ -37,11 +37,11 @@ describe('Astro static build, subpath-safe CSS/links, magazine deck UX, and pure
       .replace(/data-def-ko="[^"]*"/g, '')
       .replace(/data-def-bi="[^"]*"/g, '')
       .replace(/<([a-z0-9]+)[^>]*class="[^"]*lang-ko-(?:block|inline)[^"]*"[^>]*>[\s\S]*?<\/\1>/gi, '')
-      .replace(/🇰🇷 한국어/g, '')
-      .replace(/🇺🇸\+🇰🇷 한영 병기/g, '');
+      .replace(/<div[^>]*class="lang-switcher"[\s\S]*?<\/div>/gi, '');
 
     const hangulMatches = strippedForEnCheck.match(/[가-힣]+/g);
     expect(hangulMatches).toBeNull();
+    expect(indexHtml).toContain('class="badge badge-date"');
 
     const issueHtml = fs.readFileSync(path.join(distDir, 'issues/2026-W45/index.html'), 'utf-8');
     expect(issueHtml).toContain('<style>');

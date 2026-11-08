@@ -32,53 +32,80 @@ const allIssues = getAllIssues();
   <body data-lang="en">
     <header class="utility-bar no-print">
       <div class="utility-inner">
-        <nav class="nav-links" aria-label="Main Navigation">
+        <div class="utility-left">
           <a href="/" class="brand-pill">
             <span class="brand-dot"></span>
-            AGORA Weekly
+            <span>AGORA</span>
           </a>
-          <a href="/" class={`nav-link ${activeNav === 'latest' ? 'active' : ''}`}>Latest Issue</a>
-          <a href="/archive" class={`nav-link ${activeNav === 'archive' ? 'active' : ''}`}>
-            Past Issues &amp; Print ({allIssues.length})
-          </a>
-          <a href="/glossary" class={`nav-link ${activeNav === 'glossary' ? 'active' : ''}`}>
-            Vocabulary Bank
-          </a>
-        </nav>
+          <nav class="nav-links desktop-only-nav" aria-label="Main Navigation">
+            <a href="/" class={`nav-link ${activeNav === 'latest' ? 'active' : ''}`}>Latest</a>
+            <a href="/archive" class={`nav-link ${activeNav === 'archive' ? 'active' : ''}`}>
+              Archive ({allIssues.length})
+            </a>
+            <a href="/glossary" class={`nav-link ${activeNav === 'glossary' ? 'active' : ''}`}>
+              Vocab
+            </a>
+          </nav>
+        </div>
 
         <div class="utility-controls">
           <div class="lang-switcher" role="group" aria-label="Language Mode Switcher">
             <button type="button" class="lang-btn active" data-lang-switch="en" title="Student Mode: English Only">
-              🇺🇸 English
+              <span class="desktop-label">🇺🇸 EN</span>
+              <span class="mobile-label">EN</span>
             </button>
             <button type="button" class="lang-btn" data-lang-switch="ko" title="Parent Mode: Korean Only">
-              🇰🇷 한국어
+              <span class="desktop-label">🇰🇷 한국어</span>
+              <span class="mobile-label">한</span>
             </button>
-            <button type="button" class="lang-btn" data-lang-switch="bilingual" title="Family Mode: English + Korean Side-by-Side">
-              🇺🇸+🇰🇷 한영 병기
+            <button type="button" class="lang-btn" data-lang-switch="bilingual" title="Family Mode: English + Korean">
+              <span class="desktop-label">🇺🇸+🇰🇷 한영 병기</span>
+              <span class="mobile-label">한영</span>
             </button>
           </div>
 
           <label class="issue-switcher-label" for="issue-quick-select">
-            <span>Issue:</span>
             <select id="issue-quick-select" class="issue-select" aria-label="Quick jump to any issue">
               {allIssues.map((iss) => (
                 <option value={`/issues/${iss.id}`} selected={iss.id === currentIssueId}>
-                  #{iss.issueNumber} ({iss.id}) · {iss.publishDate}
+                  #{iss.issueNumber} · {iss.publishDate}
                 </option>
               ))}
             </select>
           </label>
 
-          <label class="worksheet-toggle" title="Include the 1-page handwritten MUN & Vocabulary worksheet when printing">
+          <label class="worksheet-toggle desktop-only-ctrl" title="Include the 1-page handwritten MUN & Vocabulary worksheet when printing">
             <input type="checkbox" id="toggle-worksheet-checkbox" checked />
             <span>Worksheet</span>
           </label>
 
-          <button type="button" id="btn-print-packet" class="btn-print">
-            🖨️ Print Weekly Packet
+          <button type="button" id="btn-print-packet" class="btn-print" title="Print Weekly Packet">
+            🖨️ <span class="desktop-label">Print Weekly Packet</span>
+          </button>
+
+          <button
+            type="button"
+            id="btn-mobile-menu"
+            class="btn-mobile-menu mobile-only-ctrl"
+            aria-label="Toggle Menu"
+            aria-expanded="false"
+          >
+            ☰
           </button>
         </div>
+      </div>
+
+      <!-- Compact Mobile Drawer (Hidden by default, opens on ☰ tap) -->
+      <div id="mobile-nav-drawer" class="mobile-nav-drawer" hidden>
+        <nav class="mobile-drawer-links" aria-label="Mobile Navigation">
+          <a href="/" class={`nav-link ${activeNav === 'latest' ? 'active' : ''}`}>📰 Latest Issue</a>
+          <a href="/archive" class={`nav-link ${activeNav === 'archive' ? 'active' : ''}`}>
+            🗂️ Past Issues &amp; Print ({allIssues.length})
+          </a>
+          <a href="/glossary" class={`nav-link ${activeNav === 'glossary' ? 'active' : ''}`}>
+            🧠 Vocabulary Bank
+          </a>
+        </nav>
       </div>
     </header>
 
@@ -120,6 +147,24 @@ const allIssues = getAllIssues();
             const raw = opt.getAttribute('value') || '';
             if (!raw.startsWith(pathPrefix + '/')) {
               opt.setAttribute('value', pathPrefix + raw);
+            }
+          });
+        }
+
+        // Mobile Drawer Toggle
+        const mobileMenuBtn = document.getElementById('btn-mobile-menu');
+        const mobileDrawer = document.getElementById('mobile-nav-drawer');
+        if (mobileMenuBtn && mobileDrawer) {
+          mobileMenuBtn.addEventListener('click', function () {
+            const isHidden = mobileDrawer.hasAttribute('hidden');
+            if (isHidden) {
+              mobileDrawer.removeAttribute('hidden');
+              mobileMenuBtn.setAttribute('aria-expanded', 'true');
+              mobileMenuBtn.textContent = '✕';
+            } else {
+              mobileDrawer.setAttribute('hidden', 'true');
+              mobileMenuBtn.setAttribute('aria-expanded', 'false');
+              mobileMenuBtn.textContent = '☰';
             }
           });
         }

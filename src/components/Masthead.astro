@@ -8,58 +8,27 @@ interface Props {
   totalIssues: number;
 }
 
-const { issue, previousIssue, nextIssue, totalIssues } = Astro.props;
+const { issue } = Astro.props;
 ---
 
 <section class="masthead">
-  <div class="masthead-meta-row">
-    <span>ISSUE #{issue.issueNumber} · {issue.id}</span>
-    <span>US &amp; EUROPE EDITION · GRADES 7–8 / MUN LEVEL</span>
-    <span>PUBLISHED {issue.publishDate} (06:00 CET/CEST) · COVERAGE: {issue.coveragePeriod}</span>
-  </div>
+  <div class="masthead-compact-row">
+    <div class="masthead-brand-group">
+      <h1 class="masthead-title">AGORA</h1>
+      <div class="masthead-sub-wrap">
+        <p class="masthead-subtitle lang-en-block">
+          Weekly US &amp; European Current Affairs, Science, Economics &amp; Model UN Digest
+        </p>
+        <p class="masthead-subtitle lang-ko-block">
+          국제학교 중학생과 부모님을 위한 주간 미국·유럽 시사·과학·경제 및 모의유엔(MUN) 브리핑
+        </p>
+      </div>
+    </div>
 
-  <div class="masthead-title-block">
-    <h1 class="masthead-title">AGORA</h1>
-    <p class="masthead-subtitle lang-en-block">
-      Weekly Global Current Affairs, Science, Economics &amp; Model UN Briefing for Young Global Citizens
-    </p>
-    <p class="masthead-subtitle lang-ko-block">
-      국제학교 중학생과 부모님을 위한 주간 미국·유럽 시사·과학·경제 및 모의유엔(MUN) 브리핑
-    </p>
+    <div class="masthead-meta-pills">
+      <span class="badge badge-civic">ISSUE #{issue.issueNumber} ({issue.id})</span>
+      <span class="badge badge-neutral">📅 Published: {issue.publishDate}</span>
+      <span class="badge badge-neutral">🗞️ Coverage: {issue.coveragePeriod}</span>
+    </div>
   </div>
 </section>
-
-<nav class="issue-adj-nav no-print" aria-label="Issue Pagination">
-  <div>
-    {previousIssue ? (
-      <a href={`/issues/${previousIssue.id}`} class="btn-secondary">
-        ← Issue #{previousIssue.issueNumber} ({previousIssue.publishDate})
-      </a>
-    ) : (
-      <span style="color: var(--ink-muted);">
-        <span class="lang-en-inline">First Edition (Issue #1)</span>
-        <span class="lang-ko-inline">창간호 (제1호)</span>
-      </span>
-    )}
-  </div>
-  <div style="font-weight: 600;">
-    <span class="lang-en-inline">Viewing Issue #{issue.issueNumber} of {totalIssues} · </span>
-    <span class="lang-ko-inline">전체 {totalIssues}호 중 제{issue.issueNumber}호 열람 중 · </span>
-    <a href="/archive">
-      <span class="lang-en-inline">View &amp; Print All Past Issues</span>
-      <span class="lang-ko-inline">전체 지난 호 보기 및 인쇄</span>
-    </a>
-  </div>
-  <div>
-    {nextIssue ? (
-      <a href={`/issues/${nextIssue.id}`} class="btn-secondary">
-        Issue #{nextIssue.issueNumber} ({nextIssue.publishDate}) →
-      </a>
-    ) : (
-      <span class="badge badge-civic">
-        <span class="lang-en-inline">Latest Edition</span>
-        <span class="lang-ko-inline">최신 발행호</span>
-      </span>
-    )}
-  </div>
-</nav>

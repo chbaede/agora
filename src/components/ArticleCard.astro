@@ -17,15 +17,18 @@ function getCategoryBadgeClass(category: string): string {
 
 <article class="article-card" data-category={article.category} data-read-item={article.id}>
   <div class="article-meta-top">
-    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+    <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap;">
       <span class={`badge ${getCategoryBadgeClass(article.category)}`}>
         STORY #{index + 1} · {article.category}
       </span>
+      <span class="badge badge-date" title="Original Article Publication Date">
+        📅 <span class="lang-en-inline">Article Date:</span><span class="lang-ko-inline">기사 날짜:</span> {article.source.publishedDate}
+      </span>
+      <span class="badge badge-neutral">📰 {article.source.publisher}</span>
       <span class="badge badge-neutral">{article.region}</span>
-      <span class="badge badge-neutral">Level: {article.difficulty}</span>
     </div>
-    <div style="display: flex; align-items: center; gap: 0.6rem;">
-      <span>⏱️ {article.readingTimeMinutes} min read</span>
+    <div style="display: flex; align-items: center; gap: 0.55rem;">
+      <span>⏱️ {article.readingTimeMinutes} min</span>
       <button type="button" class="btn-mark-read no-print" data-read-toggle={article.id}>
         ○ Mark Read
       </button>
@@ -114,6 +117,6 @@ function getCategoryBadgeClass(category: string): string {
         {article.source.publisher} — {article.source.title}
       </a>
     </span>
-    <span>Published: {article.source.publishedDate}</span>
+    <span>📅 Published: {article.source.publishedDate}</span>
   </div>
 </article>

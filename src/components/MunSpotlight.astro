@@ -6,10 +6,12 @@ interface Props {
 }
 
 const { mun } = Astro.props;
+const primaryDate = mun.sources[0]?.publishedDate ?? '';
+const primaryPublisher = mun.sources.map((s) => s.publisher).join(' · ');
 ---
 
 <section aria-labelledby="mun-section-heading">
-  <div class="section-header" style="margin-top: 0.5rem;">
+  <div class="section-header" style="margin-top: 0.25rem;">
     <h2 id="mun-section-heading" class="section-title">
       <span class="lang-en-inline">🇺🇳 Model UN (MUN) Agenda Spotlight</span>
       <span class="lang-ko-inline">🇺🇳 모의유엔(MUN) 집중 의제 분석</span>
@@ -22,9 +24,15 @@ const { mun } = Astro.props;
 
   <article class="mun-dossier" data-read-item="mun-spotlight">
     <div class="mun-header-meta" style="justify-content: space-between; align-items: center;">
-      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+      <div style="display: flex; gap: 0.45rem; flex-wrap: wrap;">
         <span class="badge badge-civic">🇺🇳 COMMITTEE: {mun.committee}</span>
-        <span class="badge badge-neutral">🌍 REGION: {mun.region}</span>
+        {primaryDate && (
+          <span class="badge badge-date">
+            📅 <span class="lang-en-inline">Article Date:</span><span class="lang-ko-inline">기사 날짜:</span> {primaryDate}
+          </span>
+        )}
+        <span class="badge badge-neutral">📰 {primaryPublisher}</span>
+        <span class="badge badge-neutral">🌍 {mun.region}</span>
       </div>
       <button type="button" class="btn-mark-read no-print" data-read-toggle="mun-spotlight">
         ○ Mark Read
@@ -158,7 +166,7 @@ const { mun } = Astro.props;
               <a href={src.url} target="_blank" rel="noopener noreferrer">
                 {src.publisher}: {src.title}
               </a>{' '}
-              ({src.publishedDate})
+              (📅 {src.publishedDate})
             </span>
           ))}
         </div>
