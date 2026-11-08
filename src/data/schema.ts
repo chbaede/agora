@@ -12,6 +12,7 @@ export interface GlossaryTerm {
   term: string;
   partOfSpeech: string;
   definition: string;
+  definitionKo: string;
   example: string;
 }
 
@@ -27,12 +28,17 @@ export interface Article {
   category: ArticleCategory;
   region: 'US' | 'Europe' | 'Transatlantic';
   headline: string;
+  headlineKo: string;
   subheadline: string;
+  subheadlineKo: string;
   readingTimeMinutes: number;
   difficulty: 'Intermediate' | 'Challenge';
   body: string[];
+  bodyKo: string[];
   whyItMatters: string[];
+  whyItMattersKo: string[];
   thinkAboutIt: string;
+  thinkAboutItKo: string;
   terms: GlossaryTerm[];
   source: SourceReference;
 }
@@ -40,39 +46,54 @@ export interface Article {
 export interface MunBlocPosition {
   bloc: string;
   stance: string;
+  stanceKo: string;
 }
 
 export interface MunSpotlight {
   topic: string;
+  topicKo: string;
   committee: string;
   region: string;
   background: string[];
+  backgroundKo: string[];
   blocPositions: MunBlocPosition[];
   debateMotion: string;
+  debateMotionKo: string;
   proArguments: string[];
+  proArgumentsKo: string[];
   conArguments: string[];
+  conArgumentsKo: string[];
   speechStarter: string;
+  speechStarterKo: string;
   terms: GlossaryTerm[];
   sources: SourceReference[];
 }
 
 export interface ConceptOfTheWeek {
   title: string;
+  titleKo: string;
   category: 'Economics' | 'Diplomacy' | 'Science & Civics';
   summary: string;
+  summaryKo: string;
   realWorldAnalogy: string;
+  realWorldAnalogyKo: string;
   keyTakeaway: string;
+  keyTakeawayKo: string;
 }
 
 export interface BookRecommendation {
   title: string;
+  titleKo: string;
   author: string;
   genre: string;
   ageRange: string;
   pageCount: number;
   whyReadIt: string;
+  whyReadItKo: string;
   keyTakeaway: string;
+  keyTakeawayKo: string;
   discussionPrompt: string;
+  discussionPromptKo: string;
   referenceUrl: string;
 }
 
@@ -82,7 +103,9 @@ export interface WeeklyIssue {
   publishDate: string;
   coveragePeriod: string;
   themeTitle: string;
+  themeTitleKo: string;
   editorsNote: string;
+  editorsNoteKo: string;
   munSpotlight: MunSpotlight;
   articles: Article[];
   conceptOfTheWeek: ConceptOfTheWeek;
@@ -137,8 +160,14 @@ export function validateIssueData(raw: unknown): { valid: boolean; errors: strin
   if (!issue.themeTitle?.trim()) {
     errors.push('themeTitle is required.');
   }
+  if (!issue.themeTitleKo?.trim()) {
+    errors.push('themeTitleKo (Korean theme title) is required.');
+  }
   if (!issue.editorsNote?.trim()) {
     errors.push('editorsNote is required.');
+  }
+  if (!issue.editorsNoteKo?.trim()) {
+    errors.push('editorsNoteKo (Korean editors note) is required.');
   }
 
   // Validate MUN Spotlight
@@ -147,27 +176,54 @@ export function validateIssueData(raw: unknown): { valid: boolean; errors: strin
     errors.push('munSpotlight is required.');
   } else {
     if (!mun.topic?.trim()) errors.push('munSpotlight.topic is required.');
+    if (!mun.topicKo?.trim()) errors.push('munSpotlight.topicKo is required.');
     if (!mun.committee?.trim()) errors.push('munSpotlight.committee is required.');
     if (!Array.isArray(mun.background) || mun.background.length < 2) {
       errors.push('munSpotlight.background must have at least 2 paragraphs.');
     }
+    if (!Array.isArray(mun.backgroundKo) || mun.backgroundKo.length !== (mun.background?.length ?? 0)) {
+      errors.push('munSpotlight.backgroundKo must match munSpotlight.background paragraph count.');
+    }
     if (!Array.isArray(mun.blocPositions) || mun.blocPositions.length < 3) {
       errors.push('munSpotlight.blocPositions must have at least 3 blocs.');
+    } else {
+      mun.blocPositions.forEach((b, i) => {
+        if (!b.bloc?.trim() || !b.stance?.trim() || !b.stanceKo?.trim()) {
+          errors.push(`munSpotlight.blocPositions[${i}] requires bloc, stance, and stanceKo.`);
+        }
+      });
     }
-    if (!mun.debateMotion?.trim()) errors.push('munSpotlight.debateMotion is required.');
+    if (!mun.debateMotion?.trim() || !mun.debateMotionKo?.trim()) {
+      errors.push('munSpotlight.debateMotion and debateMotionKo are required.');
+    }
     if (!Array.isArray(mun.proArguments) || mun.proArguments.length < 2) {
       errors.push('munSpotlight.proArguments must have at least 2 items.');
+    }
+    if (!Array.isArray(mun.proArgumentsKo) || mun.proArgumentsKo.length !== (mun.proArguments?.length ?? 0)) {
+      errors.push('munSpotlight.proArgumentsKo must match proArguments length.');
     }
     if (!Array.isArray(mun.conArguments) || mun.conArguments.length < 2) {
       errors.push('munSpotlight.conArguments must have at least 2 items.');
     }
-    if (!mun.speechStarter?.trim()) errors.push('munSpotlight.speechStarter is required.');
+    if (!Array.isArray(mun.conArgumentsKo) || mun.conArgumentsKo.length !== (mun.conArguments?.length ?? 0)) {
+      errors.push('munSpotlight.conArgumentsKo must match conArguments length.');
+    }
+    if (!mun.speechStarter?.trim() || !mun.speechStarterKo?.trim()) {
+      errors.push('munSpotlight.speechStarter and speechStarterKo are required.');
+    }
     if (!Array.isArray(mun.sources) || mun.sources.length < 1) {
       errors.push('munSpotlight.sources must contain at least 1 source.');
     } else {
       mun.sources.forEach((src, i) => {
         if (!src.publisher?.trim() || !src.title?.trim() || !isValidHttpsUrl(src.url)) {
           errors.push(`munSpotlight.sources[${i}] must have a valid HTTPS non-placeholder URL and publisher.`);
+        }
+      });
+    }
+    if (Array.isArray(mun.terms)) {
+      mun.terms.forEach((t, tIdx) => {
+        if (!t.term?.trim() || !t.definition?.trim() || !t.definitionKo?.trim() || !t.example?.trim()) {
+          errors.push(`munSpotlight.terms[${tIdx}] requires term, definition, definitionKo, and example.`);
         }
       });
     }
@@ -189,21 +245,33 @@ export function validateIssueData(raw: unknown): { valid: boolean; errors: strin
     const presentCategories = new Set<string>();
     issue.articles.forEach((art, idx) => {
       presentCategories.add(art.category);
-      if (!art.headline?.trim()) errors.push(`articles[${idx}].headline is required.`);
-      if (!art.subheadline?.trim()) errors.push(`articles[${idx}].subheadline is required.`);
+      if (!art.headline?.trim() || !art.headlineKo?.trim()) {
+        errors.push(`articles[${idx}] requires headline and headlineKo.`);
+      }
+      if (!art.subheadline?.trim() || !art.subheadlineKo?.trim()) {
+        errors.push(`articles[${idx}] requires subheadline and subheadlineKo.`);
+      }
       if (!Array.isArray(art.body) || art.body.length < 2) {
         errors.push(`articles[${idx}].body must contain at least 2 paragraphs.`);
+      }
+      if (!Array.isArray(art.bodyKo) || art.bodyKo.length !== (art.body?.length ?? 0)) {
+        errors.push(`articles[${idx}].bodyKo must match body paragraph count.`);
       }
       if (!Array.isArray(art.whyItMatters) || art.whyItMatters.length < 2) {
         errors.push(`articles[${idx}].whyItMatters must contain at least 2 points.`);
       }
-      if (!art.thinkAboutIt?.trim()) errors.push(`articles[${idx}].thinkAboutIt is required.`);
+      if (!Array.isArray(art.whyItMattersKo) || art.whyItMattersKo.length !== (art.whyItMatters?.length ?? 0)) {
+        errors.push(`articles[${idx}].whyItMattersKo must match whyItMatters count.`);
+      }
+      if (!art.thinkAboutIt?.trim() || !art.thinkAboutItKo?.trim()) {
+        errors.push(`articles[${idx}] requires thinkAboutIt and thinkAboutItKo.`);
+      }
       if (!Array.isArray(art.terms) || art.terms.length < 2) {
         errors.push(`articles[${idx}].terms must contain at least 2 glossary terms.`);
       } else {
         art.terms.forEach((t, tIdx) => {
-          if (!t.term?.trim() || !t.definition?.trim() || !t.example?.trim()) {
-            errors.push(`articles[${idx}].terms[${tIdx}] is missing term, definition, or example.`);
+          if (!t.term?.trim() || !t.definition?.trim() || !t.definitionKo?.trim() || !t.example?.trim()) {
+            errors.push(`articles[${idx}].terms[${tIdx}] is missing term, definition, definitionKo, or example.`);
           }
         });
         if (Array.isArray(art.body)) {
@@ -230,8 +298,18 @@ export function validateIssueData(raw: unknown): { valid: boolean; errors: strin
 
   // Validate Concept of the Week
   const concept = issue.conceptOfTheWeek;
-  if (!concept || !concept.title?.trim() || !concept.summary?.trim() || !concept.realWorldAnalogy?.trim()) {
-    errors.push('conceptOfTheWeek must include title, summary, and realWorldAnalogy.');
+  if (
+    !concept ||
+    !concept.title?.trim() ||
+    !concept.titleKo?.trim() ||
+    !concept.summary?.trim() ||
+    !concept.summaryKo?.trim() ||
+    !concept.realWorldAnalogy?.trim() ||
+    !concept.realWorldAnalogyKo?.trim() ||
+    !concept.keyTakeaway?.trim() ||
+    !concept.keyTakeawayKo?.trim()
+  ) {
+    errors.push('conceptOfTheWeek must include all English and Korean (Ko) fields.');
   }
 
   // Validate Book of the Week
@@ -239,11 +317,18 @@ export function validateIssueData(raw: unknown): { valid: boolean; errors: strin
   if (!book) {
     errors.push('bookOfTheWeek is required.');
   } else {
-    if (!book.title?.trim() || !book.author?.trim()) {
-      errors.push('bookOfTheWeek must include title and author.');
+    if (!book.title?.trim() || !book.titleKo?.trim() || !book.author?.trim()) {
+      errors.push('bookOfTheWeek must include title, titleKo, and author.');
     }
-    if (!book.whyReadIt?.trim() || !book.discussionPrompt?.trim()) {
-      errors.push('bookOfTheWeek must include whyReadIt and discussionPrompt.');
+    if (
+      !book.whyReadIt?.trim() ||
+      !book.whyReadItKo?.trim() ||
+      !book.keyTakeaway?.trim() ||
+      !book.keyTakeawayKo?.trim() ||
+      !book.discussionPrompt?.trim() ||
+      !book.discussionPromptKo?.trim()
+    ) {
+      errors.push('bookOfTheWeek must include all English and Korean (Ko) summary and discussion fields.');
     }
     if (!isValidHttpsUrl(book.referenceUrl)) {
       errors.push('bookOfTheWeek.referenceUrl must be a valid HTTPS non-placeholder URL.');
@@ -360,8 +445,9 @@ export function renderBodyWithHighlights(paragraph: string, terms: GlossaryTerm[
       });
 
     if (matched) {
+      const koSuffix = matched.definitionKo ? ` | [뜻] ${matched.definitionKo}` : '';
       const defAttr = escapeHtml(
-        `${matched.term} (${matched.partOfSpeech}): ${matched.definition} — Example: ${matched.example}`
+        `${matched.term} (${matched.partOfSpeech}): ${matched.definition}${koSuffix} — Example: ${matched.example}`
       );
       const termAttr = escapeHtml(matched.term.trim().toLowerCase());
       return `<mark class="glossary-inline-term" data-term="${termAttr}" title="${defAttr}" tabindex="0">${innerText}</mark>`;
@@ -369,4 +455,3 @@ export function renderBodyWithHighlights(paragraph: string, terms: GlossaryTerm[
     return `<strong>${innerText}</strong>`;
   });
 }
-

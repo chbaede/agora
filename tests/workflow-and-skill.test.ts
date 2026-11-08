@@ -22,3 +22,4 @@ describe('Workspace curation skill and GitHub Pages workflow', () => {
     expect(yaml).toContain('npm run validate-data');
   });
 });
+

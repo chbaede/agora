@@ -29,7 +29,7 @@ const allIssues = getAllIssues();
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
-  <body>
+  <body data-lang="en">
     <header class="utility-bar no-print">
       <div class="utility-inner">
         <nav class="nav-links" aria-label="Main Navigation">
@@ -39,7 +39,7 @@ const allIssues = getAllIssues();
           </a>
           <a href="/" class={`nav-link ${activeNav === 'latest' ? 'active' : ''}`}>Latest Issue</a>
           <a href="/archive" class={`nav-link ${activeNav === 'archive' ? 'active' : ''}`}>
-            Past Issues &amp; Print Archive ({allIssues.length})
+            Past Issues &amp; Print ({allIssues.length})
           </a>
           <a href="/glossary" class={`nav-link ${activeNav === 'glossary' ? 'active' : ''}`}>
             Vocabulary Bank
@@ -47,12 +47,24 @@ const allIssues = getAllIssues();
         </nav>
 
         <div class="utility-controls">
+          <div class="lang-switcher" role="group" aria-label="Language Mode Switcher">
+            <button type="button" class="lang-btn active" data-lang-switch="en" title="Student Mode: English Only">
+              🇺🇸 English
+            </button>
+            <button type="button" class="lang-btn" data-lang-switch="ko" title="Parent Mode: Korean Only">
+              🇰🇷 한국어
+            </button>
+            <button type="button" class="lang-btn" data-lang-switch="bilingual" title="Family Mode: English + Korean Side-by-Side">
+              🇺🇸+🇰🇷 한영 병기
+            </button>
+          </div>
+
           <label class="issue-switcher-label" for="issue-quick-select">
-            <span>Jump to Issue:</span>
+            <span>Issue:</span>
             <select id="issue-quick-select" class="issue-select" aria-label="Quick jump to any issue">
               {allIssues.map((iss) => (
                 <option value={`/issues/${iss.id}`} selected={iss.id === currentIssueId}>
-                  Issue #{iss.issueNumber} ({iss.id}) · {iss.publishDate}
+                  #{iss.issueNumber} ({iss.id}) · {iss.publishDate}
                 </option>
               ))}
             </select>
@@ -60,7 +72,7 @@ const allIssues = getAllIssues();
 
           <label class="worksheet-toggle" title="Include the 1-page handwritten MUN & Vocabulary worksheet when printing">
             <input type="checkbox" id="toggle-worksheet-checkbox" checked />
-            <span>Include Study Worksheet</span>
+            <span>Worksheet</span>
           </label>
 
           <button type="button" id="btn-print-packet" class="btn-print">
@@ -75,7 +87,7 @@ const allIssues = getAllIssues();
 
       <footer class="site-footer">
         <div>
-          <strong>AGORA (`agora.yocto.kr`)</strong> — Weekly Global Current Affairs, Science, Economics &amp; Model UN Digest for Middle School Readers.
+          <strong>AGORA (`agora.yocto.kr`)</strong> — Weekly Global Current Affairs, Science, Economics &amp; Model UN Digest for Middle School Readers &amp; Parents.
         </div>
         <div>
           Published Mondays at 06:00 CET/CEST · <a href="/archive">Browse All Issues</a> · <a href="/glossary">Cumulative Glossary</a>
@@ -93,6 +105,35 @@ const allIssues = getAllIssues();
 
     <script is:inline>
       (function () {
+        const langButtons = document.querySelectorAll('[data-lang-switch]');
+        function applyLangMode(mode) {
+          const validMode = mode === 'ko' || mode === 'bilingual' ? mode : 'en';
+          document.body.setAttribute('data-lang', validMode);
+          langButtons.forEach(function (btn) {
+            btn.classList.toggle('active', btn.getAttribute('data-lang-switch') === validMode);
+          });
+          try {
+            localStorage.setItem('agora-lang-mode', validMode);
+          } catch (_e) {}
+        }
+
+        const params = new URLSearchParams(window.location.search);
+        const queryLang = params.get('lang');
+        let initialLang = 'en';
+        try {
+          initialLang = queryLang || localStorage.getItem('agora-lang-mode') || 'en';
+        } catch (_e) {
+          initialLang = queryLang || 'en';
+        }
+        applyLangMode(initialLang);
+
+        langButtons.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            const targetMode = btn.getAttribute('data-lang-switch') || 'en';
+            applyLangMode(targetMode);
+          });
+        });
+
         const selectEl = document.getElementById('issue-quick-select');
         if (selectEl) {
           selectEl.addEventListener('change', function (e) {
@@ -152,7 +193,6 @@ const allIssues = getAllIssues();
         }
 
         // Auto-print when opened with ?print=1 from the Archive page
-        const params = new URLSearchParams(window.location.search);
         if (params.get('worksheet') === '0' && worksheetCheckbox) {
           worksheetCheckbox.checked = false;
           document.body.classList.add('hide-print-worksheet');
@@ -168,4 +208,3 @@ const allIssues = getAllIssues();
     </script>
   </body>
 </html>
-

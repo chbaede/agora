@@ -29,3 +29,4 @@ describe('Issue #1 (2026-W45) data integrity and loader', () => {
     expect(terms.length).toBeGreaterThanOrEqual(12);
   });
 });
+

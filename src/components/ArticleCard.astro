@@ -27,37 +27,49 @@ function getCategoryBadgeClass(category: string): string {
     <span>⏱️ {article.readingTimeMinutes} min read</span>
   </div>
 
-  <h3 class="article-headline">{article.headline}</h3>
-  <p class="article-subheadline">{article.subheadline}</p>
+  <h3 class="article-headline lang-en-block">{article.headline}</h3>
+  <h3 class="article-headline lang-ko-block">{article.headlineKo}</h3>
+
+  <p class="article-subheadline lang-en-block">{article.subheadline}</p>
+  <p class="article-subheadline lang-ko-block">{article.subheadlineKo}</p>
 
   <div class="article-body">
-    {article.body.map((para) => (
-      <p set:html={renderBodyWithHighlights(para, article.terms)} />
+    {article.body.map((para, i) => (
+      <div>
+        <p class="lang-en-block" set:html={renderBodyWithHighlights(para, article.terms)} />
+        {article.bodyKo?.[i] && <p class="lang-ko-block">{article.bodyKo[i]}</p>}
+      </div>
     ))}
   </div>
 
   <div class="article-takeaways-grid">
     <div class="why-matters-box">
-      <span class="box-label">💡 WHY IT MATTERS FOR YOU</span>
+      <span class="box-label">💡 WHY IT MATTERS FOR YOU (왜 중요할까요?)</span>
       <ul class="why-matters-list">
-        {article.whyItMatters.map((point) => (
-          <li>{point}</li>
+        {article.whyItMatters.map((point, i) => (
+          <li>
+            <span class="lang-en-block">{point}</span>
+            {article.whyItMattersKo?.[i] && <span class="lang-ko-block">{article.whyItMattersKo[i]}</span>}
+          </li>
         ))}
       </ul>
     </div>
 
     <div class="think-box">
-      <span class="box-label">💬 DINNER-TABLE / CLASS DISCUSSION QUESTION</span>
-      <p style="margin: 0; font-size: 0.95rem; font-style: italic;">“{article.thinkAboutIt}”</p>
+      <span class="box-label">💬 FAMILY / CLASS DISCUSSION QUESTION (부모님과 함께 나누는 질문)</span>
+      <p class="lang-en-block" style="margin: 0; font-size: 0.95rem; font-style: italic;">“{article.thinkAboutIt}”</p>
+      <p class="lang-ko-block" style="margin: 0; font-size: 0.93rem;">“{article.thinkAboutItKo}”</p>
     </div>
   </div>
 
   <div class="article-terms-strip">
-    <strong>Key Words in This Story (Tap highlighted words above or review here):</strong>
+    <strong>Key Words in This Story (핵심 영단어 및 시사·경제 용어):</strong>
     <div class="article-terms-list">
       {article.terms.map((t) => (
         <div>
-          <strong>{t.term}</strong> <em>({t.partOfSpeech})</em>: {t.definition}
+          <strong>{t.term}</strong> <em>({t.partOfSpeech})</em>:{' '}
+          <span class="lang-en-block">{t.definition}</span>
+          <span class="lang-ko-block">{t.definitionKo}</span>
         </div>
       ))}
     </div>

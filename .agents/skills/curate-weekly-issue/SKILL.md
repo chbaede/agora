@@ -1,6 +1,6 @@
 ---
 name: curate-weekly-issue
-description: Standard runbook for collecting, writing, validating, and publishing a new weekly edition of AGORA (agora.yocto.kr) for 13-year-old international middle school students. Use whenever the user asks to generate, update, or publish this week's or last week's AGORA issue.
+description: Standard runbook for collecting, writing, validating, and publishing a new weekly edition of AGORA (agora.yocto.kr) for 13-year-old international middle school students and their Korean-speaking parents. Use whenever the user asks to generate, update, or publish this week's or last week's AGORA issue.
 ---
 
 # Curate Weekly AGORA Issue (`agora.yocto.kr`)
@@ -30,16 +30,13 @@ Use `search_web` to collect verified, factual news from the past 7 days across t
 - Allowed publishers include: **Reuters, Associated Press (AP), BBC News, The Economist, Financial Times, The Guardian, The New York Times, NPR, Politico Europe, European Commission / Eurostat / ECB, NASA, European Space Agency (ESA), Nature, ScienceDaily, Council on Foreign Relations (CFR), UNFCCC**.
 - Every article and MUN Spotlight MUST include a real, valid `https://` URL (never `http://` or placeholder domains).
 
-## Step 3: Write the Issue at an International Middle School Level (Grades 7–8 / CEFR B2–C1)
+## Step 3: Write the Issue in English (Grades 7–8 / CEFR B2–C1) + Korean Parent Mode (`...Ko`)
 Create `src/data/issues/YYYY-WXX.json` conforming strictly to `WeeklyIssue` in `src/data/schema.ts`:
-- **Tone & Level**: Written in clear, engaging journalistic English for a bright 13-year-old international school student. Explain institutional or economic mechanics clearly rather than assuming adult jargon.
+- **Student English (`en`)**: Written in clear, engaging journalistic English for a bright 13-year-old international school student.
+- **Parent Korean (`...Ko` fields)**: Every section (`themeTitleKo`, `editorsNoteKo`, `munSpotlight` Korean fields, each `article`'s `headlineKo`, `subheadlineKo`, `bodyKo`, `whyItMattersKo`, `thinkAboutItKo`, `conceptOfTheWeek` Korean fields, `bookOfTheWeek` Korean fields, and every glossary term's `definitionKo`) MUST be written in natural, accurate Korean so Korean parents can read or discuss the issue effortlessly.
 - **Inline Vocabulary Highlights**:
-  - In `munSpotlight.background` and each `article.body`, wrap 2–3 advanced vocabulary or economic terms in `**term**` markers (e.g., `**bipartisan**`, `**fiscal stimulus**`).
-  - Define every highlighted term in the corresponding `terms` array (`term`, `partOfSpeech`, `definition`, `example`) using clear English-to-English explanations.
-- **MUN Spotlight**:
-  - Include 2–3 background paragraphs, 3–4 `blocPositions`, a debate `debateMotion`, 2–3 `proArguments`, 2–3 `conArguments`, and a 2-sentence `speechStarter` for a 60-second MUN opening speech.
-- **Concept of the Week**:
-  - Unpack one economic, diplomatic, or scientific concept from the week's news with a concrete `realWorldAnalogy` a 13-year-old can immediately picture.
+  - In `munSpotlight.background` and each `article.body`, wrap every term defined in that section's `terms` array in `**term**` markers (e.g., `**bipartisan**`, `**fiscal stimulus**`).
+  - Define every highlighted term in the corresponding `terms` array (`term`, `partOfSpeech`, `definition`, `definitionKo`, `example`).
 - **Book of the Week**:
   - Recommend one English book (fiction or non-fiction, age range ~11–15) connected to one of the week's themes.
   - Append the book entry (`issueId`, `issueNumber`, `title`, `author`, `genre`, `publishDate`) to `src/data/books-ledger.json`.

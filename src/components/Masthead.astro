@@ -20,17 +20,22 @@ const { issue, previousIssue, nextIssue, totalIssues } = Astro.props;
 
   <div class="masthead-title-block">
     <h1 class="masthead-title">AGORA</h1>
-    <p class="masthead-subtitle">
+    <p class="masthead-subtitle lang-en-block">
       Weekly Global Current Affairs, Science, Economics &amp; Model UN Briefing for Young Global Citizens
+    </p>
+    <p class="masthead-subtitle lang-ko-block">
+      국제학교 중학생과 부모님을 위한 주간 미국·유럽 시사·과학·경제 및 모의유엔(MUN) 브리핑
     </p>
   </div>
 
   <div class="issue-theme-banner">
     <div style="font-family: var(--font-sans); font-size: 0.76rem; font-weight: 700; color: var(--accent-civic); margin-bottom: 0.25rem;">
-      THIS WEEK'S BIG PICTURE · EDITOR'S BRIEFING
+      THIS WEEK'S BIG PICTURE · EDITOR'S BRIEFING (이번 주의 핵심 흐름)
     </div>
-    <h2 class="issue-theme-title">{issue.themeTitle}</h2>
-    <p class="editors-note">{issue.editorsNote}</p>
+    <h2 class="issue-theme-title lang-en-block">{issue.themeTitle}</h2>
+    <h2 class="issue-theme-title lang-ko-block">{issue.themeTitleKo}</h2>
+    <p class="editors-note lang-en-block">{issue.editorsNote}</p>
+    <p class="editors-note lang-ko-block">{issue.editorsNoteKo}</p>
   </div>
 </section>
 
@@ -45,7 +50,7 @@ const { issue, previousIssue, nextIssue, totalIssues } = Astro.props;
     )}
   </div>
   <div style="font-weight: 600;">
-    Viewing Issue #{issue.issueNumber} of {totalIssues} · <a href="/archive">View &amp; Print All Past Issues</a>
+    Viewing Issue #{issue.issueNumber} of {totalIssues} · <a href="/archive">View &amp; Print All Past Issues (지난 호 보기/인쇄)</a>
   </div>
   <div>
     {nextIssue ? (

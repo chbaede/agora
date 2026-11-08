@@ -196,6 +196,68 @@ a:hover {
   background: var(--bg-panel);
 }
 
+/* Language Switcher & Bilingual Blocks */
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  padding: 2px;
+  gap: 2px;
+}
+
+.lang-btn {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ink-secondary);
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  padding: 0.3rem 0.55rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.lang-btn:hover {
+  color: var(--ink-primary);
+}
+
+.lang-btn.active {
+  background: var(--accent-civic);
+  color: #FFFFFF;
+}
+
+.lang-ko-block {
+  display: none;
+  font-family: var(--font-sans);
+  line-height: 1.68;
+  word-break: keep-all;
+}
+
+body[data-lang="ko"] .lang-en-block {
+  display: none !important;
+}
+
+body[data-lang="ko"] .lang-ko-block {
+  display: block !important;
+}
+
+body[data-lang="bilingual"] .lang-en-block {
+  display: block !important;
+}
+
+body[data-lang="bilingual"] .lang-ko-block {
+  display: block !important;
+  border-left: 3px solid var(--accent-civic);
+  padding-left: 0.75rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.85rem;
+  color: var(--ink-secondary);
+  font-size: 0.94em;
+}
+
 /* Main Page Container */
 .page-shell {
   max-width: var(--max-width);
@@ -801,3 +863,4 @@ body.hide-print-worksheet .print-worksheet {
     padding: 1.1rem;
   }
 }
+

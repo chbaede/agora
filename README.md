@@ -24,3 +24,4 @@ npm run check-commit  # Verify latest git commit obeys 50/72 char rules
 
 ## Weekly Curation Workflow
 See [`.agents/skills/curate-weekly-issue/SKILL.md`](.agents/skills/curate-weekly-issue/SKILL.md) and [`GEMINI.md`](GEMINI.md) for the automated weekly issue collection and publishing runbook.
+

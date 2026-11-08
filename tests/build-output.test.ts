@@ -17,8 +17,12 @@ describe('Astro static build & print/archive features', () => {
     expect(issueHtml).toContain('Print Weekly Packet');
     expect(issueHtml).toContain('issue-quick-select');
     expect(issueHtml).toContain('MUN Delegate Prep');
+    expect(issueHtml).toContain('data-lang-switch="ko"');
+    expect(issueHtml).toContain('data-lang-switch="bilingual"');
+    expect(issueHtml).toContain('lang-ko-block');
 
     const archiveHtml = fs.readFileSync(path.join(distDir, 'archive/index.html'), 'utf-8');
     expect(archiveHtml).toContain('?print=1');
   });
 });
+

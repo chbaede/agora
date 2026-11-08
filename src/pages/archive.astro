@@ -13,7 +13,7 @@ const latest = getLatestIssue();
 >
   <section class="masthead">
     <div class="masthead-meta-row">
-      <span>COMPLETE WEEKLY ARCHIVE</span>
+      <span>COMPLETE WEEKLY ARCHIVE (전체 지난 호 아카이브)</span>
       <span>INSTANT WEB ACCESS &amp; ONE-CLICK A4/LETTER PRINT PACKETS</span>
     </div>
 
@@ -21,20 +21,23 @@ const latest = getLatestIssue();
       <h1 class="masthead-title" style="font-size: clamp(2rem, 4.5vw, 3rem);">
         Past Issues &amp; Print Library
       </h1>
-      <p class="masthead-subtitle">
+      <p class="masthead-subtitle lang-en-block">
         Every weekly edition of AGORA is permanently archived here. Open any issue to read online, or click <strong>“Print Packet”</strong> to immediately print the full issue and student worksheet.
+      </p>
+      <p class="masthead-subtitle lang-ko-block">
+        발행된 모든 주간 호를 언제든 다시 열람하고, 영어(학생용)·한국어(부모님용)·한영 병기 모드로 바로 인쇄하실 수 있습니다.
       </p>
     </div>
 
     <div style="margin-top: 1rem; font-family: var(--font-sans);">
       <label for="archive-search-input" style="font-size: 0.84rem; font-weight: 600; display: block; margin-bottom: 0.35rem;">
-        Filter Past Issues by Keyword, Topic, Country, or Book Title:
+        Filter Past Issues by Keyword, Topic, Country, or Book Title (영어·한국어 키워드 검색):
       </label>
       <input
         id="archive-search-input"
         type="search"
-        placeholder="e.g., COP31, Midterm, Eurozone, Voyager, Kamkwamba..."
-        style="width: 100%; max-width: 480px; padding: 0.55rem 0.85rem; border: 1px solid var(--border-strong); border-radius: 6px; font-family: var(--font-sans); font-size: 0.92rem;"
+        placeholder="e.g., COP31, Midterm, 중간선거, 유로존, 보이저, Kamkwamba..."
+        style="width: 100%; max-width: 520px; padding: 0.55rem 0.85rem; border: 1px solid var(--border-strong); border-radius: 6px; font-family: var(--font-sans); font-size: 0.92rem;"
       />
     </div>
   </section>
@@ -43,7 +46,7 @@ const latest = getLatestIssue();
     {issues.map((issue) => (
       <article
         class="archive-card"
-        data-search-text={`${issue.id} ${issue.publishDate} ${issue.themeTitle} ${issue.munSpotlight.topic} ${issue.bookOfTheWeek.title} ${issue.articles.map((a) => a.headline).join(' ')}`.toLowerCase()}
+        data-search-text={`${issue.id} ${issue.publishDate} ${issue.themeTitle} ${issue.themeTitleKo} ${issue.munSpotlight.topic} ${issue.munSpotlight.topicKo} ${issue.bookOfTheWeek.title} ${issue.bookOfTheWeek.titleKo} ${issue.articles.map((a) => `${a.headline} ${a.headlineKo}`).join(' ')}`.toLowerCase()}
       >
         <div style="flex: 1 1 520px;">
           <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.45rem;">
@@ -52,41 +55,64 @@ const latest = getLatestIssue();
             <span class="badge badge-neutral">Coverage: {issue.coveragePeriod}</span>
           </div>
 
-          <h2 style="font-size: 1.4rem; margin: 0 0 0.45rem; line-height: 1.28;">
+          <h2 class="lang-en-block" style="font-size: 1.4rem; margin: 0 0 0.45rem; line-height: 1.28;">
             <a href={`/issues/${issue.id}`} style="color: var(--ink-primary); text-decoration: none;">
               {issue.themeTitle}
             </a>
           </h2>
+          <h2 class="lang-ko-block" style="font-size: 1.32rem; margin: 0 0 0.45rem; line-height: 1.34;">
+            <a href={`/issues/${issue.id}?lang=ko`} style="color: var(--ink-primary); text-decoration: none;">
+              {issue.themeTitleKo}
+            </a>
+          </h2>
 
-          <p style="margin: 0 0 0.75rem; font-size: 0.96rem; color: var(--ink-secondary);">
+          <p class="lang-en-block" style="margin: 0 0 0.75rem; font-size: 0.96rem; color: var(--ink-secondary);">
             {issue.editorsNote}
+          </p>
+          <p class="lang-ko-block" style="margin: 0 0 0.75rem; font-size: 0.94rem; color: var(--ink-secondary);">
+            {issue.editorsNoteKo}
           </p>
 
           <div style="font-family: var(--font-sans); font-size: 0.85rem; background: var(--bg-panel); padding: 0.75rem 1rem; border-radius: 6px;">
             <div style="margin-bottom: 0.35rem;">
-              <strong>🇺🇳 MUN Spotlight:</strong> {issue.munSpotlight.topic} <em>({issue.munSpotlight.committee})</em>
+              <strong>🇺🇳 MUN Spotlight:</strong>{' '}
+              <span class="lang-en-block">{issue.munSpotlight.topic} <em>({issue.munSpotlight.committee})</em></span>
+              <span class="lang-ko-block">{issue.munSpotlight.topicKo} <em>({issue.munSpotlight.committee})</em></span>
             </div>
             <div style="margin-bottom: 0.35rem;">
               <strong>📰 5 Articles:</strong>{' '}
-              {issue.articles.map((a, i) => (
-                <span>{i > 0 ? ' · ' : ''}{a.headline}</span>
-              ))}
+              <span class="lang-en-block">
+                {issue.articles.map((a, i) => (
+                  <span>{i > 0 ? ' · ' : ''}{a.headline}</span>
+                ))}
+              </span>
+              <span class="lang-ko-block">
+                {issue.articles.map((a, i) => (
+                  <span>{i > 0 ? ' · ' : ''}{a.headlineKo}</span>
+                ))}
+              </span>
             </div>
             <div>
-              <strong>📚 Book Pick:</strong> <em>{issue.bookOfTheWeek.title}</em> by {issue.bookOfTheWeek.author}
+              <strong>📚 Book Pick:</strong> <em>{issue.bookOfTheWeek.title}</em> ({issue.bookOfTheWeek.titleKo}) by {issue.bookOfTheWeek.author}
             </div>
           </div>
         </div>
 
         <div class="archive-actions">
           <a href={`/issues/${issue.id}`} class="btn-secondary">
-            📖 Read Issue #{issue.issueNumber}
+            🇺🇸 Read (English)
           </a>
-          <a href={`/issues/${issue.id}?print=1`} class="btn-print" title="Opens this issue and triggers the print dialog with the study worksheet">
-            🖨️ Print Packet (With Worksheet)
+          <a href={`/issues/${issue.id}?lang=ko`} class="btn-secondary">
+            🇰🇷 한국어로 보기
           </a>
-          <a href={`/issues/${issue.id}?print=1&worksheet=0`} class="btn-secondary" title="Opens this issue and prints articles only without the worksheet">
-            🖨️ Print Articles Only
+          <a href={`/issues/${issue.id}?lang=bilingual`} class="btn-secondary">
+            🇺🇸+🇰🇷 한영 병기
+          </a>
+          <a href={`/issues/${issue.id}?lang=en&print=1`} class="btn-print" title="Opens this issue in English and triggers the print dialog">
+            🖨️ Print Packet (EN)
+          </a>
+          <a href={`/issues/${issue.id}?lang=bilingual&print=1`} class="btn-secondary" title="Opens this issue in Bilingual mode and triggers the print dialog">
+            🖨️ 한영 병기 인쇄
           </a>
         </div>
       </article>

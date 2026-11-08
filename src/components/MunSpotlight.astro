@@ -11,7 +11,7 @@ const { mun } = Astro.props;
 <section aria-labelledby="mun-section-heading">
   <div class="section-header">
     <h2 id="mun-section-heading" class="section-title">Model UN (MUN) Agenda Spotlight</h2>
-    <span class="section-kicker">DIPLOMACY, BLOC POSITIONS &amp; DEBATE PREP</span>
+    <span class="section-kicker">DIPLOMACY, BLOC POSITIONS &amp; DEBATE PREP (모의유엔 집중 분석)</span>
   </div>
 
   <article class="mun-dossier">
@@ -20,21 +20,26 @@ const { mun } = Astro.props;
       <span class="badge badge-neutral">REGION: {mun.region}</span>
     </div>
 
-    <h3 class="mun-topic-title">{mun.topic}</h3>
+    <h3 class="mun-topic-title lang-en-block">{mun.topic}</h3>
+    <h3 class="mun-topic-title lang-ko-block">{mun.topicKo}</h3>
 
     <div class="mun-background">
-      {mun.background.map((para) => (
-        <p set:html={renderBodyWithHighlights(para, mun.terms)} />
+      {mun.background.map((para, i) => (
+        <div>
+          <p class="lang-en-block" set:html={renderBodyWithHighlights(para, mun.terms)} />
+          {mun.backgroundKo?.[i] && <p class="lang-ko-block">{mun.backgroundKo[i]}</p>}
+        </div>
       ))}
     </div>
 
     <div style="margin-top: 1.25rem;">
-      <div class="box-label">KEY STAKEHOLDER &amp; BLOC POSITIONS</div>
+      <div class="box-label">KEY STAKEHOLDER &amp; BLOC POSITIONS (국가·그룹별 주요 입장)</div>
       <div class="mun-blocs-grid">
         {mun.blocPositions.map((b) => (
           <div class="mun-bloc-card">
             <h4 class="mun-bloc-name">{b.bloc}</h4>
-            <p class="mun-bloc-stance">{b.stance}</p>
+            <p class="mun-bloc-stance lang-en-block">{b.stance}</p>
+            <p class="mun-bloc-stance lang-ko-block">{b.stanceKo}</p>
           </div>
         ))}
       </div>
@@ -43,34 +48,42 @@ const { mun } = Astro.props;
     <div class="mun-debate-box">
       <div class="mun-motion-banner">
         <strong style="font-family: var(--font-sans); font-size: 0.78rem; color: var(--accent-civic); display: block; margin-bottom: 0.2rem;">
-          DEBATE MOTION FOR DELEGATES
+          DEBATE MOTION FOR DELEGATES (토론 결의안 주제)
         </strong>
-        “{mun.debateMotion}”
+        <div class="lang-en-block">“{mun.debateMotion}”</div>
+        <div class="lang-ko-block">“{mun.debateMotionKo}”</div>
       </div>
 
       <div class="pro-con-grid">
         <div class="pro-box">
-          <h4 class="pro-con-title" style="color: #166534;">✓ Arguments FOR the Motion (Pro)</h4>
+          <h4 class="pro-con-title" style="color: #166534;">✓ Arguments FOR the Motion (찬성 측 논거)</h4>
           <ul class="pro-con-list">
-            {mun.proArguments.map((arg) => (
-              <li>{arg}</li>
+            {mun.proArguments.map((arg, i) => (
+              <li>
+                <span class="lang-en-block">{arg}</span>
+                {mun.proArgumentsKo?.[i] && <span class="lang-ko-block">{mun.proArgumentsKo[i]}</span>}
+              </li>
             ))}
           </ul>
         </div>
 
         <div class="con-box">
-          <h4 class="pro-con-title" style="color: #991B1B;">✗ Arguments AGAINST the Motion (Con)</h4>
+          <h4 class="pro-con-title" style="color: #991B1B;">✗ Arguments AGAINST the Motion (반대 측 논거)</h4>
           <ul class="pro-con-list">
-            {mun.conArguments.map((arg) => (
-              <li>{arg}</li>
+            {mun.conArguments.map((arg, i) => (
+              <li>
+                <span class="lang-en-block">{arg}</span>
+                {mun.conArgumentsKo?.[i] && <span class="lang-ko-block">{mun.conArgumentsKo[i]}</span>}
+              </li>
             ))}
           </ul>
         </div>
       </div>
 
       <div class="speech-starter-box">
-        <span class="speech-starter-label">🎤 60-SECOND OPENING SPEECH STARTER</span>
-        <p style="margin: 0; font-style: italic; font-size: 0.98rem;">“{mun.speechStarter}”</p>
+        <span class="speech-starter-label">🎤 60-SECOND OPENING SPEECH STARTER (1분 기조연설 시작 문장)</span>
+        <p class="lang-en-block" style="margin: 0; font-style: italic; font-size: 0.98rem;">“{mun.speechStarter}”</p>
+        <p class="lang-ko-block" style="margin: 0; font-size: 0.94rem;">“{mun.speechStarterKo}”</p>
       </div>
 
       <div class="article-source-row" style="margin-top: 1rem;">

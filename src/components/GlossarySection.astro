@@ -19,7 +19,7 @@ const combinedTerms: Array<GlossaryTerm & { sectionLabel: string }> = [
       <h2 id="glossary-section-heading" class="section-title">
         Weekly Vocabulary &amp; Economic Glossary ({combinedTerms.length} Terms)
       </h2>
-      <span class="section-kicker">ENGLISH-TO-ENGLISH DEFINITIONS &amp; CONTEXT SENTENCES</span>
+      <span class="section-kicker">ENGLISH &amp; KOREAN DEFINITIONS + CONTEXT SENTENCES (주간 어휘·경제 용어 사전)</span>
     </div>
 
     <button type="button" id="btn-toggle-quiz" class="btn-secondary quiz-toggle-btn no-print">
@@ -34,7 +34,8 @@ const combinedTerms: Array<GlossaryTerm & { sectionLabel: string }> = [
           <span class="glossary-word">□ {item.term}</span>
           <span class="glossary-pos">{item.partOfSpeech} · {item.sectionLabel}</span>
         </div>
-        <p class="glossary-def">{item.definition}</p>
+        <p class="glossary-def lang-en-block">{item.definition}</p>
+        <p class="glossary-def lang-ko-block">{item.definitionKo}</p>
         <p class="glossary-ex">“{item.example}”</p>
       </div>
     ))}

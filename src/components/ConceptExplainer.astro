@@ -10,21 +10,30 @@ const { concept } = Astro.props;
 
 <section class="concept-card" aria-labelledby="concept-heading">
   <div style="margin-bottom: 0.5rem;">
-    <span class="badge badge-econ">CONCEPT OF THE WEEK · {concept.category}</span>
+    <span class="badge badge-econ">CONCEPT OF THE WEEK · {concept.category} (이번 주의 개념)</span>
   </div>
-  <h3 id="concept-heading" style="font-size: 1.35rem; margin: 0 0 0.65rem; line-height: 1.3;">
+  <h3 id="concept-heading" class="lang-en-block" style="font-size: 1.35rem; margin: 0 0 0.65rem; line-height: 1.3;">
     {concept.title}
   </h3>
-  <p style="margin: 0 0 0.75rem; font-size: 0.98rem;">{concept.summary}</p>
+  <h3 class="lang-ko-block" style="font-size: 1.3rem; margin: 0 0 0.65rem; line-height: 1.35;">
+    {concept.titleKo}
+  </h3>
+
+  <p class="lang-en-block" style="margin: 0 0 0.75rem; font-size: 0.98rem;">{concept.summary}</p>
+  <p class="lang-ko-block" style="margin: 0 0 0.75rem; font-size: 0.95rem;">{concept.summaryKo}</p>
 
   <div class="analogy-callout">
     <strong style="font-family: var(--font-sans); font-size: 0.78rem; display: block; margin-bottom: 0.25rem; color: var(--accent-econ);">
-      🎯 REAL-LIFE ANALOGY
+      🎯 REAL-LIFE ANALOGY (실생활 비유로 쉽게 이해하기)
     </strong>
-    {concept.realWorldAnalogy}
+    <div class="lang-en-block">{concept.realWorldAnalogy}</div>
+    <div class="lang-ko-block">{concept.realWorldAnalogyKo}</div>
   </div>
 
-  <p style="margin: 0; font-family: var(--font-sans); font-size: 0.88rem; font-weight: 600; color: var(--ink-primary);">
+  <div class="lang-en-block" style="margin: 0; font-family: var(--font-sans); font-size: 0.88rem; font-weight: 600; color: var(--ink-primary);">
     Key Takeaway: {concept.keyTakeaway}
-  </p>
+  </div>
+  <div class="lang-ko-block" style="margin: 0; font-family: var(--font-sans); font-size: 0.88rem; font-weight: 600; color: var(--ink-primary);">
+    핵심 요약: {concept.keyTakeawayKo}
+  </div>
 </section>

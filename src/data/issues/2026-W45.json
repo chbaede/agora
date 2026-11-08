@@ -4,9 +4,12 @@
   "publishDate": "2026-11-09",
   "coveragePeriod": "Nov 2 – Nov 8, 2026",
   "themeTitle": "Divided Government in Washington, Europe's Budget Crossroads, COP31 & Voyager's Light-Day Milestone",
+  "themeTitleKo": "워싱턴의 ‘분점 정부’ 등장, 유럽 장기 예산안 격돌, COP31 기후총회 개막과 보이저 1호의 ‘1광일’ 대기록",
   "editorsNote": "Welcome to the inaugural edition of AGORA! This week, voters in the United States reshaped Congress in the 2026 midterm elections, while European leaders debated how to fund future technologies alongside traditional industries. As world diplomats gather in Antalya for the COP31 climate summit and NASA's Voyager 1 reaches one light-day from Earth, we explore how rules, budgets, and scientific curiosity connect our world.",
+  "editorsNoteKo": "AGORA 창간호에 오신 것을 환영합니다! 이번 주 미국 유권자들은 2026년 중간선거를 통해 의회 권력 지형을 재편했고, 유럽 정상들은 전통 농업 보호와 미래 첨단기술 육성 사이에서 장기 예산안 협상을 벌였습니다. 튀르키예 안탈리아에서 열리는 COP31 유엔기후변화총회와 인류 최초로 지구에서 ‘1광일(빛으로 하루 거리)’에 도달한 NASA 보이저 1호 소식까지, 제도와 경제, 과학적 호기심이 세상을 어떻게 연결하는지 함께 살펴봅니다.",
   "munSpotlight": {
     "topic": "Turning Climate Pledges into Action: Clean-Energy Finance and Multilateral Cooperation at COP31",
+    "topicKo": "기후 공약을 실질적 행동으로: COP31의 청정에너지 금융과 다자주의 협력",
     "committee": "UNFCCC — COP31 (Antalya & Pacific Co-Leadership)",
     "region": "Europe, Asia-Pacific & Global",
     "background": [
@@ -14,53 +17,77 @@
       "A major diplomatic challenge hangs over the summit. Following the formal withdrawal of the United States from the Paris Agreement, the European Union and major Asian and Southern Hemisphere economies face intense pressure to keep global **decarbonization** on track. Instead of announcing brand-new targets for 2050, COP31 focuses on **implementation**—upgrading electricity grids, cutting **methane** emissions rapidly, and delivering promised climate funds to developing countries.",
       "For Model UN delegates, COP31 raises a classic question of global governance: When one superpower steps back from a **multilateral** treaty, how can remaining member states enforce standards without punishing developing economies that still need affordable energy to grow?"
     ],
+    "backgroundKo": [
+      "2026년 11월 9일부터 20일까지 약 200개국 외교관들이 튀르키예 안탈리아에 모여 제31차 유엔기후변화협약 당사국총회(COP31)를 개최합니다. 올해 총회는 독특한 ‘공동 의장국(co-presidency)’ 모델을 채택했습니다. 개최국인 튀르키예가 실질적 기후 행동 의제를 이끌고, 호주가 공식 협상 의장을 맡아 해수면 상승에 취약한 태평양 도서국들의 목소리를 협상 테이블에 반영합니다.",
+      "이번 총회에는 묵직한 외교적 과제가 놓여 있습니다. 미국 연방정부가 파리기후협약에서 공식 탈퇴한 이후 열리는 첫 대규모 총회인 만큼, 유럽연합(EU)과 주요 아시아·남반구 경제권이 글로벌 ‘탈탄소화(decarbonization)’ 동력을 유지해야 한다는 강한 압박을 받고 있습니다. COP31은 2050년을 향한 새로운 구호를 외치기보다 노후 전력망 현대화, ‘메탄(methane)’ 배출의 즉각적 감축, 개발도상국 기후기금 집행 등 ‘실제 이행(implementation)’에 초점을 맞춥니다.",
+      "모의유엔(MUN) 참가 학생들에게 COP31은 글로벌 거버넌스의 핵심 질문을 던집니다. 초강대국 하나가 ‘다자간(multilateral)’ 조약에서 한발 물러섰을 때, 나머지 국가들은 경제 성장을 위해 여전히 저렴한 에너지가 필요한 개발도상국에 부당한 부담을 주지 않으면서 어떻게 기후 규범을 관철할 수 있을까요?"
+    ],
     "blocPositions": [
       {
         "bloc": "European Union (EU)",
-        "stance": "Pushes for strict emissions reporting, rapid phase-out of un-abated fossil fuels, and carbon border pricing so green industries are not undercut by high-polluting competitors."
+        "stance": "Pushes for strict emissions reporting, rapid phase-out of un-abated fossil fuels, and carbon border pricing so green industries are not undercut by high-polluting competitors.",
+        "stanceKo": "엄격한 탄소 배출량 보고와 화석연료의 단계적 퇴출, 그리고 친환경 기업이 고탄소 배출 경쟁사에 밀리지 않도록 탄소국경세(CBAM) 적용을 강력히 추진합니다."
       },
       {
         "bloc": "Australia & Pacific Small Island Developing States (SIDS)",
-        "stance": "Demands immediate grant-based adaptation funding for rising sea levels and faster clean electrification across the Indo-Pacific."
+        "stance": "Demands immediate grant-based adaptation funding for rising sea levels and faster clean electrification across the Indo-Pacific.",
+        "stanceKo": "해수면 상승에 대비한 무상 적응 기금(Grant)의 즉각적인 집행과 인도·태평양 지역의 빠른 청정 전력화를 요구합니다."
       },
       {
         "bloc": "Türkiye & Emerging Industrial Economies",
-        "stance": "Emphasizes practical technology transfer, green grid financing, and fair transition timelines so manufacturing hubs can modernize without losing jobs."
+        "stance": "Emphasizes practical technology transfer, green grid financing, and fair transition timelines so manufacturing hubs can modernize without losing jobs.",
+        "stanceKo": "제조업 중심 국가들이 일자리를 잃지 않고도 공장을 친환경으로 현대화할 수 있도록 실질적인 기술 이전과 전력망 금융 지원, 공정한 전환 일정을 강조합니다."
       },
       {
         "bloc": "United States Subnational Coalition (States & Cities)",
-        "stance": "Even without federal treaty participation, state governors and mayors attend to pledge local renewable energy investments and clean-tech partnerships."
+        "stance": "Even without federal treaty participation, state governors and mayors attend to pledge local renewable energy investments and clean-tech partnerships.",
+        "stanceKo": "연방정부의 협약 불참에도 불구하고 주지사와 시장단이 직접 참석해 주·도시 차원의 재생에너지 투자와 청정기술 협력을 약속합니다."
       }
     ],
     "debateMotion": "This House believes that COP summits should replace voluntary national pledges with binding clean-grid investment quotas and carbon border levies.",
+    "debateMotionKo": "본 위원회는 유엔 기후총회(COP)가 각국의 자발적 감축 공약을 대신해 구속력 있는 청정 전력망 투자 할당제와 탄소국경부과금을 도입해야 한다고 본다.",
     "proArguments": [
       "Voluntary pledges have repeatedly fallen short; binding investment rules ensure countries actually build solar, wind, and battery storage infrastructure.",
       "Carbon border levies create a level playing field so countries with strict climate laws do not lose factories to heavy polluters.",
       "Predictable mandatory financing helps vulnerable island and coastal nations build sea walls and resilient power grids before disasters strike."
+    ],
+    "proArgumentsKo": [
+      "자발적 공약은 번번이 목표 달성에 실패해 왔으며, 구속력 있는 투자 규칙이 있어야 각국이 실제로 태양광·풍력·배터리 저장 시설을 건설합니다.",
+      "탄소국경부과금은 엄격한 기후 법안을 지키는 국가의 공장들이 환경 규제가 느슨한 국가로 빠져나가는 것을 막아 공정한 경쟁 환경을 만듭니다.",
+      "예측 가능한 의무 기금이 조성되어야 해수면 상승 위험에 처한 도서국과 해안 도시들이 재난 전에 방파제와 탄력적인 전력망을 구축할 수 있습니다."
     ],
     "conArguments": [
       "Strict trade levies and mandatory quotas can unfairly penalize developing countries that contributed least to historical greenhouse gas emissions.",
       "Binding penalties often cause major economies to walk away from international treaties altogether, weakening global diplomacy.",
       "Each country has different geography and energy resources, making flexible national pathways more realistic than one-size-fits-all rules."
     ],
+    "conArgumentsKo": [
+      "획일적인 무역 부과금과 의무 할당제는 역사적으로 온실가스 배출 책임이 가장 적은 개발도상국에 오히려 불공정한 경제적 불이익을 줄 수 있습니다.",
+      "강제 처벌 조항은 주요 경제 대국들이 아예 국제 조약에서 이탈하게 만들어 글로벌 외교 협력을 약화시킬 위험이 큽니다.",
+      "국가마다 지리적 여건과 에너지 자원이 다르므로, 획일적인 강제 규칙보다 각국 상황에 맞춘 유연한 이행 경로가 더 현실적입니다."
+    ],
     "speechStarter": "Honorable Chair and fellow delegates, a climate promise written on paper cannot stop a rising tide. As we gather for COP31, the delegation of [Country] urges this committee to move from distant targets to immediate grid financing and fair technology sharing.",
+    "speechStarterKo": "존경하는 의장님 그리고 각국 대표단 여러분, 종이 위에 적힌 기후 약속만으로는 차오르는 바닷물을 막을 수 없습니다. COP31에 모인 지금, [국가명] 대표단은 먼 미래의 목표가 아니라 즉각적인 전력망 금융 지원과 공정한 기술 공유로 나아갈 것을 본 위원회에 촉구합니다.",
     "terms": [
       {
         "term": "multilateral",
         "partOfSpeech": "adjective",
         "definition": "Involving three or more countries working together on a shared international goal or treaty.",
+        "definitionKo": "다자간의 (3개국 이상의 국가가 공동의 국제적 목표나 조약을 위해 함께 협력하는 방식).",
         "example": "Climate change requires multilateral cooperation because greenhouse gases cross every national border."
       },
       {
         "term": "decarbonization",
         "partOfSpeech": "noun",
         "definition": "The process of reducing or eliminating carbon dioxide emissions from energy, transport, and industry.",
+        "definitionKo": "탈탄소화 (에너지, 교통, 산업 전반에서 이산화탄소 배출을 줄이거나 없애는 과정).",
         "example": "Upgrading old coal power plants to wind and solar is essential for national decarbonization."
       },
       {
         "term": "methane",
         "partOfSpeech": "noun",
         "definition": "A potent greenhouse gas released by fossil fuel production, agriculture, and landfills that traps heat much faster than carbon dioxide in the short term.",
+        "definitionKo": "메탄 (화석연료 채굴, 축산업, 쓰레기 매립지 등에서 발생하며 단기적으로 이산화탄소보다 훨씬 강력하게 열을 가두는 온실가스).",
         "example": "Plugging leaks in natural gas pipelines is one of the fastest ways to cut global methane emissions."
       }
     ],
@@ -91,7 +118,9 @@
       "category": "US Current Affairs",
       "region": "US",
       "headline": "US Midterm Elections Bring 'Divided Government' Back to Washington",
+      "headlineKo": "미국 중간선거 결과, 워싱턴에 다시 등장한 ‘분점 정부(Divided Government)’",
       "subheadline": "Voters hand control of the House of Representatives to the opposition party, testing constitutional checks and balances.",
+      "subheadlineKo": "유권자들이 연방 하원 다수당 지위를 야당인 민주당에 넘기며 미국 헌법의 ‘견제와 균형’ 원리가 본격 가동됩니다.",
       "readingTimeMinutes": 4,
       "difficulty": "Intermediate",
       "body": [
@@ -99,28 +128,41 @@
         "In political science, this outcome creates **divided government**, a situation where different political parties control the White House and at least one chamber of Congress. Because the US Constitution gives the House of Representatives the 'power of the purse'—authority over federal spending and tax bills—the president and opposition lawmakers will now have to negotiate **bipartisan** compromises to pass budgets and avoid government shutdowns.",
         "Exit polls showed that voters across suburban and urban districts were most concerned about everyday household costs, healthcare, and economic stability. State-level elections also made history, including new governors and state legislatures that will shape education, energy, and voting rules over the next two years."
       ],
+      "bodyKo": [
+        "2026년 11월 3일 화요일, 수천만 명의 미국 유권자들이 대통령 4년 임기의 반환점에 치러지는 ‘중간선거(midterm elections)’ 투표소에 나섰습니다. 이번 선거의 가장 큰 변화로 민주당이 연방 하원 전체 435석 중 과반을 차지하며 다수당이 되었고, 공화당은 행정부 권력을 유지하게 되었습니다.",
+        "정치학에서는 이처럼 백악관(행정부)과 의회(상원 또는 하원 중 최소 한 곳)를 서로 다른 정당이 장악하는 구도를 ‘분점 정부(divided government)’라고 부릅니다. 미국 헌법은 연방 하원에 국가 예산과 세법을 심의하는 이른바 ‘지갑의 권한(power of the purse)’을 부여하고 있기 때문에, 앞으로 대통령과 야당 의원들은 예산안을 통과시키고 연방정부 일시 폐쇄(셧다운)를 막기 위해 ‘초당적(bipartisan)’ 타협점을 찾아야만 합니다.",
+        "출구조사 결과 교외 및 도심 지역 유권자들이 가장 중요하게 꼽은 이슈는 장바구니 물가와 주거비 등 생활비 부담, 의료보험, 경제 안정이었습니다. 아울러 함께 치러진 주지사 및 주의회 선거 결과도 향후 2년간 각 주의 교육, 에너지, 선거 제도를 좌우하게 됩니다."
+      ],
       "whyItMatters": [
         "Shows the US system of 'checks and balances' in action: Congress can investigate executive policies and must approve all federal funding.",
         "Decisions on US trade tariffs, science budgets, and foreign aid over the next two years will require cross-party negotiation."
       ],
+      "whyItMattersKo": [
+        "미국 헌법의 핵심인 ‘견제와 균형(Checks and Balances)’이 실제로 어떻게 작동하는지 보여줍니다. 의회는 행정부 정책을 감사하고 모든 연방 예산을 승인할 권한을 갖습니다.",
+        "향후 2년간 미국의 무역 관세, 과학 연구 예산, 대외 원조 정책은 여야 간 협상을 거쳐야만 추진될 수 있습니다."
+      ],
       "thinkAboutIt": "Does divided government make a democracy stronger by forcing compromise, or slower by creating political gridlock?",
+      "thinkAboutItKo": "행정부와 의회를 다른 정당이 맡는 ‘분점 정부’는 타협을 이끌어내 민주주의를 더 건강하게 만들까요, 아니면 정치적 교착 상태를 일으켜 국정 운영을 느리게 만들까요?",
       "terms": [
         {
           "term": "midterm elections",
           "partOfSpeech": "noun",
           "definition": "US congressional and state elections held two years into a president's four-year term.",
+          "definitionKo": "중간선거 (미국 대통령의 4년 임기 중 정확히 절반인 2년 차에 연방 상·하원 의원과 주지사 등을 선출하는 선거).",
           "example": "Voters often use midterm elections to express approval or frustration with the current administration's policies."
         },
         {
           "term": "divided government",
           "partOfSpeech": "noun",
           "definition": "A political system in which one party controls the presidency while another party controls one or both houses of the legislature.",
+          "definitionKo": "분점 정부 / 여소야대 (대통령이 속한 정당과 의회 다수당이 서로 달라 권력이 나뉘어 있는 정치 구도).",
           "example": "Under divided government, major laws can only pass when both parties agree on middle-ground terms."
         },
         {
           "term": "bipartisan",
           "partOfSpeech": "adjective",
           "definition": "Supported by or involving agreement between two major political parties that usually oppose each other.",
+          "definitionKo": "초당적인 (평소 경쟁하는 두 주요 정당이 함께 합의하고 지지하는 것).",
           "example": "A bipartisan committee worked together to fund highway and bridge repairs."
         }
       ],
@@ -136,7 +178,9 @@
       "category": "Europe Current Affairs",
       "region": "Europe",
       "headline": "Brussels Debates the Next Great EU Budget: Farms vs. Future Tech",
+      "headlineKo": "브뤼셀의 차기 EU 장기 예산안 논쟁: ‘전통 농업 보호’냐 ‘미래 첨단기술 투자’냐",
       "subheadline": "European Union member states clash over how to divide hundreds of billions of euros between traditional agriculture and AI/clean-tech competitiveness.",
+      "subheadlineKo": "유럽연합 27개 회원국이 수천억 유로의 공동 예산을 농업 보조금과 AI·반도체·방위산업 경쟁력 중 어디에 더 배분할지 치열하게 맞서고 있습니다.",
       "readingTimeMinutes": 4,
       "difficulty": "Challenge",
       "body": [
@@ -144,28 +188,41 @@
         "However, shifting money is never easy in a union where major budget rules require **unanimity**. Historically, one of the largest portions of the EU budget has gone to agricultural **subsidies** that protect European farmers and food security, alongside cohesion funds that build roads and schools in less wealthy regions.",
         "The debate highlights a core puzzle for modern Europe: how to invest boldly in tomorrow's science and green factories while keeping promises to rural communities and balancing national budgets."
       ],
+      "bodyKo": [
+        "이번 주 벨기에 브뤼셀에서는 유럽연합(EU) 27개 회원국의 장기 살림살이 계획인 ‘다년도 재정프레임워크(Multiannual Financial Framework, MFF)’를 둘러싼 외교 협상이 본격화되었습니다. 미국 및 중국과의 기술 경쟁이 치열해지면서 북유럽과 중부 유럽 국가들은 인공지능(AI), 반도체 연구, 방위산업 역량 강화에 훨씬 더 많은 예산을 배정해야 한다고 주장하고 있습니다.",
+        "하지만 주요 예산 규칙 통과에 모든 회원국의 ‘만장일치(unanimity)’가 필요한 EU 구조상 예산 재편은 결코 쉽지 않습니다. 전통적으로 EU 예산에서 가장 큰 비중을 차지해 온 항목은 유럽 농민과 식량 안보를 지키는 농업 ‘보조금(subsidies)’과 상대적으로 소득이 낮은 지역의 도로·학교를 짓는 결속기금이었기 때문입니다.",
+        "이번 논쟁은 현대 유럽이 직면한 핵심 딜레마를 잘 보여줍니다. 농촌 공동체와의 약속과 재정 건전성을 지키면서도 미래 과학과 친환경 산업에 어떻게 과감히 투자할 것인가 하는 문제입니다."
+      ],
       "whyItMatters": [
         "The EU's long-term budget determines how much money goes into student exchanges (like Erasmus+), university labs, and green transport across Europe.",
         "Illustrates how 27 independent countries must bargain and compromise inside supranational institutions."
       ],
+      "whyItMattersKo": [
+        "EU 장기 예산안은 유럽 내 학생 교류 프로그램(에라스무스+), 대학 연구소 지원, 친환경 철도망 확충에 들어갈 자금 규모를 직접 결정합니다.",
+        "27개 주권 국가가 초국가적 기구 안에서 어떻게 각자의 이해관계를 조율하고 타협하는지 보여주는 대표적 사례입니다."
+      ],
       "thinkAboutIt": "If you were designing Europe's budget for the next seven years, what percentage would you give to science and technology versus food and farming?",
+      "thinkAboutItKo": "만약 여러분이 향후 7년간의 유럽연합 예산을 직접 설계한다면, 과학·기술 연구와 식량·농업 지원에 각각 몇 퍼센트씩 배분하고 싶나요?",
       "terms": [
         {
           "term": "Multiannual Financial Framework",
           "partOfSpeech": "noun",
           "definition": "The European Union's seven-year budget plan that sets limits on how much the bloc can spend across different policy areas.",
+          "definitionKo": "다년도 재정프레임워크 (유럽연합이 7년 단위로 수립하는 장기 예산 지출 계획).",
           "example": "Negotiating the Multiannual Financial Framework takes months of summits among EU prime ministers and presidents."
         },
         {
           "term": "unanimity",
           "partOfSpeech": "noun",
           "definition": "Complete agreement by every single member of a group, meaning any one member has the power to veto a decision.",
+          "definitionKo": "만장일치 (구성원 전원이 동의해야 가결되며, 단 한 국가라도 반대하면 거부권을 행사할 수 있는 의사결정 방식).",
           "example": "Because the EU budget requires unanimity, all 27 countries must sign off on the final compromise."
         },
         {
           "term": "subsidies",
           "partOfSpeech": "noun",
           "definition": "Financial grants or tax support given by a government to help an industry keep prices stable or stay competitive.",
+          "definitionKo": "보조금 (정부나 공공기관이 특정 산업의 가격 안정이나 경쟁력 유지를 위해 지원하는 자금).",
           "example": "Agricultural subsidies help family farms survive unpredictable weather and global price swings."
         }
       ],
@@ -181,7 +238,9 @@
       "category": "Economy & Business",
       "region": "Europe",
       "headline": "Why Europe's Largest Economies Are Growing Slowly—and What Debt Ratios Tell Us",
+      "headlineKo": "유럽 주요국 경제가 천천히 성장하는 이유와 ‘국가채무비율’이 알려주는 신호",
       "subheadline": "New Eurostat data places European Union government debt near 83% of GDP as Germany and France take different economic paths.",
+      "subheadlineKo": "유럽통계청(Eurostat) 발표 결과 EU 국가채무비율이 GDP 대비 약 83%를 기록한 가운데, 독일과 프랑스가 서로 다른 경제 해법을 모색하고 있습니다.",
       "readingTimeMinutes": 4,
       "difficulty": "Challenge",
       "body": [
@@ -189,28 +248,41 @@
         "Economists closely watch a metric called the **debt-to-GDP ratio**, which compares how much money a government owes to the total value of goods and services its economy produces in a year. Across the European Union, government debt sits near 82.9% of GDP (and roughly 88.8% in the eurozone). Meanwhile, officials at the European Central Bank (ECB) in Frankfurt emphasized that keeping inflation low and predictable remains the foundation for long-term recovery.",
         "For businesses and households, these numbers determine everything from how easily young engineers can find jobs to how much governments can afford to spend on schools, trains, and renewable power."
       ],
+      "bodyKo": [
+        "이번 주 발표된 최신 경제 지표에 따르면 유로화를 공통 통화로 사용하는 20개국 경제권인 ‘유로존(eurozone)’이 2026년 말을 앞두고 완만하고 조심스러운 성장세를 이어가고 있습니다. 유럽 최대 제조업 강국인 독일이 인프라 및 에너지망 확충을 위한 정부의 ‘재정 부양책(fiscal stimulus)’으로 활로를 찾는 반면, 프랑스는 소비 둔화 속에서 정부 지출을 줄여야 하는 압박을 받고 있습니다.",
+        "경제학자들이 이때 가장 주의 깊게 살펴보는 지표가 바로 ‘GDP 대비 국가채무비율(debt-to-GDP ratio)’입니다. 이는 정부가 빌린 총부채를 그 나라가 1년 동안 생산한 모든 재화와 서비스의 가치(GDP)와 비교한 수치입니다. 현재 유럽연합 전체의 국가채무비율은 약 82.9%(유로존은 약 88.8%) 수준입니다. 한편 프랑크푸르트의 유럽중앙은행(ECB)은 낮고 예측 가능한 물가를 유지하는 것이 장기 경제 회복의 초석임을 재차 강조했습니다.",
+        "이러한 거시경제 지표들은 청년들의 취업 기회부터 정부가 학교, 고속철도, 재생에너지에 투자할 수 있는 여력까지 우리 삶의 많은 부분을 좌우합니다."
+      ],
       "whyItMatters": [
         "Helps you read economic news like an analyst: comparing debt to GDP shows whether a country's borrowing matches the size of its economy.",
         "Explains why European governments must carefully choose which projects to fund with borrowed money."
       ],
+      "whyItMattersKo": [
+        "경제 기사를 전문가처럼 읽는 핵심 눈을 길러줍니다. 부채의 절대 금액이 아니라 경제 규모(GDP)와 비교해야 국가 재정의 건전성을 정확히 알 수 있습니다.",
+        "유럽 각국 정부가 왜 세금과 국채로 조달한 재정을 어디에 먼저 쓸지 신중하게 선택해야 하는지 설명해 줍니다."
+      ],
       "thinkAboutIt": "When an economy slows down, should a government borrow more money to build projects and create jobs, or save money to keep its national debt low?",
+      "thinkAboutItKo": "경기가 둔화될 때 정부는 돈을 더 빌려서라도 대규모 공사와 일자리를 만들어야 할까요, 아니면 국가 부채를 줄이기 위해 지출을 아껴야 할까요?",
       "terms": [
         {
           "term": "eurozone",
           "partOfSpeech": "noun",
           "definition": "The economic region formed by the European Union member states that have adopted the euro (€) as their official currency.",
+          "definitionKo": "유로존 (유럽연합 회원국 중 단일 통화인 유로화를 공식 화폐로 사용하는 국가들의 경제권).",
           "example": "Travelers moving between France, Germany, and Spain do not need to exchange money because all three are in the eurozone."
         },
         {
           "term": "fiscal stimulus",
           "partOfSpeech": "noun",
           "definition": "Government measures, such as increased public spending or tax cuts, designed to boost economic activity and job growth.",
+          "definitionKo": "재정 부양책 (정부가 경기 활성화와 일자리 창출을 위해 공공 지출을 늘리거나 세금을 감면하는 정책).",
           "example": "Building high-speed rail lines and upgrading power grids are common forms of fiscal stimulus."
         },
         {
           "term": "debt-to-GDP ratio",
           "partOfSpeech": "noun",
           "definition": "A country's total public debt expressed as a percentage of its Gross Domestic Product (annual economic output).",
+          "definitionKo": "GDP 대비 국가채무비율 (한 나라의 총 공공부채를 연간 국내총생산 대비 백분율로 나타낸 재정 건전성 지표).",
           "example": "A rising debt-to-GDP ratio means a government's borrowing is growing faster than its economy."
         }
       ],
@@ -226,7 +298,9 @@
       "category": "Science & Technology",
       "region": "Transatlantic",
       "headline": "Voyager 1 Nears One Full Light-Day from Earth as Rubin Telescope Finds Hidden Galaxies",
+      "headlineKo": "지구에서 ‘1광일’ 거리에 도달한 보이저 1호, 그리고 숨겨진 왜소은하를 찾아낸 루빈 천문대",
       "subheadline": "Launched in 1977, humanity's farthest explorer reaches a historic 24-light-hour distance while a next-generation observatory uncovers faint Milky Way neighbors.",
+      "subheadlineKo": "1977년 발사된 인류 최장거리 우주선이 빛의 속도로도 꼬박 24시간이 걸리는 역사적 이정표에 도달했고, 차세대 망원경은 우리 은하 주변의 초미세 위성은하들을 포착했습니다.",
       "readingTimeMinutes": 3,
       "difficulty": "Intermediate",
       "body": [
@@ -234,28 +308,41 @@
         "At the same time, astronomers analyzing early sky survey data from the **Vera C. Rubin Observatory** announced the discovery of ultra-faint **dwarf galaxies** orbiting our Milky Way. Because these tiny satellite galaxies contain very few bright stars and a high proportion of mysterious dark matter, older telescopes simply could not see them.",
         "Together, these two breakthroughs show how space exploration combines endurance with cutting-edge optics: a 1970s probe with less computer memory than a modern key fob is still reporting from between the stars, while new giant digital cameras reveal our cosmic neighborhood."
       ],
+      "bodyKo": [
+        "1977년 발사된 이후 약 49년간 우주를 향해 날아간 NASA의 무인 탐사선 ‘보이저 1호(Voyager 1)’가 2026년 11월 중순 공상과학 영화 같은 대기록을 달성합니다. 바로 지구로부터 ‘1광일(one light-day, 약 259억 킬로미터)’ 거리에 도달하는 것입니다. 태양계를 완전히 벗어난 ‘성간 우주(interstellar space)’의 이 아득한 거리에서는 지구 엔지니어가 빛의 속도로 전파 명령을 보내도 탐사선에 닿는 데만 24시간이 걸리고, 보이저 1호의 응답이 지구로 돌아오는 데 또 24시간이 걸립니다.",
+        "같은 시기, 차세대 천문 관측 시설인 ‘베라 C. 루빈 천문대(Vera C. Rubin Observatory)’의 초기 관측 데이터를 분석한 천문학자들은 우리 은하 주위를 공전하는 초미세 ‘왜소은하(dwarf galaxies)’들을 새롭게 발견했다고 발표했습니다. 이 작은 위성은하들은 밝은 별이 매우 적고 정체불명의 암흑물질(dark matter) 비중이 높아 기존 망원경으로는 관측이 불가능했습니다.",
+        "이 두 소식은 우주 과학과 공학의 경이로움을 동시에 보여줍니다. 요즘 자동차 스마트키보다도 적은 컴퓨터 메모리를 가진 1970년대 탐사선이 여전히 별들 사이에서 신호를 보내고 있고, 지상의 초거대 디지털 카메라는 우리 은하의 숨은 이웃들을 밝혀내고 있습니다."
+      ],
       "whyItMatters": [
         "One light-day is a landmark human achievement—no human-made object has ever traveled this far from our home planet.",
         "Discovering faint dwarf galaxies helps physicists test theories about how gravity and dark matter built the universe."
       ],
+      "whyItMattersKo": [
+        "‘1광일’ 도달은 인류 과학사의 기념비적 사건입니다. 인류가 만든 그 어떤 물체도 지구에서 이토록 멀리까지 나아간 적이 없습니다.",
+        "희미한 왜소은하들의 발견은 물리학자들이 중력과 암흑물질이 우주를 어떻게 형성했는지 검증하는 데 결정적 단서를 제공합니다."
+      ],
       "thinkAboutIt": "If you had to wait 48 hours for every single message and reply when controlling a robot on another world, how would you design the robot to take care of itself?",
+      "thinkAboutItKo": "만약 외계 우주의 로봇에게 명령을 보내고 답장을 받는 데 꼬박 48시간을 기다려야 한다면, 로봇이 스스로 위기를 판단하고 해결하도록 어떤 자율 기능을 넣고 싶나요?",
       "terms": [
         {
           "term": "light-day",
           "partOfSpeech": "noun",
           "definition": "The distance that light travels in a vacuum in 24 hours—approximately 25.9 billion kilometers (16.1 billion miles).",
+          "definitionKo": "광일(光日) — 빛이 진공 상태에서 24시간 동안 이동하는 거리로, 약 259억 킬로미터에 해당합니다.",
           "example": "At one light-day away, radio signals from Earth take a full day just to arrive at Voyager 1."
         },
         {
           "term": "interstellar space",
           "partOfSpeech": "noun",
           "definition": "The region of space between stars, beyond the magnetic bubble (heliosphere) created by our Sun.",
+          "definitionKo": "성간 우주 (태양풍이 미치는 태양권 경계를 넘어 별과 별 사이에 펼쳐진 우주 공간).",
           "example": "Voyager 1 and Voyager 2 are currently operating in interstellar space."
         },
         {
           "term": "dwarf galaxies",
           "partOfSpeech": "noun",
           "definition": "Small, faint galaxies composed of several million to a few billion stars—far smaller than the Milky Way's hundreds of billions of stars.",
+          "definitionKo": "왜소은하 (수천억 개의 별로 이루어진 우리 은하보다 훨씬 작은, 수백만~수십억 개의 별로 구성된 작은 은하).",
           "example": "Dozens of dwarf galaxies orbit the Milky Way like cosmic satellites."
         }
       ],
@@ -271,7 +358,9 @@
       "category": "Environment & Global Society",
       "region": "Europe",
       "headline": "Central Bankers Warn That Extreme Weather Is Now an Economic Risk for Europe",
+      "headlineKo": "유럽중앙은행의 경고: “이상기후는 이제 환경 문제를 넘어 직접적인 경제 리스크다”",
       "subheadline": "European financial leaders highlight how floods, droughts, and heatwaves affect food prices, insurance, and city infrastructure.",
+      "subheadlineKo": "홍수·가뭄·폭염이 식료품 물가와 보험료, 도시 인프라에 미치는 충격을 분석하며 유럽 도시들의 ‘기후 적응’ 투자가 빨라지고 있습니다.",
       "readingTimeMinutes": 3,
       "difficulty": "Intermediate",
       "body": [
@@ -279,22 +368,34 @@
         "When severe summer droughts lower river levels in Germany or intense floods damage farmland in Spain and Italy, harvests shrink and transport barges cannot carry full loads. Economists call the resulting price spikes **climateflation**—inflation driven by weather disruptions to food, water, and energy supplies. Damaged roads, railways, and homes also push up insurance costs and strain municipal budgets.",
         "To protect communities, European cities are accelerating investments in **climate adaptation**: expanding urban green sponge parks that absorb floodwater, burying power lines, and connecting regional electricity grids so renewable energy can flow smoothly across borders."
       ],
+      "bodyKo": [
+        "통화량과 금리를 관리하는 중앙은행 총재들이 왜 홍수와 가뭄, 산불 이야기를 꺼낼까요? 이번 주 유럽중앙은행(ECB) 고위 정책 입안자들은 극단적 기상 이변이 더 이상 환경 분야만의 뉴스가 아니라 국가 경제를 직접 흔드는 금융 충격이라고 경고했습니다.",
+        "독일에서 극심한 여름 가뭄으로 강 수위가 낮아져 화물선이 물건을 실어 나르지 못하거나, 스페인과 이탈리아에서 폭우로 농경지가 침수되면 농작물 수확량이 급감합니다. 경제학자들은 이처럼 기상 재해로 인해 식량·물·에너지 공급이 차질을 빚어 물가가 오르는 현상을 ‘기후플레이션(climateflation)’이라고 부릅니다. 파손된 도로와 철도, 주택을 복구하는 비용 역시 보험료를 끌어올리고 지방정부 예산을 압박합니다.",
+        "이에 대응해 유럽 도시들은 폭우를 흡수하는 ‘스펀지 공원’ 조성, 송전선 지중화, 국경 간 재생에너지 전력망 연결 등 기후 변화의 피해를 줄이는 ‘기후 적응(climate adaptation)’ 인프라 투자를 대폭 늘리고 있습니다."
+      ],
       "whyItMatters": [
         "Connects environmental science directly to economics: protecting ecosystems also protects stable grocery and electricity prices.",
         "Shows why engineers, urban planners, and economists must work together to design resilient cities."
       ],
+      "whyItMattersKo": [
+        "환경과학과 경제학이 어떻게 직결되는지 보여줍니다. 생태계와 기후를 지키는 일은 곧 장바구니 물가와 전기요금을 안정시키는 일이기도 합니다.",
+        "안전하고 회복력 있는 미래 도시를 설계하기 위해 왜 엔지니어, 도시계획가, 경제학자가 함께 머리를 맞대야 하는지 일깨워 줍니다."
+      ],
       "thinkAboutIt": "What is one change your town or school could make to handle heavy rain or summer heatwaves better?",
+      "thinkAboutItKo": "우리 동네나 학교가 여름철 폭염이나 집중호우에 더 잘 대비하기 위해 바꿀 수 있는 한 가지는 무엇일까요?",
       "terms": [
         {
           "term": "climateflation",
           "partOfSpeech": "noun",
           "definition": "Rising prices for food, energy, and goods caused by extreme weather and climate damage to harvests and supply chains.",
+          "definitionKo": "기후플레이션 (기후변화와 이상기후로 인해 농작물 수확이나 공급망이 타격을 받아 식료품·에너지 물가가 오르는 현상).",
           "example": "Poor olive and grain harvests after a severe drought contributed to climateflation in grocery stores."
         },
         {
           "term": "climate adaptation",
           "partOfSpeech": "noun",
           "definition": "Adjusting infrastructure, farming, and cities to reduce harm from current and future climate impacts.",
+          "definitionKo": "기후 적응 (이미 나타나고 있거나 다가올 기후변화 피해를 줄이기 위해 도시 인프라, 농업, 생활 방식을 개선하는 일).",
           "example": "Planting shade trees and building flood barriers are practical examples of climate adaptation."
         }
       ],
@@ -308,21 +409,28 @@
   ],
   "conceptOfTheWeek": {
     "title": "Debt-to-GDP Ratio & Fiscal Policy: How Do We Know If a Country Borrows Too Much?",
+    "titleKo": "국가채무비율(Debt-to-GDP)과 재정정책: 나라가 빚을 너무 많이 졌는지 어떻게 알 수 있을까?",
     "category": "Economics",
     "summary": "When you hear on the news that a government owes trillions of dollars or euros, the raw number sounds terrifying. Economists never look at debt alone—instead, they divide a country's National Debt by its Gross Domestic Product (GDP, the total value of everything the country produces in one year) to get the Debt-to-GDP Ratio.",
+    "summaryKo": "뉴스에서 어떤 나라 정부의 빚이 수조 달러나 수조 유로에 달한다는 말을 들으면 숫자만으로도 덜컥 겁이 납니다. 하지만 경제학자들은 절대 부채 금액만 따로 떼어 보지 않습니다. 국가 부채를 그 나라가 1년 동안 만들어낸 모든 경제적 가치의 합인 ‘국내총생산(GDP)’으로 나눈 ‘GDP 대비 국가채무비율’을 기준으로 판단합니다.",
     "realWorldAnalogy": "Imagine two people who each borrow €10,000. If Student A earns €2,000 a year from a weekend job, a €10,000 loan is huge (500% of their income). If Engineer B earns €100,000 a year, that exact same €10,000 loan is only 10% of their income and easy to pay back. Even better, if a country borrows money to build schools, science labs, and fast trains that help its economy grow faster, its GDP rises and the debt becomes easier to manage!",
-    "keyTakeaway": "The size of a country's debt only makes sense when compared to the size and growth rate of its economy (GDP)—and what the borrowed money was invested in."
+    "realWorldAnalogyKo": "두 사람이 똑같이 10,000유로를 빌렸다고 상상해 보세요. 주말 아르바이트로 1년에 2,000유로를 버는 A에게 10,000유로의 빚은 연 소득의 500%에 달하는 엄청난 부담입니다. 반면 1년에 100,000유로를 버는 엔지니어 B에게 똑같은 10,000유로는 연 소득의 10%에 불과해 갚기가 훨씬 수월합니다. 국가도 마찬가지입니다. 특히 빌린 돈으로 학교, 과학 연구소, 고속철도를 지어 경제(GDP)를 더 크게 키우면 부채 비율은 오히려 안정적으로 관리될 수 있습니다!",
+    "keyTakeaway": "The size of a country's debt only makes sense when compared to the size and growth rate of its economy (GDP)—and what the borrowed money was invested in.",
+    "keyTakeawayKo": "국가 부채는 반드시 그 나라의 경제 규모(GDP) 및 성장 속도와 함께 비교해야 하며, 빌린 돈을 미래를 위한 어디에 투자했는지가 핵심입니다."
   },
   "bookOfTheWeek": {
     "title": "The Boy Who Harnessed the Wind (Young Readers Edition)",
+    "titleKo": "바람을 길들인 풍차 소년 (청소년판)",
     "author": "William Kamkwamba & Bryan Mealer",
     "genre": "Biography / Science & Society",
     "ageRange": "11–15 (Grades 6–9)",
     "pageCount": 304,
     "whyReadIt": "As world leaders at COP31 debate how to bring clean electricity and climate resilience to developing communities, this true story follows 14-year-old William Kamkwamba in Malawi. When a severe drought forced him out of school, William taught himself physics and engineering from library textbooks—and built a working electricity-generating windmill out of scrap metal, tractor parts, and an old bicycle frame.",
+    "whyReadItKo": "COP31 기후총회에서 개발도상국의 청정 전력 보급과 기후 회복력이 주요 의제로 다뤄지는 이번 주에 꼭 읽어볼 만한 실화입니다. 아프리카 말라위의 14세 소년 윌리엄 캄켬바는 극심한 가뭄으로 학비를 내지 못해 학교를 그만두게 되자, 작은 도서관에서 빌린 물리 교과서를 독학해 고철과 고장 난 자전거 프레임으로 마을에 전기를 공급하는 풍력발전기를 직접 만들어냈습니다.",
     "keyTakeaway": "Shows how scientific literacy, persistence, and creative engineering can solve real-world energy and water challenges even when resources are scarce.",
+    "keyTakeawayKo": "과학적 원리에 대한 호기심과 끈기, 창의적 공학 사고가 자원이 부족한 환경에서도 어떻게 실제 에너지·식수 문제를 해결할 수 있는지 생생하게 보여줍니다.",
     "discussionPrompt": "William had no internet access and only a few library books on magnetism and physics. How can international organizations like the UN make sure young inventors in every country have the tools to build solutions for their communities?",
+    "discussionPromptKo": "윌리엄에게는 인터넷도 없었고 도서관의 낡은 과학책 몇 권뿐이었습니다. 유엔(UN) 같은 국제기구가 전 세계 청소년 발명가들이 자신의 지역사회를 바꿀 도구를 갖도록 도우려면 어떤 지원이 가장 필요할까요?",
     "referenceUrl": "https://openlibrary.org/works/OL15160542W"
   }
 }
-

@@ -83,3 +83,4 @@ export function getBooksLedger(): BookLedgerEntry[] {
   }
   return JSON.parse(fs.readFileSync(LEDGER_PATH, 'utf-8')) as BookLedgerEntry[];
 }
+

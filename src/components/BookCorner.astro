@@ -10,29 +10,35 @@ const { book } = Astro.props;
 
 <section class="book-card" aria-labelledby="book-heading">
   <div style="display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 0.5rem;">
-    <span class="badge badge-science">📚 WEEKLY ENGLISH BOOK PICK</span>
+    <span class="badge badge-science">📚 WEEKLY ENGLISH BOOK PICK (추천 영어 원서)</span>
     <span class="badge badge-neutral">{book.genre}</span>
     <span class="badge badge-neutral">Ages {book.ageRange} · {book.pageCount} pages</span>
   </div>
 
-  <h3 id="book-heading" style="font-size: 1.35rem; margin: 0 0 0.2rem; line-height: 1.3;">
+  <h3 id="book-heading" class="lang-en-block" style="font-size: 1.35rem; margin: 0 0 0.2rem; line-height: 1.3;">
     {book.title}
+  </h3>
+  <h3 class="lang-ko-block" style="font-size: 1.28rem; margin: 0 0 0.2rem; line-height: 1.35;">
+    {book.title} ({book.titleKo})
   </h3>
   <p style="font-family: var(--font-sans); font-size: 0.88rem; font-weight: 600; color: var(--ink-secondary); margin: 0 0 0.8rem;">
     By {book.author}
   </p>
 
-  <p style="margin: 0 0 0.75rem; font-size: 0.97rem;">{book.whyReadIt}</p>
+  <p class="lang-en-block" style="margin: 0 0 0.75rem; font-size: 0.97rem;">{book.whyReadIt}</p>
+  <p class="lang-ko-block" style="margin: 0 0 0.75rem; font-size: 0.95rem;">{book.whyReadItKo}</p>
 
   <div style="background: var(--bg-panel); border-radius: 6px; padding: 0.75rem 0.95rem; margin-bottom: 0.75rem; font-size: 0.92rem;">
     <strong style="font-family: var(--font-sans); font-size: 0.76rem; display: block; margin-bottom: 0.2rem;">
-      💭 READER REFLECTION QUESTION
+      💭 READER REFLECTION QUESTION (독서 토론 질문)
     </strong>
-    <em>“{book.discussionPrompt}”</em>
+    <em class="lang-en-block">“{book.discussionPrompt}”</em>
+    <div class="lang-ko-block">“{book.discussionPromptKo}”</div>
   </div>
 
   <div style="font-family: var(--font-sans); font-size: 0.82rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
-    <span><strong>Why it shines:</strong> {book.keyTakeaway}</span>
+    <span class="lang-en-block"><strong>Why it shines:</strong> {book.keyTakeaway}</span>
+    <span class="lang-ko-block"><strong>핵심 포인트:</strong> {book.keyTakeawayKo}</span>
     <a href={book.referenceUrl} target="_blank" rel="noopener noreferrer">Book Details →</a>
   </div>
 </section>
