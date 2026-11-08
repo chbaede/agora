@@ -26,7 +26,7 @@
     margin: 0 !important;
   }
 
-  .article-card[ hidden ] {
+  .article-card[hidden] {
     display: block !important;
   }
 
