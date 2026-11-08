@@ -28,6 +28,24 @@ const { mun } = Astro.props;
     <h3 class="mun-topic-title lang-en-block">{mun.topic}</h3>
     <h3 class="mun-topic-title lang-ko-block">{mun.topicKo}</h3>
 
+    {mun.imageUrl && (
+      <figure class="editorial-figure">
+        <img
+          src={mun.imageUrl}
+          alt={mun.imageCaption}
+          class="editorial-img"
+          loading="eager"
+        />
+        <figcaption class="editorial-figcaption">
+          <div>
+            <span class="lang-en-block">📸 {mun.imageCaption}</span>
+            <span class="lang-ko-block">📸 {mun.imageCaptionKo}</span>
+          </div>
+          <span class="photo-credit-badge">Photo: {mun.imageCredit}</span>
+        </figcaption>
+      </figure>
+    )}
+
     <div class="mun-background">
       {mun.background.map((para, i) => (
         <div>

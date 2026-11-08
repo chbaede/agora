@@ -37,6 +37,10 @@ Create `src/data/issues/YYYY-WXX.json` conforming strictly to `WeeklyIssue` in `
 - **Inline Vocabulary Highlights**:
   - In `munSpotlight.background` and each `article.body`, wrap every term defined in that section's `terms` array in `**term**` markers (e.g., `**bipartisan**`, `**fiscal stimulus**`).
   - Define every highlighted term in the corresponding `terms` array (`term`, `partOfSpeech`, `definition`, `definitionKo`, `example`).
+- **Verified Editorial Photographs & Book Cover (`imageUrl`, `coverImageUrl`)**:
+  - Every `munSpotlight` and every `article` MUST include a real, high-resolution `imageUrl` (from Wikimedia Commons `https://upload.wikimedia.org/wikipedia/commons/...`, NASA, or official press release media), along with `imageCaption`, `imageCaptionKo`, and `imageCredit`.
+  - `bookOfTheWeek` MUST include a valid `coverImageUrl` (e.g., from `https://covers.openlibrary.org/b/id/...-L.jpg` or Wikimedia Commons).
+  - Always verify each image URL returns HTTP 200 (`image/*`) via `curl -sL -o /dev/null -w "%{http_code} %{content_type}"` before committing.
 - **Book of the Week**:
   - Recommend one English book (fiction or non-fiction, age range ~11–15) connected to one of the week's themes.
   - Append the book entry (`issueId`, `issueNumber`, `title`, `author`, `genre`, `publishDate`) to `src/data/books-ledger.json`.

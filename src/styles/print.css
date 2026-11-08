@@ -60,6 +60,17 @@
     padding: 10pt !important;
   }
 
+  .editorial-img {
+    max-height: 135pt !important;
+  }
+
+  .book-cover-img {
+    width: 75pt !important;
+    min-width: 75pt !important;
+    height: 110pt !important;
+    box-shadow: none !important;
+  }
+
   .glossary-grid {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 6pt !important;

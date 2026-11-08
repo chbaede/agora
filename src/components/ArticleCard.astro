@@ -38,6 +38,24 @@ function getCategoryBadgeClass(category: string): string {
   <p class="article-subheadline lang-en-block">{article.subheadline}</p>
   <p class="article-subheadline lang-ko-block">{article.subheadlineKo}</p>
 
+  {article.imageUrl && (
+    <figure class="editorial-figure">
+      <img
+        src={article.imageUrl}
+        alt={article.imageCaption}
+        class={`editorial-img ${article.imageUrl.endsWith('.png') ? 'editorial-img-contain' : ''}`}
+        loading="lazy"
+      />
+      <figcaption class="editorial-figcaption">
+        <div>
+          <span class="lang-en-block">📸 {article.imageCaption}</span>
+          <span class="lang-ko-block">📸 {article.imageCaptionKo}</span>
+        </div>
+        <span class="photo-credit-badge">Photo: {article.imageCredit}</span>
+      </figcaption>
+    </figure>
+  )}
+
   <div class="article-body">
     {article.body.map((para, i) => (
       <div>

@@ -9,26 +9,39 @@ const { book } = Astro.props;
 ---
 
 <section class="book-card" aria-labelledby="book-heading">
-  <div style="display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 0.5rem;">
+  <div style="display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 0.75rem;">
     <span class="badge badge-science">📚 WEEKLY ENGLISH BOOK PICK (추천 영어 원서)</span>
     <span class="badge badge-neutral">{book.genre}</span>
     <span class="badge badge-neutral">Ages {book.ageRange} · {book.pageCount} pages</span>
   </div>
 
-  <h3 id="book-heading" class="lang-en-block" style="font-size: 1.35rem; margin: 0 0 0.2rem; line-height: 1.3;">
-    {book.title}
-  </h3>
-  <h3 class="lang-ko-block" style="font-size: 1.28rem; margin: 0 0 0.2rem; line-height: 1.35;">
-    {book.title} ({book.titleKo})
-  </h3>
-  <p style="font-family: var(--font-sans); font-size: 0.88rem; font-weight: 600; color: var(--ink-secondary); margin: 0 0 0.8rem;">
-    By {book.author}
-  </p>
+  <div class="book-flex-layout">
+    {book.coverImageUrl && (
+      <img
+        src={book.coverImageUrl}
+        alt={`Book cover of ${book.title}`}
+        class="book-cover-img"
+        loading="lazy"
+      />
+    )}
 
-  <p class="lang-en-block" style="margin: 0 0 0.75rem; font-size: 0.97rem;">{book.whyReadIt}</p>
-  <p class="lang-ko-block" style="margin: 0 0 0.75rem; font-size: 0.95rem;">{book.whyReadItKo}</p>
+    <div style="flex: 1;">
+      <h3 id="book-heading" class="lang-en-block" style="font-size: 1.35rem; margin: 0 0 0.2rem; line-height: 1.3;">
+        {book.title}
+      </h3>
+      <h3 class="lang-ko-block" style="font-size: 1.28rem; margin: 0 0 0.2rem; line-height: 1.35;">
+        {book.title} ({book.titleKo})
+      </h3>
+      <p style="font-family: var(--font-sans); font-size: 0.88rem; font-weight: 600; color: var(--ink-secondary); margin: 0 0 0.7rem;">
+        By {book.author}
+      </p>
 
-  <div style="background: var(--bg-panel); border-radius: 6px; padding: 0.75rem 0.95rem; margin-bottom: 0.75rem; font-size: 0.92rem;">
+      <p class="lang-en-block" style="margin: 0 0 0.75rem; font-size: 0.96rem;">{book.whyReadIt}</p>
+      <p class="lang-ko-block" style="margin: 0 0 0.75rem; font-size: 0.94rem;">{book.whyReadItKo}</p>
+    </div>
+  </div>
+
+  <div style="background: var(--bg-panel); border-radius: 6px; padding: 0.75rem 0.95rem; margin: 0.85rem 0 0.75rem; font-size: 0.92rem;">
     <strong style="font-family: var(--font-sans); font-size: 0.76rem; display: block; margin-bottom: 0.2rem;">
       💭 READER REFLECTION QUESTION (독서 토론 질문)
     </strong>

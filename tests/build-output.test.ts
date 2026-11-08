@@ -32,6 +32,8 @@ describe('Astro static build, subpath-safe CSS/links, and interactive student UX
     expect(issueHtml).toContain('data-lang-switch="ko"');
     expect(issueHtml).toContain('data-lang-switch="bilingual"');
     expect(issueHtml).toContain('lang-ko-block');
+    expect(issueHtml).toContain('class="editorial-figure"');
+    expect(issueHtml).toContain('class="book-cover-img"');
 
     const archiveHtml = fs.readFileSync(path.join(distDir, 'archive/index.html'), 'utf-8');
     expect(archiveHtml).toContain('<style>');

@@ -31,6 +31,10 @@ export interface Article {
   headlineKo: string;
   subheadline: string;
   subheadlineKo: string;
+  imageUrl: string;
+  imageCaption: string;
+  imageCaptionKo: string;
+  imageCredit: string;
   readingTimeMinutes: number;
   difficulty: 'Intermediate' | 'Challenge';
   body: string[];
@@ -54,6 +58,10 @@ export interface MunSpotlight {
   topicKo: string;
   committee: string;
   region: string;
+  imageUrl: string;
+  imageCaption: string;
+  imageCaptionKo: string;
+  imageCredit: string;
   background: string[];
   backgroundKo: string[];
   blocPositions: MunBlocPosition[];
@@ -88,6 +96,7 @@ export interface BookRecommendation {
   genre: string;
   ageRange: string;
   pageCount: number;
+  coverImageUrl: string;
   whyReadIt: string;
   whyReadItKo: string;
   keyTakeaway: string;
@@ -178,6 +187,9 @@ export function validateIssueData(raw: unknown): { valid: boolean; errors: strin
     if (!mun.topic?.trim()) errors.push('munSpotlight.topic is required.');
     if (!mun.topicKo?.trim()) errors.push('munSpotlight.topicKo is required.');
     if (!mun.committee?.trim()) errors.push('munSpotlight.committee is required.');
+    if (!isValidHttpsUrl(mun.imageUrl ?? '') || !mun.imageCaption?.trim() || !mun.imageCaptionKo?.trim()) {
+      errors.push('munSpotlight requires a valid HTTPS imageUrl, imageCaption, and imageCaptionKo.');
+    }
     if (!Array.isArray(mun.background) || mun.background.length < 2) {
       errors.push('munSpotlight.background must have at least 2 paragraphs.');
     }
@@ -250,6 +262,9 @@ export function validateIssueData(raw: unknown): { valid: boolean; errors: strin
       }
       if (!art.subheadline?.trim() || !art.subheadlineKo?.trim()) {
         errors.push(`articles[${idx}] requires subheadline and subheadlineKo.`);
+      }
+      if (!isValidHttpsUrl(art.imageUrl ?? '') || !art.imageCaption?.trim() || !art.imageCaptionKo?.trim()) {
+        errors.push(`articles[${idx}] requires a valid HTTPS imageUrl, imageCaption, and imageCaptionKo.`);
       }
       if (!Array.isArray(art.body) || art.body.length < 2) {
         errors.push(`articles[${idx}].body must contain at least 2 paragraphs.`);
@@ -332,6 +347,9 @@ export function validateIssueData(raw: unknown): { valid: boolean; errors: strin
     }
     if (!isValidHttpsUrl(book.referenceUrl)) {
       errors.push('bookOfTheWeek.referenceUrl must be a valid HTTPS non-placeholder URL.');
+    }
+    if (!isValidHttpsUrl(book.coverImageUrl ?? '')) {
+      errors.push('bookOfTheWeek.coverImageUrl must be a valid HTTPS non-placeholder URL.');
     }
   }
 

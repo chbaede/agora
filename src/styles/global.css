@@ -793,6 +793,72 @@ body.hide-print-worksheet .print-worksheet {
   height: 1.4rem;
 }
 
+/* Editorial Figures & Book Cover Layout */
+.editorial-figure {
+  margin: 0.9rem 0 1.2rem;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-rule);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.editorial-img {
+  display: block;
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  background: #E2E8F0;
+}
+
+.editorial-img-contain {
+  object-fit: contain;
+  background: #0F172A;
+  max-height: 320px;
+  padding: 0.5rem;
+}
+
+.editorial-figcaption {
+  padding: 0.65rem 0.95rem;
+  font-family: var(--font-sans);
+  font-size: 0.81rem;
+  color: var(--ink-secondary);
+  border-top: 1px solid var(--border-rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.photo-credit-badge {
+  font-size: 0.73rem;
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+
+.book-flex-layout {
+  display: flex;
+  gap: 1.15rem;
+  align-items: flex-start;
+}
+
+.book-cover-img {
+  width: 118px;
+  min-width: 118px;
+  height: 176px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 6px 14px rgba(17, 28, 45, 0.16);
+  background: var(--bg-panel);
+}
+
+@media (max-width: 520px) {
+  .book-flex-layout {
+    flex-direction: column;
+  }
+}
+
 /* Interactive Student UX: Key Numbers, Progress Bar, MUN Studio, Weekly Quiz */
 .hero-stats-grid {
   display: grid;
