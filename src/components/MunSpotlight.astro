@@ -14,10 +14,15 @@ const { mun } = Astro.props;
     <span class="section-kicker">DIPLOMACY, BLOC POSITIONS &amp; DEBATE PREP (모의유엔 집중 분석)</span>
   </div>
 
-  <article class="mun-dossier">
-    <div class="mun-header-meta">
-      <span class="badge badge-civic">COMMITTEE: {mun.committee}</span>
-      <span class="badge badge-neutral">REGION: {mun.region}</span>
+  <article class="mun-dossier" data-read-item="mun-spotlight">
+    <div class="mun-header-meta" style="justify-content: space-between; align-items: center;">
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <span class="badge badge-civic">🇺🇳 COMMITTEE: {mun.committee}</span>
+        <span class="badge badge-neutral">🌍 REGION: {mun.region}</span>
+      </div>
+      <button type="button" class="btn-mark-read no-print" data-read-toggle="mun-spotlight">
+        ○ Mark MUN Read
+      </button>
     </div>
 
     <h3 class="mun-topic-title lang-en-block">{mun.topic}</h3>
@@ -84,6 +89,21 @@ const { mun } = Astro.props;
         <span class="speech-starter-label">🎤 60-SECOND OPENING SPEECH STARTER (1분 기조연설 시작 문장)</span>
         <p class="lang-en-block" style="margin: 0; font-style: italic; font-size: 0.98rem;">“{mun.speechStarter}”</p>
         <p class="lang-ko-block" style="margin: 0; font-size: 0.94rem;">“{mun.speechStarterKo}”</p>
+      </div>
+
+      <div id="mun-vote-studio" class="mun-vote-studio no-print">
+        <strong style="font-size: 0.88rem; color: var(--accent-civic); display: block;">
+          🗳️ Interactive MUN Delegate Poll: How Would You Vote on This Motion? (모의유엔 대표단 찬반 투표)
+        </strong>
+        <div class="vote-btn-group">
+          <button type="button" class="vote-btn" data-mun-vote="pro">
+            👍 Vote FOR Motion (찬성 표결)
+          </button>
+          <button type="button" class="vote-btn" data-mun-vote="con">
+            👎 Vote AGAINST Motion (반대 표결)
+          </button>
+        </div>
+        <div id="mun-vote-response" style="font-size: 0.86rem; color: var(--ink-secondary); display: none;"></div>
       </div>
 
       <div class="article-source-row" style="margin-top: 1rem;">

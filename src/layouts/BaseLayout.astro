@@ -105,6 +105,25 @@ const allIssues = getAllIssues();
 
     <script is:inline>
       (function () {
+        // Automatically adapt root-relative links & select options when hosted under /agora/ subpath on github.io
+        const pathPrefix = window.location.pathname.startsWith('/agora/') || window.location.pathname === '/agora'
+          ? '/agora'
+          : '';
+        if (pathPrefix) {
+          document.querySelectorAll('a[href^="/"]').forEach(function (a) {
+            const raw = a.getAttribute('href') || '';
+            if (!raw.startsWith(pathPrefix + '/') && raw !== pathPrefix) {
+              a.setAttribute('href', pathPrefix + (raw === '/' ? '/' : raw));
+            }
+          });
+          document.querySelectorAll('option[value^="/"]').forEach(function (opt) {
+            const raw = opt.getAttribute('value') || '';
+            if (!raw.startsWith(pathPrefix + '/')) {
+              opt.setAttribute('value', pathPrefix + raw);
+            }
+          });
+        }
+
         const langButtons = document.querySelectorAll('[data-lang-switch]');
         function applyLangMode(mode) {
           const validMode = mode === 'ko' || mode === 'bilingual' ? mode : 'en';

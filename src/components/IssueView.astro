@@ -26,6 +26,45 @@ const { issue, previousIssue, nextIssue, totalIssues } = Astro.props;
   totalIssues={totalIssues}
 />
 
+<section class="hero-stats-grid" aria-label="This Week by the Numbers">
+  <div class="stat-card">
+    <div class="stat-number">~200 Nations</div>
+    <div class="stat-label lang-en-block">Gathering at COP31 in Antalya under Türkiye &amp; Australia co-leadership</div>
+    <div class="stat-label lang-ko-block">튀르키예·호주 공동 의장국 체제로 안탈리아 COP31 기후총회에 모인 참가국</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">435 Seats</div>
+    <div class="stat-label lang-en-block">US House of Representatives flipped in the Nov 3 midterm elections</div>
+    <div class="stat-label lang-ko-block">11월 3일 미국 중간선거로 다수당이 교체된 연방 하원 전체 의석수</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">82.9% GDP</div>
+    <div class="stat-label lang-en-block">European Union government debt-to-GDP ratio tracked by Eurostat</div>
+    <div class="stat-label lang-ko-block">유럽통계청(Eurostat)이 발표한 유럽연합(EU) 평균 GDP 대비 국가채무비율</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">25.9B km</div>
+    <div class="stat-label lang-en-block">One full Light-Day distance reached by NASA's Voyager 1 probe</div>
+    <div class="stat-label lang-ko-block">NASA 보이저 1호가 인류 역사상 최초로 도달한 지구로부터 ‘1광일’ 거리</div>
+  </div>
+</section>
+
+<section id="reading-progress-bar" class="reading-progress-card no-print" aria-label="Weekly Reading Progress">
+  <div class="progress-track-wrap">
+    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.88rem; font-weight: 700;">
+      <span class="lang-en-block">🎯 Weekly Reading Progress (Check off stories as you finish!)</span>
+      <span class="lang-ko-block">🎯 이번 주 학습 진행률 (다 읽은 기사의 ‘Mark Read’ 버튼을 눌러보세요!)</span>
+      <span id="progress-counter-text">0 / 6 Completed (0%)</span>
+    </div>
+    <div class="progress-bar-outer">
+      <div id="progress-bar-fill" class="progress-bar-fill"></div>
+    </div>
+  </div>
+  <button type="button" id="btn-reset-progress" class="btn-secondary" style="font-size: 0.78rem; padding: 0.3rem 0.65rem;">
+    Reset Progress
+  </button>
+</section>
+
 <MunSpotlight mun={issue.munSpotlight} />
 
 <section aria-labelledby="weekly-stories-heading">
@@ -33,7 +72,7 @@ const { issue, previousIssue, nextIssue, totalIssues } = Astro.props;
     <h2 id="weekly-stories-heading" class="section-title">
       This Week's 5 Essential Stories (US &amp; Europe)
     </h2>
-    <span class="section-kicker">TAP HIGHLIGHTED WORDS FOR INSTANT DEFINITIONS</span>
+    <span class="section-kicker">TAP HIGHLIGHTED WORDS FOR INSTANT DEFINITIONS (노란색 단어를 누르면 뜻이 열립니다)</span>
   </div>
 
   <div class="category-filter-bar no-print" role="toolbar" aria-label="Filter stories by category">
@@ -61,10 +100,61 @@ const { issue, previousIssue, nextIssue, totalIssues } = Astro.props;
 
 <GlossarySection issue={issue} />
 
+<section id="weekly-quiz-section" class="quiz-section-card no-print" aria-labelledby="quiz-heading">
+  <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; border-bottom: 2px solid var(--border-strong); padding-bottom: 0.5rem; margin-bottom: 0.5rem;">
+    <h2 id="quiz-heading" style="margin: 0; font-size: 1.4rem;">
+      ⚡ 3-Minute Weekly Current Affairs &amp; Economics Quiz (주간 시사 퀴즈)
+    </h2>
+    <span style="font-size: 0.82rem; font-weight: 600; color: var(--accent-civic);">
+      Click an answer to check your understanding!
+    </span>
+  </div>
+
+  <div class="quiz-q-block" data-quiz-q="1">
+    <strong class="lang-en-block">1. What is created when one political party controls the US White House and another party wins a majority in Congress?</strong>
+    <strong class="lang-ko-block">1. 미국에서 백악관(대통령)과 의회 다수당을 서로 다른 정당이 차지하는 정치 구도를 무엇이라고 부르나요?</strong>
+    <div class="quiz-options">
+      <button type="button" class="quiz-opt-btn" data-correct="true">A) Divided government (분점 정부)</button>
+      <button type="button" class="quiz-opt-btn" data-correct="false">B) Unanimity rule (만장일치제)</button>
+      <button type="button" class="quiz-opt-btn" data-correct="false">C) Fiscal stimulus (재정 부양책)</button>
+    </div>
+    <div class="quiz-feedback">
+      ✓ Correct! Under divided government, both parties must negotiate bipartisan compromises to pass federal budgets. (정답! 분점 정부에서는 예산안과 법안 통과를 위해 여야 간 초당적 타협이 필수적입니다.)
+    </div>
+  </div>
+
+  <div class="quiz-q-block" data-quiz-q="2">
+    <strong class="lang-en-block">2. Why do economists compare a country's national debt to its GDP (Gross Domestic Product) instead of looking only at the raw debt number?</strong>
+    <strong class="lang-ko-block">2. 경제학자들이 국가 부채를 볼 때 단순 금액이 아니라 ‘GDP 대비 국가채무비율’을 확인하는 이유는 무엇인가요?</strong>
+    <div class="quiz-options">
+      <button type="button" class="quiz-opt-btn" data-correct="false">A) Because GDP measures distance in space (우주 거리를 재기 위해)</button>
+      <button type="button" class="quiz-opt-btn" data-correct="true">B) Because comparing debt to annual economic output shows how affordable the debt is (연간 경제 생산 규모와 비교해야 상환 능력을 알 수 있어서)</button>
+      <button type="button" class="quiz-opt-btn" data-correct="false">C) Because eurozone countries have no taxes (유로존에는 세금이 없어서)</button>
+    </div>
+    <div class="quiz-feedback">
+      ✓ Spot on! Just like a loan compared to a person's annual income, the debt-to-GDP ratio shows whether borrowing matches the size of the economy. (정답! 개인의 부채를 연 소득과 비교하듯, 국가 부채도 경제 규모인 GDP와 비교해야 건전성을 알 수 있습니다.)
+    </div>
+  </div>
+
+  <div class="quiz-q-block" data-quiz-q="3">
+    <strong class="lang-en-block">3. At a distance of one light-day (~25.9 billion km), how long does a round-trip radio signal (message + reply) take between Earth and Voyager 1?</strong>
+    <strong class="lang-ko-block">3. 지구에서 ‘1광일(약 259억 km)’ 떨어진 보이저 1호에 전파 신호를 보내고 답장을 받기까지 왕복 몇 시간이 걸리나요?</strong>
+    <div class="quiz-options">
+      <button type="button" class="quiz-opt-btn" data-correct="false">A) 12 hours (12시간)</button>
+      <button type="button" class="quiz-opt-btn" data-correct="false">B) 24 hours (24시간)</button>
+      <button type="button" class="quiz-opt-btn" data-correct="true">C) 48 hours — 24h there and 24h back (왕복 48시간)</button>
+    </div>
+    <div class="quiz-feedback">
+      ✓ Exactly right! Light takes 24 hours to reach Voyager 1 and another 24 hours for its reply to return to Earth. (정답! 가는 데 24시간, 응답이 돌아오는 데 24시간으로 총 48시간이 걸립니다.)
+    </div>
+  </div>
+</section>
+
 <PrintWorksheet issue={issue} />
 
 <script is:inline>
   (function () {
+    // 1. Category filter pills
     const filterButtons = document.querySelectorAll('.filter-pill');
     const articleCards = document.querySelectorAll('.article-card');
 
@@ -86,6 +176,105 @@ const { issue, previousIssue, nextIssue, totalIssues } = Astro.props;
         });
       });
     });
+
+    // 2. Reading Progress Tracker
+    const STORAGE_KEY = 'agora-read-items-2026-W45';
+    const readButtons = document.querySelectorAll('[data-read-toggle]');
+    const progressFill = document.getElementById('progress-bar-fill');
+    const progressText = document.getElementById('progress-counter-text');
+    const resetBtn = document.getElementById('btn-reset-progress');
+    let readSet = new Set();
+
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      if (Array.isArray(saved)) readSet = new Set(saved);
+    } catch (_e) {}
+
+    function renderReadProgress() {
+      const total = readButtons.length || 6;
+      const done = readSet.size;
+      const pct = Math.round((done / total) * 100);
+      if (progressFill) progressFill.style.width = pct + '%';
+      if (progressText) progressText.textContent = done + ' / ' + total + ' Completed (' + pct + '%)';
+
+      readButtons.forEach(function (btn) {
+        const id = btn.getAttribute('data-read-toggle');
+        const isDone = id && readSet.has(id);
+        btn.classList.toggle('completed', Boolean(isDone));
+        btn.textContent = isDone ? '✓ Completed' : '○ Mark Read';
+      });
+    }
+
+    readButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const id = btn.getAttribute('data-read-toggle');
+        if (!id) return;
+        if (readSet.has(id)) {
+          readSet.delete(id);
+        } else {
+          readSet.add(id);
+        }
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(readSet)));
+        } catch (_e) {}
+        renderReadProgress();
+      });
+    });
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', function () {
+        readSet.clear();
+        try {
+          localStorage.removeItem(STORAGE_KEY);
+        } catch (_e) {}
+        renderReadProgress();
+      });
+    }
+    renderReadProgress();
+
+    // 3. Interactive MUN Delegate Vote Poll
+    const voteButtons = document.querySelectorAll('[data-mun-vote]');
+    const voteResponse = document.getElementById('mun-vote-response');
+    voteButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const choice = btn.getAttribute('data-mun-vote');
+        voteButtons.forEach(function (b) {
+          b.classList.remove('selected-pro', 'selected-con');
+        });
+        if (choice === 'pro') {
+          btn.classList.add('selected-pro');
+          if (voteResponse) {
+            voteResponse.style.display = 'block';
+            voteResponse.textContent =
+              'You voted FOR the motion! Tip for your speech: Emphasize binding solar/wind grid investments and preventing carbon leakage. (찬성 표결! 기조연설에서 구속력 있는 친환경 전력망 투자와 탄소 누출 방지를 강조해 보세요.)';
+          }
+        } else {
+          btn.classList.add('selected-con');
+          if (voteResponse) {
+            voteResponse.style.display = 'block';
+            voteResponse.textContent =
+              'You voted AGAINST the motion! Tip for your speech: Emphasize fair development timelines and technology transfer over punitive border taxes. (반대 표결! 기조연설에서 처벌적 국경세 대신 기술 이전과 공정한 전환 일정을 강조해 보세요.)';
+          }
+        }
+      });
+    });
+
+    // 4. Interactive 3-Question Quiz
+    document.querySelectorAll('.quiz-q-block').forEach(function (block) {
+      const opts = block.querySelectorAll('.quiz-opt-btn');
+      const feedback = block.querySelector('.quiz-feedback');
+      opts.forEach(function (opt) {
+        opt.addEventListener('click', function () {
+          opts.forEach(function (o) {
+            o.classList.remove('correct', 'wrong');
+          });
+          const isCorrect = opt.getAttribute('data-correct') === 'true';
+          opt.classList.add(isCorrect ? 'correct' : 'wrong');
+          if (feedback) {
+            feedback.classList.add('visible');
+          }
+        });
+      });
+    });
   })();
 </script>
-

@@ -15,7 +15,7 @@ function getCategoryBadgeClass(category: string): string {
 }
 ---
 
-<article class="article-card" data-category={article.category}>
+<article class="article-card" data-category={article.category} data-read-item={article.id}>
   <div class="article-meta-top">
     <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
       <span class={`badge ${getCategoryBadgeClass(article.category)}`}>
@@ -24,7 +24,12 @@ function getCategoryBadgeClass(category: string): string {
       <span class="badge badge-neutral">{article.region}</span>
       <span class="badge badge-neutral">Level: {article.difficulty}</span>
     </div>
-    <span>⏱️ {article.readingTimeMinutes} min read</span>
+    <div style="display: flex; align-items: center; gap: 0.6rem;">
+      <span>⏱️ {article.readingTimeMinutes} min read</span>
+      <button type="button" class="btn-mark-read no-print" data-read-toggle={article.id}>
+        ○ Mark Read
+      </button>
+    </div>
   </div>
 
   <h3 class="article-headline lang-en-block">{article.headline}</h3>
