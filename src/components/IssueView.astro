@@ -32,8 +32,6 @@ const deckPages = [
     icon: '📋',
     shortEn: 'Cover',
     shortKo: '목차',
-    fullEn: 'Cover & Table of Contents',
-    fullKo: '표지 브리핑 및 전체 목차',
   },
   {
     index: 1,
@@ -41,8 +39,6 @@ const deckPages = [
     icon: '🇺🇳',
     shortEn: 'MUN',
     shortKo: '모의유엔',
-    fullEn: `MUN: ${issue.munSpotlight.committee}`,
-    fullKo: `모의유엔: ${issue.munSpotlight.committee}`,
   },
   ...issue.articles.map((art, i) => {
     const meta = shortCatLabels[art.category] ?? { icon: '📰', en: `S${i + 1}`, ko: `기사${i + 1}` };
@@ -50,10 +46,8 @@ const deckPages = [
       index: i + 2,
       num: `0${i + 3}`,
       icon: meta.icon,
-      shortEn: `${meta.en}`,
-      shortKo: `${meta.ko}`,
-      fullEn: `Story ${i + 1} (${meta.en}) · 📅 ${art.source.publishedDate}`,
-      fullKo: `기사 ${i + 1} (${meta.ko}) · 📅 ${art.source.publishedDate}`,
+      shortEn: meta.en,
+      shortKo: meta.ko,
     };
   }),
   {
@@ -62,8 +56,6 @@ const deckPages = [
     icon: '💡',
     shortEn: 'Concept & Book',
     shortKo: '개념·원서',
-    fullEn: 'Concept of the Week & Book Pick',
-    fullKo: '이주의 개념 & 추천 영어 원서',
   },
   {
     index: 8,
@@ -71,24 +63,20 @@ const deckPages = [
     icon: '🧠',
     shortEn: 'Vocab & Quiz',
     shortKo: '단어·퀴즈',
-    fullEn: 'Vocabulary, Quiz & Worksheet',
-    fullKo: '단어장, 시사 퀴즈 & 워크시트',
   },
 ];
 ---
 
 <!-- Ultra-Compact Magazine Deck Controller -->
 <div class="deck-controller-shell no-print" id="deck-top-anchor">
-  <!-- Row 1: Prev / Page Indicator + Progress / Next + Scroll Toggle -->
+  <!-- Row 1: Strictly Single-Line Prev / 1 of 9 + Progress / Next -->
   <div class="deck-turner-bar">
     <button type="button" class="btn-page-turn prev" id="btn-prev-top" disabled>
       ← <span class="lang-en-inline">Prev</span><span class="lang-ko-inline">이전</span>
     </button>
 
     <div class="deck-page-indicator">
-      <span class="badge badge-civic" id="current-page-badge">1 / {deckPages.length}</span>
-      <strong id="current-page-title-en" class="lang-en-inline deck-curr-title">{deckPages[0].fullEn}</strong>
-      <strong id="current-page-title-ko" class="lang-ko-inline deck-curr-title">{deckPages[0].fullKo}</strong>
+      <span class="deck-page-fraction" id="current-page-badge">1 / {deckPages.length}</span>
       <span id="reading-progress-bar" class="deck-progress-pill" title="Weekly Reading Progress">
         🎯 <span id="progress-counter-text">0/6</span>
         <span class="deck-mini-bar-outer" style="display:none;"><span id="progress-bar-fill" class="deck-mini-bar-fill"></span></span>
@@ -96,10 +84,9 @@ const deckPages = [
       </span>
     </div>
 
-    <div style="display: flex; align-items: center; gap: 0.4rem;">
+    <div class="deck-turner-right">
       <button type="button" class="btn-page-turn next" id="btn-next-top">
-        <span id="next-btn-label-en" class="lang-en-inline">Next: MUN →</span>
-        <span id="next-btn-label-ko" class="lang-ko-inline">다음: 모의유엔 →</span>
+        <span class="lang-en-inline">Next</span><span class="lang-ko-inline">다음</span> →
       </button>
       <button type="button" id="btn-toggle-view-mode" class="btn-view-mode" title="Toggle 1-Page Flip vs Scroll-All">
         <span class="lang-en-inline">📜 All</span>
@@ -161,10 +148,10 @@ const deckPages = [
       totalIssues={totalIssues}
     />
 
-    <div class="issue-theme-banner" style="margin-top: 0.5rem;">
-      <div style="font-family: var(--font-sans); font-size: 0.74rem; font-weight: 700; color: var(--accent-civic); margin-bottom: 0.2rem;">
-        <span class="lang-en-inline">THIS WEEK'S BIG PICTURE · EDITOR'S BRIEFING ({issue.coveragePeriod})</span>
-        <span class="lang-ko-inline">이번 주의 빅픽처 · 에디터 브리핑 ({issue.coveragePeriod})</span>
+    <div class="issue-theme-banner" style="margin-top: 0.4rem;">
+      <div style="font-family: var(--font-sans); font-size: 0.72rem; font-weight: 700; color: var(--accent-civic); margin-bottom: 0.15rem;">
+        <span class="lang-en-inline">EDITOR'S BRIEFING · {issue.coveragePeriod}</span>
+        <span class="lang-ko-inline">에디터 브리핑 · {issue.coveragePeriod}</span>
       </div>
       <h2 class="issue-theme-title lang-en-block">{issue.themeTitle}</h2>
       <h2 class="issue-theme-title lang-ko-block">{issue.themeTitleKo}</h2>
@@ -197,10 +184,10 @@ const deckPages = [
 
     <!-- Visual Table of Contents (Interactive Card Grid) -->
     <section class="toc-overview-section no-print" aria-labelledby="toc-heading">
-      <div class="section-header" style="margin-top: 1rem; margin-bottom: 0.85rem;">
-        <h2 id="toc-heading" class="section-title">
-          <span class="lang-en-inline">📖 Inside This Week's Edition (Tap Any Story to Open Its Page)</span>
-          <span class="lang-ko-inline">📖 이번 주 수록 기사 목차 (카드를 누르면 해당 페이지로 이동합니다)</span>
+      <div class="section-header" style="margin-top: 0.85rem; margin-bottom: 0.65rem;">
+        <h2 id="toc-heading" class="section-title" style="font-size: 1.25rem;">
+          <span class="lang-en-inline">📖 Table of Contents (Tap Any Story)</span>
+          <span class="lang-ko-inline">📖 이번 주 목차 (카드를 누르면 바로 이동)</span>
         </h2>
       </div>
 
@@ -209,17 +196,17 @@ const deckPages = [
         <button type="button" class="toc-card toc-card-featured" data-goto-slide="1">
           <div class="toc-card-thumb-wrap">
             <img src={issue.munSpotlight.imageUrl} alt={issue.munSpotlight.topic} class="toc-card-thumb" loading="lazy" />
-            <span class="toc-page-pill">PAGE 02 · 🇺🇳 MUN SPOTLIGHT</span>
+            <span class="toc-page-pill">P.02 · 🇺🇳 MUN</span>
           </div>
           <div class="toc-card-body">
             <div class="toc-card-cat">
-              📅 {issue.munSpotlight.sources[0]?.publishedDate} · {issue.munSpotlight.committee} ({issue.munSpotlight.region})
+              📅 {issue.munSpotlight.sources[0]?.publishedDate} · {issue.munSpotlight.committee}
             </div>
             <h3 class="toc-card-title lang-en-block">{issue.munSpotlight.topic}</h3>
             <h3 class="toc-card-title lang-ko-block">{issue.munSpotlight.topicKo}</h3>
             <span class="toc-card-cta">
-              <span class="lang-en-inline">Open Page 02 →</span>
-              <span class="lang-ko-inline">2페이지 열기 →</span>
+              <span class="lang-en-inline">Page 02 →</span>
+              <span class="lang-ko-inline">2페이지 →</span>
             </span>
           </div>
         </button>
@@ -234,17 +221,17 @@ const deckPages = [
                 class={`toc-card-thumb ${art.imageUrl.endsWith('.png') ? 'toc-thumb-contain' : ''}`}
                 loading="lazy"
               />
-              <span class="toc-page-pill">PAGE 0{idx + 3} · STORY #{idx + 1}</span>
+              <span class="toc-page-pill">P.0{idx + 3}</span>
             </div>
             <div class="toc-card-body">
               <div class="toc-card-cat">
-                📅 {art.source.publishedDate} · {art.source.publisher} · ⏱️ {art.readingTimeMinutes}m
+                📅 {art.source.publishedDate} · {art.category}
               </div>
               <h3 class="toc-card-title lang-en-block">{art.headline}</h3>
               <h3 class="toc-card-title lang-ko-block">{art.headlineKo}</h3>
               <span class="toc-card-cta">
-                <span class="lang-en-inline">Read Story #{idx + 1} (Page 0{idx + 3}) →</span>
-                <span class="lang-ko-inline">기사 #{idx + 1} 읽기 (0{idx + 3}페이지) →</span>
+                <span class="lang-en-inline">Page 0{idx + 3} →</span>
+                <span class="lang-ko-inline">0{idx + 3}페이지 →</span>
               </span>
             </div>
           </button>
@@ -254,15 +241,15 @@ const deckPages = [
         <button type="button" class="toc-card" data-goto-slide="7">
           <div class="toc-card-thumb-wrap toc-thumb-gradient-econ">
             <img src={issue.bookOfTheWeek.coverImageUrl} alt={issue.bookOfTheWeek.title} class="toc-card-thumb toc-thumb-contain" loading="lazy" />
-            <span class="toc-page-pill">PAGE 08 · 💡 CONCEPT &amp; 📚 BOOK</span>
+            <span class="toc-page-pill">P.08</span>
           </div>
           <div class="toc-card-body">
-            <div class="toc-card-cat">{issue.conceptOfTheWeek.category} + Weekly Book Pick</div>
+            <div class="toc-card-cat">💡 {issue.conceptOfTheWeek.category} + 📚 Book Pick</div>
             <h3 class="toc-card-title lang-en-block">{issue.conceptOfTheWeek.title} &amp; “{issue.bookOfTheWeek.title}”</h3>
             <h3 class="toc-card-title lang-ko-block">{issue.conceptOfTheWeek.titleKo} &amp; 『{issue.bookOfTheWeek.titleKo}』</h3>
             <span class="toc-card-cta">
-              <span class="lang-en-inline">Open Page 08 →</span>
-              <span class="lang-ko-inline">8페이지 열기 →</span>
+              <span class="lang-en-inline">Page 08 →</span>
+              <span class="lang-ko-inline">8페이지 →</span>
             </span>
           </div>
         </button>
@@ -270,25 +257,18 @@ const deckPages = [
         <!-- TOC Card: Page 9 (Glossary, Quiz & Worksheet) -->
         <button type="button" class="toc-card" data-goto-slide="8">
           <div class="toc-card-thumb-wrap toc-thumb-gradient-quiz">
-            <div class="toc-quiz-graphic">🧠 17 Key Terms + ⚡ 3-Min Quiz</div>
-            <span class="toc-page-pill">PAGE 09 · 🧠 VOCAB &amp; ⚡ QUIZ</span>
+            <div class="toc-quiz-graphic">🧠 17 Terms · ⚡ Quiz</div>
+            <span class="toc-page-pill">P.09</span>
           </div>
           <div class="toc-card-body">
-            <div class="toc-card-cat">Interactive Flashcards · 3-Question Quiz · Study Worksheet</div>
+            <div class="toc-card-cat">Flashcards · 3-Min Quiz · Worksheet</div>
             <h3 class="toc-card-title lang-en-block">Weekly Vocabulary Bank &amp; Self-Check Quiz</h3>
             <h3 class="toc-card-title lang-ko-block">주간 핵심 어휘 사전 &amp; 3분 시사 퀴즈</h3>
             <span class="toc-card-cta">
-              <span class="lang-en-inline">Open Page 09 →</span>
-              <span class="lang-ko-inline">9페이지 열기 →</span>
+              <span class="lang-en-inline">Page 09 →</span>
+              <span class="lang-ko-inline">9페이지 →</span>
             </span>
           </div>
-        </button>
-      </div>
-
-      <div style="text-align: center; margin-top: 1.25rem;">
-        <button type="button" class="btn-start-reading" data-goto-slide="1">
-          <span class="lang-en-inline">Start Reading Issue #{issue.issueNumber} — Flip to Page 02 (🇺🇳 MUN Spotlight) →</span>
-          <span class="lang-ko-inline">제{issue.issueNumber}호 읽기 시작 — 02페이지(🇺🇳 모의유엔 집중 분석)로 넘기기 →</span>
         </button>
       </div>
     </section>
@@ -328,14 +308,10 @@ const deckPages = [
 
     <section id="weekly-quiz-section" class="quiz-section-card no-print" aria-labelledby="quiz-heading">
       <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; border-bottom: 2px solid var(--border-strong); padding-bottom: 0.5rem; margin-bottom: 0.5rem;">
-        <h2 id="quiz-heading" style="margin: 0; font-size: 1.4rem;">
+        <h2 id="quiz-heading" style="margin: 0; font-size: 1.3rem;">
           <span class="lang-en-inline">⚡ 3-Minute Weekly Current Affairs &amp; Economics Quiz</span>
           <span class="lang-ko-inline">⚡ 3분 주간 시사·경제 확인 퀴즈</span>
         </h2>
-        <span style="font-size: 0.82rem; font-weight: 600; color: var(--accent-civic);">
-          <span class="lang-en-inline">Click an answer to check your understanding!</span>
-          <span class="lang-ko-inline">정답을 클릭해 이번 주 학습 내용을 점검해 보세요!</span>
-        </span>
       </div>
 
       <div class="quiz-q-block" data-quiz-q="1">
@@ -412,36 +388,24 @@ const deckPages = [
   </div>
 </div>
 
-<!-- Bottom Page Turner Bar -->
+<!-- Bottom Page Turner Bar (Clean Single-Line: Prev | 1 / 9 | Next) -->
 <div class="deck-turner-bar deck-turner-bottom no-print">
   <button type="button" class="btn-page-turn prev" id="btn-prev-bottom" disabled>
     ← <span class="lang-en-inline">Prev</span><span class="lang-ko-inline">이전</span>
   </button>
 
-  <div class="deck-dots" id="deck-dots-container" aria-label="Page Indicators">
-    {deckPages.map((p, idx) => (
-      <button
-        type="button"
-        class={`deck-dot ${idx === 0 ? 'active' : ''}`}
-        data-goto-slide={p.index}
-        title={`Page ${p.num}: ${p.shortEn}`}
-        aria-label={`Go to Page ${p.num}`}
-      />
-    ))}
-  </div>
+  <span class="deck-page-fraction" id="bottom-page-badge">1 / {deckPages.length}</span>
 
   <button type="button" class="btn-page-turn next" id="btn-next-bottom">
-    <span id="next-btn-bottom-en" class="lang-en-inline">Next: MUN →</span>
-    <span id="next-btn-bottom-ko" class="lang-ko-inline">다음: 모의유엔 →</span>
+    <span class="lang-en-inline">Next</span><span class="lang-ko-inline">다음</span> →
   </button>
 </div>
 
-<script is:inline define:vars={{ deckPagesMeta: deckPages, issueId: issue.id }}>
+<script is:inline define:vars={{ totalSlidesCount: deckPages.length, issueId: issue.id }}>
   (function () {
     // 1. Horizontal Magazine Deck Page Controller
     const slides = Array.from(document.querySelectorAll('.deck-slide'));
     const tabButtons = Array.from(document.querySelectorAll('.deck-tab-pill'));
-    const dotButtons = Array.from(document.querySelectorAll('.deck-dot'));
     const gotoTriggers = Array.from(document.querySelectorAll('[data-goto-slide]'));
 
     const prevTop = document.getElementById('btn-prev-top');
@@ -452,16 +416,11 @@ const deckPages = [
     const sideNext = document.getElementById('btn-side-next');
 
     const pageBadge = document.getElementById('current-page-badge');
-    const pageTitleEn = document.getElementById('current-page-title-en');
-    const pageTitleKo = document.getElementById('current-page-title-ko');
-    const nextLabelEn = document.getElementById('next-btn-label-en');
-    const nextLabelKo = document.getElementById('next-btn-label-ko');
-    const nextBottomEn = document.getElementById('next-btn-bottom-en');
-    const nextBottomKo = document.getElementById('next-btn-bottom-ko');
+    const bottomPageBadge = document.getElementById('bottom-page-badge');
     const viewModeBtn = document.getElementById('btn-toggle-view-mode');
     const topAnchor = document.getElementById('deck-top-anchor');
 
-    const totalSlides = slides.length;
+    const totalSlides = slides.length || totalSlidesCount;
     let currentSlide = 0;
     let isScrollAllMode = false;
 
@@ -494,14 +453,9 @@ const deckPages = [
         }
       });
 
-      dotButtons.forEach(function (dot, idx) {
-        dot.classList.toggle('active', idx === currentSlide);
-      });
-
-      const meta = deckPagesMeta[currentSlide] || deckPagesMeta[0];
-      if (pageBadge) pageBadge.textContent = (currentSlide + 1) + ' / ' + totalSlides;
-      if (pageTitleEn) pageTitleEn.textContent = meta.fullEn;
-      if (pageTitleKo) pageTitleKo.textContent = meta.fullKo;
+      const fractionText = (currentSlide + 1) + ' / ' + totalSlides;
+      if (pageBadge) pageBadge.textContent = fractionText;
+      if (bottomPageBadge) bottomPageBadge.textContent = fractionText;
 
       const isFirst = currentSlide === 0;
       const isLast = currentSlide === totalSlides - 1;
@@ -513,22 +467,9 @@ const deckPages = [
         if (btn) btn.disabled = isLast;
       });
 
-      if (!isLast) {
-        const nextMeta = deckPagesMeta[currentSlide + 1];
-        if (nextLabelEn) nextLabelEn.textContent = 'Next: ' + nextMeta.shortEn + ' →';
-        if (nextLabelKo) nextLabelKo.textContent = '다음: ' + nextMeta.shortKo + ' →';
-        if (nextBottomEn) nextBottomEn.textContent = 'Next: ' + nextMeta.shortEn + ' →';
-        if (nextBottomKo) nextBottomKo.textContent = '다음: ' + nextMeta.shortKo + ' →';
-      } else {
-        if (nextLabelEn) nextLabelEn.textContent = '✓ End';
-        if (nextLabelKo) nextLabelKo.textContent = '✓ 끝';
-        if (nextBottomEn) nextBottomEn.textContent = '✓ End';
-        if (nextBottomKo) nextBottomKo.textContent = '✓ 끝';
-      }
-
       if (shouldScroll && topAnchor) {
         const rect = topAnchor.getBoundingClientRect();
-        if (rect.top < 0 || rect.top > 140) {
+        if (rect.top < 0 || rect.top > 120) {
           topAnchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       }

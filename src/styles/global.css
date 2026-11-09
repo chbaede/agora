@@ -524,11 +524,13 @@ body[data-lang="bilingual"] .lang-ko-block {
 
 .badge {
   font-family: var(--font-sans);
-  font-size: 0.76rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  padding: 0.22rem 0.6rem;
+  padding: 0.2rem 0.55rem;
   border-radius: 4px;
   display: inline-block;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .badge-civic {
@@ -1419,12 +1421,35 @@ body.hide-print-worksheet .print-worksheet {
 }
 
 .deck-page-indicator {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  justify-content: center;
+  gap: 0.38rem;
   flex-wrap: nowrap;
   font-size: 0.8rem;
   min-width: 0;
+  flex-shrink: 0;
+}
+
+.deck-page-fraction {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 800;
+  background: var(--accent-civic-soft);
+  color: var(--accent-civic);
+  padding: 0.24rem 0.62rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  line-height: 1.2;
+}
+
+.deck-turner-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
 }
 
 .btn-page-turn {
@@ -1602,12 +1627,63 @@ body.hide-print-worksheet .print-worksheet {
 }
 
 @media (max-width: 720px) {
-  .toc-card-featured {
-    flex-direction: column;
+  .hero-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin: 0.6rem 0 0.85rem;
   }
+  .stat-card {
+    padding: 0.6rem 0.7rem;
+  }
+  .stat-number {
+    font-size: 1.22rem;
+  }
+  .stat-label {
+    font-size: 0.73rem;
+  }
+  .editorial-img {
+    max-height: 210px;
+  }
+  .toc-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+  }
+  .toc-card,
+  .toc-card-featured {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .toc-card .toc-card-thumb-wrap,
   .toc-card-featured .toc-card-thumb-wrap {
-    width: 100%;
-    height: 175px;
+    width: 96px;
+    min-width: 96px;
+    height: auto;
+    min-height: 82px;
+  }
+  .toc-page-pill {
+    top: 0.35rem;
+    left: 0.35rem;
+    font-size: 0.64rem;
+    padding: 0.16rem 0.4rem;
+  }
+  .toc-card-body {
+    padding: 0.55rem 0.75rem;
+  }
+  .toc-card-cat {
+    font-size: 0.69rem;
+    margin-bottom: 0.15rem;
+  }
+  .toc-card-title {
+    font-size: 0.92rem;
+    margin-bottom: 0.25rem;
+    line-height: 1.28;
+  }
+  .toc-card-cta {
+    font-size: 0.75rem;
+  }
+  .toc-quiz-graphic {
+    font-size: 0.74rem;
+    padding: 0.35rem;
   }
 }
 
