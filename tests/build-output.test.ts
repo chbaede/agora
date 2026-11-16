@@ -53,7 +53,9 @@ describe('Astro static build, subpath-safe CSS/links, magazine deck UX, and pure
     const issueHtml = fs.readFileSync(path.join(distDir, 'issues/2026-W46/index.html'), 'utf-8');
     expect(issueHtml).toContain('<style>');
     expect(issueHtml).not.toContain('href="/_astro/');
-    expect(issueHtml).toContain('Print Weekly Packet');
+    expect(issueHtml).toContain('Print 1-Sheet (Duplex)');
+    expect(issueHtml).toContain('Print All Week');
+    expect(issueHtml).toContain('print-only-check-footer');
     expect(issueHtml).toContain('issue-quick-select');
     expect(issueHtml).toContain('Weekly Critical Thinking');
     expect(issueHtml).toContain('data-lang-switch="ko"');

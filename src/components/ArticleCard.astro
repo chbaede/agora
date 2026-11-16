@@ -28,14 +28,14 @@ function getCategoryBadgeClass(category: string): string {
   <div class="duplex-front-page">
     <div class="print-only-sheet-header">
       <div>
-        <strong>AGORA DAILY READING HANDOUT · {dayLabelEn.toUpperCase()}</strong> · STORY #{index + 1} ({article.category})
+        <strong>AGORA DAILY BRIEFING · {dayLabelEn.toUpperCase()}</strong> · {article.category.toUpperCase()}
       </div>
       <div>
-        📅 Article Date: {article.source.publishedDate} · 📰 {article.source.publisher}
+        ARTICLE DATE: {article.source.publishedDate} · SOURCE: {article.source.publisher.toUpperCase()}
       </div>
     </div>
 
-    <div class="article-meta-top">
+    <div class="article-meta-top no-print">
       <div style="display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
         <span class="badge badge-day">
           🗓️ <span class="lang-en-inline">{dayLabelEn}</span><span class="lang-ko-inline">{dayLabelKo}</span>
@@ -48,12 +48,12 @@ function getCategoryBadgeClass(category: string): string {
         </span>
         <span class="badge badge-neutral">📰 {article.source.publisher}</span>
       </div>
-      <div class="no-print" style="display: flex; align-items: center; gap: 0.4rem; flex-wrap: nowrap;">
+      <div style="display: flex; align-items: center; gap: 0.4rem; flex-wrap: nowrap;">
         <button
           type="button"
           class="btn-print-single"
           data-print-slide={slideIndex}
-          title="Print this story as a 1-sheet 2-sided (duplex) handout"
+          title="Print this story as a 1-sheet 2-sided (duplex) B&W handout"
         >
           🖨️ <span class="lang-en-inline">1-Sheet Print</span><span class="lang-ko-inline">1장(양면) 인쇄</span>
         </button>
@@ -82,14 +82,14 @@ function getCategoryBadgeClass(category: string): string {
             <span class="lang-en-block">📸 {article.imageCaption}</span>
             <span class="lang-ko-block">📸 {article.imageCaptionKo}</span>
           </div>
-          <span class="photo-credit-badge">Photo: {article.imageCredit}</span>
+          <span class="photo-credit-badge">Credit: {article.imageCredit}</span>
         </figcaption>
       </figure>
     )}
 
     <div class="article-body">
       {article.body.map((para, i) => (
-        <div>
+        <div class="article-para-group">
           <p class="lang-en-block" set:html={renderBodyWithHighlights(para, article.terms)} />
           {article.bodyKo?.[i] && <p class="lang-ko-block">{article.bodyKo[i]}</p>}
         </div>
@@ -98,8 +98,8 @@ function getCategoryBadgeClass(category: string): string {
 
     <div class="why-matters-box front-summary-box">
       <span class="box-label">
-        <span class="lang-en-inline">💡 EXECUTIVE SUMMARY &amp; WHY IT MATTERS</span>
-        <span class="lang-ko-inline">💡 핵심 요약 및 왜 중요할까요?</span>
+        <span class="lang-en-inline">■ EXECUTIVE SUMMARY &amp; WHY IT MATTERS</span>
+        <span class="lang-ko-inline">■ 핵심 요약 및 왜 중요할까요?</span>
       </span>
       <ul class="why-matters-list">
         {article.whyItMatters.map((point, i) => (
@@ -118,12 +118,12 @@ function getCategoryBadgeClass(category: string): string {
           {article.source.publisher} — {article.source.title}
         </a>
       </span>
-      <span>📅 Published: {article.source.publishedDate} · Level: {article.difficulty} ({article.readingTimeMinutes} min)</span>
+      <span>Published: {article.source.publishedDate} · Reading Time: {article.readingTimeMinutes} min ({article.difficulty})</span>
     </div>
 
     <div class="print-only-turn-hint">
-      ↪ <span class="lang-en-inline">Turn sheet over (Back Side) for Key Vocabulary, Critical Thinking &amp; Daily Summary Worksheet</span>
-      <span class="lang-ko-inline">뒷면(Back Side)에 핵심 영단어장, 심화 토론 질문 및 요약·영작 노트가 이어집니다</span>
+      [Page 1 of 2 — Front Side] ↪ <span class="lang-en-inline">Turn sheet over (Back Side) for Key Vocabulary, Discussion &amp; Writing Worksheet</span>
+      <span class="lang-ko-inline">뒷면(Page 2)에 핵심 영단어장, 심화 토론 질문 및 요약·영작 노트가 이어집니다</span>
     </div>
   </div>
 
@@ -133,84 +133,86 @@ function getCategoryBadgeClass(category: string): string {
   <div class="duplex-back-page">
     <div class="print-only-sheet-header">
       <div>
-        <strong>AGORA DAILY VOCABULARY &amp; REFLECTION WORKSHEET (BACK SIDE)</strong> · {dayLabelEn.toUpperCase()}
+        <strong>AGORA DAILY VOCABULARY &amp; WRITING WORKSHEET (BACK SIDE · PAGE 2 OF 2)</strong> · {dayLabelEn.toUpperCase()}
       </div>
       <div>
-        Student Name: ______________________ · Date: ____________
+        Name: ______________________ · Date: ____________
       </div>
     </div>
 
-    <div class="article-terms-strip" style="margin-top: 0.9rem;">
-      <strong>
-        <span class="lang-en-inline">📚 Key Vocabulary &amp; Concepts in This Story:</span>
-        <span class="lang-ko-inline">📚 오늘의 핵심 영단어 및 시사·경제·과학 용어:</span>
+    <div class="article-terms-strip">
+      <strong class="terms-strip-heading">
+        <span class="lang-en-inline">■ KEY VOCABULARY &amp; CONCEPTS IN THIS STORY</span>
+        <span class="lang-ko-inline">■ 오늘의 핵심 영단어 및 시사·경제·과학 용어</span>
       </strong>
       <div class="article-terms-list">
         {article.terms.map((t) => (
           <div class="article-term-item">
             <div>
-              <strong>□ {t.term}</strong> <em>({t.partOfSpeech})</em>:{' '}
-              <span class="lang-en-block">{t.definition}</span>
+              <strong>□ {t.term}</strong> <em>({t.partOfSpeech})</em> —{' '}
+              <span class="lang-en-inline">{t.definition}</span>
               <span class="lang-ko-block">{t.definitionKo}</span>
             </div>
             <div class="article-term-example">
-              <em>Context Example:</em> “{t.example}”
+              <em>Example:</em> “{t.example}”
             </div>
           </div>
         ))}
       </div>
     </div>
 
-    <div class="think-box" style="margin-top: 0.85rem;">
+    <div class="think-box" style="margin-top: 0.7rem;">
       <span class="box-label">
-        <span class="lang-en-inline">💬 CRITICAL THINKING &amp; DISCUSSION PROMPT</span>
-        <span class="lang-ko-inline">💬 오늘의 심화 사고력 &amp; 가족 토론 질문</span>
+        <span class="lang-en-inline">■ CRITICAL THINKING &amp; DISCUSSION PROMPT</span>
+        <span class="lang-ko-inline">■ 오늘의 심화 사고력 &amp; 가족 토론 질문</span>
       </span>
-      <p class="lang-en-block" style="margin: 0; font-size: 0.96rem; font-style: italic;">“{article.thinkAboutIt}”</p>
-      <p class="lang-ko-block" style="margin: 0; font-size: 0.94rem;">“{article.thinkAboutItKo}”</p>
+      <p class="lang-en-block" style="margin: 0; font-size: 0.95rem; font-style: italic;">“{article.thinkAboutIt}”</p>
+      <p class="lang-ko-block" style="margin: 0; font-size: 0.93rem;">“{article.thinkAboutItKo}”</p>
     </div>
 
-    <!-- Print-Only Daily Handwritten Reflection & Vocabulary Practice Box (Fills Back Side) -->
+    <!-- Print-Only Daily Handwritten Reflection & Vocabulary Practice Box (Fitted to Back Side) -->
     <div class="print-only-daily-notes">
       <div class="daily-notes-block">
         <strong>
-          <span class="lang-en-inline">✍️ 1. Today's 3-Sentence Summary (What happened, why did it happen, and what happens next?):</span>
-          <span class="lang-ko-inline">✍️ 1. 오늘 읽은 기사 3문장 핵심 요약 (무슨 일인지, 원인은 무엇인지, 앞으로 어떻게 될지 적어보세요):</span>
+          <span class="lang-en-inline">✎ 1. Today's 3-Sentence Summary (What happened, why did it happen, and why is it important?):</span>
+          <span class="lang-ko-inline">✎ 1. 오늘 읽은 기사 3문장 핵심 요약 (무슨 일인지, 원인은 무엇인지, 왜 중요한지 적어보세요):</span>
         </strong>
         <div class="worksheet-lines">
-          <div class="worksheet-line"></div>
-          <div class="worksheet-line"></div>
           <div class="worksheet-line"></div>
           <div class="worksheet-line"></div>
           <div class="worksheet-line"></div>
         </div>
       </div>
 
-      <div class="daily-notes-block" style="margin-top: 10pt;">
+      <div class="daily-notes-block" style="margin-top: 8pt;">
         <strong>
-          <span class="lang-en-inline">✍️ 2. Critical Thinking Response (Write your opinion on today's Discussion Prompt with 2 supporting reasons):</span>
-          <span class="lang-ko-inline">✍️ 2. 비판적 사고력 연습 (위 토론 질문에 대한 나의 생각과 두 가지 근거를 적어보세요):</span>
+          <span class="lang-en-inline">✎ 2. My Critical Thinking Opinion (Write your answer to the Discussion Prompt above with 2 reasons):</span>
+          <span class="lang-ko-inline">✎ 2. 비판적 사고력 연습 (위 토론 질문에 대한 나의 생각과 근거를 적어보세요):</span>
         </strong>
         <div class="worksheet-lines">
-          <div class="worksheet-line"></div>
-          <div class="worksheet-line"></div>
           <div class="worksheet-line"></div>
           <div class="worksheet-line"></div>
           <div class="worksheet-line"></div>
         </div>
       </div>
 
-      <div class="daily-notes-block" style="margin-top: 10pt;">
+      <div class="daily-notes-block" style="margin-top: 8pt;">
         <strong>
-          <span class="lang-en-inline">✍️ 3. Vocabulary in Action (Write your own English sentences using today's 3 Key Vocabulary words):</span>
-          <span class="lang-ko-inline">✍️ 3. 오늘의 영단어 실전 영작 (위 핵심 영단어 3개를 각각 사용해 나만의 영어 문장을 만들어 보세요):</span>
+          <span class="lang-en-inline">✎ 3. Vocabulary in Action (Write your own sentences using today's 3 Key Vocabulary words):</span>
+          <span class="lang-ko-inline">✎ 3. 오늘의 영단어 실전 영작 (위 핵심 영단어 3개를 사용해 나만의 영어 문장을 만들어 보세요):</span>
         </strong>
         <div class="worksheet-lines">
           <div class="worksheet-line"></div>
           <div class="worksheet-line"></div>
           <div class="worksheet-line"></div>
-          <div class="worksheet-line"></div>
         </div>
+      </div>
+
+      <div class="print-only-check-footer">
+        <span>[ &nbsp; ] Read Full Article</span>
+        <span>[ &nbsp; ] Checked 3 Key Vocabulary Words</span>
+        <span>[ &nbsp; ] Wrote Summary &amp; Opinion</span>
+        <span>Parent/Teacher Sign: ________________</span>
       </div>
     </div>
   </div>

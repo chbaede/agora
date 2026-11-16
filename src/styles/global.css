@@ -1848,7 +1848,8 @@ body.deck-scroll-all .toc-overview-section {
 
 .print-only-sheet-header,
 .print-only-turn-hint,
-.print-only-daily-notes {
+.print-only-daily-notes,
+.print-only-check-footer {
   display: none;
 }
 

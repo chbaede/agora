@@ -389,11 +389,10 @@ const deckPages = [
         <div class="print-only-daily-notes">
           <div class="daily-notes-block">
             <strong>
-              <span class="lang-en-inline">✍️ 1. Concept Application — {issue.conceptOfTheWeek.title}:</span>
-              <span class="lang-ko-inline">✍️ 1. 이번 주 핵심 개념({issue.conceptOfTheWeek.titleKo})을 내 말로 설명해 보기:</span>
+              <span class="lang-en-inline">✎ 1. Concept Application — {issue.conceptOfTheWeek.title}:</span>
+              <span class="lang-ko-inline">✎ 1. 이번 주 핵심 개념({issue.conceptOfTheWeek.titleKo})을 내 말로 설명해 보기:</span>
             </strong>
             <div class="worksheet-lines">
-              <div class="worksheet-line"></div>
               <div class="worksheet-line"></div>
               <div class="worksheet-line"></div>
               <div class="worksheet-line"></div>
@@ -401,18 +400,23 @@ const deckPages = [
             </div>
           </div>
 
-          <div class="daily-notes-block" style="margin-top: 10pt;">
+          <div class="daily-notes-block" style="margin-top: 9pt;">
             <strong>
-              <span class="lang-en-inline">✍️ 2. Book Discussion — “{issue.bookOfTheWeek.title}”: {issue.bookOfTheWeek.discussionPrompt}</span>
-              <span class="lang-ko-inline">✍️ 2. 추천 원서 독서 토론 질문: {issue.bookOfTheWeek.discussionPromptKo}</span>
+              <span class="lang-en-inline">✎ 2. Book Discussion — “{issue.bookOfTheWeek.title}”: {issue.bookOfTheWeek.discussionPrompt}</span>
+              <span class="lang-ko-inline">✎ 2. 추천 원서 독서 토론 질문: {issue.bookOfTheWeek.discussionPromptKo}</span>
             </strong>
             <div class="worksheet-lines">
               <div class="worksheet-line"></div>
               <div class="worksheet-line"></div>
               <div class="worksheet-line"></div>
               <div class="worksheet-line"></div>
-              <div class="worksheet-line"></div>
             </div>
+          </div>
+
+          <div class="print-only-check-footer">
+            <span>[ &nbsp; ] Read Concept of the Week</span>
+            <span>[ &nbsp; ] Explored Book Pick</span>
+            <span>Parent/Teacher Sign: ________________</span>
           </div>
         </div>
       </div>
@@ -628,6 +632,16 @@ const deckPages = [
     }
 
     window.__agoraPrintSlide = printSingleSlide;
+
+    // Also ensure pressing Cmd+P / Ctrl+P directly defaults to printing the current day's 1-sheet (2 pages)
+    window.addEventListener('beforeprint', function () {
+      if (document.body.getAttribute('data-print-mode') !== 'packet') {
+        if (currentSlide === 0) {
+          goToSlide(1, false);
+        }
+        document.body.setAttribute('data-print-mode', 'single');
+      }
+    });
 
     document.querySelectorAll('[data-print-slide]').forEach(function (btn) {
       btn.addEventListener('click', function (e) {
