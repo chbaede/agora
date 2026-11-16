@@ -3,161 +3,143 @@
   "issueNumber": 2,
   "publishDate": "2026-11-16",
   "coveragePeriod": "Nov 9 – Nov 15, 2026",
-  "themeTitle": "COP31 Draft Deals, Eurozone Inflation at 4.0%, and Euclid's 900-Million-Galaxy Map",
-  "themeTitleKo": "안탈리아 COP31 기후 초안 협상, 유로존 4.0% 물가 상승, 그리고 유클리드 우주망원경의 9억 개 은하 지도",
-  "editorsNote": "Welcome to Issue #2 of AGORA! This week we travel from the floor of the COP31 climate summit in Antalya—where 92,000 delegates are debating fossil fuel phaseouts and rapid methane cuts—to Capitol Hill's post-election transition, Frankfurt's inflation puzzle, and the European Space Agency's breathtaking 3D map of the Dark Universe.",
-  "editorsNoteKo": "AGORA 제2호에 오신 것을 환영합니다! 이번 주에는 9만 2천여 명이 모여 화석연료 단계적 감축과 메탄 저감을 논의 중인 튀르키예 안탈리아 COP31 기후총회 현장부터, 미국 중간선거 이후 의회 권력 이양기, 4.0%로 반등한 유로존 인플레이션, 그리고 유럽우주국(ESA) 유클리드 망원경이 공개한 9억 개 은하의 3차원 우주 지도까지 핵심 흐름을 입체적으로 살펴봅니다.",
-  "munSpotlight": {
-    "topic": "Drafting a Binding Fossil Fuel Phaseout Schedule and Emergency Methane Curbs at COP31",
-    "topicKo": "COP31 기후총회 화석연료 단계적 퇴출 일정 및 긴급 메탄 감축 합의안 도출",
-    "committee": "UNFCCC COP31 Plenary (Antalya, Türkiye)",
-    "region": "Global / Transatlantic & Indo-Pacific",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Main_entrance_of_the_UN_Biodiversity_Conference_COP17_at_Meridian_Expo_Center%2C_Yerevan.jpg/960px-Main_entrance_of_the_UN_Biodiversity_Conference_COP17_at_Meridian_Expo_Center%2C_Yerevan.jpg",
-    "imageCaption": "International delegates and observers gather at a United Nations COP summit plenary venue for high-level environmental negotiations.",
-    "imageCaptionKo": "유엔 당사국총회(COP) 회의장에 모여 고위급 환경·기후 협상을 진행하는 각국 대표단과 참관단.",
-    "imageCredit": "UN Conference Media / Wikimedia Commons (CC BY-SA 4.0)",
-    "background": [
-      "From November 9 to November 15, 2026, more than 92,000 registered delegates, scientists, and observers converged at the Antalya Expo Center in Türkiye for the first week of the COP31 United Nations Climate Change Conference. Chaired by Turkish Environment Minister Murat Kurum alongside Australian Climate Minister Chris Bowen as chief negotiator, the summit opened under urgent warnings from the UN Environment Programme (UNEP) that global temperatures are on track for a temporary **overshoot** above the Paris Agreement's 1.5°C limit.",
-      "As negotiations entered their decisive phase, presidency mediators circulated a first political draft calling for accelerated global action to **phase out** unabated coal, oil, and gas while immediately slashing **methane** leaks from energy pipelines and agriculture. While the European Union and climate-vulnerable island nations demanded strict 2030 and 2035 milestones, major fossil-fuel exporting nations argued that rapid mandates without guaranteed grid financing could destabilize energy security."
-    ],
-    "backgroundKo": [
-      "2026년 11월 9일부터 15일까지 튀르키예 안탈리아 엑스포 센터에서 열린 제31차 유엔기후변화협약 당사국총회(COP31) 첫 주 회의에 역대 최대 규모인 9만 2천여 명의 각국 대표단과 과학자, 시민사회 참관단이 집결했습니다. 무라트 쿠룸 튀르키예 환경부 장관이 의장을 맡고 크리스 보언 호주 기후변화·에너지부 장관이 협상 의장을 맡은 이번 총회는, 지구 평균기온이 파리기후협정의 1.5°C 목표를 일시적으로 초과(오버슈트)할 가능성이 높다는 유엔환경계획(UNEP)의 엄중한 경고 속에서 막을 올렸습니다.",
-      "협상이 중반부로 접어들면서 의장단은 온실가스 저감 장치가 없는 석탄·석유·가스를 단계적으로 퇴출(페이즈아웃)하고 에너지 파이프라인과 농축산업의 메탄 유출을 즉각 줄이도록 촉구하는 첫 정치적 합의 초안을 배포했습니다. 유럽연합(EU)과 기후 취약 도서국들은 2030년 및 2035년 구속력 있는 감축 목표 명시를 요구한 반면, 주요 산유국과 개발도상국들은 전력망 전환 자금 보장 없는 급격한 퇴출 의무화가 에너지 안보를 위협할 수 있다고 맞섰습니다."
-    ],
-    "blocPositions": [
-      {
-        "bloc": "European Union & UK",
-        "stance": "Pushes for explicit 2030 emission-reduction targets, strict methane leak penalties, and clear timelines to phase out unabated fossil fuels.",
-        "stanceKo": "2030년 명시적 배출 감축 목표 설정, 메탄 유출에 대한 강력한 규제, 저감 장치 없는 화석연료의 명확한 퇴출 시간표를 요구합니다."
-      },
-      {
-        "bloc": "Australia & Türkiye (Co-Presidency)",
-        "stance": "Seeks a balanced bridge compromise pairing fossil fuel transition language with verifiable renewable-energy investment pledges.",
-        "stanceKo": "화석연료 전환 문구와 검증 가능한 재생에너지 투자 공약을 결합한 절충안을 통해 약 200개국 합의를 이끌어내고자 합니다."
-      },
-      {
-        "bloc": "Fossil-Fuel Exporters & Emerging Economies",
-        "stance": "Insists on national flexibility, carbon capture allowances, and full delivery of promised climate finance before accepting binding phaseout dates.",
-        "stanceKo": "구속력 있는 퇴출 시한 수용에 앞서 각국 여건에 맞는 유연성, 탄소 포집 기술 인정, 선진국의 기후 금융 약속 이행이 선행되어야 한다고 주장합니다."
-      }
-    ],
-    "debateMotion": "This House would require all signatory nations to enforce mandatory methane-leak penalties and a dated fossil fuel phaseout schedule by 2030.",
-    "debateMotionKo": "본 의회는 모든 협약 당사국이 2030년까지 의무적인 메탄 유출 부과금과 시한이 명시된 화석연료 단계적 퇴출 일정을 법제화할 것을 요구한다.",
-    "proArguments": [
-      "Slashing methane emissions is the fastest scientific lever available, capable of shaving 0.3°C to 0.5°C off near-term global warming.",
-      "Without concrete phaseout dates and enforcement rules, voluntary pledges repeatedly fail to prevent a dangerous 1.5°C temperature overshoot."
-    ],
-    "proArgumentsKo": [
-      "메탄 배출 감축은 단기간 내 지구 온난화를 0.3°C~0.5°C 낮출 수 있는 가장 빠르고 효과적인 과학적 수단입니다.",
-      "구체적인 퇴출 시한과 강제 이행 규정이 없으면 자발적 선언에 그쳐 위험한 1.5°C 기온 초과(오버슈트)를 막을 수 없습니다."
-    ],
-    "conArguments": [
-      "Uniform global phaseout dates ignore the reality that many developing grids still rely on natural gas to prevent blackouts and energy poverty.",
-      "Imposing financial penalties without first transferring affordable battery and grid technology unfairly punishes industrializing nations."
-    ],
-    "conArgumentsKo": [
-      "획일적인 글로벌 퇴출 시한은 정전과 에너지 빈곤을 막기 위해 여전히 천연가스에 의존해야 하는 개발도상국의 전력망 현실을 외면합니다.",
-      "저렴한 배터리 및 전력망 기술 이전 없이 재정적 페널티부터 부과하는 것은 산업화 과정에 있는 국가들에 불공정한 부담을 지웁니다."
-    ],
-    "speechStarter": "Honorable Chair and fellow delegates, if we want to pull our planet back from a 1.5-degree overshoot, cutting methane and setting clear transition milestones cannot wait for another decade of vague promises.",
-    "speechStarterKo": "존경하는 의장님 그리고 각국 대표단 여러분, 우리가 지구를 1.5도 기온 초과 위기에서 되돌리고자 한다면 메탄 감축과 명확한 에너지 전환 이정표 수립을 또다시 10년의 모호한 약속으로 미룰 수 없습니다.",
-    "terms": [
-      {
-        "term": "overshoot",
-        "partOfSpeech": "noun / verb",
-        "definition": "In climate science, when global temperatures temporarily rise past an agreed limit (such as 1.5°C) before potentially being brought back down.",
-        "definitionKo": "기후과학에서 지구 기온이 합의된 한계선(예: 1.5°C)을 일시적으로 넘어서는 현상(오버슈트).",
-        "example": "The UNEP report warned that even a temporary temperature overshoot could damage coral reefs and glaciers."
-      },
-      {
-        "term": "phase out",
-        "partOfSpeech": "phrasal verb",
-        "definition": "To gradually stop using or producing something over a planned period of time.",
-        "definitionKo": "일정한 계획 기간에 걸쳐 어떤 것의 사용이나 생산을 단계적으로 중단·퇴출하다.",
-        "example": "Several European nations pledged to phase out coal-fired power plants before 2030."
-      },
-      {
-        "term": "methane",
-        "partOfSpeech": "noun",
-        "definition": "A potent, short-lived greenhouse gas released during fossil fuel extraction, waste decay, and livestock farming that traps over 80 times more heat than CO2 over 20 years.",
-        "definitionKo": "화석연료 채굴, 폐기물 부패, 축산업 등에서 발생하는 강력한 단기 체류 온실가스(20년 기준 이산화탄소보다 80배 이상 많은 열을 가둠).",
-        "example": "Plugging pipeline leaks is one of the cheapest ways to cut global methane emissions immediately."
-      }
-    ],
-    "sources": [
-      {
-        "publisher": "UNFCCC",
-        "title": "COP31 Antalya Climate Change Conference Official Overview & Negotiation Updates",
+  "themeTitle": "Antalya's 92,000-Person Climate Summit, Washington's Transition, 4.0% Eurozone Inflation & Euclid's 900M Galaxies",
+  "themeTitleKo": "안탈리아 9만 명 기후총회 협상, 워싱턴 의회 권력 이양, 유로존 4.0% 인플레이션, 그리고 유클리드 망원경의 9억 개 은하 지도",
+  "editorsNote": "Welcome to Issue #2 of AGORA! Designed as a 7-day daily reading journey (one full-page briefing per day from Monday to Sunday), this week's edition takes you inside the COP31 global summit in Antalya, Capitol Hill's post-election transition, Brussels' debate over defense and technology budgets, Frankfurt's 4.0% inflation puzzle, and the European Space Agency's 3D map of 900 million galaxies.",
+  "editorsNoteKo": "AGORA 제2호에 오신 것을 환영합니다! 월요일부터 일요일까지 매일 하루 한 편씩(앞면: 1페이지 꽉 찬 심층 기사 및 핵심 요약 / 뒷면: 영단어·토론·필기 노트) 읽을 수 있도록 구성된 이번 주 호에서는 튀르키예 안탈리아 기후총회부터 워싱턴 의회 권력 이양, 브뤼셀의 국방·첨단기술 예산 논쟁, 유로존 4.0% 물가 상승, 그리고 유클리드 우주망원경이 공개한 9억 개 은하의 3차원 우주 지도까지 깊이 있게 살펴봅니다.",
+  "articles": [
+    {
+      "id": "2026-W46-global-cop31-antalya",
+      "category": "Global Affairs & Diplomacy",
+      "region": "Global",
+      "headline": "92,000 Delegates Gather in Antalya as COP31 Debates Fossil Fuel Phaseouts and Emergency Climate Action",
+      "headlineKo": "전 세계 9만 2천 명 모인 안탈리아 COP31 기후총회, 화석연료 단계적 퇴출 및 긴급 기후 행동 초안 격론",
+      "subheadline": "Co-led by Türkiye and Australia, the massive United Nations summit confronts warnings of a 1.5°C temperature overshoot while negotiating binding clean-energy targets.",
+      "subheadlineKo": "튀르키예와 호주가 공동 주도하는 유엔 기후변화총회에서 1.5°C 기온 초과 경고 속에 화석연료 전환 시한과 기후 금융을 둘러싼 대타협이 시도되고 있습니다.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Main_entrance_of_the_UN_Biodiversity_Conference_COP17_at_Meridian_Expo_Center%2C_Yerevan.jpg/960px-Main_entrance_of_the_UN_Biodiversity_Conference_COP17_at_Meridian_Expo_Center%2C_Yerevan.jpg",
+      "imageCaption": "International diplomats, scientists, and observers arrive at a United Nations COP summit venue for global environmental negotiations.",
+      "imageCaptionKo": "유엔 당사국총회(COP) 회의장에 모여 고위급 국제 환경·기후 협상을 진행하는 각국 외교관과 과학자들.",
+      "imageCredit": "UN Conference Media / Wikimedia Commons (CC BY-SA 4.0)",
+      "readingTimeMinutes": 5,
+      "difficulty": "Intermediate",
+      "body": [
+        "From November 9 to November 15, 2026, more than 92,000 registered diplomats, climate scientists, business leaders, and youth observers converged at the Antalya Expo Center on Türkiye's Mediterranean coast for the opening week of the COP31 United Nations Climate Change Conference. The massive gathering—one of the largest diplomatic summits in history—features a unique leadership structure: Turkish Environment Minister Murat Kurum serves as the COP31 President, while Australian Climate Change and Energy Minister Chris Bowen presides over the formal negotiations among nearly 200 nations.",
+        "The summit opened under the shadow of a sobering scientific warning from the UN Environment Programme (UNEP). In its latest Emissions Gap Report, UNEP concluded that current national climate pledges are moving too slowly to prevent global average temperatures from temporarily rising past 1.5°C above pre-industrial levels. Scientists call this scenario a temperature **overshoot**, warning that even a temporary rise above 1.5°C will intensify extreme heatwaves, coral reef bleaching, and coastal flooding before clean technologies can pull temperatures back down later in the century.",
+        "To prevent a prolonged overshoot, mediators released a first political draft text calling on all nations to accelerate the transition away from unabated coal, oil, and natural gas. The European Union, the United Kingdom, and Pacific island nations are pushing for an explicit schedule to **phase out** fossil fuel subsidies and double global energy efficiency by 2030. They argue that clear deadlines give engineering firms, carmakers, and electric utilities the certainty they need to invest trillions of dollars in solar, wind, and grid battery storage.",
+        "However, major oil- and gas-producing nations and several rapidly industrializing countries have pushed back against uniform deadlines. Their negotiators argue that developing nations cannot shut down gas and coal power plants without first receiving the affordable loans and **multilateral** technology transfers promised by wealthier economies. How Türkiye and Australia bridge the gap between ambitious European climate targets and the economic concerns of developing nations will determine whether COP31 ends with a historic treaty or a watered-down compromise."
+      ],
+      "bodyKo": [
+        "2026년 11월 9일부터 15일까지 튀르키예 지중해 연안 도시 안탈리아의 엑스포 센터에 전 세계 약 200개국에서 온 9만 2천여 명의 외교관, 기후 과학자, 기업인, 청년 참관단이 집결해 제31차 유엔기후변화협약 당사국총회(COP31) 첫 주 일정을 진행했습니다. 역대 최대 규모 중 하나로 기록된 이번 총회는 무라트 쿠룸 튀르키예 환경부 장관이 총회 의장을 맡고, 공동 유치 경쟁국이었던 호주의 크리스 보언 기후변화·에너지부 장관이 실질적인 협상 의장을 맡는 독특한 공동 리더십 체제로 운영되고 있습니다.",
+        "이번 회의는 유엔환경계획(UNEP)이 발표한 ‘배출량 격차 보고서’의 엄중한 과학적 경고 속에서 막을 올렸습니다. 보고서는 각국이 현재까지 제출한 온실가스 감축 목표만으로는 지구 평균기온이 산업화 이전 대비 1.5°C 한계선을 일시적으로 넘어서는 ‘기온 초과(overshoot·오버슈트)’를 피하기 어렵다고 진단했습니다. 과학자들은 기온이 잠시라도 1.5°C를 넘어서면 금세기 후반 청정 기술로 온도를 다시 낮추더라도 극심한 폭염과 산호초 백화, 해수면 상승 피해가 크게 늘어난다고 경고합니다.",
+        "이러한 장기적 기온 초과를 막기 위해 의장단은 온실가스 저감 장치가 없는 석탄·석유·천연가스로부터의 전환을 가속화하라는 첫 정치적 합의 초안을 제시했습니다. 유럽연합(EU)과 영국, 태평양 도서국들은 화석연료 보조금을 단계적으로 퇴출(phase out)하고 2030년까지 에너지 효율을 두 배로 높이는 구체적 시한을 합의문에 못 박자고 요구하고 있습니다. 명확한 퇴출 일정이 있어야만 전 세계 기업과 전력 회사들이 태양광·풍력·배터리 저장망에 수조 달러를 안심하고 투자할 수 있기 때문입니다.",
+        "반면 주요 산유국과 빠르게 산업화 중인 신흥국들은 획일적인 퇴출 시한에 강하게 맞서고 있습니다. 이들 국가는 선진국들이 약속했던 다자간(multilateral) 기후 금융 지원과 저렴한 전력망 기술 이전이 먼저 이루어지지 않은 상태에서 발전소를 멈추면 심각한 정전과 경제 위기가 닥칠 수 있다고 주장합니다. 튀르키예와 호주 의장단이 유럽의 야심 찬 감축 목표와 개발도상국의 경제적 현실 사이에서 어떤 절충점을 찾아낼지가 이번 총회의 성패를 가를 전망입니다."
+      ],
+      "whyItMatters": [
+        "Explains why 92,000 global representatives gathered in Antalya, Türkiye, under joint Turkish and Australian diplomatic leadership.",
+        "Clarifies the scientific concept of a 1.5°C 'temperature overshoot' and why every tenth of a degree of warming matters.",
+        "Highlights the core global tension between setting strict fossil-fuel phaseout dates and funding clean electricity grids in developing nations."
+      ],
+      "whyItMattersKo": [
+        "튀르키예와 호주의 공동 리더십 아래 안탈리아에 9만 2천여 명이 모인 COP31 총회의 핵심 쟁점을 정리해 줍니다.",
+        "파리협정의 1.5°C 목표를 일시적으로 넘어서는 ‘기온 초과(overshoot)’의 과학적 의미와 위험성을 설명합니다.",
+        "화석연료의 명확한 퇴출 시한 설정을 요구하는 선진국·도서국과 전력망 전환 자금 지원을 요구하는 신흥국 간의 입장을 비교할 수 있습니다."
+      ],
+      "thinkAboutIt": "Should every country be required to phase out coal and oil on the exact same timeline, or should wealthier countries with older industries move faster than developing nations?",
+      "thinkAboutItKo": "모든 나라가 똑같은 시한에 맞춰 석탄과 석유 사용을 중단해야 할까요, 아니면 먼저 산업화를 이룬 부유한 국가들이 개발도상국보다 더 빠른 속도로 전환 책임을 져야 할까요?",
+      "terms": [
+        {
+          "term": "overshoot",
+          "partOfSpeech": "noun / verb",
+          "definition": "In climate science, when global temperatures temporarily rise past an agreed threshold (such as 1.5°C) before potentially being brought back down.",
+          "definitionKo": "기후과학에서 지구 평균기온이 합의된 한계선(예: 1.5°C)을 일시적으로 넘어서는 현상(오버슈트).",
+          "example": "Scientists warned that even a short temperature overshoot above 1.5°C could permanently melt mountain glaciers."
+        },
+        {
+          "term": "phase out",
+          "partOfSpeech": "phrasal verb",
+          "definition": "To gradually stop using, producing, or subsidizing something over a planned period of time.",
+          "definitionKo": "일정한 계획 기간에 걸쳐 어떤 것의 사용이나 생산, 보조금을 단계적으로 중단·퇴출하다.",
+          "example": "European negotiators proposed a binding timetable to phase out unabated coal power plants."
+        },
+        {
+          "term": "multilateral",
+          "partOfSpeech": "adjective",
+          "definition": "Involving three or more countries or international organizations working together on a shared agreement or treaty.",
+          "definitionKo": "세 개 이상의 국가나 국제기구가 공동의 협약이나 문제 해결을 위해 함께 참여하고 협력하는(다자간의).",
+          "example": "Solving global climate change requires multilateral cooperation rather than isolated national policies."
+        }
+      ],
+      "source": {
+        "publisher": "UNFCCC / The Guardian",
+        "title": "COP31 Antalya Climate Summit: Negotiators debate fossil fuel transition draft",
         "url": "https://unfccc.int/",
         "publishedDate": "2026-11-15"
-      },
-      {
-        "publisher": "The Guardian",
-        "title": "COP31 negotiators debate fossil fuel transition draft and rapid methane action in Antalya",
-        "url": "https://www.theguardian.com/environment/climate-crisis",
-        "publishedDate": "2026-11-15"
       }
-    ]
-  },
-  "articles": [
+    },
     {
       "id": "2026-W46-us-congress-transition",
       "category": "US Current Affairs",
       "region": "US",
       "headline": "Congressional Transition Begins in Washington After Historic 2026 Midterm Flips",
       "headlineKo": "미국 중간선거 이후 워싱턴 의회 권력 이양 본격화… ‘레임덕 회기’와 지도부 재편",
-      "subheadline": "As newly elected lawmakers arrive on Capitol Hill for orientation, party caucuses debate leadership roles and year-end budget priorities before January's handoff.",
-      "subheadlineKo": "새로 선출된 의원들의 오리엔테이션이 시작된 가운데, 내년 1월 개원을 앞두고 여야 지도부 경선과 연말 예산안 협상이 치열하게 전개되고 있습니다.",
+      "subheadline": "As newly elected lawmakers arrive on Capitol Hill for freshman orientation, party caucuses debate leadership roles and year-end budget deadlines before January's handoff.",
+      "subheadlineKo": "새로 선출된 의원들의 오리엔테이션이 시작된 가운데, 내년 1월 개원을 앞두고 원내 지도부 선출과 연말 예산안 협상이 치열하게 전개되고 있습니다.",
       "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/US_Capitol_west_side.JPG/960px-US_Capitol_west_side.JPG",
       "imageCaption": "The west front of the United States Capitol in Washington, D.C., where incoming members of the 120th Congress gathered for orientation.",
       "imageCaptionKo": "제120대 연방 의회 당선인 오리엔테이션과 연말 회기가 열리고 있는 워싱턴 D.C. 미국 연방 의사당.",
       "imageCredit": "Wikimedia Commons (CC BY-SA 3.0)",
-      "readingTimeMinutes": 3,
+      "readingTimeMinutes": 5,
       "difficulty": "Intermediate",
       "body": [
-        "During the week of November 9–15, 2026, Washington shifted from campaign rallies to the practical mechanics of governing after a sweeping midterm election. With final ballot certifications confirming new majorities for the upcoming 120th Congress, dozens of newly elected representatives and senators arrived on Capitol Hill for freshman orientation, office lotteries, and closed-door **caucus** meetings to elect their party leaders.",
-        "Before the new Congress is sworn in on January 3, 2027, current lawmakers must navigate a high-stakes **lame-duck session**. Over the next several weeks, outgoing and returning members must agree on federal funding bills to keep government agencies open, while incoming committee chairs are already preparing their 2027 agenda for **congressional oversight** of executive branch trade, technology, and regulatory policies."
+        "During the week of November 9–15, 2026, Washington shifted from the noise of campaign rallies to the practical mechanics of governing after a sweeping midterm election. With state election boards certifying final ballot counts across key battlegrounds, Democrats secured projected control of both the House of Representatives and the Senate for the upcoming 120th Congress. On Capitol Hill, dozens of newly elected representatives and senators arrived with their families for 'Freshman Orientation'—a week-long bootcamp covering how to hire staff, draft bills, vote on the chamber floor, and draw lots for office suites.",
+        "Behind closed doors, both political parties held intense **caucus** meetings to select their floor leaders and committee chairs for the next two years. In the House of Representatives, New York Rep. Hakeem Jeffries positioned himself to take the Speaker's gavel in January, while moderate and progressive lawmakers negotiated over which economic and healthcare bills should receive top priority. Meanwhile, in the Senate, party members debated internal leadership roles and how to structure powerful committees overseeing taxation, foreign relations, and judicial appointments.",
+        "Although the election is over, the newly elected lawmakers do not officially take office until January 3, 2027, as required by the 20th Amendment to the US Constitution. Until then, the current 119th Congress returns to Washington for what political scientists call a **lame-duck session**—a two-month period where outgoing lawmakers, including some who lost their re-election bids or are retiring, still hold the power to vote on urgent legislation. The most pressing task on their desk is passing a federal funding bill before mid-December to prevent a partial government shutdown.",
+        "Looking ahead to 2027, the shift in congressional control will dramatically reshape how power works in Washington. Because one party holds the White House while the opposing party will control Congress, incoming committee chairs are already preparing a robust schedule of **congressional oversight** hearings. Under the Constitution's system of checks and balances, committees can summon cabinet secretaries, review trade and tariff policies, and require bipartisan compromise before any new tax or spending law can reach the president's desk."
       ],
       "bodyKo": [
-        "2026년 11월 9일부터 15일 사이, 워싱턴 정가는 선거 유세 열기를 뒤로하고 중간선거 이후 실제 의회 권력 이양 절차에 돌입했습니다. 개표 인증을 통해 제120대 연방 의회의 다수당 재편이 확정되면서, 수십 명의 초선 하원·상원 당선인들이 의사당에 모여 신임 의원 오리엔테이션과 의원실 배정 추첨, 그리고 원내 지도부를 선출하기 위한 비공개 당원 총회(코커스)에 참석했습니다.",
-        "2027년 1월 3일 새 의회가 공식 개원하기 전까지 현역 의원들은 중대한 ‘레임덕 회기(lame-duck session)’를 치러야 합니다. 향후 몇 주 동안 의원들은 연방 정부 기관의 셧다운을 막기 위한 연말 예산안을 처리해야 하며, 차기 상임위원장 내정자들은 벌써부터 2027년 행정부의 통상·기술·규제 정책을 점검할 의회 감독(오버사이트) 청문회 준비에 착수했습니다."
+        "2026년 11월 9일부터 15일 사이, 미국 워싱턴 정가는 선거 유세의 열기를 뒤로하고 중간선거 이후 실제 의회 권력을 넘겨받는 실무 절차에 돌입했습니다. 주요 경합주들의 최종 개표 인증이 마무리되면서 차기 제120대 연방 의회에서는 민주당이 하원과 상원 모두에서 다수당 지위를 확보할 것으로 집계되었습니다. 의사당이 있는 캐피톨 힐에는 수십 명의 초선 하원·상원 당선인들이 도착해 보좌진 채용, 법안 발의 절차, 본회의장 표결 방식, 의원실 배정 추첨 등을 배우는 ‘신임 의원 오리엔테이션’에 참여했습니다.",
+        "이와 동시에 여야 각 정당은 향후 2년간 의회를 이끌 원내대표와 상임위원장을 선출하기 위해 비공개 의원 총회(caucus·코커스)를 잇달아 열었습니다. 하원에서는 뉴욕주 출신의 하킴 제프리스 의원이 내년 1월 차기 하원의장 선출을 앞두고 온건파와 진보파 의원들의 정책 요구를 조율하고 있으며, 상원에서도 원내 지도부 구성과 조세·외교·사법 등 핵심 상임위원회 배분을 둘러싼 내부 논의가 활발하게 진행되었습니다.",
+        "선거는 끝났지만 미국 수정헌법 제20조에 따라 새로 선출된 의원들의 공식 임기는 2027년 1월 3일 정오에 시작됩니다. 그때까지 약 두 달 동안은 기존의 제119대 의회 의원들이 마지막으로 모여 법안을 처리하는데, 이를 정치학에서는 ‘레임덕 회기(lame-duck session)’라고 부릅니다. 이번 레임덕 회기의 가장 시급한 과제는 12월 중순 시한이 만료되는 연방 정부 임시 예산안을 통과시켜 연말 정부 기관 폐쇄(셧다운)를 막는 것입니다.",
+        "2027년 1월 새 의회가 출범하면 워싱턴의 국정 운영 구도는 큰 변화를 맞게 됩니다. 백악관(행정부)과 의회 다수당을 서로 다른 정당이 맡는 ‘분점 정부’ 구도가 형성됨에 따라, 차기 상임위원장 내정자들은 벌써부터 행정부 정책을 철저히 검증할 의회 감독(congressional oversight) 청문회를 준비하고 있습니다. 미국 헌법의 ‘견제와 균형’ 원칙에 따라 의회는 장관들을 출석시켜 통상·관세 정책을 점검할 수 있으며, 향후 모든 예산안과 법률안 통과에는 여야 간 초당적 협상이 필수적이게 됩니다."
       ],
       "whyItMatters": [
-        "Shows how the two-month transition period between November elections and January swearing-in shapes US laws and budgets.",
-        "Explains how committee chairs use congressional oversight to check presidential power under the US Constitution."
+        "Explains what happens during the two-month constitutional transition between November's election and January's swearing-in.",
+        "Shows why the 'lame-duck session' is critical for passing year-end federal budgets and avoiding government shutdowns.",
+        "Illustrates how congressional oversight and checks and balances operate when the White House and Congress are controlled by different parties."
       ],
       "whyItMattersKo": [
-        "11월 선거 직후부터 1월 새 의회 개원 사이의 2개월 이양기(레임덕 회기)에 연말 예산과 법안이 어떻게 처리되는지 보여줍니다.",
-        "미국 헌법의 권력 분립 원칙에 따라 의회 상임위원회가 어떻게 행정부를 견제하고 감독(oversight)하는지 이해할 수 있습니다."
+        "11월 선거 직후부터 이듬해 1월 3일 개원 사이의 2개월 이양기에 신임 의원 교육과 지도부 선출이 어떻게 이뤄지는지 설명합니다.",
+        "기존 의회가 연말 예산안을 처리해 정부 셧다운을 막아야 하는 ‘레임덕 회기(lame-duck session)’의 중요성을 보여줍니다.",
+        "백악관과 의회 다수당이 다를 때 헌법상 ‘견제와 균형’ 및 ‘의회 감독(oversight)’ 권한이 어떻게 작동하는지 이해할 수 있습니다."
       ],
-      "thinkAboutIt": "Why does the US Constitution include a transition period between Election Day in November and the start of the new Congress in January, and what are the pros and cons of a lame-duck session?",
-      "thinkAboutItKo": "미국은 왜 11월 선거일과 1월 새 의회 개원 사이에 약 두 달간의 이양기를 두고 있을까요? 이 ‘레임덕 회기’의 장단점은 무엇일까요?",
+      "thinkAboutIt": "Why does the US Constitution include a transition period between Election Day in November and the start of the new Congress in January, and what are the pros and cons of letting outgoing lawmakers vote during a lame-duck session?",
+      "thinkAboutItKo": "미국 헌법은 왜 11월 선거일과 1월 새 의회 개원 사이에 약 두 달간의 이양기를 두고 있을까요? 임기가 곧 끝나는 의원들이 ‘레임덕 회기’에 표결권을 행사하는 것의 장단점은 무엇일까요?",
       "terms": [
         {
           "term": "caucus",
           "partOfSpeech": "noun",
-          "definition": "A conference of members of a legislative body who belong to the same political party or faction, held to select leaders and decide policy.",
-          "definitionKo": "의회 내에서 같은 정당이나 정파에 속한 의원들이 원내 지도부를 선출하고 정책 방향을 결정하기 위해 여는 의원 총회(코커스).",
-          "example": "Each party caucus met behind closed doors on Capitol Hill to nominate committee chairs."
+          "definition": "A closed meeting of members of a legislative body who belong to the same political party, held to elect party leaders and set legislative priorities.",
+          "definitionKo": "의회 내에서 같은 정당에 속한 의원들이 원내 지도부를 선출하고 핵심 법안 우선순위를 정하기 위해 여는 비공개 의원 총회(코커스).",
+          "example": "Each party caucus met on Capitol Hill this week to nominate committee chairs for the 120th Congress."
         },
         {
           "term": "lame-duck session",
           "partOfSpeech": "noun",
-          "definition": "The period when an outgoing legislature meets after an election has taken place, before the newly elected members take office.",
-          "definitionKo": "선거가 끝난 뒤 새로 선출된 의원들이 임기를 시작하기 전까지 기존 의회가 모여 법안과 예산을 처리하는 회기.",
-          "example": "Lawmakers worked to pass a temporary budget bill during the November lame-duck session."
+          "definition": "The legislative session held after an election in November but before the newly elected members of Congress take office in January.",
+          "definitionKo": "11월 선거가 끝난 뒤 새로 선출된 의원들이 1월에 임기를 시작하기 전까지 기존 의회가 모여 예산과 법안을 처리하는 회기.",
+          "example": "Lawmakers must pass a federal funding bill during the December lame-duck session to keep national parks and agencies open."
         },
         {
           "term": "congressional oversight",
           "partOfSpeech": "noun",
-          "definition": "The power of the US Congress to review, monitor, and investigate the actions and spending of executive branch agencies.",
-          "definitionKo": "미 의회가 행정부 부처의 정책 집행과 예산 사용이 법에 맞게 이루어지는지 검토·감시·조사하는 권한.",
-          "example": "Through congressional oversight hearings, senators questioned cabinet officials about trade rules."
+          "definition": "The constitutional authority of the US Congress to monitor, review, and investigate the actions and spending of the president and executive branch agencies.",
+          "definitionKo": "미 의회가 헌법상 견제와 균형 원칙에 따라 대통령과 행정부 부처의 정책 집행 및 예산 사용을 감시·검토·조사하는 권한.",
+          "example": "Through congressional oversight hearings, lawmakers can question cabinet secretaries under oath."
         }
       ],
       "source": {
         "publisher": "PBS NewsHour / Associated Press",
-        "title": "What the 2026 midterm results mean for the incoming Congress and Washington transition",
+        "title": "What the 2026 midterm results mean for the incoming 120th Congress and Washington transition",
         "url": "https://www.pbs.org/newshour/politics",
         "publishedDate": "2026-11-12"
       }
@@ -166,60 +148,66 @@
       "id": "2026-W46-eu-defense-competitiveness",
       "category": "Europe Current Affairs",
       "region": "Europe",
-      "headline": "European Leaders Clash Over Defense Spending and Industrial Competitiveness in Brussels",
-      "headlineKo": "유럽 정상들, EU 장기 예산안 내 국방비 비중 및 산업 경쟁력 개편 놓고 격론",
-      "subheadline": "Germany and northern member states push to redirect European Union funds toward security and high-tech innovation, testing unity across the 27-nation bloc.",
-      "subheadlineKo": "독일 등 주요 회원국이 EU 예산을 안보와 첨단 기술 혁신 중심으로 재편하자고 요구하면서 27개 회원국 간 재정 우선순위 논쟁이 뜨거워지고 있습니다.",
+      "headline": "European Leaders Clash Over Defense Spending and Tech Competitiveness in Brussels Budget Talks",
+      "headlineKo": "유럽 정상들, EU 장기 예산안 내 국방비 비중 및 첨단산업 경쟁력 개편 놓고 격론",
+      "subheadline": "Germany and northern member states push to redirect European Union funds toward security and artificial intelligence, testing financial unity across all 27 nations.",
+      "subheadlineKo": "독일 등 주요 기여국이 EU 예산을 공동 안보와 AI·첨단 기술 혁신 중심으로 재편하자고 요구하면서 27개 회원국 간 재정 우선순위 논쟁이 가열되고 있습니다.",
       "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Berlaymont_building_Brussels.jpg/960px-Berlaymont_building_Brussels.jpg",
       "imageCaption": "The Berlaymont building in Brussels, headquarters of the European Commission, where EU budget and competitiveness reforms are drafted.",
       "imageCaptionKo": "유럽연합(EU) 예산안과 산업 경쟁력 개편안이 논의되는 브뤼셀 유럽집행위원회 본부(베를레몽 빌딩).",
       "imageCredit": "European Union / Wikimedia Commons (CC BY-SA 4.0)",
-      "readingTimeMinutes": 3,
+      "readingTimeMinutes": 5,
       "difficulty": "Challenge",
       "body": [
-        "In Brussels and Berlin this week, European finance and foreign ministers held intense negotiations over how to reshape the European Union's spending priorities for the late 2020s. Germany and several northern member states argued that the EU must redirect a much larger share of its common budget toward joint defense readiness, cross-border infrastructure, and industrial **competitiveness** in artificial intelligence and clean tech.",
-        "However, redirecting billions of euros without raising overall national contributions has sparked pushback from countries that rely heavily on traditional regional development and agricultural funds. At the same time, leaders debated how to guarantee predictable, multi-year financial support for Ukraine while respecting each member state's fiscal **sovereignty** and avoiding **fragmentation** within the European single market."
+        "In Brussels and Berlin this week, European finance and foreign ministers held heated negotiations over how to redesign the European Union's spending priorities for the late 2020s. For decades, nearly two-thirds of the EU's common budget has gone toward two traditional areas: the Common Agricultural Policy (which supports farmers) and Cohesion Funds (which build roads, railways, and schools in less-wealthy regions of Eastern and Southern Europe). Now, a powerful group of member states led by Germany argues that Europe's budget must urgently adapt to a more dangerous and competitive world.",
+        "German officials and industry leaders warned that European manufacturers are being squeezed between high domestic energy prices and massive government subsidies for technology in the United States and China. To prevent Europe from falling behind in artificial intelligence, semiconductors, and clean technology, Berlin is pushing to tie future EU payouts directly to economic reforms that boost industrial **competitiveness**. They also want a larger share of EU resources dedicated to joint defense research, cyber security, and predictable multi-year financial support for Ukraine.",
+        "However, shifting billions of euros toward defense and high-tech laboratories without increasing the total size of the budget has sparked fierce resistance from other capitals. Several southern and eastern member states argue that cutting regional development funds would widen the wealth gap between rich industrial cities and rural provinces. Meanwhile, so-called 'frugal' northern governments oppose issuing new joint EU debt, insisting that each nation must protect its fiscal **sovereignty** and keep its own national deficits under control.",
+        "Economists at the European Commission warn that if the 27 member states fail to agree on a shared investment pool, wealthy countries like Germany and France will simply subsidize their own domestic factories while smaller countries fall behind. That outcome could trigger economic **fragmentation** inside the European Single Market—undermining the level playing field that allows goods, services, and workers to move freely across European borders."
       ],
       "bodyKo": [
-        "이번 주 브뤼셀과 베를린에서 유럽 각국 재무·외교장관들은 2020년대 후반 유럽연합(EU)의 재정 지출 우선순위를 어떻게 재편할지를 두고 치열한 협상을 벌였습니다. 독일과 북유럽 회원국들은 EU 공동 예산의 훨씬 더 큰 비중을 공동 방위 태세 강화, 국경 간 인프라, 그리고 인공지능(AI)·청정기술 분야의 산업 경쟁력(competitiveness) 확보로 전환해야 한다고 주장했습니다.",
-        "그러나 각국의 분담금을 늘리지 않은 채 수십억 유로의 예산을 재배치하려는 움직임은 기존의 지역 균형 발전 기금과 농업 보조금 비중이 큰 국가들의 반발을 불렀습니다. 동시에 유럽 지도자들은 우크라이나에 대한 다년간의 안정적 재정 지원을 보장하면서도 각 회원국의 재정 주권(sovereignty)을 존중하고 유럽 단일시장의 파편화(fragmentation)를 막을 해법을 모색했습니다."
+        "이번 주 브뤼셀과 베를린에서 유럽 각국 재무·외교장관들은 2020년대 후반 유럽연합(EU)의 예산 지출 우선순위를 어떻게 재설계할지를 두고 격렬한 협상을 벌였습니다. 수십 년 동안 EU 공동 예산의 약 3분의 2는 농민을 지원하는 ‘공동농업정책(CAP)’과 동유럽·남유럽 등 상대적으로 소득이 낮은 지역의 도로·철도·학교 건설을 돕는 ‘결속기금(Cohesion Funds)’이라는 두 가지 전통적 분야에 쓰였습니다. 그러나 독일을 비롯한 주요 회원국들은 급변하는 안보·기술 환경에 맞춰 EU 예산 구조를 근본적으로 바꿔야 한다고 주장하고 나섰습니다.",
+        "독일 정부와 유럽 경제계는 유럽 제조업체들이 높은 역내 에너지 비용과 미국·중국의 막대한 첨단 산업 보조금 사이에서 이중고를 겪고 있다고 경고했습니다. 인공지능(AI), 반도체, 청정 기술 분야에서 유럽이 뒤처지지 않으려면 향후 EU 기금 지급을 각국의 산업 경쟁력(competitiveness) 강화 개혁과 엄격히 연동해야 한다는 것입니다. 또한 공동 방위산업 연구, 사이버 안보, 그리고 우크라이나에 대한 다년간의 안정적 재정 지원 비중을 대폭 늘려야 한다고 강조했습니다.",
+        "하지만 전체 예산 규모를 늘리지 않은 채 국방과 첨단 기술 연구소로 수십억 유로를 옮기려는 시도는 기존 수혜국들의 거센 반발을 불렀습니다. 남유럽과 동유럽의 여러 회원국은 지역 균형 발전 기금을 삭감할 경우 대도시 산업 중심지와 농촌 지역 간의 격차가 더 벌어질 것이라고 맞섰습니다. 반면 재정 건전성을 중시하는 북유럽 국가들은 EU 차원의 새로운 공동 채권 발행에 반대하며, 각국의 재정 주권(sovereignty)과 국가 채무 규율을 지켜야 한다고 주장했습니다.",
+        "유럽집행위원회(EC) 경제학자들은 만약 27개 회원국이 공동 투자 기금 조성에 합의하지 못할 경우, 독일이나 프랑스처럼 재정 여력이 큰 나라들만 자국 공장에 대규모 보조금을 지급하고 중소 회원국들은 소외될 수 있다고 우려합니다. 이렇게 되면 상품과 서비스, 인력이 국경 없이 공정하게 경쟁하는 유럽 단일시장 내부에 심각한 시장 파편화(fragmentation)가 발생해 유럽 경제 통합의 근간이 흔들릴 수 있기 때문입니다."
       ],
       "whyItMatters": [
-        "Highlights the classic 'guns vs. butter' economic tradeoff as Europe balances security needs against social and agricultural programs.",
-        "Useful for Model UN committees on European security, industrial policy, and regional integration."
+        "Explains how the European Union's common budget is divided between traditional farm/regional aid and new priorities like defense and AI.",
+        "Illustrates the economic concept of 'opportunity cost' as governments choose between security, innovation, and regional equality.",
+        "Shows why maintaining a fair level playing field across 27 countries is essential to prevent Single Market fragmentation."
       ],
       "whyItMattersKo": [
-        "안보 지출 확대와 기존 복지·농업 예산 유지 사이에서 유럽이 직면한 고전적인 경제적 선택(기회비용) 문제를 보여줍니다.",
-        "유럽 안보, 첨단 산업 정책, 지역 통합을 다루는 모의유엔(MUN) 위원회에서 핵심 배경지식으로 활용됩니다."
+        "전통적인 농업·지역 발전 기금 중심이었던 EU 예산이 왜 국방·안보 및 AI 기술 투자 중심으로 재편 압박을 받는지 설명합니다.",
+        "한정된 예산을 안보, 기술 혁신, 지역 균형 발전 중 어디에 배분할지 결정하는 경제학의 ‘기회비용’ 원리를 보여줍니다.",
+        "부유한 회원국의 단독 보조금 지급이 왜 27개국 유럽 단일시장의 파편화(fragmentation)를 초래할 수 있는지 이해할 수 있습니다."
       ],
-      "thinkAboutIt": "If a group of 27 countries shares one common budget, should funds go primarily to helping poorer regions catch up, or to investing in cutting-edge technology and common defense?",
-      "thinkAboutItKo": "27개국이 하나의 공동 예산을 나눈다면, 상대적으로 낙후된 지역의 발전을 돕는 데 우선 써야 할까요, 아니면 첨단 과학기술과 공동 방위에 우선 투자해야 할까요?",
+      "thinkAboutIt": "If 27 countries share one common budget, should the money go mainly toward helping less-wealthy regions build roads and schools, or toward funding cutting-edge science and common defense for the whole bloc?",
+      "thinkAboutItKo": "27개국이 하나의 공동 예산을 나눈다면, 상대적으로 소득이 낮은 지역의 인프라와 학교를 짓는 데 우선 써야 할까요, 아니면 유럽 전체의 첨단 과학기술과 공동 방위에 우선 투자해야 할까요?",
       "terms": [
         {
           "term": "competitiveness",
           "partOfSpeech": "noun",
-          "definition": "The ability of a country's businesses and industries to produce goods and services that succeed in international markets while raising living standards.",
-          "definitionKo": "한 국가의 기업과 산업이 글로벌 시장에서 경쟁력을 갖추고 고부가가치 상품·서비스를 생산해 삶의 질을 높이는 역량(산업 경쟁력).",
-          "example": "High electricity prices have worried leaders about European manufacturing competitiveness."
+          "definition": "The ability of a country's businesses and industries to innovate and sell goods successfully in global markets while supporting high living standards.",
+          "definitionKo": "한 국가나 지역의 기업과 산업이 기술을 혁신하고 글로벌 시장에서 경쟁력 있는 상품을 판매해 높은 삶의 질을 유지하는 역량(산업 경쟁력).",
+          "example": "Investing in affordable clean electricity and AI research is vital for Europe's long-term competitiveness."
         },
         {
           "term": "sovereignty",
           "partOfSpeech": "noun",
-          "definition": "The supreme authority of an independent state to govern itself and make its own laws and tax decisions without outside control.",
-          "definitionKo": "독립 국가가 외부 간섭 없이 스스로 법과 세금, 정책을 결정하고 통치할 수 있는 최고 권한(주권).",
-          "example": "Some governments worry that joint EU borrowing could limit their national fiscal sovereignty."
+          "definition": "The supreme authority of an independent nation to govern itself and make its own laws, tax policies, and budget decisions.",
+          "definitionKo": "독립 국가가 외부 간섭 없이 스스로 법과 세금, 예산 정책을 결정하고 통치할 수 있는 최고 권한(주권).",
+          "example": "Member states carefully guard their national sovereignty when debating European tax and budget rules."
         },
         {
           "term": "fragmentation",
           "partOfSpeech": "noun",
-          "definition": "The process of breaking a unified system or market into smaller, disconnected national pieces with different rules.",
-          "definitionKo": "통합되어 있던 시스템이나 단일 시장이 서로 다른 규제를 가진 작은 국가 단위로 쪼개지는 현상(파편화).",
-          "example": "Common European standards help prevent market fragmentation across all 27 member states."
+          "definition": "When a unified economic market splits into uneven, disconnected national pieces with different rules or subsidy levels.",
+          "definitionKo": "하나로 통합되어 있던 단일 시장이 국가별로 서로 다른 규제나 보조금 격차로 인해 불공정하게 쪼개지는 현상(파편화).",
+          "example": "European leaders want common investment rules to prevent economic fragmentation across the 27-nation bloc."
         }
       ],
       "source": {
         "publisher": "European Commission / Reuters",
-        "title": "EU ministers debate competitiveness, defense readiness, and long-term budget priorities",
+        "title": "EU ministers debate industrial competitiveness, defense readiness, and long-term budget priorities",
         "url": "https://commission.europa.eu/index_en",
         "publishedDate": "2026-11-13"
       }
@@ -228,117 +216,129 @@
       "id": "2026-W46-eurozone-inflation-ecb",
       "category": "Economy & Business",
       "region": "Europe",
-      "headline": "Eurozone Inflation Climbs to 4.0% on Energy Spike as Economists Expect December ECB Rate Move",
-      "headlineKo": "유로존 물가상승률, 에너지 가격 급등에 4.0%로 반등… 12월 ECB 기준금리 인상 전망",
-      "subheadline": "A 20.8% jump in energy costs pushed annual inflation to double the European Central Bank's 2% target, even as global investors poured $35 billion into European stocks.",
-      "subheadlineKo": "에너지 가격이 전년 대비 20.8% 급등하며 물가상승률이 유럽중앙은행(ECB) 목표치(2%)의 두 배에 달한 가운데, 유럽 증시에는 351억 달러의 자금이 유입되었습니다.",
+      "headline": "Eurozone Inflation Climbs to 4.0% on Energy Spike as Markets Brace for December ECB Rate Move",
+      "headlineKo": "유로존 물가상승률, 에너지 가격 20.8% 급등에 4.0%로 반등… 12월 ECB 금리 인상 전망",
+      "subheadline": "Surging energy and service costs pushed annual inflation to double the European Central Bank's 2% target, even as global investors poured $35 billion into European stocks.",
+      "subheadlineKo": "에너지와 서비스 가격이 오르며 물가상승률이 유럽중앙은행(ECB) 목표치(2%)의 두 배에 달한 가운데, 유럽 증시에는 주간 기준 351억 달러의 투자금이 유입되었습니다.",
       "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Euro_symbol%2C_Frankfurt_Germany_%2827447364593%29.jpg/960px-Euro_symbol%2C_Frankfurt_Germany_%2827447364593%29.jpg",
-      "imageCaption": "The iconic Euro sculpture in Frankfurt, Germany, home to the European Central Bank where monetary policy decisions are made.",
-      "imageCaptionKo": "통화정책과 기준금리가 결정되는 유럽중앙은행(ECB) 소재지 독일 프랑크푸르트의 유로화 상징 조형물.",
+      "imageCaption": "The iconic Euro symbol in Frankfurt, Germany, home to the European Central Bank where interest rates are set for the 20-nation eurozone.",
+      "imageCaptionKo": "유로존 20개국의 통화정책과 기준금리가 결정되는 유럽중앙은행(ECB) 소재지 독일 프랑크푸르트의 유로화 조형물.",
       "imageCredit": "Wikimedia Commons (CC BY 2.0)",
-      "readingTimeMinutes": 4,
+      "readingTimeMinutes": 5,
       "difficulty": "Intermediate",
       "body": [
-        "Fresh figures from Eurostat and mid-November economic surveys revealed a challenging puzzle for Europe's economy this week: annual **inflation** across the eurozone rose to 4.0%, up from 3.8% the previous month and exactly double the European Central Bank's (ECB) 2.0% target. The biggest driver was an external energy shock, with energy prices surging 20.8% year-on-year alongside a 3.3% rise in service prices.",
-        "In response to persistent price pressures, a mid-November Reuters poll of economists projected that the ECB will tighten **monetary policy** at its December meeting by raising its deposit interest rate to 2.75%. Remarkably, despite higher energy bills, a BusinessEurope survey showed improving corporate optimism and European equity funds recorded $35.13 billion in weekly **capital inflows**—their strongest week since 2021."
+        "Fresh statistics from Eurostat and mid-November economic surveys presented a tricky puzzle for European policymakers this week: annual **inflation** across the 20-nation eurozone climbed to 4.0%, up from 3.8% the previous month. That places price growth at exactly double the 2.0% target set by the European Central Bank (ECB) in Frankfurt. For everyday households, a 4.0% inflation rate means that a basket of groceries, heating fuel, and train tickets that cost €100 last year now costs €104.",
+        "What caused prices to speed up again? According to Eurostat's breakdown, the biggest culprit was an external energy shock: eurozone energy prices jumped 20.8% compared with a year earlier due to global supply tensions and higher winter fuel shipping costs. At the same time, prices in the services sector—such as restaurants, hotels, repairs, and transport—rose 3.3% year-on-year as businesses passed higher electricity and wage bills on to consumers.",
+        "When inflation rises far above 2.0%, central bankers step in using **monetary policy**. In a mid-November Reuters survey of economists, a clear majority predicted that the ECB Governing Council will raise its key deposit interest rate to 2.75% at its upcoming December 2026 meeting, with more than a third warning that another rate hike could follow in early 2027 if energy costs trigger 'second-round' price increases across other industries.",
+        "Surprisingly, higher energy bills have not scared away global investors. A mid-November survey by BusinessEurope showed that industrial confidence has rebounded sharply since summer, with the share of pessimistic factories dropping from 62% to 33%. Even more striking, financial data showed that global investors poured $35.13 billion in net **capital inflows** into European stock funds in a single week—the largest weekly inflow since June 2021—betting that European technology, engineering, and clean-energy firms are poised for strong long-term growth."
       ],
       "bodyKo": [
-        "유럽통계청(Eurostat)의 최신 지표와 11월 중순 경제 조사 결과, 유로존의 연간 인플레이션(물가상승률)이 전월 3.8%에서 4.0%로 상승하며 유럽중앙은행(ECB)의 물가 안정 목표치(2.0%)의 정확히 두 배에 달한 것으로 나타났습니다. 가장 큰 원인은 외부 에너지 가격 충격으로, 에너지 물가가 전년 동기 대비 20.8% 급등했고 서비스 물가도 3.3% 상승했습니다.",
-        "이처럼 물가 상승 압력이 이어지면서 11월 중순 로이터의 경제학자 설문조사에서는 ECB가 오는 12월 통화정책(monetary policy) 회의에서 예금금리를 2.75%로 인상할 것이라는 전망이 우세했습니다. 흥미롭게도 높은 에너지 비용에도 불구하고 유럽재계연합(BusinessEurope) 조사에서 기업 체감 경기는 오히려 개선되었으며, 이번 주 유럽 주식형 펀드에는 2021년 이후 최대 규모인 351억 3천만 달러의 자본 유입(capital inflows)이 기록되었습니다."
+        "유럽통계청(Eurostat)의 최신 물가 지표와 11월 중순 경제 조사 결과, 유로화를 사용하는 유로존 20개국의 연간 인플레이션(물가상승률)이 전월 3.8%에서 4.0%로 올라선 것으로 나타났습니다. 이는 독일 프랑크푸르트에 위치한 유럽중앙은행(ECB)이 물가 안정 기준으로 삼는 목표치(2.0%)의 정확히 두 배에 달하는 수준입니다. 가계 입장에서 연 4.0% 인플레이션은 작년에 100유로였던 식료품과 난방비, 기차표 묶음이 올해 104유로로 올랐음을 의미합니다.",
+        "물가가 다시 가팔라진 가장 큰 원인은 외부 에너지 가격 충격이었습니다. 국제 에너지 공급망 긴장과 겨울철 연료 운송비 상승이 겹치면서 유로존 에너지 물가는 전년 동기 대비 무려 20.8%나 급등했습니다. 여기에 식당·숙박·수리·교통 등 서비스 부문의 물가도 기업들이 높아진 전기요금과 인건비를 가격에 반영하면서 전년 대비 3.3% 상승해 전체 물가 오름세를 부추겼습니다.",
+        "물가상승률이 목표치인 2.0%를 크게 웃돌면 중앙은행은 통화정책(monetary policy) 수단을 가동합니다. 11월 중순 로이터 통신이 경제학자들을 대상으로 실시한 설문조사에 따르면, 다수의 전문가들은 ECB 정책이사회의 오는 12월 회의에서 예금 기준금리가 연 2.75%로 인상될 것으로 내다봤습니다. 응답자의 3분의 1 이상은 에너지 비용 상승이 다른 공산품과 임금 인상으로 번지는 ‘2차 파급 효과’를 막기 위해 2027년 초 추가 금리 인상이 단행될 가능성도 열어두었습니다.",
+        "흥미로운 점은 에너지 비용 상승에도 불구하고 유럽 기업과 금융 시장의 활력은 오히려 살아나고 있다는 사실입니다. 유럽재계연합(BusinessEurope)의 11월 조사에서 제조업 경기를 부정적으로 보는 기업 비율은 지난여름 62%에서 33%로 절반 가까이 줄었고 투자 심리도 회복세를 보였습니다. 특히 이번 주 유럽 주식형 펀드에는 전 세계 투자자들로부터 2021년 6월 이후 최대 규모인 주간 351억 3천만 달러(약 48조 원)의 순 자본 유입(capital inflows)이 몰리며 유럽 주요 주가지수가 사상 최고치 부근까지 상승했습니다."
       ],
       "whyItMatters": [
-        "Demonstrates how global energy supply disruptions directly raise everyday heating, transport, and grocery bills for families.",
-        "Explains why central banks raise interest rates when inflation climbs above their 2% target."
+        "Shows how a 20.8% spike in global energy prices directly drives up headline inflation across an entire continent.",
+        "Explains why economists expect the European Central Bank (ECB) to raise its deposit interest rate to 2.75% in December.",
+        "Highlights the contrast between challenging household inflation (4.0%) and surging global investor confidence ($35.13B in stock inflows)."
       ],
       "whyItMattersKo": [
-        "국제 에너지 공급망 충격이 어떻게 각 가정의 난방비, 교통비, 장바구니 물가를 직접 끌어올리는지 보여줍니다.",
-        "물가상승률이 목표치(2%)를 넘어설 때 중앙은행이 왜 기준금리를 인상하는지 실물 경제 원리를 이해할 수 있습니다."
+        "에너지 가격 20.8% 급등이 어떻게 유로존 전체 물가상승률을 4.0%까지 끌어올렸는지 구체적 수치로 보여줍니다.",
+        "물가가 목표치(2.0%)의 두 배가 되었을 때 유럽중앙은행(ECB)이 왜 12월 기준금리를 2.75%로 올리려 하는지 설명합니다.",
+        "가계 물가 부담(4.0%) 속에서도 기업 심리가 개선되고 유럽 증시에 351억 달러의 자본 유입이 일어난 복합적인 경제 흐름을 이해할 수 있습니다."
       ],
-      "thinkAboutIt": "When inflation is caused mainly by imported energy prices rather than people shopping too much, why is it tricky for a central bank to fix the problem only by raising interest rates?",
-      "thinkAboutItKo": "물가 상승의 주된 원인이 소비 과열이 아니라 ‘수입 에너지 가격 급등’일 때, 중앙은행이 금리 인상만으로 물가를 잡기 까다로운 이유는 무엇일까요?",
+      "thinkAboutIt": "Why might global investors pour $35 billion into European company stocks during the exact same week that inflation rises to 4.0%?",
+      "thinkAboutItKo": "유로존 물가상승률이 4.0%로 치솟은 바로 그 주에, 전 세계 투자자들이 유럽 기업 주식에 351억 달러라는 거액을 투자한 이유는 무엇일까요?",
       "terms": [
         {
           "term": "inflation",
           "partOfSpeech": "noun",
-          "definition": "The rate at which the general level of prices for goods and services rises over time, reducing how much a unit of currency can buy.",
-          "definitionKo": "시간이 지남에 따라 상품과 서비스의 전반적인 가격 수준이 오르고 화폐의 구매력이 떨어지는 현상(물가상승).",
-          "example": "When annual inflation hit 4.0%, families noticed higher prices for electricity and train tickets."
+          "definition": "The rate at which the overall prices of goods and services increase over a year, reducing the purchasing power of money.",
+          "definitionKo": "일정 기간 동안 상품과 서비스의 전반적인 가격 수준이 상승하여 화폐의 구매력이 떨어지는 현상(인플레이션/물가상승).",
+          "example": "A 20.8% jump in energy costs pushed annual eurozone inflation up to 4.0%."
         },
         {
           "term": "monetary policy",
           "partOfSpeech": "noun",
-          "definition": "Actions taken by a central bank (such as setting interest rates and controlling the money supply) to keep prices stable and support sustainable economic growth.",
-          "definitionKo": "중앙은행이 물가 안정과 지속 가능한 경제 성장을 위해 기준금리와 통화량을 조절하는 정책(통화정책).",
-          "example": "The European Central Bank uses monetary policy to steer eurozone inflation back toward 2%."
+          "definition": "The tools used by a central bank—especially setting interest rates—to keep inflation stable and guide economic growth.",
+          "definitionKo": "중앙은행이 물가를 안정시키고 경제 성장을 뒷받침하기 위해 기준금리와 통화량을 조절하는 정책(통화정책).",
+          "example": "The ECB tightens monetary policy by raising interest rates when inflation stays above 2%."
         },
         {
           "term": "capital inflows",
           "partOfSpeech": "noun",
-          "definition": "The movement of investment money from domestic and foreign investors into a country's or region's financial assets, such as stocks and bonds.",
-          "definitionKo": "국내외 투자 자금이 특정 국가나 지역의 주식·채권 등 금융 자산으로 들어오는 현상(자본 유입).",
-          "example": "Strong corporate earnings attracted record capital inflows into European stock markets."
+          "definition": "Money moving from global investors into a country's or region's financial markets, such as stocks, bonds, and factories.",
+          "definitionKo": "국내외 투자 자금이 특정 국가나 지역의 주식, 채권, 기업 등 금융·실물 시장으로 들어오는 현상(자본 유입).",
+          "example": "European equity funds recorded $35.13 billion in weekly capital inflows—the highest since 2021."
         }
       ],
       "source": {
-        "publisher": "Eurostat / European Union",
-        "title": "Euro area annual inflation and price indicators — November 2026 release",
+        "publisher": "Eurostat / Reuters",
+        "title": "Eurozone inflation hits 4.0% on energy costs as ECB rate hike expectations build",
         "url": "https://ec.europa.eu/eurostat",
         "publishedDate": "2026-11-14"
       }
     },
     {
       "id": "2026-W46-esa-euclid-dark-universe",
-      "category": "Science & Technology",
+      "category": "Science & Space",
       "region": "Europe",
-      "headline": "ESA's Euclid Space Telescope Releases Massive 3D Map of 900 Million Galaxies",
+      "headline": "ESA's Euclid Space Telescope Releases Massive 3D Atlas of 900 Million Galaxies",
       "headlineKo": "유럽우주국(ESA) 유클리드 우주망원경, 9억 개 은하 담은 사상 최대 3D ‘암흑 우주’ 지도 공개",
-      "subheadline": "Covering an area equal to 9,500 full Moons, the telescope's first foundation dataset captures 15,000 gravitational lenses to help unlock the secrets of dark matter.",
-      "subheadlineKo": "보름달 9,500개 면적의 하늘을 정밀 관측해 9억 개 이상의 은하와 1만 5천 건의 중력렌즈 현상을 포착하며 암흑물질과 암흑에너지 규명에 한 걸음 다가섰습니다.",
+      "subheadline": "Covering an area equal to 9,500 full Moons, the telescope's first foundation dataset captures 15,000 gravitational lenses to decode invisible dark matter.",
+      "subheadlineKo": "보름달 9,500개 면적의 깊은 우주를 관측해 9억 개 이상의 은하와 1만 5천 건의 중력렌즈 현상을 포착하며 암흑물질과 암흑에너지의 비밀을 풀고 있습니다.",
       "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Euclid_spacecraft_ESA24912474.jpg/960px-Euclid_spacecraft_ESA24912474.jpg",
-      "imageCaption": "Artist's impression and engineering model of the European Space Agency's Euclid space telescope mapping the distant cosmos.",
-      "imageCaptionKo": "깊은 우주의 3차원 지도를 작성하고 있는 유럽우주국(ESA)의 유클리드(Euclid) 우주망원경.",
+      "imageCaption": "The European Space Agency's Euclid space telescope, which orbits 1.5 million kilometers from Earth to map the 3D structure of the cosmos.",
+      "imageCaptionKo": "지구에서 150만 km 떨어진 궤도에서 우주의 3차원 입체 지도를 작성하고 있는 유럽우주국(ESA)의 유클리드(Euclid) 우주망원경.",
       "imageCredit": "ESA / ATG Medialab / Wikimedia Commons (CC BY-SA 3.0 IGO)",
-      "readingTimeMinutes": 3,
+      "readingTimeMinutes": 5,
       "difficulty": "Intermediate",
       "body": [
-        "On November 12, 2026, astronomers at the European Space Agency (ESA) unveiled the first major foundation data release (`DR1-Foundation`) from the Euclid space telescope. Scanning a vast patch of sky equivalent to 9,500 full Moons—about 14% of its planned six-year survey—Euclid's ultra-sharp visible and infrared cameras cataloged the shapes and distances of more than 900 million galaxies across 10 billion years of cosmic history.",
-        "Ordinary atoms—everything that makes up stars, planets, trees, and people—account for only about 5% of the universe. The other 95% consists of invisible **dark matter** (which holds galaxies together through gravity) and **dark energy** (which is accelerating the expansion of space). By spotting roughly 15,000 cases of **gravitational lensing**—where massive clusters of matter bend light from background galaxies like a giant magnifying glass—Euclid allows scientists to map where invisible dark matter is hiding."
+        "On November 12, 2026, astronomers at the European Space Agency (ESA) unveiled a landmark scientific treasure trove: the first major foundation data release (`DR1-Foundation`) from the Euclid space telescope. Operating from the Sun-Earth Lagrange Point 2—roughly 1.5 million kilometers from Earth—Euclid used its 600-megapixel visible-light camera and NASA-contributed infrared sensors to scan a continuous patch of sky equivalent to 9,500 full Moons. In just the first 14% of its planned six-year survey, Euclid captured crystal-clear images of more than 900 million galaxies.",
+        "Why do scientists need a map of nearly a billion galaxies? Everything we can see in the night sky—every star, planet, nebula, comet, and human being—is made of normal atomic matter, which accounts for only about 5% of the universe. The remaining 95% is what physicists call the 'Dark Universe': roughly 27% is invisible **dark matter**, which acts like cosmic glue holding galaxies and galaxy clusters together through gravity, and 68% is **dark energy**, a mysterious force pushing galaxies apart and causing the expansion of the universe to accelerate.",
+        "Because dark matter neither shines nor reflects light, no telescope can photograph it directly. Instead, Euclid detects dark matter using a phenomenon predicted by Albert Einstein's general theory of relativity called **gravitational lensing**. As light from distant background galaxies travels billions of light-years toward Earth, the immense gravity of foreground dark matter bends and magnifies that light like a giant glass lens. In its November 12 release, Euclid identified roughly 15,000 spectacular gravitational lenses—more than all previous telescopes had found over decades combined.",
+        "By measuring the tiny distortions in the shapes of hundreds of millions of galaxies looking back 10 billion years in cosmic time, Euclid allows astrophysicists to reconstruct a three-dimensional map of how dark matter clumps together and how dark energy has stretched space over history. Over the coming months, thousands of researchers and university students worldwide will analyze this open dataset to test whether Einstein's equations of gravity hold true across the entire cosmos."
       ],
       "bodyKo": [
-        "2026년 11월 12일, 유럽우주국(ESA) 천문학자들은 유클리드(Euclid) 우주망원경의 첫 번째 대규모 핵심 관측 데이터셋(‘DR1-Foundation’)을 전 세계에 공개했습니다. 전체 6년 탐사 계획의 약 14%에 해당하는 보름달 9,500개 크기의 광활한 밤하늘을 스캔한 유클리드는 초고해상도 가시광선 및 적외선 카메라를 통해 무려 100억 년의 우주 역사에 걸친 9억 개 이상의 은하 형태와 거리를 정밀 기록했습니다.",
-        "별과 행성, 나무와 인간을 이루는 일반 물질(원자)은 우주 전체의 약 5%에 불과합니다. 나머지 95%는 은하들을 중력으로 묶어주는 보이지 않는 ‘암흑물질(dark matter)’과 우주 팽창을 가속하는 ‘암흑에너지(dark energy)’로 이루어져 있습니다. 유클리드 망원경은 거대한 질량이 배경 은하의 빛을 돋보기처럼 휘게 만드는 ‘중력렌즈(gravitational lensing)’ 현상을 약 1만 5천 건이나 포착함으로써, 눈에 보이지 않는 암흑물질이 우주 어디에 어떻게 분포해 있는지 3차원 지도로 그려내고 있습니다."
+        "2026년 11월 12일, 유럽우주국(ESA) 천문학자들은 우주 과학 역사에 남을 대규모 관측 자료인 유클리드(Euclid) 우주망원경의 첫 번째 핵심 데이터셋(‘DR1-Foundation’)을 전 세계에 공개했습니다. 지구에서 약 150만 km 떨어진 태양-지구 제2라그랑주점(L2) 궤도를 돌고 있는 유클리드는 6억 화소 가시광선 카메라와 미국 항공우주국(NASA)이 제공한 적외선 센서를 사용해 보름달 9,500개를 합친 것과 맞먹는 광활한 밤하늘을 스캔했습니다. 전체 6년 탐사 일정의 첫 14%만 진행한 시점임에도 무려 9억 개가 넘는 은하의 선명한 모습을 담아냈습니다.",
+        "과학자들은 왜 10억 개에 가까운 은하 지도를 그리는 것일까요? 밤하늘에서 우리가 볼 수 있는 모든 별과 행성, 성운, 그리고 우리 몸을 이루는 원자들은 우주 전체 구성 성분의 약 5%에 불과하기 때문입니다. 나머지 95%는 이른바 ‘암흑 우주(Dark Universe)’로 불립니다. 약 27%는 눈에 보이지 않지만 강력한 중력으로 은하들이 흩어지지 않게 묶어 주는 ‘암흑물질(dark matter)’이며, 약 68%는 우주 공간을 갈수록 더 빠른 속도로 밀어내며 팽창시키는 미지의 ‘암흑에너지(dark energy)’입니다.",
+        "암흑물질은 빛을 내지도, 반사하지도 않기 때문에 어떤 카메라로도 직접 찍을 수 없습니다. 대신 유클리드 망원경은 알베르트 아인슈타인의 일반 상대성이론이 예측한 ‘중력렌즈(gravitational lensing)’ 현상을 활용합니다. 수십억 광년 떨어진 배경 은하에서 출발한 빛이 지구로 날아오는 도중 거대한 암흑물질 덩어리 근처를 지나면, 강력한 중력 때문에 마치 볼록렌즈를 통과한 것처럼 빛이 휘어지고 밝게 확대됩니다. 이번 11월 12일 발표에서 유클리드는 약 1만 5천 건의 중력렌즈 현상을 찾아냈는데, 이는 인류가 지난 수십 년간 발견한 전체 수치를 단숨에 뛰어넘는 규모입니다.",
+        "이처럼 100억 년의 우주 시간을 거슬러 올라가 수억 개 은하의 미세한 빛 굴절과 거리 변화를 정밀 측정함으로써, 과학자들은 보이지 않는 암흑물질이 우주 공간에 어떻게 3차원 그물망처럼 분포해 있는지, 그리고 암흑에너지가 우주 팽창 속도를 어떻게 바꾸어 왔는지 입체 지도로 복원할 수 있게 되었습니다. 전 세계 수천 명의 천체물리학자들은 이번에 공개된 데이터를 바탕으로 아인슈타인의 중력 방정식이 우주 전체 규모에서도 정확히 들어맞는지 검증할 예정입니다."
       ],
       "whyItMatters": [
-        "Provides humanity's largest-ever 3D cosmic atlas to test Einstein's theory of gravity on the grandest scale.",
-        "Shows how European and US scientists (including NASA contributions to Euclid's infrared detectors) collaborate on open scientific data."
+        "Explains how ESA's Euclid telescope mapped over 900 million galaxies across an area equal to 9,500 full Moons.",
+        "Clarifies the difference between ordinary matter (5% of the universe), dark matter (27%), and dark energy (68%).",
+        "Shows how scientists use Einstein's 'gravitational lensing' to map invisible matter by measuring how starlight bends."
       ],
       "whyItMattersKo": [
-        "인류 역사상 가장 거대한 3차원 우주 지도를 구축해 아인슈타인의 중력 이론과 우주 팽창의 비밀을 검증합니다.",
-        "유럽우주국(ESA)과 미국 항공우주국(NASA) 과학자들이 국경을 넘어 인류 공동의 기초과학 데이터를 함께 구축하는 협력 모델을 보여줍니다."
+        "유럽우주국(ESA) 유클리드 우주망원경이 보름달 9,500개 면적에서 9억 개 이상의 은하를 관측한 과학적 성과를 설명합니다.",
+        "우주를 구성하는 일반 물질(5%), 암흑물질(27%), 암흑에너지(68%)의 비율과 역할을 명쾌하게 구분해 줍니다.",
+        "눈에 보이지 않는 암흑물질을 ‘별빛이 중력에 휘어지는 중력렌즈 현상(1만 5천 건 발견)’으로 찾아내는 과학적 추론 과정을 배울 수 있습니다."
       ],
-      "thinkAboutIt": "If 95% of the universe is completely invisible to cameras, how do scientists use indirect clues—like the bending of starlight—to prove that dark matter exists?",
-      "thinkAboutItKo": "우주의 95%가 카메라에 전혀 보이지 않는다면, 과학자들은 ‘별빛이 휘어지는 현상’ 같은 간접 증거를 통해 보이지 않는 물질의 존재를 어떻게 증명할까요?",
+      "thinkAboutIt": "Since scientists cannot see dark matter directly with any camera, why is measuring how it bends light from distant galaxies considered solid scientific evidence?",
+      "thinkAboutItKo": "과학자들은 카메라로 암흑물질을 직접 볼 수 없는데도, 왜 먼 은하의 빛이 휘어지는 정도를 측정하는 것을 강력한 과학적 증거로 인정할까요?",
       "terms": [
         {
           "term": "dark matter",
           "partOfSpeech": "noun",
-          "definition": "An invisible form of matter that does not emit or reflect light, detected only through its gravitational pull on stars and galaxies.",
-          "definitionKo": "빛을 내거나 반사하지 않아 눈에 보이지 않지만, 별과 은하를 끌어당기는 중력 효과를 통해 존재가 확인되는 미지의 물질(암흑물질).",
-          "example": "Without the extra gravity of dark matter, fast-spinning galaxies would fly apart."
+          "definition": "An invisible substance making up about 27% of the universe that does not emit or reflect light, detected through its gravitational pull on galaxies.",
+          "definitionKo": "우주의 약 27%를 차지하며 빛을 내거나 반사하지 않아 눈에 보이지 않지만, 은하들을 끌어당기는 중력을 통해 존재가 확인되는 물질(암흑물질).",
+          "example": "Without the gravitational pull of dark matter, spinning galaxies like our Milky Way would fly apart."
         },
         {
           "term": "dark energy",
           "partOfSpeech": "noun",
-          "definition": "A mysterious force or property of space that causes the expansion of the universe to speed up over time.",
-          "definitionKo": "우주 공간이 시간이 갈수록 더 빠른 속도로 팽창하게 만드는 미지의 에너지(암흑에너지).",
-          "example": "Euclid measures how galaxies spread apart over billions of years to study dark energy."
+          "definition": "A mysterious form of energy making up about 68% of the universe that causes the expansion of space to accelerate over time.",
+          "definitionKo": "우주 전체의 약 68%를 차지하며 우주 공간이 시간이 지날수록 더 빠른 속도로 팽창하게 만드는 미지의 에너지(암흑에너지).",
+          "example": "By tracking galaxy distances over 10 billion years, Euclid measures how dark energy stretches space."
         },
         {
           "term": "gravitational lensing",
           "partOfSpeech": "noun",
-          "definition": "The bending and magnification of light from a distant galaxy as it passes near a massive object (such as a galaxy cluster or dark matter) on its way to Earth.",
-          "definitionKo": "먼 은하에서 출발한 빛이 지구로 오는 도중 거대한 질량(은하단이나 암흑물질) 근처를 지나며 중력에 의해 휘어지고 증폭되는 현상(중력렌즈).",
-          "example": "Euclid discovered 15,000 examples of gravitational lensing creating glowing arcs and rings in space."
+          "definition": "The bending and magnification of light from a distant object as it passes through the gravitational field of massive foreground matter.",
+          "definitionKo": "먼 은하에서 온 빛이 앞쪽에 있는 거대한 질량(은하단이나 암흑물질)의 중력장을 통과할 때 렌즈처럼 휘어지고 확대되는 현상(중력렌즈).",
+          "example": "Euclid spotted 15,000 cases of gravitational lensing, revealing glowing rings and arcs of distant starlight."
         }
       ],
       "source": {
@@ -350,57 +350,63 @@
     },
     {
       "id": "2026-W46-methane-clean-grid-transition",
-      "category": "Environment & Global Society",
+      "category": "Environment & Future Tech",
       "region": "Transatlantic",
-      "headline": "Why Plugging Methane Leaks and Expanding Offshore Wind Are Europe's Fastest Climate Shield",
-      "headlineKo": "메탄 누출 차단과 해상풍력 확대가 단기 기후위기를 막는 가장 빠른 방패인 이유",
-      "subheadline": "Research presented during COP31 shows that combining rapid methane reduction with clean power grids can shave up to 0.5°C off near-term warming.",
-      "subheadlineKo": "COP31 기간 발표된 연구에 따르면, 즉각적인 메탄 감축과 청정 전력망 확충을 병행할 경우 단기 지구 온난화를 최대 0.5°C까지 늦출 수 있습니다.",
+      "headline": "How Satellite Methane Trackers and Offshore Wind Turbines Build Europe's Fastest Climate Shield",
+      "headlineKo": "위성 메탄 감시망과 북해 해상풍력 기술이 유럽의 가장 빠른 ‘기후·물가 방패’가 되는 원리",
+      "subheadline": "Pairing space-based gas leak detection with clean power grids can shave 0.5°C off near-term warming while protecting households from fossil-fuel price shocks.",
+      "subheadlineKo": "우주 위성으로 메탄 누출을 실시간 차단하고 해상풍력 전력망을 확충하면 단기 온난화를 최대 0.5°C 낮추는 동시에 에너지 물가 급등까지 방어할 수 있습니다.",
       "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/European_Offshore_Wind_Deployment_Centre_%28from_Newburgh_beach%29.jpg/960px-European_Offshore_Wind_Deployment_Centre_%28from_Newburgh_beach%29.jpg",
-      "imageCaption": "Offshore wind turbines generating renewable electricity along the European coastline.",
-      "imageCaptionKo": "유럽 해안에서 친환경 전력을 생산하고 있는 대형 해상풍력 발전 단지.",
+      "imageCaption": "Next-generation offshore wind turbines generating clean electricity off the European coast.",
+      "imageCaptionKo": "유럽 연안에서 수입 화석연료를 대체할 청정 전력을 생산하고 있는 차세대 해상풍력 발전 단지.",
       "imageCredit": "Wikimedia Commons (CC BY-SA 4.0)",
-      "readingTimeMinutes": 3,
+      "readingTimeMinutes": 5,
       "difficulty": "Intermediate",
       "body": [
-        "While carbon dioxide ($CO_2$) remains in Earth's atmosphere for centuries, climate scientists in Antalya this week spotlighted a faster way to slow down rising temperatures before 2040: slashing super-pollutants like methane and soot. Because methane breaks down in the atmosphere within about a decade, using satellite sensors to detect and seal gas leaks at pipelines, mines, and landfills acts as an emergency brake on near-term **global warming**.",
-        "At the same time, European energy agencies reported that pairing leak-detection satellites with rapid **decarbonization** of the electricity grid—led by North Sea offshore wind farms and grid-scale battery storage—serves a dual purpose. Every megawatt of clean wind power not only cuts carbon **emissions**, but also reduces Europe's exposure to the volatile fossil-fuel price spikes that pushed eurozone inflation to 4.0% this month."
+        "When most people think about climate change, they think of carbon dioxide ($CO_2$) from car exhaust and power plant smokestacks. Because carbon dioxide stays in Earth's atmosphere for hundreds of years, cutting $CO_2$ is essential for the planet's long-term future. However, climate researchers presenting data during the COP31 summit this week emphasized that if humanity wants to slow down **global warming** quickly over the next 15 to 20 years, the single fastest lever is cutting a different gas: **methane**.",
+        "Methane—the main component of natural gas—is a short-lived 'super-pollutant.' Molecule for molecule, it traps more than 80 times as much heat as carbon dioxide over a 20-year period, but it breaks down in the atmosphere in roughly 12 years. That means plugging methane leaks from oil wells, gas pipelines, coal mines, and landfills acts like pulling an emergency brake on atmospheric heating. Scientists estimate that aggressive methane reductions alone can shave 0.3°C to 0.5°C off near-term warming by mid-century.",
+        "Until recently, invisible methane leaks were notoriously hard to find across millions of kilometers of pipelines. Today, a new generation of European and American environmental satellites equipped with high-resolution infrared spectrometers can spot individual methane plumes from orbit and alert engineers within hours. In many cases, tightening valves, replacing worn pipeline seals, and capturing gas at landfills costs very little—because companies can capture the leaked gas and sell it as fuel instead of letting it escape into the sky.",
+        "At the same time, European energy planners are pairing satellite leak detection with rapid **decarbonization** of the electricity grid through North Sea offshore wind farms and grid-scale batteries. This technological shift connects directly to this week's economics news: eurozone inflation jumped to 4.0% largely because imported fossil-fuel energy prices surged 20.8%. Every gigawatt of domestic wind and solar power Europe builds not only permanently lowers greenhouse gas emissions, but also shields families and factories from foreign oil and gas price shocks."
       ],
       "bodyKo": [
-        "이산화탄소($CO_2$)는 한 번 배출되면 대기 중에 수백 년 동안 머무르지만, 이번 주 안탈리아에 모인 기후 과학자들은 2040년 이전에 기온 상승 속도를 즉시 늦출 수 있는 더 빠른 해법으로 메탄과 검댕 같은 ‘단기 기후 오염물질’ 감축을 지목했습니다. 메탄은 대기 중에서 약 10년 안팎이면 분해되기 때문에, 인공위성 센서로 가스관·광산·매립지의 누출 지점을 찾아 막는 것만으로도 단기 지구 온난화(global warming)에 즉각적인 응급 브레이크를 걸 수 있습니다.",
-        "동시에 유럽 에너지 기관들은 위성 누출 감시 기술과 북해 해상풍력 발전 및 대용량 배터리 저장 장치를 중심으로 한 전력망의 빠른 탈탄소화(decarbonization)를 결합하면 일석이조의 효과를 거둘 수 있다고 분석했습니다. 청정 풍력 발전량을 늘릴수록 온실가스 배출(emissions)이 줄어들 뿐 아니라, 이번 달 유로존 물가를 4.0%까지 끌어올린 수입 화석연료 가격 급등 충격으로부터 유럽 경제를 보호할 수 있기 때문입니다."
+        "대부분의 사람들은 기후변화를 떠올릴 때 자동차 배기가스나 발전소 굴뚝에서 나오는 이산화탄소($CO_2$)를 먼저 생각합니다. 이산화탄소는 한 번 배출되면 대기 중에 수백 년 동안 머무르기 때문에 장기적인 지구 환경을 위해 반드시 줄여야 합니다. 하지만 이번 주 안탈리아 COP31 총회에서 연구 결과를 발표한 기후 과학자들은 향후 15~20년 안에 단기 지구 온난화(global warming) 속도를 가장 빠르게 늦출 수 있는 핵심 열쇠로 또 다른 온실가스인 ‘메탄(methane)’을 지목했습니다.",
+        "천연가스의 주성분인 메탄은 대기 중에 머무는 기간이 약 12년 정도로 짧은 ‘단기 고효율 온실가스’입니다. 그러나 배출된 후 20년 동안 같은 양의 이산화탄소보다 무려 80배 이상 많은 열을 가둡니다. 반대로 말하면 유전이나 가스관, 탄광, 쓰레기 매립지에서 새어 나오는 메탄만 지금 당장 막아도 대기 중 메탄 농도가 10여 년 안에 빠르게 줄어들어 온난화에 즉각적인 응급 브레이크를 걸 수 있습니다. 과학자들은 철저한 메탄 감축만으로도 금세기 중반까지 지구 기온 상승 폭을 0.3°C~0.5°C 낮출 수 있다고 분석합니다.",
+        "과거에는 수백만 km에 달하는 파이프라인 어디에서 투명한 메탄가스가 새고 있는지 찾아내기가 매우 어려웠습니다. 하지만 최근 유럽과 미국이 쏘아 올린 차세대 환경 감시 위성들은 초정밀 적외선 분광기를 탑재해 우주 궤도에서 개별 시설의 메탄 누출 기둥을 실시간으로 포착하고 수 시간 내에 현장 엔지니어에게 경보를 보냅니다. 특히 노후 밸브와 배관 이음새를 교체해 누출을 막는 작업은 버려지던 가스를 회수해 연료로 쓸 수 있기 때문에 적은 비용으로도 큰 감축 효과를 거둘 수 있습니다.",
+        "나아가 유럽 에너지 당국은 위성 메탄 감시 기술과 북해 해상풍력 발전 및 대용량 배터리 저장망을 결합한 전력망 탈탄소화(decarbonization)에 속도를 내고 있습니다. 이는 이번 주 경제 기사와도 직결됩니다. 이번 달 유로존 물가상승률이 4.0%로 치솟은 주된 원인이 수입 에너지 가격의 20.8% 급등이었기 때문입니다. 유럽이 자체적인 해상풍력과 태양광 발전 비중을 늘릴수록 온실가스를 줄이는 동시에, 외부 석유·가스 가격 충격으로부터 가계 난방비와 산업용 전기요금을 지키는 튼튼한 경제 방패를 갖게 됩니다."
       ],
       "whyItMatters": [
-        "Connects this week's Economics story (20.8% energy inflation) directly with Environment and Science solutions.",
-        "Explains the difference between long-lived greenhouse gases (CO2) and short-lived super-pollutants (methane)."
+        "Explains why methane traps over 80 times more heat than CO2 over 20 years, making leak reduction the fastest brake on warming.",
+        "Shows how infrared satellites pinpoint invisible industrial gas leaks from space in real time.",
+        "Connects clean energy technology directly to economics by showing how offshore wind shields Europe from energy inflation."
       ],
       "whyItMattersKo": [
-        "이번 주 경제 기사(에너지 가격 20.8% 급등으로 인한 물가 상승)와 환경·과학 기술 해법이 어떻게 하나로 연결되는지 보여줍니다.",
-        "장기 체류 온실가스(이산화탄소)와 단기 고효율 온실가스(메탄)의 과학적 차이와 대응 전략을 구분해 이해할 수 있습니다."
+        "메탄이 20년 기준 이산화탄소보다 80배 이상 많은 열을 가두지만 12년 내 분해되어, 단기 온난화를 늦추는 가장 빠른 수단임을 설명합니다.",
+        "적외선 환경 위성이 우주에서 눈에 보이지 않는 가스관·매립지 메탄 누출을 어떻게 실시간으로 찾아내는지 보여줍니다.",
+        "해상풍력 등 전력망 탈탄소화가 기후 보호뿐 아니라 수입 에너지 가격 급등(인플레이션)을 막는 경제 안보 수단임을 연결해 줍니다."
       ],
-      "thinkAboutIt": "How can transitioning to domestic renewable energy like wind and solar help a country's environment and its economic inflation rate at the same time?",
-      "thinkAboutItKo": "풍력·태양광 같은 재생에너지 전환이 어떻게 한 나라의 ‘환경 보호’와 ‘물가 안정(경제 안보)’에 동시에 기여할 수 있을까요?",
+      "thinkAboutIt": "Why is fixing methane leaks often called a 'win-win' for both environmental protection and energy companies, and how does clean electricity help stabilize inflation?",
+      "thinkAboutItKo": "가스관의 메탄 누출을 막는 기술이 왜 환경 보호와 에너지 기업 모두에게 ‘윈윈(win-win)’이라고 불릴까요? 또한 친환경 전력 확대는 물가 안정에 어떻게 도움이 될까요?",
       "terms": [
         {
           "term": "global warming",
           "partOfSpeech": "noun",
-          "definition": "The long-term heating of Earth's climate system due to human activities, primarily fossil fuel burning, which increases heat-trapping greenhouse gases.",
-          "definitionKo": "화석연료 연소 등 인간 활동으로 인해 온실가스가 증가하면서 지구 기후 시스템의 평균 기온이 장기적으로 상승하는 현상(지구 온난화).",
-          "example": "Curbing methane leaks can shave up to half a degree off near-term global warming."
+          "definition": "The long-term heating of Earth's climate system caused by human activities that release heat-trapping greenhouse gases into the atmosphere.",
+          "definitionKo": "화석연료 사용 등 인간 활동으로 대기 중 온실가스가 늘어나면서 지구 기후 시스템의 평균 기온이 상승하는 현상(지구 온난화).",
+          "example": "Slashing methane leaks can shave up to 0.5°C off near-term global warming."
+        },
+        {
+          "term": "methane",
+          "partOfSpeech": "noun",
+          "definition": "A potent, short-lived greenhouse gas and the main component of natural gas, which traps over 80 times more heat than CO2 over a 20-year span.",
+          "definitionKo": "천연가스의 주성분이자 20년 기준 이산화탄소보다 80배 이상 많은 열을 가두는 강력한 단기 체류 온실가스(메탄).",
+          "example": "New infrared satellites can detect invisible methane plumes leaking from pipelines."
         },
         {
           "term": "decarbonization",
           "partOfSpeech": "noun",
-          "definition": "The process of reducing and eventually eliminating carbon dioxide emissions from an economy, especially by switching from fossil fuels to clean electricity.",
-          "definitionKo": "화석연료를 청정 전력으로 전환하여 경제 및 산업 전반에서 이산화탄소 배출을 줄이고 궁극적으로 없애는 과정(탈탄소화).",
-          "example": "Offshore wind turbines and electric heat pumps are central to Europe's decarbonization strategy."
-        },
-        {
-          "term": "emissions",
-          "partOfSpeech": "noun",
-          "definition": "Gases and particles—especially greenhouse gases like carbon dioxide and methane—released into the air by power plants, vehicles, industry, and agriculture.",
-          "definitionKo": "발전소, 자동차, 공장, 농축산업 등에서 대기 중으로 내뿜는 온실가스 및 오염 물질(배출량/배출가스).",
-          "example": "Satellites can now pinpoint industrial methane emissions from space in real time."
+          "definition": "The transition away from burning fossil fuels toward clean electricity sources like wind, solar, and hydro power to eliminate carbon emissions.",
+          "definitionKo": "석탄·석유·가스 대신 풍력·태양광 등 청정 전력으로 전환하여 경제 전반의 탄소 배출을 줄이고 없애는 과정(탈탄소화).",
+          "example": "North Sea offshore wind farms are accelerating the decarbonization of Europe's power grid."
         }
       ],
       "source": {
@@ -415,8 +421,8 @@
     "title": "Why Central Banks Aim for a 2% Inflation Target (And How Interest Rates Work)",
     "titleKo": "중앙은행은 왜 ‘2% 물가상승률 목표’를 지킬까? (기준금리와 인플레이션의 원리)",
     "category": "Economics",
-    "summary": "When prices rise too fast—like the eurozone's 4.0% inflation this week—money loses its buying power and families struggle to pay for essentials. On the other hand, if inflation falls below 0% (deflation), shoppers delay buying things and companies stop hiring. That is why central banks like the European Central Bank (ECB) and the US Federal Reserve aim for a steady 'Goldilocks' inflation rate of around 2.0% per year.",
-    "summaryKo": "이번 주 유로존(4.0%)처럼 물가가 너무 빨리 오르면 화폐 가치가 떨어져 가계의 실질 구매력이 줄어듭니다. 반대로 물가상승률이 마이너스(디플레이션)가 되면 사람들이 소비를 미루고 기업이 투자와 고용을 줄여 경기 침체에 빠집니다. 그래서 유럽중앙은행(ECB)과 미국 연방준비제도(Fed) 같은 중앙은행은 경제가 너무 뜨겁지도 차갑지도 않게 유지되는 ‘연 2.0% 안팎’을 물가 안정 목표치로 삼습니다.",
+    "summary": "When prices rise too fast—like the eurozone's 4.0% inflation this week—money loses its buying power and families struggle to pay for essentials. On the other hand, if inflation falls below 0% (deflation), shoppers delay buying things because they expect lower prices tomorrow, causing factories to cut production and jobs. That is why central banks like the European Central Bank (ECB) and the US Federal Reserve aim for a steady 'Goldilocks' inflation rate of around 2.0% per year.",
+    "summaryKo": "이번 주 유로존(4.0%)처럼 물가가 너무 빨리 오르면 화폐 가치가 떨어져 가계의 실질 구매력이 줄어듭니다. 반대로 물가상승률이 마이너스(디플레이션)가 되면 사람들이 내일 가격이 더 떨어질 것이라 기대해 소비를 미루고, 결국 기업이 생산과 고용을 줄여 경기 침체에 빠집니다. 그래서 유럽중앙은행(ECB)과 미국 연방준비제도(Fed) 같은 중앙은행은 경제가 너무 뜨겁지도 차갑지도 않게 유지되는 ‘연 2.0% 안팎’을 물가 안정 목표치로 삼습니다.",
     "realWorldAnalogy": "Think of the economy like heating a house in winter, and the central bank's interest rate as the thermostat. A steady 2.0% inflation is a comfortable 20°C room. When inflation jumps to 4.0%, the room is overheating—so the central bank raises interest rates (making loans more expensive) to cool down spending and bring the temperature back to normal.",
     "realWorldAnalogyKo": "경제를 겨울철 실내 난방에, 중앙은행의 ‘기준금리’를 온도조절기(보일러 다이얼)에 비유해 보세요. 2.0% 물가상승률은 가장 쾌적한 실내 온도 20°C와 같습니다. 만약 물가가 4.0%로 치솟아 방이 너무 더워지면, 중앙은행은 기준금리를 올려(대출 이자를 높여) 과열된 소비와 투자를 식히고 다시 쾌적한 2.0% 수준으로 온도를 낮춥니다.",
     "keyTakeaway": "Central banks raise interest rates to cool down high inflation, and lower interest rates when the economy needs a boost.",

@@ -4,11 +4,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 describe('Astro static build, subpath-safe CSS/links, magazine deck UX, and pure English mode', () => {
-  it('inlines all CSS, renders 9-page horizontal magazine deck UX, and keeps English mode free of Korean text', () => {
+  it('inlines all CSS, renders 9-page horizontal magazine deck UX with 6 full-page daily articles, and keeps English mode free of Korean text', () => {
     execSync('npm run build', { stdio: 'pipe' });
     const distDir = path.resolve(process.cwd(), 'dist');
     expect(fs.existsSync(path.join(distDir, 'index.html'))).toBe(true);
     expect(fs.existsSync(path.join(distDir, 'issues/2026-W45/index.html'))).toBe(true);
+    expect(fs.existsSync(path.join(distDir, 'issues/2026-W46/index.html'))).toBe(true);
     expect(fs.existsSync(path.join(distDir, 'archive/index.html'))).toBe(true);
     expect(fs.existsSync(path.join(distDir, 'glossary/index.html'))).toBe(true);
     expect(fs.readFileSync(path.join(distDir, 'CNAME'), 'utf-8').trim()).toBe('agora.yocto.kr');
@@ -25,10 +26,11 @@ describe('Astro static build, subpath-safe CSS/links, magazine deck UX, and pure
     expect(indexHtml).toContain('id="btn-side-next"');
     expect(indexHtml).toContain('data-slide-index="8"');
 
-    // Interactive student & parent UX components
+    // Interactive student & parent UX components (no MUN section)
     expect(indexHtml).toContain('id="reading-progress-bar"');
-    expect(indexHtml).toContain('id="mun-vote-studio"');
     expect(indexHtml).toContain('id="weekly-quiz-section"');
+    expect(indexHtml).toContain('front-summary-box');
+    expect(indexHtml).not.toContain('Model UN');
 
     // Verify that outside .lang-ko-block / .lang-ko-inline / scripts / data-def-ko attributes, no Hangul leaks into English view
     const strippedForEnCheck = indexHtml
@@ -48,12 +50,12 @@ describe('Astro static build, subpath-safe CSS/links, magazine deck UX, and pure
     expect(indexHtml).toContain('data-print-slide="1"');
     expect(indexHtml).toContain('id="btn-print-daily-top"');
 
-    const issueHtml = fs.readFileSync(path.join(distDir, 'issues/2026-W45/index.html'), 'utf-8');
+    const issueHtml = fs.readFileSync(path.join(distDir, 'issues/2026-W46/index.html'), 'utf-8');
     expect(issueHtml).toContain('<style>');
     expect(issueHtml).not.toContain('href="/_astro/');
     expect(issueHtml).toContain('Print Weekly Packet');
     expect(issueHtml).toContain('issue-quick-select');
-    expect(issueHtml).toContain('MUN Delegate Prep');
+    expect(issueHtml).toContain('Weekly Critical Thinking');
     expect(issueHtml).toContain('data-lang-switch="ko"');
     expect(issueHtml).toContain('data-lang-switch="bilingual"');
     expect(issueHtml).toContain('lang-ko-block');

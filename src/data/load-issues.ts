@@ -52,15 +52,6 @@ export function getAllGlossaryTerms(): IndexedGlossaryTerm[] {
   const terms: IndexedGlossaryTerm[] = [];
 
   for (const issue of issues) {
-    for (const t of issue.munSpotlight.terms ?? []) {
-      terms.push({
-        ...t,
-        issueId: issue.id,
-        issueNumber: issue.issueNumber,
-        publishDate: issue.publishDate,
-        sourceSection: `MUN Spotlight: ${issue.munSpotlight.committee}`,
-      });
-    }
     for (const article of issue.articles) {
       for (const t of article.terms) {
         terms.push({

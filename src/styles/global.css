@@ -766,7 +766,13 @@ body[data-lang="bilingual"] .lang-ko-block {
 .why-matters-box, .think-box {
   background: var(--bg-panel);
   border-radius: 6px;
-  padding: 0.8rem 1rem;
+  padding: 0.85rem 1.05rem;
+}
+
+.front-summary-box {
+  margin-top: 1.05rem;
+  border: 1px solid var(--border-rule);
+  border-left: 4px solid var(--accent-civic);
 }
 
 .box-label {

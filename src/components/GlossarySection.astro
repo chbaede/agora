@@ -7,10 +7,8 @@ interface Props {
 
 const { issue } = Astro.props;
 
-const combinedTerms: Array<GlossaryTerm & { sectionLabel: string }> = [
-  ...issue.munSpotlight.terms.map((t) => ({ ...t, sectionLabel: 'MUN Spotlight' })),
-  ...issue.articles.flatMap((a) => a.terms.map((t) => ({ ...t, sectionLabel: a.category }))),
-];
+const combinedTerms: Array<GlossaryTerm & { sectionLabel: string }> =
+  issue.articles.flatMap((a) => a.terms.map((t) => ({ ...t, sectionLabel: a.category })));
 ---
 
 <section aria-labelledby="glossary-section-heading">
@@ -18,7 +16,7 @@ const combinedTerms: Array<GlossaryTerm & { sectionLabel: string }> = [
     <div>
       <h2 id="glossary-section-heading" class="section-title">
         <span class="lang-en-inline">Weekly Vocabulary &amp; Economic Glossary ({combinedTerms.length} Terms)</span>
-        <span class="lang-ko-inline">주간 핵심 영단어 및 시사·경제 용어 사전 ({combinedTerms.length}개 어휘)</span>
+        <span class="lang-ko-inline">주간 핵심 영단어 및 시사·경제·과학 용어 사전 ({combinedTerms.length}개 어휘)</span>
       </h2>
       <span class="section-kicker">
         <span class="lang-en-inline">CLEAR ENGLISH DEFINITIONS &amp; CONTEXT SENTENCES</span>

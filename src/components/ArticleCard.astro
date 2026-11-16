@@ -7,8 +7,8 @@ interface Props {
   slideIndex?: number;
 }
 
-const { article, index, slideIndex = index + 2 } = Astro.props;
-const dayNum = index + 2; // Day 2 (Tue) through Day 6 (Sat)
+const { article, index, slideIndex = index + 1 } = Astro.props;
+const dayNum = index + 1; // Day 1 (Mon) through Day 6 (Sat)
 const dayNamesEn = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 const dayNamesKo = ['월', '화', '수', '목', '금', '토', '일'];
 const dayLabelEn = `Day ${dayNum} (${dayNamesEn[dayNum - 1]})`;
@@ -23,7 +23,7 @@ function getCategoryBadgeClass(category: string): string {
 
 <article class="article-card duplex-sheet-unit" data-category={article.category} data-read-item={article.id}>
   <!-- =================================================================== -->
-  <!-- DUPLEX FRONT SIDE (PAGE 1 OF SHEET): ARTICLE READING & PHOTO        -->
+  <!-- DUPLEX FRONT SIDE (PAGE 1 OF SHEET): FULL-PAGE ARTICLE & SUMMARY    -->
   <!-- =================================================================== -->
   <div class="duplex-front-page">
     <div class="print-only-sheet-header">
@@ -31,7 +31,7 @@ function getCategoryBadgeClass(category: string): string {
         <strong>AGORA DAILY READING HANDOUT · {dayLabelEn.toUpperCase()}</strong> · STORY #{index + 1} ({article.category})
       </div>
       <div>
-        1-Sheet Duplex (Front: Article / Back: Vocab &amp; Notes) · Date: ____________
+        📅 Article Date: {article.source.publishedDate} · 📰 {article.source.publisher}
       </div>
     </div>
 
@@ -96,6 +96,21 @@ function getCategoryBadgeClass(category: string): string {
       ))}
     </div>
 
+    <div class="why-matters-box front-summary-box">
+      <span class="box-label">
+        <span class="lang-en-inline">💡 EXECUTIVE SUMMARY &amp; WHY IT MATTERS</span>
+        <span class="lang-ko-inline">💡 핵심 요약 및 왜 중요할까요?</span>
+      </span>
+      <ul class="why-matters-list">
+        {article.whyItMatters.map((point, i) => (
+          <li>
+            <span class="lang-en-block">{point}</span>
+            {article.whyItMattersKo?.[i] && <span class="lang-ko-block">{article.whyItMattersKo[i]}</span>}
+          </li>
+        ))}
+      </ul>
+    </div>
+
     <div class="article-source-row">
       <span>
         <strong>Source:</strong>{' '}
@@ -107,8 +122,8 @@ function getCategoryBadgeClass(category: string): string {
     </div>
 
     <div class="print-only-turn-hint">
-      ↪ <span class="lang-en-inline">Turn sheet over (Back Side) for Key Vocabulary, Critical Thinking &amp; Daily Summary Notes</span>
-      <span class="lang-ko-inline">뒷면(Back Side)에 핵심 영단어장, 토론 질문 및 3줄 요약 노트가 이어집니다</span>
+      ↪ <span class="lang-en-inline">Turn sheet over (Back Side) for Key Vocabulary, Critical Thinking &amp; Daily Summary Worksheet</span>
+      <span class="lang-ko-inline">뒷면(Back Side)에 핵심 영단어장, 심화 토론 질문 및 요약·영작 노트가 이어집니다</span>
     </div>
   </div>
 
@@ -118,43 +133,17 @@ function getCategoryBadgeClass(category: string): string {
   <div class="duplex-back-page">
     <div class="print-only-sheet-header">
       <div>
-        <strong>AGORA DAILY STUDY &amp; VOCABULARY SHEET (BACK SIDE)</strong> · STORY #{index + 1}: {article.category}
+        <strong>AGORA DAILY VOCABULARY &amp; REFLECTION WORKSHEET (BACK SIDE)</strong> · {dayLabelEn.toUpperCase()}
       </div>
       <div>
-        Student Name: ______________________
+        Student Name: ______________________ · Date: ____________
       </div>
     </div>
 
-    <div class="article-takeaways-grid">
-      <div class="why-matters-box">
-        <span class="box-label">
-          <span class="lang-en-inline">💡 WHY IT MATTERS FOR YOU</span>
-          <span class="lang-ko-inline">💡 왜 중요할까요? (핵심 배경과 시사점)</span>
-        </span>
-        <ul class="why-matters-list">
-          {article.whyItMatters.map((point, i) => (
-            <li>
-              <span class="lang-en-block">{point}</span>
-              {article.whyItMattersKo?.[i] && <span class="lang-ko-block">{article.whyItMattersKo[i]}</span>}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div class="think-box">
-        <span class="box-label">
-          <span class="lang-en-inline">💬 CRITICAL THINKING &amp; DISCUSSION QUESTION</span>
-          <span class="lang-ko-inline">💬 가족·수업 시간 토론 질문</span>
-        </span>
-        <p class="lang-en-block" style="margin: 0; font-size: 0.95rem; font-style: italic;">“{article.thinkAboutIt}”</p>
-        <p class="lang-ko-block" style="margin: 0; font-size: 0.93rem;">“{article.thinkAboutItKo}”</p>
-      </div>
-    </div>
-
-    <div class="article-terms-strip">
+    <div class="article-terms-strip" style="margin-top: 0.9rem;">
       <strong>
         <span class="lang-en-inline">📚 Key Vocabulary &amp; Concepts in This Story:</span>
-        <span class="lang-ko-inline">📚 이 기사의 핵심 영단어 및 시사·경제 용어:</span>
+        <span class="lang-ko-inline">📚 오늘의 핵심 영단어 및 시사·경제·과학 용어:</span>
       </strong>
       <div class="article-terms-list">
         {article.terms.map((t) => (
@@ -165,21 +154,31 @@ function getCategoryBadgeClass(category: string): string {
               <span class="lang-ko-block">{t.definitionKo}</span>
             </div>
             <div class="article-term-example">
-              <em>Example:</em> “{t.example}”
+              <em>Context Example:</em> “{t.example}”
             </div>
           </div>
         ))}
       </div>
     </div>
 
-    <!-- Print-Only Daily Handwritten Reflection & Vocabulary Practice Box (Back Side Bottom) -->
+    <div class="think-box" style="margin-top: 0.85rem;">
+      <span class="box-label">
+        <span class="lang-en-inline">💬 CRITICAL THINKING &amp; DISCUSSION PROMPT</span>
+        <span class="lang-ko-inline">💬 오늘의 심화 사고력 &amp; 가족 토론 질문</span>
+      </span>
+      <p class="lang-en-block" style="margin: 0; font-size: 0.96rem; font-style: italic;">“{article.thinkAboutIt}”</p>
+      <p class="lang-ko-block" style="margin: 0; font-size: 0.94rem;">“{article.thinkAboutItKo}”</p>
+    </div>
+
+    <!-- Print-Only Daily Handwritten Reflection & Vocabulary Practice Box (Fills Back Side) -->
     <div class="print-only-daily-notes">
       <div class="daily-notes-block">
         <strong>
-          <span class="lang-en-inline">✍️ 1. Key Takeaway &amp; My Answer to Today's Discussion Question (Summarize in 2–3 sentences):</span>
-          <span class="lang-ko-inline">✍️ 1. 오늘 읽은 기사 핵심 요약 및 토론 질문에 대한 나의 생각 (영어 또는 한국어로 2~3문장 작성):</span>
+          <span class="lang-en-inline">✍️ 1. Today's 3-Sentence Summary (What happened, why did it happen, and what happens next?):</span>
+          <span class="lang-ko-inline">✍️ 1. 오늘 읽은 기사 3문장 핵심 요약 (무슨 일인지, 원인은 무엇인지, 앞으로 어떻게 될지 적어보세요):</span>
         </strong>
         <div class="worksheet-lines">
+          <div class="worksheet-line"></div>
           <div class="worksheet-line"></div>
           <div class="worksheet-line"></div>
           <div class="worksheet-line"></div>
@@ -187,12 +186,27 @@ function getCategoryBadgeClass(category: string): string {
         </div>
       </div>
 
-      <div class="daily-notes-block" style="margin-top: 8pt;">
+      <div class="daily-notes-block" style="margin-top: 10pt;">
         <strong>
-          <span class="lang-en-inline">✍️ 2. Vocabulary in Action (Write 2 sentences of your own using today's Key Words):</span>
-          <span class="lang-ko-inline">✍️ 2. 오늘 배운 핵심 영단어(Key Vocabulary)를 활용해 나만의 영어 문장 2개 만들기:</span>
+          <span class="lang-en-inline">✍️ 2. Critical Thinking Response (Write your opinion on today's Discussion Prompt with 2 supporting reasons):</span>
+          <span class="lang-ko-inline">✍️ 2. 비판적 사고력 연습 (위 토론 질문에 대한 나의 생각과 두 가지 근거를 적어보세요):</span>
         </strong>
         <div class="worksheet-lines">
+          <div class="worksheet-line"></div>
+          <div class="worksheet-line"></div>
+          <div class="worksheet-line"></div>
+          <div class="worksheet-line"></div>
+          <div class="worksheet-line"></div>
+        </div>
+      </div>
+
+      <div class="daily-notes-block" style="margin-top: 10pt;">
+        <strong>
+          <span class="lang-en-inline">✍️ 3. Vocabulary in Action (Write your own English sentences using today's 3 Key Vocabulary words):</span>
+          <span class="lang-ko-inline">✍️ 3. 오늘의 영단어 실전 영작 (위 핵심 영단어 3개를 각각 사용해 나만의 영어 문장을 만들어 보세요):</span>
+        </strong>
+        <div class="worksheet-lines">
+          <div class="worksheet-line"></div>
           <div class="worksheet-line"></div>
           <div class="worksheet-line"></div>
           <div class="worksheet-line"></div>

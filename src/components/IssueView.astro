@@ -1,7 +1,6 @@
 ---
 import type { WeeklyIssue } from '../data/schema';
 import Masthead from './Masthead.astro';
-import MunSpotlight from './MunSpotlight.astro';
 import ArticleCard from './ArticleCard.astro';
 import ConceptExplainer from './ConceptExplainer.astro';
 import BookCorner from './BookCorner.astro';
@@ -18,11 +17,12 @@ interface Props {
 const { issue, previousIssue, nextIssue, totalIssues } = Astro.props;
 
 const shortCatLabels: Record<string, { icon: string; en: string; ko: string; dayEn: string; dayKo: string }> = {
+  'Global Affairs & Diplomacy': { icon: '🌍', en: 'Global', ko: '세계·외교', dayEn: 'Day 1 · Mon', dayKo: 'Day 1 · 월' },
   'US Current Affairs': { icon: '🇺🇸', en: 'US', ko: '미국', dayEn: 'Day 2 · Tue', dayKo: 'Day 2 · 화' },
   'Europe Current Affairs': { icon: '🇪🇺', en: 'Europe', ko: '유럽', dayEn: 'Day 3 · Wed', dayKo: 'Day 3 · 수' },
   'Economy & Business': { icon: '💶', en: 'Economy', ko: '경제', dayEn: 'Day 4 · Thu', dayKo: 'Day 4 · 목' },
-  'Science & Technology': { icon: '🚀', en: 'Science', ko: '과학', dayEn: 'Day 5 · Fri', dayKo: 'Day 5 · 금' },
-  'Environment & Global Society': { icon: '🌱', en: 'Climate', ko: '기후', dayEn: 'Day 6 · Sat', dayKo: 'Day 6 · 토' },
+  'Science & Space': { icon: '🚀', en: 'Science', ko: '과학·우주', dayEn: 'Day 5 · Fri', dayKo: 'Day 5 · 금' },
+  'Environment & Future Tech': { icon: '🌱', en: 'Climate & Tech', ko: '환경·기술', dayEn: 'Day 6 · Sat', dayKo: 'Day 6 · 토' },
 };
 
 const deckPages = [
@@ -33,18 +33,17 @@ const deckPages = [
     shortEn: 'Cover',
     shortKo: '목차',
   },
-  {
-    index: 1,
-    num: '02',
-    icon: '🇺🇳',
-    shortEn: 'MUN',
-    shortKo: '모의유엔',
-  },
   ...issue.articles.map((art, i) => {
-    const meta = shortCatLabels[art.category] ?? { icon: '📰', en: `S${i + 1}`, ko: `기사${i + 1}`, dayEn: `Day ${i + 2}`, dayKo: `Day ${i + 2}` };
+    const meta = shortCatLabels[art.category] ?? {
+      icon: '📰',
+      en: `Day ${i + 1}`,
+      ko: `Day ${i + 1}`,
+      dayEn: `Day ${i + 1}`,
+      dayKo: `Day ${i + 1}`,
+    };
     return {
-      index: i + 2,
-      num: `0${i + 3}`,
+      index: i + 1,
+      num: `0${i + 2}`,
       icon: meta.icon,
       shortEn: meta.en,
       shortKo: meta.ko,
@@ -164,13 +163,13 @@ const deckPages = [
         <>
           <div class="stat-card">
             <div class="stat-number">~200 Nations</div>
-            <div class="stat-label lang-en-block">Gathering at COP31 in Antalya under Türkiye &amp; Australia co-leadership</div>
-            <div class="stat-label lang-ko-block">튀르키예·호주 공동 의장국 체제로 안탈리아 COP31 기후총회에 모인 참가국</div>
+            <div class="stat-label lang-en-block">Preparing for COP31 in Antalya under Türkiye &amp; Australia co-leadership</div>
+            <div class="stat-label lang-ko-block">튀르키예·호주 공동 의장국 체제로 안탈리아 COP31 기후총회를 준비하는 참가국</div>
           </div>
           <div class="stat-card">
             <div class="stat-number">435 Seats</div>
-            <div class="stat-label lang-en-block">US House of Representatives flipped in the Nov 3 midterm elections</div>
-            <div class="stat-label lang-ko-block">11월 3일 미국 중간선거로 다수당이 교체된 연방 하원 전체 의석수</div>
+            <div class="stat-label lang-en-block">US House of Representatives contested in the Nov 3 midterm elections</div>
+            <div class="stat-label lang-ko-block">11월 3일 미국 중간선거로 다수당이 재편된 연방 하원 전체 의석수</div>
           </div>
           <div class="stat-card">
             <div class="stat-number">82.9% GDP</div>
@@ -209,14 +208,14 @@ const deckPages = [
       ) : (
         <>
           <div class="stat-card">
-            <div class="stat-number">7 Days</div>
-            <div class="stat-label lang-en-block">{issue.coveragePeriod} · 1 MUN Dossier &amp; 5 Global Briefings</div>
-            <div class="stat-label lang-ko-block">{issue.coveragePeriod} · 모의유엔 집중 분석 1편 &amp; 5대 분야 필수 기사</div>
+            <div class="stat-number">6 Stories</div>
+            <div class="stat-label lang-en-block">{issue.coveragePeriod} · Mon–Sat Full-Page Daily Briefings</div>
+            <div class="stat-label lang-ko-block">{issue.coveragePeriod} · 월~토 매일 1페이지 꽉 찬 심층 기사 6편</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number">🇺🇳 MUN</div>
-            <div class="stat-label lang-en-block">{issue.munSpotlight.committee} ({issue.munSpotlight.region})</div>
-            <div class="stat-label lang-ko-block">{issue.munSpotlight.committee} ({issue.munSpotlight.region})</div>
+            <div class="stat-number">🌍 Global</div>
+            <div class="stat-label lang-en-block">{issue.articles[0]?.headline}</div>
+            <div class="stat-label lang-ko-block">{issue.articles[0]?.headlineKo}</div>
           </div>
           <div class="stat-card">
             <div class="stat-number">💡 {issue.conceptOfTheWeek.category}</div>
@@ -236,66 +235,43 @@ const deckPages = [
     <section class="toc-overview-section no-print" aria-labelledby="toc-heading">
       <div class="section-header" style="margin-top: 0.85rem; margin-bottom: 0.65rem;">
         <h2 id="toc-heading" class="section-title" style="font-size: 1.2rem;">
-          <span class="lang-en-inline">📖 7-Day Reading Plan &amp; 1-Sheet Duplex Print Menu</span>
-          <span class="lang-ko-inline">📖 하루 1편 읽기 목차 &amp; 1장(양면) 개별 인쇄</span>
+          <span class="lang-en-inline">📖 7-Day Daily Reading Plan &amp; 1-Sheet Duplex Print Menu</span>
+          <span class="lang-ko-inline">📖 월~일 하루 1편 읽기 목차 &amp; 1장(양면) 개별 인쇄</span>
         </h2>
         <span class="section-kicker">
-          <span class="lang-en-inline">EACH DAY PRINTS ON 1 PHYSICAL SHEET (FRONT: STORY / BACK: VOCAB &amp; NOTES)</span>
-          <span class="lang-ko-inline">각 기사마다 [🖨️ 1장 인쇄]를 누르면 앞면(본문)+뒷면(단어·필기) 양면 1장으로 출력됩니다</span>
+          <span class="lang-en-inline">FRONT: FULL-PAGE ARTICLE &amp; SUMMARY · BACK: VOCABULARY, DISCUSSION &amp; NOTES</span>
+          <span class="lang-ko-inline">[🖨️ 1장 인쇄]를 누르면 앞면(1페이지 꽉 찬 기사·핵심요약) + 뒷면(단어·토론·필기노트) 양면 1장으로 출력됩니다</span>
         </span>
       </div>
 
       <div class="toc-cards-grid">
-        <!-- TOC Card: Page 2 (Day 1 · Mon · MUN Spotlight) -->
-        <div class="toc-card toc-card-featured">
-          <div class="toc-card-thumb-wrap" data-goto-slide="1">
-            <img src={issue.munSpotlight.imageUrl} alt={issue.munSpotlight.topic} class="toc-card-thumb" loading="lazy" />
-            <span class="toc-page-pill">DAY 1 (MON) · P.02</span>
-          </div>
-          <div class="toc-card-body">
-            <div class="toc-card-cat">
-              🇺🇳 MUN · 📅 {issue.munSpotlight.sources[0]?.publishedDate} · {issue.munSpotlight.committee}
-            </div>
-            <h3 class="toc-card-title lang-en-block" data-goto-slide="1">{issue.munSpotlight.topic}</h3>
-            <h3 class="toc-card-title lang-ko-block" data-goto-slide="1">{issue.munSpotlight.topicKo}</h3>
-            <div class="toc-card-actions">
-              <button type="button" class="toc-open-btn" data-goto-slide="1">
-                <span class="lang-en-inline">Read Page 02 →</span>
-                <span class="lang-ko-inline">2페이지 읽기 →</span>
-              </button>
-              <button type="button" class="btn-print-single" data-print-slide="1" title="Print Day 1 as a 1-Sheet Duplex Handout">
-                🖨️ <span class="lang-en-inline">1-Sheet</span><span class="lang-ko-inline">1장 인쇄</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- TOC Cards: Pages 3–7 (Days 2–6 · 5 Essential Stories) -->
+        <!-- TOC Cards: Pages 2–7 (Days 1–6 · 6 Full-Page Daily Stories) -->
         {issue.articles.map((art, idx) => {
           const meta = shortCatLabels[art.category];
+          const slideIdx = idx + 1;
           return (
-            <div class="toc-card">
-              <div class="toc-card-thumb-wrap" data-goto-slide={idx + 2}>
+            <div class={`toc-card ${idx === 0 ? 'toc-card-featured' : ''}`}>
+              <div class="toc-card-thumb-wrap" data-goto-slide={slideIdx}>
                 <img
                   src={art.imageUrl}
                   alt={art.headline}
                   class={`toc-card-thumb ${art.imageUrl.endsWith('.png') ? 'toc-thumb-contain' : ''}`}
                   loading="lazy"
                 />
-                <span class="toc-page-pill">{meta?.dayEn.toUpperCase() ?? `DAY ${idx + 2}`} · P.0{idx + 3}</span>
+                <span class="toc-page-pill">{meta?.dayEn.toUpperCase() ?? `DAY ${idx + 1}`} · P.0{idx + 2}</span>
               </div>
               <div class="toc-card-body">
                 <div class="toc-card-cat">
-                  📅 {art.source.publishedDate} · {art.category}
+                  {meta?.icon ?? '📰'} {art.category} · 📅 {art.source.publishedDate} · ⏱️ {art.readingTimeMinutes}m
                 </div>
-                <h3 class="toc-card-title lang-en-block" data-goto-slide={idx + 2}>{art.headline}</h3>
-                <h3 class="toc-card-title lang-ko-block" data-goto-slide={idx + 2}>{art.headlineKo}</h3>
+                <h3 class="toc-card-title lang-en-block" data-goto-slide={slideIdx}>{art.headline}</h3>
+                <h3 class="toc-card-title lang-ko-block" data-goto-slide={slideIdx}>{art.headlineKo}</h3>
                 <div class="toc-card-actions">
-                  <button type="button" class="toc-open-btn" data-goto-slide={idx + 2}>
-                    <span class="lang-en-inline">Page 0{idx + 3} →</span>
-                    <span class="lang-ko-inline">0{idx + 3}페이지 →</span>
+                  <button type="button" class="toc-open-btn" data-goto-slide={slideIdx}>
+                    <span class="lang-en-inline">Page 0{idx + 2} →</span>
+                    <span class="lang-ko-inline">0{idx + 2}페이지 →</span>
                   </button>
-                  <button type="button" class="btn-print-single" data-print-slide={idx + 2} title={`Print Day ${idx + 2} as a 1-Sheet Duplex Handout`}>
+                  <button type="button" class="btn-print-single" data-print-slide={slideIdx} title={`Print Day ${idx + 1} as a 1-Sheet Duplex Handout`}>
                     🖨️ <span class="lang-en-inline">1-Sheet</span><span class="lang-ko-inline">1장 인쇄</span>
                   </button>
                 </div>
@@ -329,7 +305,7 @@ const deckPages = [
         <!-- TOC Card: Page 9 (Glossary, Quiz & Worksheet) -->
         <div class="toc-card">
           <div class="toc-card-thumb-wrap toc-thumb-gradient-quiz" data-goto-slide="8">
-            <div class="toc-quiz-graphic">🧠 17 Terms · ⚡ Quiz</div>
+            <div class="toc-quiz-graphic">🧠 18 Terms · ⚡ Quiz</div>
             <span class="toc-page-pill">REVIEW · P.09</span>
           </div>
           <div class="toc-card-body">
@@ -352,18 +328,11 @@ const deckPages = [
   </div>
 
   <!-- ===================================================================== -->
-  <!-- PAGE 2 (SLIDE 1): DAY 1 (MON) · MUN SPOTLIGHT                         -->
-  <!-- ===================================================================== -->
-  <div class="deck-slide" data-slide-index="1">
-    <MunSpotlight mun={issue.munSpotlight} slideIndex={1} />
-  </div>
-
-  <!-- ===================================================================== -->
-  <!-- PAGES 3 TO 7 (SLIDES 2 TO 6): DAYS 2 TO 6 · 1 PAGE PER STORY          -->
+  <!-- PAGES 2 TO 7 (SLIDES 1 TO 6): DAYS 1 TO 6 · 6 FULL-PAGE DAILY STORIES -->
   <!-- ===================================================================== -->
   {issue.articles.map((article, idx) => (
-    <div class="deck-slide" data-slide-index={idx + 2}>
-      <ArticleCard article={article} index={idx} slideIndex={idx + 2} />
+    <div class="deck-slide" data-slide-index={idx + 1}>
+      <ArticleCard article={article} index={idx} slideIndex={idx + 1} />
     </div>
   ))}
 
@@ -378,7 +347,7 @@ const deckPages = [
             <strong>AGORA DAILY READING HANDOUT · DAY 7 (SUN)</strong> · CONCEPT OF THE WEEK &amp; BOOK PICK
           </div>
           <div>
-            1-Sheet Duplex (Front: Concept &amp; Book / Back: Reflection &amp; Weekly Quiz) · Date: ____________
+            1-Sheet Duplex (Front: Concept &amp; Book / Back: Reflection &amp; Synthesis Notes) · Date: ____________
           </div>
         </div>
 
@@ -417,13 +386,14 @@ const deckPages = [
           </div>
         </div>
 
-        <div class="print-only-daily-notes" style="display: block;">
+        <div class="print-only-daily-notes">
           <div class="daily-notes-block">
             <strong>
               <span class="lang-en-inline">✍️ 1. Concept Application — {issue.conceptOfTheWeek.title}:</span>
               <span class="lang-ko-inline">✍️ 1. 이번 주 핵심 개념({issue.conceptOfTheWeek.titleKo})을 내 말로 설명해 보기:</span>
             </strong>
             <div class="worksheet-lines">
+              <div class="worksheet-line"></div>
               <div class="worksheet-line"></div>
               <div class="worksheet-line"></div>
               <div class="worksheet-line"></div>
@@ -437,6 +407,7 @@ const deckPages = [
               <span class="lang-ko-inline">✍️ 2. 추천 원서 독서 토론 질문: {issue.bookOfTheWeek.discussionPromptKo}</span>
             </strong>
             <div class="worksheet-lines">
+              <div class="worksheet-line"></div>
               <div class="worksheet-line"></div>
               <div class="worksheet-line"></div>
               <div class="worksheet-line"></div>
@@ -458,48 +429,48 @@ const deckPages = [
       <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; border-bottom: 2px solid var(--border-strong); padding-bottom: 0.5rem; margin-bottom: 0.5rem;">
         <h2 id="quiz-heading" style="margin: 0; font-size: 1.3rem;">
           <span class="lang-en-inline">⚡ 3-Minute Weekly Current Affairs &amp; Economics Quiz</span>
-          <span class="lang-ko-inline">⚡ 3분 주간 시사·경제 확인 퀴즈</span>
+          <span class="lang-ko-inline">⚡ 3분 주간 시사·경제·과학 확인 퀴즈</span>
         </h2>
       </div>
 
       <div class="quiz-q-block" data-quiz-q="1">
-        <strong class="lang-en-block">1. What does the term “{issue.articles[0].terms[1]?.term ?? issue.articles[0].terms[0].term}” mean in this week's US Current Affairs story?</strong>
-        <strong class="lang-ko-block">1. 이번 주 미국 시사 기사에 등장한 핵심 용어 ‘{issue.articles[0].terms[1]?.term ?? issue.articles[0].terms[0].term}’의 뜻으로 가장 알맞은 것은 무엇인가요?</strong>
+        <strong class="lang-en-block">1. What does the term “{issue.articles[1].terms[1]?.term ?? issue.articles[1].terms[0].term}” mean in this week's US Current Affairs story?</strong>
+        <strong class="lang-ko-block">1. 이번 주 미국 시사 기사에 등장한 핵심 용어 ‘{issue.articles[1].terms[1]?.term ?? issue.articles[1].terms[0].term}’의 뜻으로 가장 알맞은 것은 무엇인가요?</strong>
         <div class="quiz-options">
           <button type="button" class="quiz-opt-btn" data-correct="true">
-            <span class="lang-en-inline">A) {issue.articles[0].terms[1]?.definition ?? issue.articles[0].terms[0].definition}</span>
-            <span class="lang-ko-inline">A) {issue.articles[0].terms[1]?.definitionKo ?? issue.articles[0].terms[0].definitionKo}</span>
+            <span class="lang-en-inline">A) {issue.articles[1].terms[1]?.definition ?? issue.articles[1].terms[0].definition}</span>
+            <span class="lang-ko-inline">A) {issue.articles[1].terms[1]?.definitionKo ?? issue.articles[1].terms[0].definitionKo}</span>
           </button>
           <button type="button" class="quiz-opt-btn" data-correct="false">
-            <span class="lang-en-inline">B) {issue.articles[3].terms[0].definition}</span>
-            <span class="lang-ko-inline">B) {issue.articles[3].terms[0].definitionKo}</span>
+            <span class="lang-en-inline">B) {issue.articles[4].terms[0].definition}</span>
+            <span class="lang-ko-inline">B) {issue.articles[4].terms[0].definitionKo}</span>
           </button>
           <button type="button" class="quiz-opt-btn" data-correct="false">
-            <span class="lang-en-inline">C) {issue.munSpotlight.terms[0].definition}</span>
-            <span class="lang-ko-inline">C) {issue.munSpotlight.terms[0].definitionKo}</span>
+            <span class="lang-en-inline">C) {issue.articles[0].terms[0].definition}</span>
+            <span class="lang-ko-inline">C) {issue.articles[0].terms[0].definitionKo}</span>
           </button>
         </div>
         <div class="quiz-feedback">
-          <span class="lang-en-block">✓ Correct! Example: “{issue.articles[0].terms[1]?.example ?? issue.articles[0].terms[0].example}”</span>
-          <span class="lang-ko-block">✓ 정답입니다! 실전 예문: “{issue.articles[0].terms[1]?.example ?? issue.articles[0].terms[0].example}”</span>
+          <span class="lang-en-block">✓ Correct! Example: “{issue.articles[1].terms[1]?.example ?? issue.articles[1].terms[0].example}”</span>
+          <span class="lang-ko-block">✓ 정답입니다! 실전 예문: “{issue.articles[1].terms[1]?.example ?? issue.articles[1].terms[0].example}”</span>
         </div>
       </div>
 
       <div class="quiz-q-block" data-quiz-q="2">
-        <strong class="lang-en-block">2. In this week's Economy &amp; Business briefing, what is the meaning of “{issue.articles[2].terms[0].term}”?</strong>
-        <strong class="lang-ko-block">2. 이번 주 경제·금융 기사의 핵심 개념인 ‘{issue.articles[2].terms[0].term}’의 설명으로 올바른 것은 무엇인가요?</strong>
+        <strong class="lang-en-block">2. In this week's Economy &amp; Business briefing, what is the meaning of “{issue.articles[3].terms[0].term}”?</strong>
+        <strong class="lang-ko-block">2. 이번 주 경제·금융 기사의 핵심 개념인 ‘{issue.articles[3].terms[0].term}’의 설명으로 올바른 것은 무엇인가요?</strong>
         <div class="quiz-options">
           <button type="button" class="quiz-opt-btn" data-correct="false">
-            <span class="lang-en-inline">A) {issue.articles[1].terms[0].definition}</span>
-            <span class="lang-ko-inline">A) {issue.articles[1].terms[0].definitionKo}</span>
+            <span class="lang-en-inline">A) {issue.articles[2].terms[0].definition}</span>
+            <span class="lang-ko-inline">A) {issue.articles[2].terms[0].definitionKo}</span>
           </button>
           <button type="button" class="quiz-opt-btn" data-correct="true">
-            <span class="lang-en-inline">B) {issue.articles[2].terms[0].definition}</span>
-            <span class="lang-ko-inline">B) {issue.articles[2].terms[0].definitionKo}</span>
+            <span class="lang-en-inline">B) {issue.articles[3].terms[0].definition}</span>
+            <span class="lang-ko-inline">B) {issue.articles[3].terms[0].definitionKo}</span>
           </button>
           <button type="button" class="quiz-opt-btn" data-correct="false">
-            <span class="lang-en-inline">C) {issue.articles[4].terms[0].definition}</span>
-            <span class="lang-ko-inline">C) {issue.articles[4].terms[0].definitionKo}</span>
+            <span class="lang-en-inline">C) {issue.articles[5].terms[0].definition}</span>
+            <span class="lang-ko-inline">C) {issue.articles[5].terms[0].definitionKo}</span>
           </button>
         </div>
         <div class="quiz-feedback">
@@ -509,25 +480,25 @@ const deckPages = [
       </div>
 
       <div class="quiz-q-block" data-quiz-q="3">
-        <strong class="lang-en-block">3. In this week's Science &amp; Technology story, how do scientists define “{issue.articles[3].terms[0].term}”?</strong>
-        <strong class="lang-ko-block">3. 이번 주 과학·기술 기사에 소개된 핵심 과학 용어 ‘{issue.articles[3].terms[0].term}’는 무엇을 뜻하나요?</strong>
+        <strong class="lang-en-block">3. In this week's Science &amp; Space story, how do scientists define “{issue.articles[4].terms[0].term}”?</strong>
+        <strong class="lang-ko-block">3. 이번 주 과학·우주 기사에 소개된 핵심 과학 용어 ‘{issue.articles[4].terms[0].term}’는 무엇을 뜻하나요?</strong>
         <div class="quiz-options">
           <button type="button" class="quiz-opt-btn" data-correct="false">
-            <span class="lang-en-inline">A) {issue.articles[0].terms[0].definition}</span>
-            <span class="lang-ko-inline">A) {issue.articles[0].terms[0].definitionKo}</span>
+            <span class="lang-en-inline">A) {issue.articles[1].terms[0].definition}</span>
+            <span class="lang-ko-inline">A) {issue.articles[1].terms[0].definitionKo}</span>
           </button>
           <button type="button" class="quiz-opt-btn" data-correct="false">
-            <span class="lang-en-inline">B) {issue.articles[2].terms[1]?.definition ?? issue.articles[2].terms[0].definition}</span>
-            <span class="lang-ko-inline">B) {issue.articles[2].terms[1]?.definitionKo ?? issue.articles[2].terms[0].definitionKo}</span>
+            <span class="lang-en-inline">B) {issue.articles[3].terms[1]?.definition ?? issue.articles[3].terms[0].definition}</span>
+            <span class="lang-ko-inline">B) {issue.articles[3].terms[1]?.definitionKo ?? issue.articles[3].terms[0].definitionKo}</span>
           </button>
           <button type="button" class="quiz-opt-btn" data-correct="true">
-            <span class="lang-en-inline">C) {issue.articles[3].terms[0].definition}</span>
-            <span class="lang-ko-inline">C) {issue.articles[3].terms[0].definitionKo}</span>
+            <span class="lang-en-inline">C) {issue.articles[4].terms[0].definition}</span>
+            <span class="lang-ko-inline">C) {issue.articles[4].terms[0].definitionKo}</span>
           </button>
         </div>
         <div class="quiz-feedback">
-          <span class="lang-en-block">✓ Exactly right! Example: “{issue.articles[3].terms[0].example}”</span>
-          <span class="lang-ko-block">✓ 정답입니다! 실전 예문: “{issue.articles[3].terms[0].example}”</span>
+          <span class="lang-en-block">✓ Exactly right! Example: “{issue.articles[4].terms[0].example}”</span>
+          <span class="lang-ko-block">✓ 정답입니다! 실전 예문: “{issue.articles[4].terms[0].example}”</span>
         </div>
       </div>
     </section>
@@ -785,41 +756,7 @@ const deckPages = [
     }
     renderReadProgress();
 
-    // 3. Interactive MUN Delegate Vote Poll (Language-aware!)
-    const voteButtons = document.querySelectorAll('[data-mun-vote]');
-    const voteResponse = document.getElementById('mun-vote-response');
-    const voteResponseEn = document.getElementById('mun-vote-response-en');
-    const voteResponseKo = document.getElementById('mun-vote-response-ko');
-
-    voteButtons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        const choice = btn.getAttribute('data-mun-vote');
-        voteButtons.forEach(function (b) {
-          b.classList.remove('selected-pro', 'selected-con');
-        });
-        if (choice === 'pro') {
-          btn.classList.add('selected-pro');
-          if (voteResponse && voteResponseEn && voteResponseKo) {
-            voteResponse.style.display = 'block';
-            voteResponseEn.textContent =
-              '✓ You voted FOR the motion! Tip for your opening speech: Emphasize binding solar/wind grid investments and preventing carbon leakage.';
-            voteResponseKo.textContent =
-              '✓ 찬성(FOR) 표결을 선택하셨습니다! 기조연설 팁: 구속력 있는 친환경 전력망 투자와 탄소 누출 방지의 중요성을 강조해 보세요.';
-          }
-        } else {
-          btn.classList.add('selected-con');
-          if (voteResponse && voteResponseEn && voteResponseKo) {
-            voteResponse.style.display = 'block';
-            voteResponseEn.textContent =
-              '✓ You voted AGAINST the motion! Tip for your opening speech: Emphasize fair development timelines and technology transfer over punitive border taxes.';
-            voteResponseKo.textContent =
-              '✓ 반대(AGAINST) 표결을 선택하셨습니다! 기조연설 팁: 처벌적 국경세 대신 기술 이전과 공정한 전환 일정을 강조해 보세요.';
-          }
-        }
-      });
-    });
-
-    // 4. Interactive 3-Question Quiz
+    // 3. Interactive 3-Question Quiz
     document.querySelectorAll('.quiz-q-block').forEach(function (block) {
       const opts = block.querySelectorAll('.quiz-opt-btn');
       const feedback = block.querySelector('.quiz-feedback');

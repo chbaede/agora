@@ -25,7 +25,7 @@ const latest = getLatestIssue();
         Past Issues &amp; Print Library
       </h1>
       <p class="masthead-subtitle lang-en-block">
-        Every weekly edition of AGORA is permanently archived here. Open any issue to read online, or click <strong>“Print Packet”</strong> to immediately print the full issue and student worksheet.
+        Every weekly edition of AGORA is permanently archived here. Open any issue to read online, or click <strong>“Print Packet”</strong> to immediately print the full issue and student worksheets.
       </p>
       <p class="masthead-subtitle lang-ko-block">
         발행된 모든 주간 호를 언제든 다시 열람하고, 영어(학생용)·한국어(부모님용)·한영 병기 모드로 바로 인쇄하실 수 있습니다.
@@ -40,7 +40,7 @@ const latest = getLatestIssue();
       <input
         id="archive-search-input"
         type="search"
-        placeholder="e.g., COP31, Midterm, Eurozone, Voyager, Kamkwamba..."
+        placeholder="e.g., COP31, Midterm, Eurozone, Euclid, Voyager, Kamkwamba..."
         style="width: 100%; max-width: 520px; padding: 0.55rem 0.85rem; border: 1px solid var(--border-strong); border-radius: 6px; font-family: var(--font-sans); font-size: 0.92rem;"
       />
     </div>
@@ -50,7 +50,7 @@ const latest = getLatestIssue();
     {issues.map((issue) => (
       <article
         class="archive-card"
-        data-search-text={`${issue.id} ${issue.publishDate} ${issue.themeTitle} ${issue.themeTitleKo} ${issue.munSpotlight.topic} ${issue.munSpotlight.topicKo} ${issue.bookOfTheWeek.title} ${issue.bookOfTheWeek.titleKo} ${issue.articles.map((a) => `${a.headline} ${a.headlineKo}`).join(' ')}`.toLowerCase()}
+        data-search-text={`${issue.id} ${issue.publishDate} ${issue.themeTitle} ${issue.themeTitleKo} ${issue.bookOfTheWeek.title} ${issue.bookOfTheWeek.titleKo} ${issue.articles.map((a) => `${a.headline} ${a.headlineKo}`).join(' ')}`.toLowerCase()}
       >
         <div style="flex: 1 1 520px;">
           <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.45rem;">
@@ -79,12 +79,7 @@ const latest = getLatestIssue();
 
           <div style="font-family: var(--font-sans); font-size: 0.85rem; background: var(--bg-panel); padding: 0.75rem 1rem; border-radius: 6px;">
             <div style="margin-bottom: 0.35rem;">
-              <strong>🇺🇳 MUN Spotlight:</strong>{' '}
-              <span class="lang-en-block">{issue.munSpotlight.topic} <em>({issue.munSpotlight.committee})</em></span>
-              <span class="lang-ko-block">{issue.munSpotlight.topicKo} <em>({issue.munSpotlight.committee})</em></span>
-            </div>
-            <div style="margin-bottom: 0.35rem;">
-              <strong>📰 5 Articles:</strong>{' '}
+              <strong>📰 6 Daily Articles (Mon–Sat):</strong>{' '}
               <span class="lang-en-block">
                 {issue.articles.map((a, i) => (
                   <span>{i > 0 ? ' · ' : ''}{a.headline}</span>
@@ -97,7 +92,7 @@ const latest = getLatestIssue();
               </span>
             </div>
             <div>
-              <strong>📚 Book Pick:</strong>{' '}
+              <strong>📚 Sunday Book Pick:</strong>{' '}
               <span class="lang-en-inline"><em>{issue.bookOfTheWeek.title}</em> by {issue.bookOfTheWeek.author}</span>
               <span class="lang-ko-inline"><em>{issue.bookOfTheWeek.title}</em> ({issue.bookOfTheWeek.titleKo}) — {issue.bookOfTheWeek.author}</span>
             </div>

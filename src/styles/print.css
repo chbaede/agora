@@ -199,6 +199,14 @@
     padding-top: 4pt !important;
   }
 
+  .front-summary-box {
+    margin-top: 7pt !important;
+    padding: 6.5pt 9pt !important;
+    border: 1pt solid #1E40AF !important;
+    border-left: 3pt solid #1E40AF !important;
+    background: #FFFFFF !important;
+  }
+
   .why-matters-box,
   .think-box,
   .pro-box,

@@ -1,9 +1,10 @@
 export const REQUIRED_CATEGORIES = [
+  'Global Affairs & Diplomacy',
   'US Current Affairs',
   'Europe Current Affairs',
   'Economy & Business',
-  'Science & Technology',
-  'Environment & Global Society',
+  'Science & Space',
+  'Environment & Future Tech',
 ] as const;
 
 export type ArticleCategory = (typeof REQUIRED_CATEGORIES)[number];
@@ -26,7 +27,7 @@ export interface SourceReference {
 export interface Article {
   id: string;
   category: ArticleCategory;
-  region: 'US' | 'Europe' | 'Transatlantic';
+  region: 'Global' | 'US' | 'Europe' | 'Transatlantic';
   headline: string;
   headlineKo: string;
   subheadline: string;
@@ -47,40 +48,10 @@ export interface Article {
   source: SourceReference;
 }
 
-export interface MunBlocPosition {
-  bloc: string;
-  stance: string;
-  stanceKo: string;
-}
-
-export interface MunSpotlight {
-  topic: string;
-  topicKo: string;
-  committee: string;
-  region: string;
-  imageUrl: string;
-  imageCaption: string;
-  imageCaptionKo: string;
-  imageCredit: string;
-  background: string[];
-  backgroundKo: string[];
-  blocPositions: MunBlocPosition[];
-  debateMotion: string;
-  debateMotionKo: string;
-  proArguments: string[];
-  proArgumentsKo: string[];
-  conArguments: string[];
-  conArgumentsKo: string[];
-  speechStarter: string;
-  speechStarterKo: string;
-  terms: GlossaryTerm[];
-  sources: SourceReference[];
-}
-
 export interface ConceptOfTheWeek {
   title: string;
   titleKo: string;
-  category: 'Economics' | 'Diplomacy' | 'Science & Civics';
+  category: 'Economics' | 'Global Civics' | 'Science & Tech';
   summary: string;
   summaryKo: string;
   realWorldAnalogy: string;
@@ -115,7 +86,6 @@ export interface WeeklyIssue {
   themeTitleKo: string;
   editorsNote: string;
   editorsNoteKo: string;
-  munSpotlight: MunSpotlight;
   articles: Article[];
   conceptOfTheWeek: ConceptOfTheWeek;
   bookOfTheWeek: BookRecommendation;
@@ -179,80 +149,9 @@ export function validateIssueData(raw: unknown): { valid: boolean; errors: strin
     errors.push('editorsNoteKo (Korean editors note) is required.');
   }
 
-  // Validate MUN Spotlight
-  const mun = issue.munSpotlight;
-  if (!mun) {
-    errors.push('munSpotlight is required.');
-  } else {
-    if (!mun.topic?.trim()) errors.push('munSpotlight.topic is required.');
-    if (!mun.topicKo?.trim()) errors.push('munSpotlight.topicKo is required.');
-    if (!mun.committee?.trim()) errors.push('munSpotlight.committee is required.');
-    if (!isValidHttpsUrl(mun.imageUrl ?? '') || !mun.imageCaption?.trim() || !mun.imageCaptionKo?.trim()) {
-      errors.push('munSpotlight requires a valid HTTPS imageUrl, imageCaption, and imageCaptionKo.');
-    }
-    if (!Array.isArray(mun.background) || mun.background.length < 2) {
-      errors.push('munSpotlight.background must have at least 2 paragraphs.');
-    }
-    if (!Array.isArray(mun.backgroundKo) || mun.backgroundKo.length !== (mun.background?.length ?? 0)) {
-      errors.push('munSpotlight.backgroundKo must match munSpotlight.background paragraph count.');
-    }
-    if (!Array.isArray(mun.blocPositions) || mun.blocPositions.length < 3) {
-      errors.push('munSpotlight.blocPositions must have at least 3 blocs.');
-    } else {
-      mun.blocPositions.forEach((b, i) => {
-        if (!b.bloc?.trim() || !b.stance?.trim() || !b.stanceKo?.trim()) {
-          errors.push(`munSpotlight.blocPositions[${i}] requires bloc, stance, and stanceKo.`);
-        }
-      });
-    }
-    if (!mun.debateMotion?.trim() || !mun.debateMotionKo?.trim()) {
-      errors.push('munSpotlight.debateMotion and debateMotionKo are required.');
-    }
-    if (!Array.isArray(mun.proArguments) || mun.proArguments.length < 2) {
-      errors.push('munSpotlight.proArguments must have at least 2 items.');
-    }
-    if (!Array.isArray(mun.proArgumentsKo) || mun.proArgumentsKo.length !== (mun.proArguments?.length ?? 0)) {
-      errors.push('munSpotlight.proArgumentsKo must match proArguments length.');
-    }
-    if (!Array.isArray(mun.conArguments) || mun.conArguments.length < 2) {
-      errors.push('munSpotlight.conArguments must have at least 2 items.');
-    }
-    if (!Array.isArray(mun.conArgumentsKo) || mun.conArgumentsKo.length !== (mun.conArguments?.length ?? 0)) {
-      errors.push('munSpotlight.conArgumentsKo must match conArguments length.');
-    }
-    if (!mun.speechStarter?.trim() || !mun.speechStarterKo?.trim()) {
-      errors.push('munSpotlight.speechStarter and speechStarterKo are required.');
-    }
-    if (!Array.isArray(mun.sources) || mun.sources.length < 1) {
-      errors.push('munSpotlight.sources must contain at least 1 source.');
-    } else {
-      mun.sources.forEach((src, i) => {
-        if (!src.publisher?.trim() || !src.title?.trim() || !isValidHttpsUrl(src.url)) {
-          errors.push(`munSpotlight.sources[${i}] must have a valid HTTPS non-placeholder URL and publisher.`);
-        }
-      });
-    }
-    if (Array.isArray(mun.terms)) {
-      mun.terms.forEach((t, tIdx) => {
-        if (!t.term?.trim() || !t.definition?.trim() || !t.definitionKo?.trim() || !t.example?.trim()) {
-          errors.push(`munSpotlight.terms[${tIdx}] requires term, definition, definitionKo, and example.`);
-        }
-      });
-    }
-    if (Array.isArray(mun.terms) && Array.isArray(mun.background)) {
-      const renderedMun = mun.background.map((p) => renderBodyWithHighlights(p, mun.terms)).join(' ');
-      for (const t of mun.terms) {
-        const attr = `data-term="${escapeHtml(t.term.trim().toLowerCase())}"`;
-        if (!renderedMun.includes(attr)) {
-          errors.push(`munSpotlight term "${t.term}" is not highlighted with **...** in munSpotlight.background.`);
-        }
-      }
-    }
-  }
-
-  // Validate Articles
+  // Validate 6 Full-Page Daily Articles
   if (!Array.isArray(issue.articles) || issue.articles.length !== REQUIRED_CATEGORIES.length) {
-    errors.push(`articles must contain exactly ${REQUIRED_CATEGORIES.length} items.`);
+    errors.push(`articles must contain exactly ${REQUIRED_CATEGORIES.length} items (Mon–Sat daily readings).`);
   } else {
     const presentCategories = new Set<string>();
     issue.articles.forEach((art, idx) => {
@@ -266,14 +165,19 @@ export function validateIssueData(raw: unknown): { valid: boolean; errors: strin
       if (!isValidHttpsUrl(art.imageUrl ?? '') || !art.imageCaption?.trim() || !art.imageCaptionKo?.trim()) {
         errors.push(`articles[${idx}] requires a valid HTTPS imageUrl, imageCaption, and imageCaptionKo.`);
       }
-      if (!Array.isArray(art.body) || art.body.length < 2) {
-        errors.push(`articles[${idx}].body must contain at least 2 paragraphs.`);
+      if (!Array.isArray(art.body) || art.body.length < 4) {
+        errors.push(`articles[${idx}].body must contain at least 4 full paragraphs to fill a printed page.`);
+      } else {
+        const wordCount = art.body.join(' ').trim().split(/\s+/).length;
+        if (wordCount < 220) {
+          errors.push(`articles[${idx}].body has only ${wordCount} words (must be >= 220 words for a full-page daily reading).`);
+        }
       }
       if (!Array.isArray(art.bodyKo) || art.bodyKo.length !== (art.body?.length ?? 0)) {
         errors.push(`articles[${idx}].bodyKo must match body paragraph count.`);
       }
-      if (!Array.isArray(art.whyItMatters) || art.whyItMatters.length < 2) {
-        errors.push(`articles[${idx}].whyItMatters must contain at least 2 points.`);
+      if (!Array.isArray(art.whyItMatters) || art.whyItMatters.length < 3) {
+        errors.push(`articles[${idx}].whyItMatters must contain at least 3 key summary points.`);
       }
       if (!Array.isArray(art.whyItMattersKo) || art.whyItMattersKo.length !== (art.whyItMatters?.length ?? 0)) {
         errors.push(`articles[${idx}].whyItMattersKo must match whyItMatters count.`);
@@ -281,8 +185,8 @@ export function validateIssueData(raw: unknown): { valid: boolean; errors: strin
       if (!art.thinkAboutIt?.trim() || !art.thinkAboutItKo?.trim()) {
         errors.push(`articles[${idx}] requires thinkAboutIt and thinkAboutItKo.`);
       }
-      if (!Array.isArray(art.terms) || art.terms.length < 2) {
-        errors.push(`articles[${idx}].terms must contain at least 2 glossary terms.`);
+      if (!Array.isArray(art.terms) || art.terms.length < 3) {
+        errors.push(`articles[${idx}].terms must contain at least 3 glossary terms.`);
       } else {
         art.terms.forEach((t, tIdx) => {
           if (!t.term?.trim() || !t.definition?.trim() || !t.definitionKo?.trim() || !t.example?.trim()) {
