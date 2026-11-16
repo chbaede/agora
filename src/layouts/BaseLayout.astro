@@ -79,7 +79,21 @@ const allIssues = getAllIssues();
             <span>Worksheet</span>
           </label>
 
-          <button type="button" id="btn-print-packet" class="btn-print" title="Print Weekly Packet">
+          <button
+            type="button"
+            id="btn-print-daily-top"
+            class="btn-print-daily"
+            title="Print current story as a 1-Sheet (2-Sided Duplex) Daily Handout"
+          >
+            📄 <span class="desktop-label">1-Sheet Duplex</span><span class="mobile-label">1장</span>
+          </button>
+
+          <button
+            type="button"
+            id="btn-print-packet"
+            class="btn-print"
+            title="Print Full Weekly Packet (All Stories, Duplex Ready)"
+          >
             🖨️ <span class="desktop-label">Print Weekly Packet</span>
           </button>
 
@@ -216,9 +230,14 @@ const allIssues = getAllIssues();
         const printBtn = document.getElementById('btn-print-packet');
         if (printBtn) {
           printBtn.addEventListener('click', function () {
+            document.body.setAttribute('data-print-mode', 'packet');
             window.print();
           });
         }
+
+        window.addEventListener('afterprint', function () {
+          document.body.removeAttribute('data-print-mode');
+        });
 
         const worksheetCheckbox = document.getElementById('toggle-worksheet-checkbox');
         if (worksheetCheckbox) {
@@ -271,7 +290,13 @@ const allIssues = getAllIssues();
         if (params.get('print') === '1') {
           window.addEventListener('load', function () {
             setTimeout(function () {
-              window.print();
+              const daySlide = params.get('slide');
+              if (daySlide && window.__agoraPrintSlide) {
+                window.__agoraPrintSlide(parseInt(daySlide, 10));
+              } else {
+                document.body.setAttribute('data-print-mode', 'packet');
+                window.print();
+              }
             }, 250);
           });
         }

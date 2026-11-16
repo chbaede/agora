@@ -1836,4 +1836,103 @@ body.deck-scroll-all .toc-overview-section {
   display: none !important;
 }
 
+/* ========================================================================= */
+/* DAILY 1-SHEET DUPLEX PRINT CONTROLS & SCREEN HELPERS                      */
+/* ========================================================================= */
+
+.print-only-sheet-header,
+.print-only-turn-hint,
+.print-only-daily-notes {
+  display: none;
+}
+
+.badge-day {
+  background: #EEF2FF;
+  color: #3730A3;
+  border: 1px solid #818CF8;
+}
+
+.btn-print-daily {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--accent-civic);
+  background: var(--accent-civic-soft);
+  border: 1px solid var(--accent-civic);
+  border-radius: 5px;
+  padding: 0.26rem 0.55rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.btn-print-daily:hover {
+  background: var(--accent-civic);
+  color: #FFFFFF;
+}
+
+.btn-print-single {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-civic);
+  background: #EFF6FF;
+  border: 1.5px solid var(--accent-civic);
+  border-radius: 999px;
+  padding: 0.28rem 0.65rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.btn-print-single:hover {
+  background: var(--accent-civic);
+  color: #FFFFFF;
+}
+
+.toc-card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.2rem;
+}
+
+.toc-open-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-civic);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.toc-open-btn:hover {
+  text-decoration: underline;
+}
+
+.article-term-item {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid #FDE68A;
+  border-radius: 5px;
+  padding: 0.45rem 0.6rem;
+}
+
+.article-term-example {
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  color: var(--ink-secondary);
+  margin-top: 0.2rem;
+}
+
+
 
