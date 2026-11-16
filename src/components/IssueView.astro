@@ -160,26 +160,76 @@ const deckPages = [
     </div>
 
     <section class="hero-stats-grid" aria-label="This Week by the Numbers">
-      <div class="stat-card">
-        <div class="stat-number">~200 Nations</div>
-        <div class="stat-label lang-en-block">Gathering at COP31 in Antalya under Türkiye &amp; Australia co-leadership</div>
-        <div class="stat-label lang-ko-block">튀르키예·호주 공동 의장국 체제로 안탈리아 COP31 기후총회에 모인 참가국</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">435 Seats</div>
-        <div class="stat-label lang-en-block">US House of Representatives flipped in the Nov 3 midterm elections</div>
-        <div class="stat-label lang-ko-block">11월 3일 미국 중간선거로 다수당이 교체된 연방 하원 전체 의석수</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">82.9% GDP</div>
-        <div class="stat-label lang-en-block">European Union government debt-to-GDP ratio tracked by Eurostat</div>
-        <div class="stat-label lang-ko-block">유럽통계청(Eurostat)이 발표한 유럽연합(EU) 평균 GDP 대비 국가채무비율</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">25.9B km</div>
-        <div class="stat-label lang-en-block">One full Light-Day distance reached by NASA's Voyager 1 probe</div>
-        <div class="stat-label lang-ko-block">NASA 보이저 1호가 인류 역사상 최초로 도달한 지구로부터 ‘1광일’ 거리</div>
-      </div>
+      {issue.id === '2026-W45' ? (
+        <>
+          <div class="stat-card">
+            <div class="stat-number">~200 Nations</div>
+            <div class="stat-label lang-en-block">Gathering at COP31 in Antalya under Türkiye &amp; Australia co-leadership</div>
+            <div class="stat-label lang-ko-block">튀르키예·호주 공동 의장국 체제로 안탈리아 COP31 기후총회에 모인 참가국</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">435 Seats</div>
+            <div class="stat-label lang-en-block">US House of Representatives flipped in the Nov 3 midterm elections</div>
+            <div class="stat-label lang-ko-block">11월 3일 미국 중간선거로 다수당이 교체된 연방 하원 전체 의석수</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">82.9% GDP</div>
+            <div class="stat-label lang-en-block">European Union government debt-to-GDP ratio tracked by Eurostat</div>
+            <div class="stat-label lang-ko-block">유럽통계청(Eurostat)이 발표한 유럽연합(EU) 평균 GDP 대비 국가채무비율</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">25.9B km</div>
+            <div class="stat-label lang-en-block">One full Light-Day distance reached by NASA's Voyager 1 probe</div>
+            <div class="stat-label lang-ko-block">NASA 보이저 1호가 인류 역사상 최초로 도달한 지구로부터 ‘1광일’ 거리</div>
+          </div>
+        </>
+      ) : issue.id === '2026-W46' ? (
+        <>
+          <div class="stat-card">
+            <div class="stat-number">92,000+</div>
+            <div class="stat-label lang-en-block">Registered attendees at the COP31 UN Climate Summit in Antalya, Türkiye</div>
+            <div class="stat-label lang-ko-block">튀르키예 안탈리아 COP31 유엔 기후변화총회에 등록한 참가자 수</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">120th</div>
+            <div class="stat-label lang-en-block">Incoming US Congress holding freshman orientation &amp; lame-duck talks</div>
+            <div class="stat-label lang-ko-block">워싱턴에서 당선인 오리엔테이션과 레임덕 회기에 돌입한 제120대 미국 의회</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">4.0% CPI</div>
+            <div class="stat-label lang-en-block">Eurozone annual inflation rate (double the ECB's 2.0% target) on energy costs</div>
+            <div class="stat-label lang-ko-block">에너지 가격 급등으로 ECB 목표치(2.0%)의 두 배가 된 유로존 물가상승률</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">900M+</div>
+            <div class="stat-label lang-en-block">Galaxies mapped in 3D by ESA's Euclid space telescope (DR1-Foundation)</div>
+            <div class="stat-label lang-ko-block">유럽우주국(ESA) 유클리드 우주망원경이 첫 대규모 공개한 3차원 은하 지도</div>
+          </div>
+        </>
+      ) : (
+        <>
+          <div class="stat-card">
+            <div class="stat-number">7 Days</div>
+            <div class="stat-label lang-en-block">{issue.coveragePeriod} · 1 MUN Dossier &amp; 5 Global Briefings</div>
+            <div class="stat-label lang-ko-block">{issue.coveragePeriod} · 모의유엔 집중 분석 1편 &amp; 5대 분야 필수 기사</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">🇺🇳 MUN</div>
+            <div class="stat-label lang-en-block">{issue.munSpotlight.committee} ({issue.munSpotlight.region})</div>
+            <div class="stat-label lang-ko-block">{issue.munSpotlight.committee} ({issue.munSpotlight.region})</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">💡 {issue.conceptOfTheWeek.category}</div>
+            <div class="stat-label lang-en-block">{issue.conceptOfTheWeek.title}</div>
+            <div class="stat-label lang-ko-block">{issue.conceptOfTheWeek.titleKo}</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">{issue.bookOfTheWeek.pageCount}p Book</div>
+            <div class="stat-label lang-en-block">“{issue.bookOfTheWeek.title}” ({issue.bookOfTheWeek.ageRange})</div>
+            <div class="stat-label lang-ko-block">『{issue.bookOfTheWeek.titleKo}』 ({issue.bookOfTheWeek.ageRange}세 권장)</div>
+          </div>
+        </>
+      )}
     </section>
 
     <!-- Visual Table of Contents & 7-Day 1-Sheet Duplex Print Planner -->
@@ -413,71 +463,71 @@ const deckPages = [
       </div>
 
       <div class="quiz-q-block" data-quiz-q="1">
-        <strong class="lang-en-block">1. What is created when one political party controls the US White House and another party wins a majority in Congress?</strong>
-        <strong class="lang-ko-block">1. 미국에서 백악관(대통령)과 의회 다수당을 서로 다른 정당이 차지하는 정치 구도를 무엇이라고 부르나요?</strong>
+        <strong class="lang-en-block">1. What does the term “{issue.articles[0].terms[1]?.term ?? issue.articles[0].terms[0].term}” mean in this week's US Current Affairs story?</strong>
+        <strong class="lang-ko-block">1. 이번 주 미국 시사 기사에 등장한 핵심 용어 ‘{issue.articles[0].terms[1]?.term ?? issue.articles[0].terms[0].term}’의 뜻으로 가장 알맞은 것은 무엇인가요?</strong>
         <div class="quiz-options">
           <button type="button" class="quiz-opt-btn" data-correct="true">
-            <span class="lang-en-inline">A) Divided government</span>
-            <span class="lang-ko-inline">A) 분점 정부 (Divided government)</span>
+            <span class="lang-en-inline">A) {issue.articles[0].terms[1]?.definition ?? issue.articles[0].terms[0].definition}</span>
+            <span class="lang-ko-inline">A) {issue.articles[0].terms[1]?.definitionKo ?? issue.articles[0].terms[0].definitionKo}</span>
           </button>
           <button type="button" class="quiz-opt-btn" data-correct="false">
-            <span class="lang-en-inline">B) Unanimity rule</span>
-            <span class="lang-ko-inline">B) 만장일치제 (Unanimity rule)</span>
+            <span class="lang-en-inline">B) {issue.articles[3].terms[0].definition}</span>
+            <span class="lang-ko-inline">B) {issue.articles[3].terms[0].definitionKo}</span>
           </button>
           <button type="button" class="quiz-opt-btn" data-correct="false">
-            <span class="lang-en-inline">C) Fiscal stimulus</span>
-            <span class="lang-ko-inline">C) 재정 부양책 (Fiscal stimulus)</span>
+            <span class="lang-en-inline">C) {issue.munSpotlight.terms[0].definition}</span>
+            <span class="lang-ko-inline">C) {issue.munSpotlight.terms[0].definitionKo}</span>
           </button>
         </div>
         <div class="quiz-feedback">
-          <span class="lang-en-block">✓ Correct! Under divided government, both parties must negotiate bipartisan compromises to pass federal budgets and laws.</span>
-          <span class="lang-ko-block">✓ 정답입니다! 분점 정부(Divided government)에서는 예산안과 법안 통과를 위해 여야 간 초당적(bipartisan) 타협이 필수적입니다.</span>
+          <span class="lang-en-block">✓ Correct! Example: “{issue.articles[0].terms[1]?.example ?? issue.articles[0].terms[0].example}”</span>
+          <span class="lang-ko-block">✓ 정답입니다! 실전 예문: “{issue.articles[0].terms[1]?.example ?? issue.articles[0].terms[0].example}”</span>
         </div>
       </div>
 
       <div class="quiz-q-block" data-quiz-q="2">
-        <strong class="lang-en-block">2. Why do economists compare a country's national debt to its GDP (Gross Domestic Product) instead of looking only at the raw debt number?</strong>
-        <strong class="lang-ko-block">2. 경제학자들이 국가 부채를 볼 때 단순 금액이 아니라 ‘GDP 대비 국가채무비율’을 확인하는 이유는 무엇인가요?</strong>
+        <strong class="lang-en-block">2. In this week's Economy &amp; Business briefing, what is the meaning of “{issue.articles[2].terms[0].term}”?</strong>
+        <strong class="lang-ko-block">2. 이번 주 경제·금융 기사의 핵심 개념인 ‘{issue.articles[2].terms[0].term}’의 설명으로 올바른 것은 무엇인가요?</strong>
         <div class="quiz-options">
           <button type="button" class="quiz-opt-btn" data-correct="false">
-            <span class="lang-en-inline">A) Because GDP measures distance in space</span>
-            <span class="lang-ko-inline">A) 우주 거리를 재기 위해서</span>
+            <span class="lang-en-inline">A) {issue.articles[1].terms[0].definition}</span>
+            <span class="lang-ko-inline">A) {issue.articles[1].terms[0].definitionKo}</span>
           </button>
           <button type="button" class="quiz-opt-btn" data-correct="true">
-            <span class="lang-en-inline">B) Because comparing debt to annual economic output shows how affordable the debt is</span>
-            <span class="lang-ko-inline">B) 연간 경제 생산 규모(GDP)와 비교해야 실제 상환 능력을 알 수 있어서</span>
+            <span class="lang-en-inline">B) {issue.articles[2].terms[0].definition}</span>
+            <span class="lang-ko-inline">B) {issue.articles[2].terms[0].definitionKo}</span>
           </button>
           <button type="button" class="quiz-opt-btn" data-correct="false">
-            <span class="lang-en-inline">C) Because eurozone countries have no taxes</span>
-            <span class="lang-ko-inline">C) 유로존 국가에는 세금이 없어서</span>
+            <span class="lang-en-inline">C) {issue.articles[4].terms[0].definition}</span>
+            <span class="lang-ko-inline">C) {issue.articles[4].terms[0].definitionKo}</span>
           </button>
         </div>
         <div class="quiz-feedback">
-          <span class="lang-en-block">✓ Spot on! Just like comparing a loan to a family's annual income, the debt-to-GDP ratio shows whether borrowing matches the size of the economy.</span>
-          <span class="lang-ko-block">✓ 정답입니다! 가계 부채를 연 소득과 비교하듯, 국가 부채도 연간 경제 규모인 GDP와 비교해야 재정 건전성을 정확히 판단할 수 있습니다.</span>
+          <span class="lang-en-block">✓ Spot on! {issue.conceptOfTheWeek.keyTakeaway}</span>
+          <span class="lang-ko-block">✓ 정답입니다! {issue.conceptOfTheWeek.keyTakeawayKo}</span>
         </div>
       </div>
 
       <div class="quiz-q-block" data-quiz-q="3">
-        <strong class="lang-en-block">3. At a distance of one light-day (~25.9 billion km), how long does a round-trip radio signal (message + reply) take between Earth and Voyager 1?</strong>
-        <strong class="lang-ko-block">3. 지구에서 ‘1광일(약 259억 km)’ 떨어진 보이저 1호에 전파 신호를 보내고 답장을 받기까지 왕복 몇 시간이 걸리나요?</strong>
+        <strong class="lang-en-block">3. In this week's Science &amp; Technology story, how do scientists define “{issue.articles[3].terms[0].term}”?</strong>
+        <strong class="lang-ko-block">3. 이번 주 과학·기술 기사에 소개된 핵심 과학 용어 ‘{issue.articles[3].terms[0].term}’는 무엇을 뜻하나요?</strong>
         <div class="quiz-options">
           <button type="button" class="quiz-opt-btn" data-correct="false">
-            <span class="lang-en-inline">A) 12 hours</span>
-            <span class="lang-ko-inline">A) 12시간</span>
+            <span class="lang-en-inline">A) {issue.articles[0].terms[0].definition}</span>
+            <span class="lang-ko-inline">A) {issue.articles[0].terms[0].definitionKo}</span>
           </button>
           <button type="button" class="quiz-opt-btn" data-correct="false">
-            <span class="lang-en-inline">B) 24 hours</span>
-            <span class="lang-ko-inline">B) 24시간</span>
+            <span class="lang-en-inline">B) {issue.articles[2].terms[1]?.definition ?? issue.articles[2].terms[0].definition}</span>
+            <span class="lang-ko-inline">B) {issue.articles[2].terms[1]?.definitionKo ?? issue.articles[2].terms[0].definitionKo}</span>
           </button>
           <button type="button" class="quiz-opt-btn" data-correct="true">
-            <span class="lang-en-inline">C) 48 hours (24 hours there + 24 hours back)</span>
-            <span class="lang-ko-inline">C) 왕복 48시간 (가는 데 24시간 + 오는 데 24시간)</span>
+            <span class="lang-en-inline">C) {issue.articles[3].terms[0].definition}</span>
+            <span class="lang-ko-inline">C) {issue.articles[3].terms[0].definitionKo}</span>
           </button>
         </div>
         <div class="quiz-feedback">
-          <span class="lang-en-block">✓ Exactly right! Radio waves travel at the speed of light, taking 24 hours to reach Voyager 1 and another 24 hours for its reply to return to Earth.</span>
-          <span class="lang-ko-block">✓ 정답입니다! 전파는 빛의 속도로 이동하므로 가는 데 24시간, 보이저 1호의 응답이 돌아오는 데 24시간으로 총 48시간이 걸립니다.</span>
+          <span class="lang-en-block">✓ Exactly right! Example: “{issue.articles[3].terms[0].example}”</span>
+          <span class="lang-ko-block">✓ 정답입니다! 실전 예문: “{issue.articles[3].terms[0].example}”</span>
         </div>
       </div>
     </section>
