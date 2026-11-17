@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import MathWeekView from '../../components/MathWeekView.astro';
+import { getLatestMathPack } from '../../data/load-math';
+
+const latestMath = getLatestMathPack();
+---
+
+<BaseLayout
+  title={`AGORA Math Lab — BIS Grade 8 (Week #${latestMath.weekNumber} · ${latestMath.id})`}
+  description={latestMath.CurriculumNote}
+  currentIssueId={latestMath.id}
+  activeNav="math"
+>
+  <MathWeekView pack={latestMath} />
+</BaseLayout>

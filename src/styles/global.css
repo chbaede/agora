@@ -1941,5 +1941,199 @@ body.deck-scroll-all .toc-overview-section {
   margin-top: 0.2rem;
 }
 
+/* ========================================================================= */
+/* TOP SUBJECT TRACK SWITCHER (GLOBAL NEWS vs BIS GRADE 8 MATH LAB)          */
+/* ========================================================================= */
+
+.track-switcher {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-panel);
+  border: 1.5px solid var(--border-strong);
+  border-radius: 8px;
+  padding: 2px;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.track-pill {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: var(--ink-secondary);
+  text-decoration: none;
+  padding: 0.24rem 0.58rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: all 0.15s ease;
+}
+
+.track-pill:hover {
+  color: var(--ink-primary);
+}
+
+.track-pill.active {
+  background: var(--ink-primary);
+  color: #FFFFFF;
+}
+
+.track-pill.active-math {
+  background: var(--accent-science);
+  color: #FFFFFF;
+}
+
+/* ========================================================================= */
+/* BIS GRADE 8 MATH LAB WORKSHEET STYLES                                     */
+/* ========================================================================= */
+
+.math-formula-banner {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 0.85rem;
+  background: var(--bg-panel);
+  border: 1.5px solid var(--border-strong);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 1.1rem;
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+}
+
+@media (max-width: 720px) {
+  .math-formula-banner {
+    grid-template-columns: 1fr;
+  }
+}
+
+.math-formula-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.math-formula-list li {
+  margin-bottom: 0.25rem;
+}
+
+.math-worked-example {
+  background: var(--bg-card);
+  border: 1px solid var(--border-rule);
+  border-left: 3.5px solid var(--accent-science);
+  border-radius: 6px;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.84rem;
+}
+
+.math-problems-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.9rem;
+}
+
+@media (max-width: 720px) {
+  .math-problems-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.math-problem-card {
+  background: var(--bg-paper);
+  border: 1.5px solid var(--border-strong);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.math-prob-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-rule);
+  padding-bottom: 0.35rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-sans);
+}
+
+.math-prob-num {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--ink-primary);
+}
+
+.math-prob-question p {
+  margin: 0 0 0.5rem;
+  font-size: 0.98rem;
+  line-height: 1.48;
+  font-weight: 500;
+}
+
+.math-work-space {
+  background: #FFFFFF;
+  border: 1px dashed #94A3B8;
+  border-radius: 6px;
+  padding: 0.45rem 0.65rem;
+  min-height: 74px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+}
+
+.math-answer-line {
+  text-align: right;
+  color: var(--ink-primary);
+  font-size: 0.82rem;
+  padding-top: 0.35rem;
+}
+
+.math-solution-details {
+  margin-top: 0.55rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  background: #F0FDF4;
+  border: 1px solid #86EFAC;
+  border-radius: 6px;
+  padding: 0.4rem 0.65rem;
+}
+
+.math-solution-details summary {
+  font-weight: 700;
+  color: #166534;
+  cursor: pointer;
+}
+
+.math-solution-body {
+  margin-top: 0.45rem;
+  padding-top: 0.45rem;
+  border-top: 1px solid #BBF7D0;
+  color: var(--ink-primary);
+}
+
+.math-final-ans {
+  color: #15803D;
+  margin-bottom: 0.3rem;
+  font-size: 0.86rem;
+}
+
+.math-steps-list {
+  margin: 0;
+  padding-left: 1.15rem;
+  font-size: 0.82rem;
+  line-height: 1.42;
+}
+
+.math-print-solutions-grid {
+  display: none;
+}
+
+
 
 

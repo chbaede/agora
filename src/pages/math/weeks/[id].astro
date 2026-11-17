@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import MathWeekView from '../../../components/MathWeekView.astro';
+import { getAllMathPacks } from '../../../data/load-math';
+import type { WeeklyMathPack } from '../../../data/math-schema';
+
+export function getStaticPaths() {
+  const packs = getAllMathPacks();
+  return packs.map((pack) => ({
+    params: { id: pack.id },
+    props: { pack },
+  }));
+}
+
+interface Props {
+  pack: WeeklyMathPack;
+}
+
+const { pack } = Astro.props;
+---
+
+<BaseLayout
+  title={`AGORA Math Lab — Week #${pack.weekNumber} (${pack.id})`}
+  description={pack.CurriculumNote}
+  currentIssueId={pack.id}
+  activeNav="math"
+>
+  <MathWeekView pack={pack} />
+</BaseLayout>

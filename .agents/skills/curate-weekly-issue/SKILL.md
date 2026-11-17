@@ -45,6 +45,12 @@ Create `src/data/issues/YYYY-WXX.json` conforming strictly to `WeeklyIssue` in `
   - Write `conceptOfTheWeek` (`Economics`, `Global Civics`, or `Science & Tech`) with a vivid `realWorldAnalogy`.
   - Recommend one English book (fiction or non-fiction, age range ~11–15) connected to one of the week's themes, and append the book entry to `src/data/books-ledger.json`.
 
+## Step 3B: Create the Weekly BIS Grade 8 Math Pack (`src/data/math/YYYY-WXX.json`)
+Create `src/data/math/YYYY-WXX.json` conforming strictly to `WeeklyMathPack` in `src/data/math-schema.ts`:
+- Calibrated to **Berlin International School (BIS) Grade 8 (IB MYP Year 3 / Cambridge Stage 9) Semester 1/2** mathematics curriculum.
+- Contains **7 `dailySheets` (`Day 1 (Mon)` through `Day 7 (Sun)`)**.
+- Each `dailySheet` MUST include `unitCode`, `topic`, `topicKo`, `subtitle`, `subtitleKo`, `formulaBox` (2+ formulas), `formulaBoxKo`, `workedExample`, and **exactly 8 `problems`** (`3 Warm-Up` [10 pts each], `3 Standard` [15 pts each], `2 Challenge` [12.5 pts each] = 100 pts) with mathematically verified `answer`, `solutionSteps`, and `solutionStepsKo`.
+
 ## Step 4: Validate Data, Run Tests, and Build Static Pages
 Run the full verification suite:
 ```bash

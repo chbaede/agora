@@ -2,22 +2,25 @@
 import '../styles/global.css';
 import '../styles/print.css';
 import { getAllIssues } from '../data/load-issues';
+import { getAllMathPacks } from '../data/load-math';
 
 interface Props {
   title: string;
   description?: string;
   currentIssueId?: string;
-  activeNav?: 'latest' | 'archive' | 'glossary';
+  activeNav?: 'latest' | 'archive' | 'glossary' | 'math';
 }
 
 const {
   title,
-  description = 'AGORA — Weekly US & European Current Affairs, Science, Economics & Global Society Digest for International Middle Schoolers',
+  description = 'AGORA — Weekly US & European Current Affairs, Science, Economics & BIS Grade 8 Math Digest',
   currentIssueId,
   activeNav = 'latest',
 } = Astro.props;
 
 const allIssues = getAllIssues();
+const allMathPacks = getAllMathPacks();
+const isMathMode = activeNav === 'math';
 ---
 
 <!doctype html>
@@ -37,8 +40,18 @@ const allIssues = getAllIssues();
             <span class="brand-dot"></span>
             <span>AGORA</span>
           </a>
+
+          <!-- Primary 2-Track Switcher (Clearly separates Global News vs BIS Grade 8 Math on Desktop & Mobile) -->
+          <div class="track-switcher" role="navigation" aria-label="Subject Track Switcher">
+            <a href="/" class={`track-pill ${!isMathMode ? 'active' : ''}`}>
+              🌍 <span class="desktop-label">Global News</span><span class="mobile-label">News</span>
+            </a>
+            <a href="/math" class={`track-pill ${isMathMode ? 'active-math' : ''}`}>
+              📐 <span class="desktop-label">Grade 8 Math (BIS)</span><span class="mobile-label">Math 8</span>
+            </a>
+          </div>
+
           <nav class="nav-links desktop-only-nav" aria-label="Main Navigation">
-            <a href="/" class={`nav-link ${activeNav === 'latest' ? 'active' : ''}`}>Latest</a>
             <a href="/archive" class={`nav-link ${activeNav === 'archive' ? 'active' : ''}`}>
               Archive ({allIssues.length})
             </a>
@@ -66,26 +79,34 @@ const allIssues = getAllIssues();
 
           <label class="issue-switcher-label" for="issue-quick-select">
             <select id="issue-quick-select" class="issue-select" aria-label="Quick jump to any issue">
-              {allIssues.map((iss) => (
-                <option value={`/issues/${iss.id}`} selected={iss.id === currentIssueId}>
-                  #{iss.issueNumber} · {iss.publishDate}
-                </option>
-              ))}
+              {isMathMode
+                ? allMathPacks.map((pack) => (
+                    <option value={`/math/weeks/${pack.id}`} selected={pack.id === currentIssueId}>
+                      Math #{pack.weekNumber} · {pack.publishDate}
+                    </option>
+                  ))
+                : allIssues.map((iss) => (
+                    <option value={`/issues/${iss.id}`} selected={iss.id === currentIssueId}>
+                      #{iss.issueNumber} · {iss.publishDate}
+                    </option>
+                  ))}
             </select>
           </label>
 
-          <label class="worksheet-toggle desktop-only-ctrl" title="Include the 1-page handwritten MUN & Vocabulary worksheet when printing">
-            <input type="checkbox" id="toggle-worksheet-checkbox" checked />
-            <span>Worksheet</span>
-          </label>
+          {!isMathMode && (
+            <label class="worksheet-toggle desktop-only-ctrl" title="Include the 1-page handwritten reflection worksheet when printing">
+              <input type="checkbox" id="toggle-worksheet-checkbox" checked />
+              <span>Worksheet</span>
+            </label>
+          )}
 
           <button
             type="button"
             id="btn-print-daily-top"
             class="btn-print"
-            title="Print current day's story as a 1-Sheet (2-Sided Duplex) B&W Handout"
+            title="Print current day's sheet as a 1-Sheet (2-Sided Duplex) B&W Handout"
           >
-            🖨️ <span class="desktop-label">Print 1-Sheet (Duplex)</span><span class="mobile-label">1장 인쇄</span>
+            🖨️ <span class="desktop-label">Print 1-Sheet (Duplex)</span><span class="mobile-label">1장</span>
           </button>
 
           <button
@@ -112,7 +133,8 @@ const allIssues = getAllIssues();
       <!-- Compact Mobile Drawer (Hidden by default, opens on ☰ tap) -->
       <div id="mobile-nav-drawer" class="mobile-nav-drawer" hidden>
         <nav class="mobile-drawer-links" aria-label="Mobile Navigation">
-          <a href="/" class={`nav-link ${activeNav === 'latest' ? 'active' : ''}`}>📰 Latest Issue</a>
+          <a href="/" class={`nav-link ${activeNav === 'latest' ? 'active' : ''}`}>🌍 Global News Briefing</a>
+          <a href="/math" class={`nav-link ${activeNav === 'math' ? 'active' : ''}`}>📐 BIS Grade 8 Math Lab</a>
           <a href="/archive" class={`nav-link ${activeNav === 'archive' ? 'active' : ''}`}>
             🗂️ Past Issues &amp; Print ({allIssues.length})
           </a>
@@ -128,10 +150,10 @@ const allIssues = getAllIssues();
 
       <footer class="site-footer">
         <div>
-          <strong>AGORA (`agora.yocto.kr`)</strong> — Weekly Global Current Affairs, Science, Economics &amp; Critical Thinking Digest for Middle School Readers &amp; Parents.
+          <strong>AGORA (`agora.yocto.kr`)</strong> — Weekly Global Current Affairs, Science, Economics &amp; BIS Grade 8 Math Digest.
         </div>
         <div>
-          Published Mondays at 04:00 CET/CEST · <a href="/archive">Browse All Issues</a> · <a href="/glossary">Cumulative Glossary</a>
+          Published Mondays at 04:00 CET/CEST · <a href="/">Global News</a> · <a href="/math">Grade 8 Math</a> · <a href="/archive">Archive</a> · <a href="/glossary">Glossary</a>
         </div>
       </footer>
     </main>

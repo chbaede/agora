@@ -1,0 +1,485 @@
+---
+import type { WeeklyMathPack } from '../data/math-schema';
+import MathSheetCard from './MathSheetCard.astro';
+
+interface Props {
+  pack: WeeklyMathPack;
+}
+
+const { pack } = Astro.props;
+
+const deckPages = [
+  {
+    index: 0,
+    num: '01',
+    icon: '📋',
+    shortEn: 'Week Plan',
+    shortKo: '주간 목차',
+  },
+  ...pack.dailySheets.map((s, i) => ({
+    index: i + 1,
+    num: `0${i + 2}`,
+    icon: '📐',
+    shortEn: `D${i + 1}: ${s.topic.split(' ')[0]}`,
+    shortKo: `D${i + 1}: ${s.topicKo.split(' ')[0]}`,
+  })),
+];
+---
+
+<!-- Ultra-Compact Math Deck Controller -->
+<div class="deck-controller-shell no-print" id="deck-top-anchor">
+  <div class="deck-turner-bar">
+    <button type="button" class="btn-page-turn prev" id="btn-prev-top" disabled>
+      ← <span class="lang-en-inline">Prev</span><span class="lang-ko-inline">이전</span>
+    </button>
+
+    <div class="deck-page-indicator">
+      <span class="deck-page-fraction" id="current-page-badge">1 / {deckPages.length}</span>
+      <span id="reading-progress-bar" class="deck-progress-pill" title="Weekly Math Progress">
+        🎯 <span id="progress-counter-text">0/7</span>
+        <button type="button" id="btn-reset-progress" class="deck-reset-link" title="Reset progress">↺</button>
+      </span>
+    </div>
+
+    <div class="deck-turner-right">
+      <button type="button" class="btn-page-turn next" id="btn-next-top">
+        <span class="lang-en-inline">Next</span><span class="lang-ko-inline">다음</span> →
+      </button>
+      <button type="button" id="btn-toggle-all-solutions" class="btn-view-mode" title="Show or Hide All Step-by-Step Solutions">
+        <span class="lang-en-inline">👁️ Answers</span>
+        <span class="lang-ko-inline">👁️ 정답모두</span>
+      </button>
+      <button type="button" id="btn-toggle-view-mode" class="btn-view-mode" title="Toggle 1-Page Flip vs Scroll-All">
+        <span class="lang-en-inline">📜 All</span>
+        <span class="lang-ko-inline">📜 전체</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Row 2: Single-line Horizontal Scrollable Page Tabs -->
+  <nav class="deck-tabs-strip" role="tablist" aria-label="Math Worksheets">
+    {deckPages.map((p, idx) => (
+      <button
+        type="button"
+        role="tab"
+        class={`deck-tab-pill ${idx === 0 ? 'active' : ''}`}
+        data-goto-slide={p.index}
+        aria-selected={idx === 0 ? 'true' : 'false'}
+      >
+        <span class="deck-tab-num">{p.num}</span>
+        <span>{p.icon}</span>
+        <span class="lang-en-inline">{p.shortEn}</span>
+        <span class="lang-ko-inline">{p.shortKo}</span>
+      </button>
+    ))}
+  </nav>
+</div>
+
+<div class="deck-viewport" id="deck-viewport">
+  <button
+    type="button"
+    class="deck-side-arrow left no-print"
+    id="btn-side-prev"
+    aria-label="Previous Page"
+    title="Previous Page (←)"
+    disabled
+  >
+    ‹
+  </button>
+  <button
+    type="button"
+    class="deck-side-arrow right no-print"
+    id="btn-side-next"
+    aria-label="Next Page"
+    title="Next Page (→)"
+  >
+    ›
+  </button>
+
+  <!-- ===================================================================== -->
+  <!-- PAGE 1 (SLIDE 0): BIS GRADE 8 MATH COVER & 7-DAY WORKSHEET PLANNER    -->
+  <!-- ===================================================================== -->
+  <div class="deck-slide deck-cover-slide active" data-slide-index="0">
+    <section class="masthead">
+      <div class="masthead-compact-row">
+        <div class="masthead-brand-group">
+          <h1 class="masthead-title">AGORA MATH LAB</h1>
+          <div class="masthead-sub-wrap">
+            <p class="masthead-subtitle lang-en-block">
+              {pack.schoolLevel} · Daily 1-Page Problem Worksheets
+            </p>
+            <p class="masthead-subtitle lang-ko-block">
+              독일 베를린 국제학교(BIS) 8학년 1학기(IB MYP 3) 수준 일일 1페이지 수학 문제집
+            </p>
+          </div>
+        </div>
+
+        <div class="masthead-meta-pills">
+          <span class="badge badge-civic">WEEK #{pack.weekNumber} ({pack.id})</span>
+          <span class="badge badge-neutral">📐 7 Daily Sheets · 56 Problems</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="issue-theme-banner" style="margin-top: 0.4rem;">
+      <div style="font-family: var(--font-sans); font-size: 0.72rem; font-weight: 700; color: var(--accent-civic); margin-bottom: 0.15rem;">
+        <span class="lang-en-inline">CURRICULUM FOCUS · {pack.schoolLevel.toUpperCase()}</span>
+        <span class="lang-ko-inline">커리큘럼 초점 · 독일 국제학교(BIS) 8학년 1학기 핵심 단원</span>
+      </div>
+      <h2 class="issue-theme-title lang-en-block">{pack.themeTitle}</h2>
+      <h2 class="issue-theme-title lang-ko-block">{pack.themeTitleKo}</h2>
+      <p class="editors-note lang-en-block">{pack.CurriculumNote}</p>
+      <p class="editors-note lang-ko-block">{pack.CurriculumNoteKo}</p>
+    </div>
+
+    <section class="hero-stats-grid" aria-label="Math Pack Highlights">
+      <div class="stat-card">
+        <div class="stat-number">8 Qs / Day</div>
+        <div class="stat-label lang-en-block">3 Warm-Up (30p) + 3 Standard (45p) + 2 Challenge (25p) = 100 pts per sheet</div>
+        <div class="stat-label lang-ko-block">기초 연산 3문항(30점) + 표준 응용 3문항(45점) + 심화 2문항(25점) = 매일 100점 만점</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">IB MYP 3</div>
+        <div class="stat-label lang-en-block">Aligned to Berlin International School Grade 8 Semester 1 curriculum</div>
+        <div class="stat-label lang-ko-block">베를린 국제학교(BIS) 8학년 1학기(IB MYP Year 3) 실제 진도 완벽 반영</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">📄 1-Page</div>
+        <div class="stat-label lang-en-block">Print Problems-Only on 1 single page, or Duplex with Answer Key on the back</div>
+        <div class="stat-label lang-ko-block">[문제지만 1장 단면 인쇄] 또는 [앞면 문제 + 뒷면 해설 양면 1장 인쇄] 선택 가능</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">56 Total</div>
+        <div class="stat-label lang-en-block">Complete 7-day weekly problem set with step-by-step worked solutions</div>
+        <div class="stat-label lang-ko-block">월요일~일요일 7일분 총 56문항 및 전 문항 한·영 단계별 상세 풀이 수록</div>
+      </div>
+    </section>
+
+    <section class="toc-overview-section no-print" aria-labelledby="math-toc-heading">
+      <div class="section-header" style="margin-top: 0.85rem; margin-bottom: 0.65rem;">
+        <h2 id="math-toc-heading" class="section-title" style="font-size: 1.2rem;">
+          <span class="lang-en-inline">📐 7-Day Math Worksheets (Tap Any Day to Solve or Print)</span>
+          <span class="lang-ko-inline">📐 요일별 1페이지 수학 문제지 선택 및 바로 인쇄</span>
+        </h2>
+        <span class="section-kicker">
+          <span class="lang-en-inline">CHOOSE [📄 1-PAGE PROBLEMS] OR [🖨️ DUPLEX + ANSWER KEY]</span>
+          <span class="lang-ko-inline">[📄 문제만 1장]을 누르면 정답 없이 문제지만 1페이지로 나오고, [🖨️ 양면+해설]을 누르면 뒷면에 해설지가 인쇄됩니다</span>
+        </span>
+      </div>
+
+      <div class="toc-cards-grid">
+        {pack.dailySheets.map((sheet, idx) => {
+          const slideIdx = idx + 1;
+          return (
+            <div class="toc-card">
+              <div class="toc-card-body">
+                <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.4rem; margin-bottom: 0.35rem;">
+                  <span class="badge badge-day">{sheet.dayLabel}</span>
+                  <span class="badge badge-neutral">{sheet.unitCode}</span>
+                </div>
+                <h3 class="toc-card-title lang-en-block" data-goto-slide={slideIdx} style="cursor:pointer;">
+                  {sheet.topic}
+                </h3>
+                <h3 class="toc-card-title lang-ko-block" data-goto-slide={slideIdx} style="cursor:pointer;">
+                  {sheet.topicKo}
+                </h3>
+                <p class="lang-en-block" style="font-size: 0.82rem; color: var(--ink-secondary); margin: 0 0 0.65rem;">
+                  {sheet.subtitle}
+                </p>
+                <p class="lang-ko-block" style="font-size: 0.82rem; color: var(--ink-secondary); margin: 0 0 0.65rem;">
+                  {sheet.subtitleKo}
+                </p>
+                <div class="toc-card-actions" style="flex-wrap: wrap;">
+                  <button type="button" class="toc-open-btn" data-goto-slide={slideIdx}>
+                    <span class="lang-en-inline">Open Sheet →</span>
+                    <span class="lang-ko-inline">문제 풀기 →</span>
+                  </button>
+                  <div style="display: flex; gap: 0.35rem;">
+                    <button
+                      type="button"
+                      class="btn-print-single"
+                      data-print-math-problems={slideIdx}
+                      title="Print 1-Page Problem Sheet Only (No Answers)"
+                    >
+                      📄 <span class="lang-en-inline">1-Page Problems</span><span class="lang-ko-inline">문제만 1장</span>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-print-single"
+                      data-print-math-duplex={slideIdx}
+                      title="Print 2-Sided Duplex (Front: Problems / Back: Solutions)"
+                    >
+                      🖨️ <span class="lang-en-inline">Duplex+Key</span><span class="lang-ko-inline">양면+해설</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- PAGES 2 TO 8 (SLIDES 1 TO 7): 7 DAILY GRADE 8 MATH WORKSHEETS         -->
+  <!-- ===================================================================== -->
+  {pack.dailySheets.map((sheet, idx) => (
+    <div class="deck-slide" data-slide-index={idx + 1}>
+      <MathSheetCard
+        sheet={sheet}
+        weekId={pack.id}
+        weekNumber={pack.weekNumber}
+        slideIndex={idx + 1}
+      />
+    </div>
+  ))}
+</div>
+
+<!-- Bottom Page Turner Bar -->
+<div class="deck-turner-bar deck-turner-bottom no-print">
+  <button type="button" class="btn-page-turn prev" id="btn-prev-bottom" disabled>
+    ← <span class="lang-en-inline">Prev</span><span class="lang-ko-inline">이전</span>
+  </button>
+
+  <span class="deck-page-fraction" id="bottom-page-badge">1 / {deckPages.length}</span>
+
+  <button type="button" class="btn-page-turn next" id="btn-next-bottom">
+    <span class="lang-en-inline">Next</span><span class="lang-ko-inline">다음</span> →
+  </button>
+</div>
+
+<script is:inline define:vars={{ totalSlidesCount: deckPages.length, weekId: pack.id }}>
+  (function () {
+    const slides = Array.from(document.querySelectorAll('.deck-slide'));
+    const tabButtons = Array.from(document.querySelectorAll('.deck-tab-pill'));
+    const gotoTriggers = Array.from(document.querySelectorAll('[data-goto-slide]'));
+
+    const prevTop = document.getElementById('btn-prev-top');
+    const nextTop = document.getElementById('btn-next-top');
+    const prevBottom = document.getElementById('btn-prev-bottom');
+    const nextBottom = document.getElementById('btn-next-bottom');
+    const sidePrev = document.getElementById('btn-side-prev');
+    const sideNext = document.getElementById('btn-side-next');
+
+    const pageBadge = document.getElementById('current-page-badge');
+    const bottomPageBadge = document.getElementById('bottom-page-badge');
+    const viewModeBtn = document.getElementById('btn-toggle-view-mode');
+    const toggleAllSolBtn = document.getElementById('btn-toggle-all-solutions');
+    const topAnchor = document.getElementById('deck-top-anchor');
+
+    const totalSlides = slides.length || totalSlidesCount;
+    let currentSlide = 0;
+    let isScrollAllMode = false;
+    let allSolutionsOpen = false;
+
+    function goToSlide(targetIdx, shouldScroll) {
+      if (isScrollAllMode) {
+        isScrollAllMode = false;
+        document.body.classList.remove('deck-scroll-all');
+      }
+
+      const clamped = Math.max(0, Math.min(totalSlides - 1, targetIdx));
+      const direction = clamped >= currentSlide ? 'right' : 'left';
+      currentSlide = clamped;
+
+      slides.forEach(function (slide, idx) {
+        const active = idx === currentSlide;
+        slide.classList.toggle('active', active);
+        slide.classList.remove('anim-right', 'anim-left');
+        if (active) {
+          slide.classList.add(direction === 'right' ? 'anim-right' : 'anim-left');
+        }
+      });
+
+      tabButtons.forEach(function (tab, idx) {
+        const active = idx === currentSlide;
+        tab.classList.toggle('active', active);
+        tab.setAttribute('aria-selected', active ? 'true' : 'false');
+        if (active && tab.scrollIntoView) {
+          tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+      });
+
+      const fractionText = (currentSlide + 1) + ' / ' + totalSlides;
+      if (pageBadge) pageBadge.textContent = fractionText;
+      if (bottomPageBadge) bottomPageBadge.textContent = fractionText;
+
+      const isFirst = currentSlide === 0;
+      const isLast = currentSlide === totalSlides - 1;
+
+      [prevTop, prevBottom, sidePrev].forEach(function (btn) {
+        if (btn) btn.disabled = isFirst;
+      });
+      [nextTop, nextBottom, sideNext].forEach(function (btn) {
+        if (btn) btn.disabled = isLast;
+      });
+
+      if (shouldScroll && topAnchor) {
+        const rect = topAnchor.getBoundingClientRect();
+        if (rect.top < 0 || rect.top > 120) {
+          topAnchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    }
+
+    gotoTriggers.forEach(function (el) {
+      el.addEventListener('click', function () {
+        const idx = parseInt(el.getAttribute('data-goto-slide') || '0', 10);
+        goToSlide(idx, true);
+      });
+    });
+
+    [prevTop, prevBottom, sidePrev].forEach(function (btn) {
+      if (btn) {
+        btn.addEventListener('click', function () {
+          if (currentSlide > 0) goToSlide(currentSlide - 1, true);
+        });
+      }
+    });
+
+    [nextTop, nextBottom, sideNext].forEach(function (btn) {
+      if (btn) {
+        btn.addEventListener('click', function () {
+          if (currentSlide < totalSlides - 1) goToSlide(currentSlide + 1, true);
+        });
+      }
+    });
+
+    // Print Handlers: 1-Page Problems Only vs 2-Sided Duplex w/ Solutions
+    function printMathSlide(targetSlideIdx, problemsOnly) {
+      const slideToPrint = targetSlideIdx === 0 ? 1 : targetSlideIdx;
+      goToSlide(slideToPrint, false);
+      document.body.setAttribute('data-print-mode', 'single');
+      if (problemsOnly) {
+        document.body.classList.add('hide-math-solutions-print');
+      } else {
+        document.body.classList.remove('hide-math-solutions-print');
+      }
+      setTimeout(function () {
+        window.print();
+      }, 60);
+    }
+
+    window.addEventListener('afterprint', function () {
+      document.body.classList.remove('hide-math-solutions-print');
+    });
+
+    window.addEventListener('beforeprint', function () {
+      if (document.body.getAttribute('data-print-mode') !== 'packet') {
+        if (currentSlide === 0) {
+          goToSlide(1, false);
+        }
+        document.body.setAttribute('data-print-mode', 'single');
+      }
+    });
+
+    document.querySelectorAll('[data-print-math-problems]').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const idx = parseInt(btn.getAttribute('data-print-math-problems') || '1', 10);
+        printMathSlide(idx, true);
+      });
+    });
+
+    document.querySelectorAll('[data-print-math-duplex]').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const idx = parseInt(btn.getAttribute('data-print-math-duplex') || '1', 10);
+        printMathSlide(idx, false);
+      });
+    });
+
+    const topDailyPrintBtn = document.getElementById('btn-print-daily-top');
+    if (topDailyPrintBtn) {
+      topDailyPrintBtn.addEventListener('click', function () {
+        printMathSlide(currentSlide, false);
+      });
+    }
+
+    if (toggleAllSolBtn) {
+      toggleAllSolBtn.addEventListener('click', function () {
+        allSolutionsOpen = !allSolutionsOpen;
+        document.querySelectorAll('.math-solution-details').forEach(function (d) {
+          if (allSolutionsOpen) {
+            d.setAttribute('open', 'true');
+          } else {
+            d.removeAttribute('open');
+          }
+        });
+      });
+    }
+
+    if (viewModeBtn) {
+      viewModeBtn.addEventListener('click', function () {
+        isScrollAllMode = !isScrollAllMode;
+        document.body.classList.toggle('deck-scroll-all', isScrollAllMode);
+      });
+    }
+
+    // Keyboard Left / Right arrow support
+    document.addEventListener('keydown', function (e) {
+      if (isScrollAllMode) return;
+      const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
+      if (tag === 'input' || tag === 'select' || tag === 'textarea') return;
+      if (e.key === 'ArrowRight' && currentSlide < totalSlides - 1) {
+        goToSlide(currentSlide + 1, true);
+      } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
+        goToSlide(currentSlide - 1, true);
+      }
+    });
+
+    // Progress Tracker for Math Sheets
+    const STORAGE_KEY = 'agora-math-done-' + weekId;
+    const readButtons = document.querySelectorAll('[data-math-read-toggle]');
+    const progressText = document.getElementById('progress-counter-text');
+    const resetBtn = document.getElementById('btn-reset-progress');
+    let readSet = new Set();
+
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      if (Array.isArray(saved)) readSet = new Set(saved);
+    } catch (_e) {}
+
+    function renderReadProgress() {
+      const total = readButtons.length || 7;
+      const done = readSet.size;
+      if (progressText) progressText.textContent = done + '/' + total;
+
+      readButtons.forEach(function (btn) {
+        const id = btn.getAttribute('data-math-read-toggle');
+        const isDone = id && readSet.has(id);
+        btn.classList.toggle('completed', Boolean(isDone));
+        btn.textContent = isDone ? '✓ Done' : '○ Mark Done';
+      });
+    }
+
+    readButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const id = btn.getAttribute('data-math-read-toggle');
+        if (!id) return;
+        if (readSet.has(id)) {
+          readSet.delete(id);
+        } else {
+          readSet.add(id);
+        }
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(readSet)));
+        } catch (_e) {}
+        renderReadProgress();
+      });
+    });
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', function () {
+        readSet.clear();
+        try {
+          localStorage.removeItem(STORAGE_KEY);
+        } catch (_e) {}
+        renderReadProgress();
+      });
+    }
+    renderReadProgress();
+    goToSlide(0, false);
+  })();
+</script>

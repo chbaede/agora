@@ -1,0 +1,207 @@
+---
+import type { MathDailySheet } from '../data/math-schema';
+
+interface Props {
+  sheet: MathDailySheet;
+  weekId: string;
+  weekNumber: number;
+  slideIndex: number;
+}
+
+const { sheet, weekId, weekNumber, slideIndex } = Astro.props;
+
+function getTierBadgeClass(tier: string): string {
+  if (tier === 'Warm-Up') return 'badge-science';
+  if (tier === 'Standard') return 'badge-civic';
+  return 'badge-econ';
+}
+---
+
+<article class="article-card math-sheet-card duplex-sheet-unit" data-math-item={sheet.id}>
+  <!-- =================================================================== -->
+  <!-- DUPLEX FRONT SIDE (PAGE 1): 1-PAGE GRADE 8 MATH PROBLEM WORKSHEET   -->
+  <!-- =================================================================== -->
+  <div class="duplex-front-page">
+    <div class="print-only-sheet-header">
+      <div>
+        <strong>AGORA MATH LAB · BIS GRADE 8 (MYP 3) · WEEK #{weekNumber} ({weekId}) · {sheet.dayLabel.toUpperCase()}</strong>
+      </div>
+      <div>
+        NAME: ______________________ · DATE: ____________ · SCORE: ______ / 100
+      </div>
+    </div>
+
+    <div class="article-meta-top no-print">
+      <div style="display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
+        <span class="badge badge-day">
+          🗓️ <span class="lang-en-inline">{sheet.dayLabel}</span><span class="lang-ko-inline">{sheet.dayLabelKo}</span>
+        </span>
+        <span class="badge badge-civic">📐 {sheet.unitCode}</span>
+        <span class="badge badge-neutral">8 Problems · 100 Points</span>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
+        <button
+          type="button"
+          class="btn-print-single"
+          data-print-math-problems={slideIndex}
+          title="Print ONLY the 1-page problem worksheet (without answers)"
+        >
+          📄 <span class="lang-en-inline">1-Page Problems</span><span class="lang-ko-inline">문제지만 1장 인쇄</span>
+        </button>
+        <button
+          type="button"
+          class="btn-print-single"
+          data-print-math-duplex={slideIndex}
+          title="Print 2-Sided Duplex (Front: 1-Page Problems / Back: Step-by-Step Solutions)"
+        >
+          🖨️ <span class="lang-en-inline">Duplex + Answer Key</span><span class="lang-ko-inline">양면(문제+해설) 인쇄</span>
+        </button>
+        <button type="button" class="btn-mark-read" data-math-read-toggle={sheet.id}>
+          ○ Mark Done
+        </button>
+      </div>
+    </div>
+
+    <h3 class="article-headline lang-en-block">{sheet.topic}</h3>
+    <h3 class="article-headline lang-ko-block">{sheet.topicKo}</h3>
+
+    <p class="article-subheadline lang-en-block">{sheet.subtitle}</p>
+    <p class="article-subheadline lang-ko-block">{sheet.subtitleKo}</p>
+
+    <!-- Compact Key Formulas & Worked Example Reference Box -->
+    <div class="math-formula-banner">
+      <div class="math-formula-rules">
+        <strong class="box-label">
+          <span class="lang-en-inline">■ KEY FORMULAS &amp; CONCEPT SUMMARY</span>
+          <span class="lang-ko-inline">■ 오늘의 핵심 공식 및 개념 요약</span>
+        </strong>
+        <ul class="math-formula-list">
+          {sheet.formulaBox.map((rule, i) => (
+            <li>
+              <span class="lang-en-block">{rule}</span>
+              {sheet.formulaBoxKo?.[i] && <span class="lang-ko-block">{sheet.formulaBoxKo[i]}</span>}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="math-worked-example">
+        <strong class="box-label">
+          <span class="lang-en-inline">■ WORKED MODEL EXAMPLE</span>
+          <span class="lang-ko-inline">■ 대표 예제 풀이</span>
+        </strong>
+        <div class="lang-en-block" style="font-weight: 700; margin-bottom: 0.15rem;">{sheet.workedExample.problem}</div>
+        <div class="lang-ko-block" style="font-weight: 700; margin-bottom: 0.15rem;">{sheet.workedExample.problemKo}</div>
+        <div class="lang-en-block" style="font-size: 0.86rem;">⇒ {sheet.workedExample.steps}</div>
+        <div class="lang-ko-block" style="font-size: 0.85rem;">⇒ {sheet.workedExample.stepsKo}</div>
+      </div>
+    </div>
+
+    <!-- 8 Progressive Problems Grid (2 Columns x 4 Rows in Print = 1 Full Page) -->
+    <div class="math-problems-grid">
+      {sheet.problems.map((prob) => (
+        <div class="math-problem-card">
+          <div class="math-prob-header">
+            <span class="math-prob-num">Problem #{prob.number}</span>
+            <span class={`badge ${getTierBadgeClass(prob.tier)} math-tier-badge`}>
+              {prob.tier} · {prob.points} pts
+            </span>
+          </div>
+
+          <div class="math-prob-question">
+            <p class="lang-en-block">{prob.question}</p>
+            <p class="lang-ko-block">{prob.questionKo}</p>
+          </div>
+
+          <!-- B&W Work Space & Answer Line for Handwriting -->
+          <div class="math-work-space">
+            <div class="math-work-label">Show your work:</div>
+            <div class="math-answer-line">
+              <strong>Answer:</strong> ____________________________
+            </div>
+          </div>
+
+          <!-- Interactive Screen-Only Step-by-Step Solution Toggle -->
+          <details class="math-solution-details no-print">
+            <summary>
+              <span class="lang-en-inline">👁️ Show Step-by-Step Solution &amp; Answer</span>
+              <span class="lang-ko-inline">👁️ 단계별 풀이 및 정답 보기</span>
+            </summary>
+            <div class="math-solution-body">
+              <div class="math-final-ans">
+                <strong>✓ Answer:</strong> {prob.answer}
+              </div>
+              <ol class="math-steps-list">
+                {prob.solutionSteps.map((step, idx) => (
+                  <li>
+                    <span class="lang-en-block">{step}</span>
+                    {prob.solutionStepsKo?.[idx] && <span class="lang-ko-block">{prob.solutionStepsKo[idx]}</span>}
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </details>
+        </div>
+      ))}
+    </div>
+
+    <div class="print-only-turn-hint">
+      [Page 1 of 2 — Student Problem Worksheet] · Total: 100 Points (Warm-Up: 30 pts / Standard: 45 pts / Challenge: 25 pts)
+    </div>
+  </div>
+
+  <!-- =================================================================== -->
+  <!-- DUPLEX BACK SIDE (PAGE 2): STEP-BY-STEP WORKED SOLUTIONS & KEY      -->
+  <!-- =================================================================== -->
+  <div class="duplex-back-page math-solutions-back-page">
+    <div class="print-only-sheet-header">
+      <div>
+        <strong>AGORA MATH LAB · STEP-BY-STEP ANSWER KEY (BACK SIDE · PAGE 2 OF 2)</strong> · {sheet.dayLabel.toUpperCase()}
+      </div>
+      <div>
+        {sheet.topic}
+      </div>
+    </div>
+
+    <div class="math-print-solutions-grid">
+      {sheet.problems.map((prob) => (
+        <div class="math-print-sol-box">
+          <div class="math-print-sol-head">
+            <strong>#{prob.number} ({prob.tier} · {prob.points} pts)</strong>
+            <span><strong>Answer: {prob.answer}</strong></span>
+          </div>
+          <ol class="math-print-sol-steps">
+            {prob.solutionSteps.map((step, idx) => (
+              <li>
+                <span class="lang-en-block">{step}</span>
+                {prob.solutionStepsKo?.[idx] && <span class="lang-ko-block">{prob.solutionStepsKo[idx]}</span>}
+              </li>
+            ))}
+          </ol>
+        </div>
+      ))}
+    </div>
+
+    <div class="print-only-daily-notes" style="margin-top: 6pt !important;">
+      <div class="daily-notes-block">
+        <strong>
+          <span class="lang-en-inline">✎ Error Log &amp; Formula Corrections (Write down any problem you missed and re-solve it here):</span>
+          <span class="lang-ko-inline">✎ 오답 노트 및 핵심 풀이 정리 (틀렸거나 헷갈렸던 문제를 다시 풀어보세요):</span>
+        </strong>
+        <div class="worksheet-lines">
+          <div class="worksheet-line"></div>
+          <div class="worksheet-line"></div>
+          <div class="worksheet-line"></div>
+        </div>
+      </div>
+
+      <div class="print-only-check-footer">
+        <span>[ &nbsp; ] Completed Part A (Warm-Up)</span>
+        <span>[ &nbsp; ] Completed Part B (Standard)</span>
+        <span>[ &nbsp; ] Attempted Part C (Challenge)</span>
+        <span>Score: ______ / 100</span>
+      </div>
+    </div>
+  </div>
+</article>

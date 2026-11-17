@@ -10,9 +10,18 @@ describe('Astro static build, subpath-safe CSS/links, magazine deck UX, and pure
     expect(fs.existsSync(path.join(distDir, 'index.html'))).toBe(true);
     expect(fs.existsSync(path.join(distDir, 'issues/2026-W45/index.html'))).toBe(true);
     expect(fs.existsSync(path.join(distDir, 'issues/2026-W46/index.html'))).toBe(true);
+    expect(fs.existsSync(path.join(distDir, 'math/index.html'))).toBe(true);
+    expect(fs.existsSync(path.join(distDir, 'math/weeks/2026-W46/index.html'))).toBe(true);
     expect(fs.existsSync(path.join(distDir, 'archive/index.html'))).toBe(true);
     expect(fs.existsSync(path.join(distDir, 'glossary/index.html'))).toBe(true);
     expect(fs.readFileSync(path.join(distDir, 'CNAME'), 'utf-8').trim()).toBe('agora.yocto.kr');
+
+    const mathHtml = fs.readFileSync(path.join(distDir, 'math/index.html'), 'utf-8');
+    expect(mathHtml).toContain('AGORA MATH LAB');
+    expect(mathHtml).toContain('Berlin International School');
+    expect(mathHtml).toContain('data-print-math-problems="1"');
+    expect(mathHtml).toContain('data-print-math-duplex="1"');
+    expect(mathHtml).toContain('class="track-switcher"');
 
     const indexHtml = fs.readFileSync(path.join(distDir, 'index.html'), 'utf-8');
     // Must inline styles so both https://chbaede.github.io/agora/ and https://agora.yocto.kr/ render full CSS
