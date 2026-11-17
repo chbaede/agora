@@ -10,6 +10,9 @@ interface Props {
 
 const { sheet, weekId, weekNumber, slideIndex } = Astro.props;
 
+const frontProblems = sheet.problems.slice(0, 4);
+const backProblems = sheet.problems.slice(4, 8);
+
 function getTierBadgeClass(tier: string): string {
   if (tier === 'Warm-Up') return 'badge-science';
   if (tier === 'Standard') return 'badge-civic';
@@ -19,15 +22,17 @@ function getTierBadgeClass(tier: string): string {
 
 <article class="article-card math-sheet-card duplex-sheet-unit" data-math-item={sheet.id}>
   <!-- =================================================================== -->
-  <!-- DUPLEX FRONT SIDE (PAGE 1): 1-PAGE GRADE 8 MATH PROBLEM WORKSHEET   -->
+  <!-- DUPLEX FRONT SIDE (PAGE 1 OF 2): FORMULAS + PROBLEMS #1 TO #4       -->
   <!-- =================================================================== -->
   <div class="duplex-front-page">
     <div class="print-only-sheet-header">
       <div>
-        <strong>AGORA MATH LAB · BIS GRADE 8 (MYP 3) · WEEK #{weekNumber} ({weekId}) · {sheet.dayLabel.toUpperCase()}</strong>
+        <strong class="lang-en-inline">AGORA MATH LAB · BIS GRADE 8 (MYP 3) · WEEK #{weekNumber} ({weekId}) · {sheet.dayLabel.toUpperCase()} [PAGE 1 OF 2]</strong>
+        <strong class="lang-ko-inline">AGORA 수학 연구소 · 독일 국제학교(BIS) 8학년 · 제{weekNumber}주 ({weekId}) · {sheet.dayLabelKo} [1 / 2 페이지]</strong>
       </div>
       <div>
-        NAME: ______________________ · DATE: ____________ · SCORE: ______ / 100
+        <span class="lang-en-inline">NAME: ______________________ · DATE: ____________</span>
+        <span class="lang-ko-inline">이름: ______________________ · 날짜: ____________</span>
       </div>
     </div>
 
@@ -36,26 +41,23 @@ function getTierBadgeClass(tier: string): string {
         <span class="badge badge-day">
           🗓️ <span class="lang-en-inline">{sheet.dayLabel}</span><span class="lang-ko-inline">{sheet.dayLabelKo}</span>
         </span>
-        <span class="badge badge-civic">📐 {sheet.unitCode}</span>
-        <span class="badge badge-neutral">8 Problems · 100 Points</span>
+        <span class="badge badge-civic">
+          📐 <span class="lang-en-inline">{sheet.unitCode}</span><span class="lang-ko-inline">{sheet.unitCodeKo}</span>
+        </span>
+        <span class="badge badge-neutral">
+          <span class="lang-en-inline">8 Problems · 100 Points</span>
+          <span class="lang-ko-inline">총 8문항 · 100점 만점</span>
+        </span>
       </div>
 
       <div style="display: flex; align-items: center; gap: 0.35rem; flex-wrap: wrap;">
         <button
           type="button"
           class="btn-print-single"
-          data-print-math-problems={slideIndex}
-          title="Print ONLY the 1-page problem worksheet (without answers)"
+          data-print-slide={slideIndex}
+          title="Print this 2-page (1-sheet duplex) problem worksheet (No answers printed)"
         >
-          📄 <span class="lang-en-inline">1-Page Problems</span><span class="lang-ko-inline">문제만 1장</span>
-        </button>
-        <button
-          type="button"
-          class="btn-print-single"
-          data-print-math-duplex={slideIndex}
-          title="Print 2-Sided Duplex (Front: 1-Page Problems / Back: Step-by-Step Solutions)"
-        >
-          🖨️ <span class="lang-en-inline">Duplex + Key</span><span class="lang-ko-inline">양면+해설</span>
+          🖨️ <span class="lang-en-inline">Print 2-Page Worksheet (Duplex)</span><span class="lang-ko-inline">문제지 2페이지(양면 1장) 인쇄</span>
         </button>
         <button type="button" class="btn-mark-read" data-math-read-toggle={sheet.id}>
           ○ Done
@@ -93,115 +95,174 @@ function getTierBadgeClass(tier: string): string {
         </strong>
         <div class="lang-en-block" style="font-weight: 700; margin-bottom: 0.15rem;">{sheet.workedExample.problem}</div>
         <div class="lang-ko-block" style="font-weight: 700; margin-bottom: 0.15rem;">{sheet.workedExample.problemKo}</div>
-        <div class="lang-en-block" style="font-size: 0.86rem;">⇒ {sheet.workedExample.steps}</div>
-        <div class="lang-ko-block" style="font-size: 0.85rem;">⇒ {sheet.workedExample.stepsKo}</div>
+        <div class="lang-en-block" style="font-size: 0.85rem;">⇒ {sheet.workedExample.steps}</div>
+        <div class="lang-ko-block" style="font-size: 0.84rem;">⇒ {sheet.workedExample.stepsKo}</div>
       </div>
     </div>
 
-    <!-- 8 Progressive Problems Grid (2 Columns x 4 Rows in Print = 1 Full Page) -->
-    <div class="math-problems-grid">
-      {sheet.problems.map((prob) => (
+    <!-- Front Page Problems (#1 to #4) -->
+    <div class="math-problems-grid math-front-grid">
+      {frontProblems.map((prob) => (
         <div class="math-problem-card">
-          <div class="math-prob-header">
-            <span class="math-prob-num">Problem #{prob.number}</span>
-            <span class={`badge ${getTierBadgeClass(prob.tier)} math-tier-badge`}>
-              {prob.tier} · {prob.points} pts
-            </span>
-          </div>
+          <div>
+            <div class="math-prob-header">
+              <span class="math-prob-num">
+                <span class="lang-en-inline">Problem #{prob.number}</span>
+                <span class="lang-ko-inline">문제 #{prob.number}</span>
+              </span>
+              <span class={`badge ${getTierBadgeClass(prob.tier)} math-tier-badge`}>
+                <span class="lang-en-inline">{prob.tier} · {prob.points} pts</span>
+                <span class="lang-ko-inline">{prob.tierKo} · {prob.points}점</span>
+              </span>
+            </div>
 
-          <div class="math-prob-question">
-            <p class="lang-en-block">{prob.question}</p>
-            <p class="lang-ko-block">{prob.questionKo}</p>
-          </div>
-
-          <!-- B&W Work Space & Answer Line for Handwriting -->
-          <div class="math-work-space">
-            <div class="math-work-label">Show your work:</div>
-            <div class="math-answer-line">
-              <strong>Answer:</strong> ____________________________
+            <div class="math-prob-question">
+              <p class="lang-en-block">{prob.question}</p>
+              <p class="lang-ko-block">{prob.questionKo}</p>
             </div>
           </div>
 
-          <!-- Interactive Screen-Only Step-by-Step Solution Toggle -->
-          <details class="math-solution-details no-print">
-            <summary>
-              <span class="lang-en-inline">👁️ Show Step-by-Step Solution &amp; Answer</span>
-              <span class="lang-ko-inline">👁️ 단계별 풀이 및 정답 보기</span>
-            </summary>
-            <div class="math-solution-body">
-              <div class="math-final-ans">
-                <strong>✓ Answer:</strong> {prob.answer}
+          <div>
+            <div class="math-work-space math-work-front">
+              <div class="math-work-label">
+                <span class="lang-en-inline">Show your step-by-step work:</span>
+                <span class="lang-ko-inline">풀이 과정을 단계별로 적으시오:</span>
               </div>
-              <ol class="math-steps-list">
-                {prob.solutionSteps.map((step, idx) => (
-                  <li>
-                    <span class="lang-en-block">{step}</span>
-                    {prob.solutionStepsKo?.[idx] && <span class="lang-ko-block">{prob.solutionStepsKo[idx]}</span>}
-                  </li>
-                ))}
-              </ol>
+              <div class="math-answer-line">
+                <strong>
+                  <span class="lang-en-inline">Answer:</span>
+                  <span class="lang-ko-inline">정답:</span>
+                </strong>{' '}
+                ____________________________
+              </div>
             </div>
-          </details>
+
+            <!-- Interactive Screen-Only Step-by-Step Solution Toggle (Never Printed) -->
+            <details class="math-solution-details no-print">
+              <summary>
+                <span class="lang-en-inline">👁️ Show Step-by-Step Solution &amp; Answer</span>
+                <span class="lang-ko-inline">👁️ 단계별 풀이 및 정답 펼치기</span>
+              </summary>
+              <div class="math-solution-body">
+                <div class="math-final-ans">
+                  <div class="lang-en-block"><strong>✓ Answer:</strong> {prob.answer}</div>
+                  <div class="lang-ko-block"><strong>✓ 정답:</strong> {prob.answerKo}</div>
+                </div>
+                <ol class="math-steps-list">
+                  {prob.solutionSteps.map((step, idx) => (
+                    <li>
+                      <span class="lang-en-block">{step}</span>
+                      {prob.solutionStepsKo?.[idx] && <span class="lang-ko-block">{prob.solutionStepsKo[idx]}</span>}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </details>
+          </div>
         </div>
       ))}
     </div>
 
     <div class="print-only-turn-hint">
-      [Page 1 of 2 — Student Problem Worksheet] · Total: 100 Points (Warm-Up: 30 pts / Standard: 45 pts / Challenge: 25 pts)
+      <span class="lang-en-inline">[Page 1 of 2 — Front Side: Problems #1–#4] ↪ Turn sheet over for Problems #5–#8 (Standard &amp; Challenge)</span>
+      <span class="lang-ko-inline">[1 / 2 페이지 — 앞면: 문제 #1~#4] ↪ 뒷면(2페이지)에 응용·심화 문제 #5~#8번이 이어집니다</span>
     </div>
   </div>
 
   <!-- =================================================================== -->
-  <!-- DUPLEX BACK SIDE (PAGE 2): STEP-BY-STEP WORKED SOLUTIONS & KEY      -->
+  <!-- DUPLEX BACK SIDE (PAGE 2 OF 2): PROBLEMS #5 TO #8 + SCORE STRIP     -->
   <!-- =================================================================== -->
-  <div class="duplex-back-page math-solutions-back-page">
+  <div class="duplex-back-page">
     <div class="print-only-sheet-header">
       <div>
-        <strong>AGORA MATH LAB · STEP-BY-STEP ANSWER KEY (BACK SIDE · PAGE 2 OF 2)</strong> · {sheet.dayLabel.toUpperCase()}
+        <strong class="lang-en-inline">AGORA MATH LAB · BIS GRADE 8 (MYP 3) · {sheet.dayLabel.toUpperCase()} [PAGE 2 OF 2 — PROBLEMS #5–#8]</strong>
+        <strong class="lang-ko-inline">AGORA 수학 연구소 · 독일 국제학교(BIS) 8학년 · {sheet.dayLabelKo} [2 / 2 페이지 — 문제 #5~#8]</strong>
       </div>
       <div>
-        {sheet.topic}
+        <span class="lang-en-inline">SCORE: ______ / 100</span>
+        <span class="lang-ko-inline">점수: ______ / 100점</span>
       </div>
     </div>
 
-    <div class="math-print-solutions-grid">
-      {sheet.problems.map((prob) => (
-        <div class="math-print-sol-box">
-          <div class="math-print-sol-head">
-            <strong>#{prob.number} ({prob.tier} · {prob.points} pts)</strong>
-            <span><strong>Answer: {prob.answer}</strong></span>
+    <div class="math-problems-grid math-back-grid">
+      {backProblems.map((prob) => (
+        <div class="math-problem-card">
+          <div>
+            <div class="math-prob-header">
+              <span class="math-prob-num">
+                <span class="lang-en-inline">Problem #{prob.number}</span>
+                <span class="lang-ko-inline">문제 #{prob.number}</span>
+              </span>
+              <span class={`badge ${getTierBadgeClass(prob.tier)} math-tier-badge`}>
+                <span class="lang-en-inline">{prob.tier} · {prob.points} pts</span>
+                <span class="lang-ko-inline">{prob.tierKo} · {prob.points}점</span>
+              </span>
+            </div>
+
+            <div class="math-prob-question">
+              <p class="lang-en-block">{prob.question}</p>
+              <p class="lang-ko-block">{prob.questionKo}</p>
+            </div>
           </div>
-          <ol class="math-print-sol-steps">
-            {prob.solutionSteps.map((step, idx) => (
-              <li>
-                <span class="lang-en-block">{step}</span>
-                {prob.solutionStepsKo?.[idx] && <span class="lang-ko-block">{prob.solutionStepsKo[idx]}</span>}
-              </li>
-            ))}
-          </ol>
+
+          <div>
+            <div class="math-work-space math-work-back">
+              <div class="math-work-label">
+                <span class="lang-en-inline">Show your step-by-step equation &amp; work:</span>
+                <span class="lang-ko-inline">식과 풀이 과정을 단계별로 적으시오:</span>
+              </div>
+              <div class="math-answer-line">
+                <strong>
+                  <span class="lang-en-inline">Answer:</span>
+                  <span class="lang-ko-inline">정답:</span>
+                </strong>{' '}
+                ____________________________
+              </div>
+            </div>
+
+            <!-- Interactive Screen-Only Step-by-Step Solution Toggle (Never Printed) -->
+            <details class="math-solution-details no-print">
+              <summary>
+                <span class="lang-en-inline">👁️ Show Step-by-Step Solution &amp; Answer</span>
+                <span class="lang-ko-inline">👁️ 단계별 풀이 및 정답 펼치기</span>
+              </summary>
+              <div class="math-solution-body">
+                <div class="math-final-ans">
+                  <div class="lang-en-block"><strong>✓ Answer:</strong> {prob.answer}</div>
+                  <div class="lang-ko-block"><strong>✓ 정답:</strong> {prob.answerKo}</div>
+                </div>
+                <ol class="math-steps-list">
+                  {prob.solutionSteps.map((step, idx) => (
+                    <li>
+                      <span class="lang-en-block">{step}</span>
+                      {prob.solutionStepsKo?.[idx] && <span class="lang-ko-block">{prob.solutionStepsKo[idx]}</span>}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </details>
+          </div>
         </div>
       ))}
     </div>
 
-    <div class="print-only-daily-notes" style="margin-top: 6pt !important;">
-      <div class="daily-notes-block">
-        <strong>
-          <span class="lang-en-inline">✎ Error Log &amp; Formula Corrections (Write down any problem you missed and re-solve it here):</span>
-          <span class="lang-ko-inline">✎ 오답 노트 및 핵심 풀이 정리 (틀렸거나 헷갈렸던 문제를 다시 풀어보세요):</span>
-        </strong>
-        <div class="worksheet-lines">
-          <div class="worksheet-line"></div>
-          <div class="worksheet-line"></div>
-          <div class="worksheet-line"></div>
-        </div>
-      </div>
-
-      <div class="print-only-check-footer">
-        <span>[ &nbsp; ] Completed Part A (Warm-Up)</span>
-        <span>[ &nbsp; ] Completed Part B (Standard)</span>
-        <span>[ &nbsp; ] Attempted Part C (Challenge)</span>
-        <span>Score: ______ / 100</span>
-      </div>
+    <div class="print-only-check-footer">
+      <span>
+        <span class="lang-en-inline">[ &nbsp; ] Part A: Warm-Up (#1–#3 · 30 pts)</span>
+        <span class="lang-ko-inline">[ &nbsp; ] Part A: 기초 필수 (#1~#3 · 30점)</span>
+      </span>
+      <span>
+        <span class="lang-en-inline">[ &nbsp; ] Part B: Standard (#4–#6 · 45 pts)</span>
+        <span class="lang-ko-inline">[ &nbsp; ] Part B: 표준 응용 (#4~#6 · 45점)</span>
+      </span>
+      <span>
+        <span class="lang-en-inline">[ &nbsp; ] Part C: Challenge (#7–#8 · 25 pts)</span>
+        <span class="lang-ko-inline">[ &nbsp; ] Part C: 심화 도전 (#7~#8 · 25점)</span>
+      </span>
+      <span>
+        <span class="lang-en-inline">Check step-by-step solutions online at agora.yocto.kr/math</span>
+        <span class="lang-ko-inline">단계별 해설 및 정답 확인: agora.yocto.kr/math</span>
+      </span>
     </div>
   </div>
 </article>

@@ -20,8 +20,8 @@ const deckPages = [
     index: i + 1,
     num: `0${i + 2}`,
     icon: '📐',
-    shortEn: `D${i + 1}: ${s.topic.split(' ')[0]}`,
-    shortKo: `D${i + 1}: ${s.topicKo.split(' ')[0]}`,
+    shortEn: `D${i + 1}: ${s.topic.split(' ')[0].replace(/,/g, '')}`,
+    shortKo: `D${i + 1}: ${s.topicKo.split(' ')[0].replace(/,/g, '')}`,
   })),
 ];
 ---
@@ -45,7 +45,7 @@ const deckPages = [
       <button type="button" class="btn-page-turn next" id="btn-next-top">
         <span class="lang-en-inline">Next</span><span class="lang-ko-inline">다음</span> →
       </button>
-      <button type="button" id="btn-toggle-all-solutions" class="btn-view-mode" title="Show or Hide All Step-by-Step Solutions">
+      <button type="button" id="btn-toggle-all-solutions" class="btn-view-mode" title="Expand or Collapse All Step-by-Step Solutions on Screen">
         👁️ <span class="desktop-label"><span class="lang-en-inline">Answers</span><span class="lang-ko-inline">정답</span></span>
       </button>
       <button type="button" id="btn-toggle-view-mode" class="btn-view-mode desktop-only-ctrl" title="Toggle 1-Page Flip vs Scroll-All">
@@ -105,17 +105,23 @@ const deckPages = [
           <h1 class="masthead-title">AGORA MATH LAB</h1>
           <div class="masthead-sub-wrap">
             <p class="masthead-subtitle lang-en-block">
-              {pack.schoolLevel} · Daily 1-Page Problem Worksheets
+              {pack.schoolLevel} · Daily 2-Page (1-Sheet Duplex) Problem Worksheets
             </p>
             <p class="masthead-subtitle lang-ko-block">
-              독일 베를린 국제학교(BIS) 8학년 1학기(IB MYP 3) 수준 일일 1페이지 수학 문제집
+              {pack.schoolLevelKo} · 일일 2페이지(양면 1장) 수학 문제집
             </p>
           </div>
         </div>
 
         <div class="masthead-meta-pills">
-          <span class="badge badge-civic">WEEK #{pack.weekNumber} ({pack.id})</span>
-          <span class="badge badge-neutral">📐 7 Daily Sheets · 56 Problems</span>
+          <span class="badge badge-civic">
+            <span class="lang-en-inline">WEEK #{pack.weekNumber} ({pack.id})</span>
+            <span class="lang-ko-inline">제{pack.weekNumber}주차 ({pack.id})</span>
+          </span>
+          <span class="badge badge-neutral">
+            <span class="lang-en-inline">📐 7 Daily Sheets · 56 Problems</span>
+            <span class="lang-ko-inline">📐 7일분 워크시트 · 총 56문항</span>
+          </span>
         </div>
       </div>
     </section>
@@ -123,7 +129,7 @@ const deckPages = [
     <div class="issue-theme-banner" style="margin-top: 0.4rem;">
       <div style="font-family: var(--font-sans); font-size: 0.72rem; font-weight: 700; color: var(--accent-civic); margin-bottom: 0.15rem;">
         <span class="lang-en-inline">CURRICULUM FOCUS · {pack.schoolLevel.toUpperCase()}</span>
-        <span class="lang-ko-inline">커리큘럼 초점 · 독일 국제학교(BIS) 8학년 1학기 핵심 단원</span>
+        <span class="lang-ko-inline">커리큘럼 초점 · {pack.schoolLevelKo}</span>
       </div>
       <h2 class="issue-theme-title lang-en-block">{pack.themeTitle}</h2>
       <h2 class="issue-theme-title lang-ko-block">{pack.themeTitleKo}</h2>
@@ -135,7 +141,7 @@ const deckPages = [
       <div class="stat-card">
         <div class="stat-number">8 Qs / Day</div>
         <div class="stat-label lang-en-block">3 Warm-Up (30p) + 3 Standard (45p) + 2 Challenge (25p) = 100 pts per sheet</div>
-        <div class="stat-label lang-ko-block">기초 연산 3문항(30점) + 표준 응용 3문항(45점) + 심화 2문항(25점) = 매일 100점 만점</div>
+        <div class="stat-label lang-ko-block">기초 필수 3문항(30점) + 표준 응용 3문항(45점) + 심화 도전 2문항(25점) = 100점 만점</div>
       </div>
       <div class="stat-card">
         <div class="stat-number">IB MYP 3</div>
@@ -143,26 +149,26 @@ const deckPages = [
         <div class="stat-label lang-ko-block">베를린 국제학교(BIS) 8학년 1학기(IB MYP Year 3) 실제 진도 완벽 반영</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number">📄 1-Page</div>
-        <div class="stat-label lang-en-block">Print Problems-Only on 1 single page, or Duplex with Answer Key on the back</div>
-        <div class="stat-label lang-ko-block">[문제지만 1장 단면 인쇄] 또는 [앞면 문제 + 뒷면 해설 양면 1장 인쇄] 선택 가능</div>
+        <div class="stat-number">🖨️ 2 Pages</div>
+        <div class="stat-label lang-en-block">Prints Problems #1–#4 on Page 1 (Front) and #5–#8 on Page 2 (Back) with full workspace</div>
+        <div class="stat-label lang-ko-block">인쇄 시 앞면(1~4번) + 뒷면(5~8번) 총 2페이지(양면 1장) 문제지로 넉넉한 풀이 공간 제공</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number">56 Total</div>
-        <div class="stat-label lang-en-block">Complete 7-day weekly problem set with step-by-step worked solutions</div>
-        <div class="stat-label lang-ko-block">월요일~일요일 7일분 총 56문항 및 전 문항 한·영 단계별 상세 풀이 수록</div>
+        <div class="stat-number">👁️ Web Key</div>
+        <div class="stat-label lang-en-block">Step-by-step solutions stay hidden when printing and expand online anytime</div>
+        <div class="stat-label lang-ko-block">인쇄물에는 정답이 나오지 않으며, 웹사이트에서 [풀이 펼치기]를 눌러 즉시 채점 가능</div>
       </div>
     </section>
 
     <section class="toc-overview-section no-print" aria-labelledby="math-toc-heading">
       <div class="section-header" style="margin-top: 0.85rem; margin-bottom: 0.65rem;">
         <h2 id="math-toc-heading" class="section-title" style="font-size: 1.2rem;">
-          <span class="lang-en-inline">📐 7-Day Math Worksheets (Tap Any Day to Solve or Print)</span>
-          <span class="lang-ko-inline">📐 요일별 1페이지 수학 문제지 선택 및 바로 인쇄</span>
+          <span class="lang-en-inline">📐 7-Day Math Worksheets (Tap Any Day to Open or Print)</span>
+          <span class="lang-ko-inline">📐 요일별 수학 문제지 선택 및 2페이지(양면 1장) 인쇄</span>
         </h2>
         <span class="section-kicker">
-          <span class="lang-en-inline">CHOOSE [📄 1-PAGE PROBLEMS] OR [🖨️ DUPLEX + ANSWER KEY]</span>
-          <span class="lang-ko-inline">[📄 문제만 1장]을 누르면 정답 없이 문제지만 1페이지로 나오고, [🖨️ 양면+해설]을 누르면 뒷면에 해설지가 인쇄됩니다</span>
+          <span class="lang-en-inline">FRONT (P.1): FORMULAS &amp; PROBLEMS #1–#4 · BACK (P.2): PROBLEMS #5–#8 · ANSWERS ON WEB</span>
+          <span class="lang-ko-inline">[🖨️ 1장 인쇄]를 누르면 문제만 양면 2페이지(앞면 1~4번 / 뒷면 5~8번)로 출력되며 정답은 웹에서 펼쳐 봅니다</span>
         </span>
       </div>
 
@@ -172,9 +178,15 @@ const deckPages = [
           return (
             <div class="toc-card">
               <div class="toc-card-body">
-                <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.4rem; margin-bottom: 0.35rem;">
-                  <span class="badge badge-day">{sheet.dayLabel}</span>
-                  <span class="badge badge-neutral">{sheet.unitCode}</span>
+                <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.4rem; margin-bottom: 0.35rem; flex-wrap: wrap;">
+                  <span class="badge badge-day">
+                    <span class="lang-en-inline">{sheet.dayLabel}</span>
+                    <span class="lang-ko-inline">{sheet.dayLabelKo}</span>
+                  </span>
+                  <span class="badge badge-neutral">
+                    <span class="lang-en-inline">{sheet.unitCode}</span>
+                    <span class="lang-ko-inline">{sheet.unitCodeKo}</span>
+                  </span>
                 </div>
                 <h3 class="toc-card-title lang-en-block" data-goto-slide={slideIdx} style="cursor:pointer;">
                   {sheet.topic}
@@ -188,29 +200,19 @@ const deckPages = [
                 <p class="lang-ko-block" style="font-size: 0.82rem; color: var(--ink-secondary); margin: 0 0 0.65rem;">
                   {sheet.subtitleKo}
                 </p>
-                <div class="toc-card-actions" style="flex-wrap: wrap;">
+                <div class="toc-card-actions">
                   <button type="button" class="toc-open-btn" data-goto-slide={slideIdx}>
-                    <span class="lang-en-inline">Open Sheet →</span>
-                    <span class="lang-ko-inline">문제 풀기 →</span>
+                    <span class="lang-en-inline">Open Worksheet →</span>
+                    <span class="lang-ko-inline">문제지 열기 →</span>
                   </button>
-                  <div style="display: flex; gap: 0.35rem;">
-                    <button
-                      type="button"
-                      class="btn-print-single"
-                      data-print-math-problems={slideIdx}
-                      title="Print 1-Page Problem Sheet Only (No Answers)"
-                    >
-                      📄 <span class="lang-en-inline">1-Page Problems</span><span class="lang-ko-inline">문제만 1장</span>
-                    </button>
-                    <button
-                      type="button"
-                      class="btn-print-single"
-                      data-print-math-duplex={slideIdx}
-                      title="Print 2-Sided Duplex (Front: Problems / Back: Solutions)"
-                    >
-                      🖨️ <span class="lang-en-inline">Duplex+Key</span><span class="lang-ko-inline">양면+해설</span>
-                    </button>
-                  </div>
+                  <button
+                    type="button"
+                    class="btn-print-single"
+                    data-print-slide={slideIdx}
+                    title="Print 2-Page (1-Sheet Duplex) Problem Worksheet"
+                  >
+                    🖨️ <span class="lang-en-inline">1-Sheet Print</span><span class="lang-ko-inline">1장(2쪽) 인쇄</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -345,24 +347,17 @@ const deckPages = [
       }
     });
 
-    // Print Handlers: 1-Page Problems Only vs 2-Sided Duplex w/ Solutions
-    function printMathSlide(targetSlideIdx, problemsOnly) {
+    // 2-Page Duplex Problem Sheet Print Handler (Front: Q1-Q4, Back: Q5-Q8, No Answers)
+    function printMathSlide(targetSlideIdx) {
       const slideToPrint = targetSlideIdx === 0 ? 1 : targetSlideIdx;
       goToSlide(slideToPrint, false);
       document.body.setAttribute('data-print-mode', 'single');
-      if (problemsOnly) {
-        document.body.classList.add('hide-math-solutions-print');
-      } else {
-        document.body.classList.remove('hide-math-solutions-print');
-      }
       setTimeout(function () {
         window.print();
       }, 60);
     }
 
-    window.addEventListener('afterprint', function () {
-      document.body.classList.remove('hide-math-solutions-print');
-    });
+    window.__agoraPrintSlide = printMathSlide;
 
     window.addEventListener('beforeprint', function () {
       if (document.body.getAttribute('data-print-mode') !== 'packet') {
@@ -373,26 +368,18 @@ const deckPages = [
       }
     });
 
-    document.querySelectorAll('[data-print-math-problems]').forEach(function (btn) {
+    document.querySelectorAll('[data-print-slide]').forEach(function (btn) {
       btn.addEventListener('click', function (e) {
         e.stopPropagation();
-        const idx = parseInt(btn.getAttribute('data-print-math-problems') || '1', 10);
-        printMathSlide(idx, true);
-      });
-    });
-
-    document.querySelectorAll('[data-print-math-duplex]').forEach(function (btn) {
-      btn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        const idx = parseInt(btn.getAttribute('data-print-math-duplex') || '1', 10);
-        printMathSlide(idx, false);
+        const idx = parseInt(btn.getAttribute('data-print-slide') || '1', 10);
+        printMathSlide(idx);
       });
     });
 
     const topDailyPrintBtn = document.getElementById('btn-print-daily-top');
     if (topDailyPrintBtn) {
       topDailyPrintBtn.addEventListener('click', function () {
-        printMathSlide(currentSlide, false);
+        printMathSlide(currentSlide);
       });
     }
 
@@ -449,7 +436,7 @@ const deckPages = [
         const id = btn.getAttribute('data-math-read-toggle');
         const isDone = id && readSet.has(id);
         btn.classList.toggle('completed', Boolean(isDone));
-        btn.textContent = isDone ? '✓ Done' : '○ Mark Done';
+        btn.textContent = isDone ? '✓ Done' : '○ Done';
       });
     }
 

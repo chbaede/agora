@@ -44,19 +44,21 @@ const isMathMode = activeNav === 'math';
           <!-- Primary 2-Track Switcher (Global News vs BIS Grade 8 Math) -->
           <div class="track-switcher" role="navigation" aria-label="Subject Track Switcher">
             <a href="/" class={`track-pill ${!isMathMode ? 'active' : ''}`}>
-              🌍 <span>News</span>
+              🌍 <span class="lang-en-inline">News</span><span class="lang-ko-inline">국제 뉴스</span>
             </a>
             <a href="/math" class={`track-pill ${isMathMode ? 'active-math' : ''}`}>
-              📐 <span>Math 8</span>
+              📐 <span class="lang-en-inline">Math 8</span><span class="lang-ko-inline">8학년 수학</span>
             </a>
           </div>
 
           <nav class="nav-links desktop-only-nav" aria-label="Main Navigation">
             <a href="/archive" class={`nav-link ${activeNav === 'archive' ? 'active' : ''}`}>
-              Archive ({allIssues.length})
+              <span class="lang-en-inline">Archive ({allIssues.length})</span>
+              <span class="lang-ko-inline">지난호 ({allIssues.length})</span>
             </a>
             <a href="/glossary" class={`nav-link ${activeNav === 'glossary' ? 'active' : ''}`}>
-              Vocab
+              <span class="lang-en-inline">Vocab</span>
+              <span class="lang-ko-inline">단어장</span>
             </a>
           </nav>
         </div>
@@ -97,9 +99,9 @@ const isMathMode = activeNav === 'math';
             type="button"
             id="btn-print-daily-top"
             class="btn-print"
-            title="Print current day's sheet as a 1-Sheet (2-Sided Duplex) B&W Handout"
+            title="Print current day's sheet as a 1-Sheet (2-Page Duplex) B&W Handout"
           >
-            🖨️ <span class="desktop-label">Print 1-Sheet (Duplex)</span><span class="mobile-label">인쇄</span>
+            🖨️ <span class="desktop-label"><span class="lang-en-inline">Print 1-Sheet (Duplex)</span><span class="lang-ko-inline">오늘 분량 양면 인쇄 (2p)</span></span><span class="mobile-label">🖨️</span>
           </button>
 
           <button
@@ -108,7 +110,7 @@ const isMathMode = activeNav === 'math';
             class="btn-print-daily desktop-only-ctrl"
             title="Print All 7 Days (Full Weekly Packet)"
           >
-            🗂️ <span class="desktop-label">Print All Week</span>
+            🗂️ <span class="desktop-label"><span class="lang-en-inline">Print All Week</span><span class="lang-ko-inline">주간 전체 인쇄</span></span>
           </button>
 
           <button
