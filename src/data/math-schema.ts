@@ -11,7 +11,7 @@ export const REQUIRED_MATH_DAYS = [
 export type MathDayLabel = (typeof REQUIRED_MATH_DAYS)[number];
 
 export interface MathProblem {
-  number: number; // 1 to 8
+  number: number; // 1 to 14
   tier: 'Warm-Up' | 'Standard' | 'Challenge';
   tierKo: '기초 필수' | '표준 응용' | '심화 도전';
   points: number;
@@ -93,8 +93,8 @@ export function validateMathPack(raw: unknown): { valid: boolean; errors: string
           }
         });
       }
-      if (!Array.isArray(sheet.problems) || sheet.problems.length !== 8) {
-        errors.push(`dailySheets[${sIdx}].problems must contain exactly 8 problems.`);
+      if (!Array.isArray(sheet.problems) || sheet.problems.length !== 14) {
+        errors.push(`dailySheets[${sIdx}].problems must contain exactly 14 problems (6 Front + 8 Back).`);
       } else {
         sheet.problems.forEach((p, pIdx) => {
           if (!p.question?.trim() || !p.questionKo?.trim() || !p.answer?.trim() || !p.answerKo?.trim() || !p.tierKo?.trim()) {

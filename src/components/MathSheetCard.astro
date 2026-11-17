@@ -10,8 +10,8 @@ interface Props {
 
 const { sheet, weekId, weekNumber, slideIndex } = Astro.props;
 
-const frontProblems = sheet.problems.slice(0, 4);
-const backProblems = sheet.problems.slice(4, 8);
+const frontProblems = sheet.problems.slice(0, 6);
+const backProblems = sheet.problems.slice(6, 14);
 
 function getTierBadgeClass(tier: string): string {
   if (tier === 'Warm-Up') return 'badge-science';
@@ -45,8 +45,8 @@ function getTierBadgeClass(tier: string): string {
           📐 <span class="lang-en-inline">{sheet.unitCode}</span><span class="lang-ko-inline">{sheet.unitCodeKo}</span>
         </span>
         <span class="badge badge-neutral">
-          <span class="lang-en-inline">8 Problems · 100 Points</span>
-          <span class="lang-ko-inline">총 8문항 · 100점 만점</span>
+          <span class="lang-en-inline">{sheet.problems.length} Problems · 100 Points</span>
+          <span class="lang-ko-inline">총 {sheet.problems.length}문항 · 100점 만점</span>
         </span>
       </div>
 
@@ -164,19 +164,19 @@ function getTierBadgeClass(tier: string): string {
     </div>
 
     <div class="print-only-turn-hint">
-      <span class="lang-en-inline">[Page 1 of 2 — Front Side: Problems #1–#4] ↪ Turn sheet over for Problems #5–#8 (Standard &amp; Challenge)</span>
-      <span class="lang-ko-inline">[1 / 2 페이지 — 앞면: 문제 #1~#4] ↪ 뒷면(2페이지)에 응용·심화 문제 #5~#8번이 이어집니다</span>
+      <span class="lang-en-inline">[Page 1 of 2 — Front Side: Problems #1–#6] ↪ Turn sheet over for Problems #7–#14 (Standard &amp; Challenge)</span>
+      <span class="lang-ko-inline">[1 / 2 페이지 — 앞면: 문제 #1~#6] ↪ 뒷면(2페이지)에 응용·심화 문제 #7~#14번이 이어집니다</span>
     </div>
   </div>
 
   <!-- =================================================================== -->
-  <!-- DUPLEX BACK SIDE (PAGE 2 OF 2): PROBLEMS #5 TO #8 + SCORE STRIP     -->
+  <!-- DUPLEX BACK SIDE (PAGE 2 OF 2): PROBLEMS #7 TO #14 + SCORE STRIP    -->
   <!-- =================================================================== -->
   <div class="duplex-back-page">
     <div class="print-only-sheet-header">
       <div>
-        <strong class="lang-en-inline">AGORA MATH LAB · BIS GRADE 8 (MYP 3) · {sheet.dayLabel.toUpperCase()} [PAGE 2 OF 2 — PROBLEMS #5–#8]</strong>
-        <strong class="lang-ko-inline">AGORA 수학 연구소 · 독일 국제학교(BIS) 8학년 · {sheet.dayLabelKo} [2 / 2 페이지 — 문제 #5~#8]</strong>
+        <strong class="lang-en-inline">AGORA MATH LAB · BIS GRADE 8 (MYP 3) · {sheet.dayLabel.toUpperCase()} [PAGE 2 OF 2 — PROBLEMS #7–#14]</strong>
+        <strong class="lang-ko-inline">AGORA 수학 연구소 · 독일 국제학교(BIS) 8학년 · {sheet.dayLabelKo} [2 / 2 페이지 — 문제 #7~#14]</strong>
       </div>
       <div>
         <span class="lang-en-inline">SCORE: ______ / 100</span>
@@ -248,16 +248,16 @@ function getTierBadgeClass(tier: string): string {
 
     <div class="print-only-check-footer">
       <span>
-        <span class="lang-en-inline">[ &nbsp; ] Part A: Warm-Up (#1–#3 · 30 pts)</span>
-        <span class="lang-ko-inline">[ &nbsp; ] Part A: 기초 필수 (#1~#3 · 30점)</span>
+        <span class="lang-en-inline">[ &nbsp; ] Part A: Warm-Up (#1–#5 · 30 pts)</span>
+        <span class="lang-ko-inline">[ &nbsp; ] Part A: 기초 필수 (#1~#5 · 30점)</span>
       </span>
       <span>
-        <span class="lang-en-inline">[ &nbsp; ] Part B: Standard (#4–#6 · 45 pts)</span>
-        <span class="lang-ko-inline">[ &nbsp; ] Part B: 표준 응용 (#4~#6 · 45점)</span>
+        <span class="lang-en-inline">[ &nbsp; ] Part B: Standard (#6–#11 · 45 pts)</span>
+        <span class="lang-ko-inline">[ &nbsp; ] Part B: 표준 응용 (#6~#11 · 45점)</span>
       </span>
       <span>
-        <span class="lang-en-inline">[ &nbsp; ] Part C: Challenge (#7–#8 · 25 pts)</span>
-        <span class="lang-ko-inline">[ &nbsp; ] Part C: 심화 도전 (#7~#8 · 25점)</span>
+        <span class="lang-en-inline">[ &nbsp; ] Part C: Challenge (#12–#14 · 25 pts)</span>
+        <span class="lang-ko-inline">[ &nbsp; ] Part C: 심화 도전 (#12~#14 · 25점)</span>
       </span>
       <span>
         <span class="lang-en-inline">Check step-by-step solutions online at agora.yocto.kr/math</span>
