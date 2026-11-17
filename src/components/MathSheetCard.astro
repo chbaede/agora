@@ -40,14 +40,14 @@ function getTierBadgeClass(tier: string): string {
         <span class="badge badge-neutral">8 Problems · 100 Points</span>
       </div>
 
-      <div style="display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
+      <div style="display: flex; align-items: center; gap: 0.35rem; flex-wrap: wrap;">
         <button
           type="button"
           class="btn-print-single"
           data-print-math-problems={slideIndex}
           title="Print ONLY the 1-page problem worksheet (without answers)"
         >
-          📄 <span class="lang-en-inline">1-Page Problems</span><span class="lang-ko-inline">문제지만 1장 인쇄</span>
+          📄 <span class="lang-en-inline">1-Page Problems</span><span class="lang-ko-inline">문제만 1장</span>
         </button>
         <button
           type="button"
@@ -55,10 +55,10 @@ function getTierBadgeClass(tier: string): string {
           data-print-math-duplex={slideIndex}
           title="Print 2-Sided Duplex (Front: 1-Page Problems / Back: Step-by-Step Solutions)"
         >
-          🖨️ <span class="lang-en-inline">Duplex + Answer Key</span><span class="lang-ko-inline">양면(문제+해설) 인쇄</span>
+          🖨️ <span class="lang-en-inline">Duplex + Key</span><span class="lang-ko-inline">양면+해설</span>
         </button>
         <button type="button" class="btn-mark-read" data-math-read-toggle={sheet.id}>
-          ○ Mark Done
+          ○ Done
         </button>
       </div>
     </div>

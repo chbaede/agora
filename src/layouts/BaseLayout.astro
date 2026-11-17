@@ -38,16 +38,16 @@ const isMathMode = activeNav === 'math';
         <div class="utility-left">
           <a href="/" class="brand-pill">
             <span class="brand-dot"></span>
-            <span>AGORA</span>
+            <span class="brand-text">AGORA</span>
           </a>
 
-          <!-- Primary 2-Track Switcher (Clearly separates Global News vs BIS Grade 8 Math on Desktop & Mobile) -->
+          <!-- Primary 2-Track Switcher (Global News vs BIS Grade 8 Math) -->
           <div class="track-switcher" role="navigation" aria-label="Subject Track Switcher">
             <a href="/" class={`track-pill ${!isMathMode ? 'active' : ''}`}>
-              🌍 <span class="desktop-label">Global News</span><span class="mobile-label">News</span>
+              🌍 <span>News</span>
             </a>
             <a href="/math" class={`track-pill ${isMathMode ? 'active-math' : ''}`}>
-              📐 <span class="desktop-label">Grade 8 Math (BIS)</span><span class="mobile-label">Math 8</span>
+              📐 <span>Math 8</span>
             </a>
           </div>
 
@@ -72,33 +72,26 @@ const isMathMode = activeNav === 'math';
               <span class="mobile-label">한</span>
             </button>
             <button type="button" class="lang-btn" data-lang-switch="bilingual" title="Family Mode: English + Korean">
-              <span class="desktop-label">🇺🇸+🇰🇷 한영 병기</span>
+              <span class="desktop-label">🇺🇸+🇰🇷 한영</span>
               <span class="mobile-label">한영</span>
             </button>
           </div>
 
-          <label class="issue-switcher-label" for="issue-quick-select">
+          <label class="issue-switcher-label desktop-only-ctrl" for="issue-quick-select">
             <select id="issue-quick-select" class="issue-select" aria-label="Quick jump to any issue">
               {isMathMode
                 ? allMathPacks.map((pack) => (
                     <option value={`/math/weeks/${pack.id}`} selected={pack.id === currentIssueId}>
-                      Math #{pack.weekNumber} · {pack.publishDate}
+                      #{pack.weekNumber} ({pack.id})
                     </option>
                   ))
                 : allIssues.map((iss) => (
                     <option value={`/issues/${iss.id}`} selected={iss.id === currentIssueId}>
-                      #{iss.issueNumber} · {iss.publishDate}
+                      #{iss.issueNumber} ({iss.id})
                     </option>
                   ))}
             </select>
           </label>
-
-          {!isMathMode && (
-            <label class="worksheet-toggle desktop-only-ctrl" title="Include the 1-page handwritten reflection worksheet when printing">
-              <input type="checkbox" id="toggle-worksheet-checkbox" checked />
-              <span>Worksheet</span>
-            </label>
-          )}
 
           <button
             type="button"
@@ -106,7 +99,7 @@ const isMathMode = activeNav === 'math';
             class="btn-print"
             title="Print current day's sheet as a 1-Sheet (2-Sided Duplex) B&W Handout"
           >
-            🖨️ <span class="desktop-label">Print 1-Sheet (Duplex)</span><span class="mobile-label">1장</span>
+            🖨️ <span class="desktop-label">Print 1-Sheet (Duplex)</span><span class="mobile-label">인쇄</span>
           </button>
 
           <button
@@ -132,14 +125,32 @@ const isMathMode = activeNav === 'math';
 
       <!-- Compact Mobile Drawer (Hidden by default, opens on ☰ tap) -->
       <div id="mobile-nav-drawer" class="mobile-nav-drawer" hidden>
+        <div class="mobile-drawer-row">
+          <label for="issue-quick-select-mobile" style="font-size: 0.78rem; font-weight: 700;">
+            Select Week:
+          </label>
+          <select id="issue-quick-select-mobile" class="issue-select" style="max-width: 200px;">
+            {isMathMode
+              ? allMathPacks.map((pack) => (
+                  <option value={`/math/weeks/${pack.id}`} selected={pack.id === currentIssueId}>
+                    Math Week #{pack.weekNumber} ({pack.id}) · {pack.publishDate}
+                  </option>
+                ))
+              : allIssues.map((iss) => (
+                  <option value={`/issues/${iss.id}`} selected={iss.id === currentIssueId}>
+                    Issue #{iss.issueNumber} ({iss.id}) · {iss.publishDate}
+                  </option>
+                ))}
+          </select>
+        </div>
         <nav class="mobile-drawer-links" aria-label="Mobile Navigation">
-          <a href="/" class={`nav-link ${activeNav === 'latest' ? 'active' : ''}`}>🌍 Global News Briefing</a>
-          <a href="/math" class={`nav-link ${activeNav === 'math' ? 'active' : ''}`}>📐 BIS Grade 8 Math Lab</a>
+          <a href="/" class={`nav-link ${activeNav === 'latest' ? 'active' : ''}`}>🌍 Global News</a>
+          <a href="/math" class={`nav-link ${activeNav === 'math' ? 'active' : ''}`}>📐 Grade 8 Math</a>
           <a href="/archive" class={`nav-link ${activeNav === 'archive' ? 'active' : ''}`}>
-            🗂️ Past Issues &amp; Print ({allIssues.length})
+            🗂️ Past Issues ({allIssues.length})
           </a>
           <a href="/glossary" class={`nav-link ${activeNav === 'glossary' ? 'active' : ''}`}>
-            🧠 Vocabulary Bank
+            🧠 Vocab Bank
           </a>
         </nav>
       </div>
@@ -239,15 +250,17 @@ const isMathMode = activeNav === 'math';
           });
         });
 
-        const selectEl = document.getElementById('issue-quick-select');
-        if (selectEl) {
-          selectEl.addEventListener('change', function (e) {
-            const targetUrl = e.target.value;
-            if (targetUrl) {
-              window.location.href = targetUrl;
-            }
-          });
-        }
+        ['issue-quick-select', 'issue-quick-select-mobile'].forEach(function (id) {
+          const selectEl = document.getElementById(id);
+          if (selectEl) {
+            selectEl.addEventListener('change', function (e) {
+              const targetUrl = e.target.value;
+              if (targetUrl) {
+                window.location.href = targetUrl;
+              }
+            });
+          }
+        });
 
         const printBtn = document.getElementById('btn-print-packet');
         if (printBtn) {
@@ -260,13 +273,6 @@ const isMathMode = activeNav === 'math';
         window.addEventListener('afterprint', function () {
           document.body.removeAttribute('data-print-mode');
         });
-
-        const worksheetCheckbox = document.getElementById('toggle-worksheet-checkbox');
-        if (worksheetCheckbox) {
-          worksheetCheckbox.addEventListener('change', function (e) {
-            document.body.classList.toggle('hide-print-worksheet', !e.target.checked);
-          });
-        }
 
         // Interactive inline glossary highlight popover
         const popover = document.getElementById('term-popover');
@@ -304,11 +310,6 @@ const isMathMode = activeNav === 'math';
           });
         }
 
-        // Auto-print when opened with ?print=1 from the Archive page
-        if (params.get('worksheet') === '0' && worksheetCheckbox) {
-          worksheetCheckbox.checked = false;
-          document.body.classList.add('hide-print-worksheet');
-        }
         if (params.get('print') === '1') {
           window.addEventListener('load', function () {
             setTimeout(function () {
