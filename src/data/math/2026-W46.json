@@ -6,8 +6,8 @@
   "schoolLevelKo": "독일 베를린 국제학교(BIS) · 8학년 1학기 (IB MYP Year 3) 과정",
   "themeTitle": "Linear Equations & Inequalities, Coordinate Functions, Simultaneous Systems, Indices, Surds & Pythagoras",
   "themeTitleKo": "일차방정식·부등식, 일차함수와 직선의 방정식, 연립방정식 활용, 지수법칙·제곱근 및 피타고라스 정리(2D·3D)",
-  "CurriculumNote": "Aligned to the Berlin International School Grade 8 (IB MYP Year 3) Semester 1 mathematics syllabus. Each daily worksheet prints as a 2-page (1-sheet duplex) problem set with 14 progressive problems: Page 1 (Front) covers Core Formulas + Problems #1–#6, and Page 2 (Back) covers Standard & Challenge Problems #7–#14. Step-by-step solutions are expandable on the website.",
-  "CurriculumNoteKo": "독일 베를린 국제학교(BIS) 8학년 1학기(IB MYP Year 3) 실제 수학 진도에 맞춘 일일 문제집입니다. 인쇄 시 정답 없이 오직 ‘문제와 풀이 여백’만 양면 2페이지(종이 1장: 앞면 1~6번 + 뒷면 7~14번, 하루 14문항)로 꽉 차게 출력되며, 단계별 상세 풀이와 정답은 웹사이트 화면에서 펼쳐 확인하실 수 있습니다.",
+  "CurriculumNote": "Aligned to the Berlin International School Grade 8 (IB MYP Year 3) Semester 1 mathematics syllabus. Each daily worksheet prints as a 2-page (1-sheet duplex) problem set with 16 progressive problems: Page 1 (Front) covers Core Formulas + Problems #1–#8, and Page 2 (Back) covers Standard & Challenge Problems #9–#16. Step-by-step solutions are expandable on the website.",
+  "CurriculumNoteKo": "독일 베를린 국제학교(BIS) 8학년 1학기(IB MYP Year 3) 실제 수학 진도에 맞춘 일일 문제집입니다. 인쇄 시 정답 없이 오직 ‘문제와 풀이 여백’만 양면 2페이지(종이 1장: 앞면 1~8번 + 뒷면 9~16번, 하루 16문항)로 꽉 차게 출력되며, 단계별 상세 풀이와 정답은 웹사이트 화면에서 펼쳐 확인하실 수 있습니다.",
   "dailySheets": [
     {
       "id": "2026-W46-math-day1",
@@ -41,7 +41,7 @@
           "number": 1,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Expand the brackets and solve for x:   5(2x - 3) - 3(x - 4) = 2(x + 6) + 5",
           "questionKo": "괄호를 전개하여 다음 방정식의 해 x를 구하시오:   5(2x - 3) - 3(x - 4) = 2(x + 6) + 5",
           "answer": "x = 4",
@@ -61,7 +61,7 @@
           "number": 2,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Clear the denominators and solve for x:   (x + 3)/2 - (x - 2)/5 = 4",
           "questionKo": "분모의 최소공배수를 곱하여 x의 값을 구하시오:   (x + 3)/2 - (x - 2)/5 = 4",
           "answer": "x = 7",
@@ -81,7 +81,7 @@
           "number": 3,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Solve the linear inequality and state the largest integer x that satisfies it:   14 - 3(2x - 1) ≥ 2x - 7",
           "questionKo": "다음 일차부등식을 풀고, 부등식을 만족시키는 가장 큰 정수 x의 값을 구하시오:   14 - 3(2x - 1) ≥ 2x - 7",
           "answer": "x ≤ 3   (Largest integer: x = 3)",
@@ -101,7 +101,7 @@
           "number": 4,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Solve the equation with decimal coefficients by clearing decimals first:   0.4(2x - 5) - 0.15(4x - 8) = 1.6",
           "questionKo": "양변에 100을 곱하여 계수를 정수로 고친 뒤 방정식을 푸시오:   0.4(2x - 5) - 0.15(4x - 8) = 1.6",
           "answer": "x = 12",
@@ -121,7 +121,7 @@
           "number": 5,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Solve the compound linear inequality and list all integer solutions:   -7 ≤ 5 - 3x < 14",
           "questionKo": "다음 연립일차부등식을 풀고, 이를 만족시키는 모든 정수 x를 구하시오:   -7 ≤ 5 - 3x < 14",
           "answer": "-3 < x ≤ 4   (Integers: -2, -1, 0, 1, 2, 3, 4)",
@@ -139,6 +139,24 @@
         },
         {
           "number": 6,
+          "tier": "Warm-Up",
+          "tierKo": "기초 필수",
+          "points": 5,
+          "question": "Cross-multiply to solve for x:   (4x - 1) / 5 = (2x + 7) / 3",
+          "questionKo": "분모의 최소공배수(또는 대각선 곱)를 이용하여 x를 구하시오:   (4x - 1) / 5 = (2x + 7) / 3",
+          "answer": "x = 19",
+          "answerKo": "x = 19",
+          "solutionSteps": [
+            "Cross-multiply (or multiply by 15): 3(4x - 1) = 5(2x + 7)",
+            "12x - 3 = 10x + 35  ⇒  2x = 38  ⇒  x = 19"
+          ],
+          "solutionStepsKo": [
+            "양변에 15를 곱하면 3(4x - 1) = 5(2x + 7)",
+            "12x - 3 = 10x + 35  ⇒  2x = 38  ⇒  x = 19"
+          ]
+        },
+        {
+          "number": 7,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -158,7 +176,7 @@
           ]
         },
         {
-          "number": 7,
+          "number": 8,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -178,7 +196,7 @@
           ]
         },
         {
-          "number": 8,
+          "number": 9,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -198,7 +216,7 @@
           ]
         },
         {
-          "number": 9,
+          "number": 10,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -218,7 +236,7 @@
           ]
         },
         {
-          "number": 10,
+          "number": 11,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -238,7 +256,7 @@
           ]
         },
         {
-          "number": 11,
+          "number": 12,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -257,10 +275,10 @@
           ]
         },
         {
-          "number": 12,
+          "number": 13,
           "tier": "Challenge",
           "tierKo": "심화 도전",
-          "points": 8,
+          "points": 6,
           "question": "Relative Speed & Motion Challenge: Two regional trains leave Berlin and Hanover (285 km apart) at the exact same time, traveling toward each other on parallel tracks. The high-speed ICE train travels 30 km/h faster than the regional express train. If they pass each other after 1.5 hours, find the speed of each train.",
           "questionKo": "심화(거리·속력·시간): 285 km 떨어진 베를린과 하노버에서 두 열차가 동시에 마주 보고 출발했습니다. 고속열차(ICE)의 시속이 일반 급행열차보다 30 km/h 더 빠르고, 출발한 지 1.5시간(1시간 30분) 만에 두 열차가 서로 스쳐 지나갔을 때 두 열차의 속력을 각각 구하시오.",
           "answer": "Regional train = 80 km/h,  ICE train = 110 km/h",
@@ -277,10 +295,10 @@
           ]
         },
         {
-          "number": 13,
+          "number": 14,
           "tier": "Challenge",
           "tierKo": "심화 도전",
-          "points": 8,
+          "points": 6,
           "question": "Formula Rearrangement Challenge (Subject Occurs Twice): Make x the subject of the formula   y = (3x + 2) / (x - 4).",
           "questionKo": "심화(분모·분자에 모두 미지수가 있는 등식의 변형): 등식 y = (3x + 2) / (x - 4) 를 x에 대하여 정리하시오 (x를 y에 관한 분수식으로 나타내시오).",
           "answer": "x = (4y + 2) / (y - 3)",
@@ -297,10 +315,10 @@
           ]
         },
         {
-          "number": 14,
+          "number": 15,
           "tier": "Challenge",
           "tierKo": "심화 도전",
-          "points": 9,
+          "points": 6,
           "question": "Parametric Inequality Challenge: Given the inequality   3x - a ≤ 5(x - 2), find the value of constant a such that the solution set is exactly   x ≥ 3.",
           "questionKo": "심화(상수가 포함된 부등식): 일차부등식 3x - a ≤ 5(x - 2) 의 해가 정확히 x ≥ 3 이 되도록 하는 상수 a의 값을 구하시오.",
           "answer": "a = 4",
@@ -313,6 +331,25 @@
           "solutionStepsKo": [
             "부등식을 x에 대해 풀면: -2x ≤ a - 10  ⇒  x ≥ (10 - a) / 2",
             "해가 x ≥ 3이 되려면 (10 - a) / 2 = 3 이어야 하므로 10 - a = 6  ⇒  a = 4"
+          ]
+        },
+        {
+          "number": 16,
+          "tier": "Challenge",
+          "tierKo": "심화 도전",
+          "points": 7,
+          "question": "Age Equation Challenge: A father is currently 3 times as old as his daughter. In 12 years, he will be twice as old as his daughter will be then. Find their present ages.",
+          "questionKo": "심화(나이 방정식): 현재 아버지의 나이는 딸의 나이의 3배입니다. 12년 후에는 아버지의 나이가 딸의 나이의 2배가 된다고 할 때, 현재 아버지와 딸의 나이를 각각 구하시오.",
+          "answer": "Daughter = 12 years old,  Father = 36 years old",
+          "answerKo": "딸 12세,  아버지 36세",
+          "solutionSteps": [
+            "Let daughter’s present age = d, so father’s present age = 3d.",
+            "In 12 years: 3d + 12 = 2(d + 12)  ⇒  3d + 12 = 2d + 24  ⇒  d = 12.",
+            "Father’s present age = 3(12) = 36 years."
+          ],
+          "solutionStepsKo": [
+            "현재 딸의 나이를 d, 아버지 나이를 3d라 하면 12년 후: 3d + 12 = 2(d + 12)",
+            "3d + 12 = 2d + 24  ⇒  d = 12세, 아버지 = 36세"
           ]
         }
       ]
@@ -349,7 +386,7 @@
           "number": 1,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Given the points A(-4, 7) and B(6, -13), find:  (a) the gradient (slope) of segment AB, and  (b) the coordinates of the midpoint M of segment AB.",
           "questionKo": "두 점 A(-4, 7)과 B(6, -13)에 대하여 (a) 직선 AB의 기울기 m과 (b) 선분 AB의 중점 M의 좌표를 각각 구하시오.",
           "answer": "(a) m = -2,   (b) M(1, -3)",
@@ -367,7 +404,7 @@
           "number": 2,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "A line has equation  5x - 2y + 20 = 0. Find its gradient m, its y-intercept B, and its x-intercept A.",
           "questionKo": "직선 5x - 2y + 20 = 0 의 기울기 m, y절편 B의 좌표, x절편 A의 좌표를 각각 구하시오.",
           "answer": "m = 5/2 (2.5),  B(0, 10),  A(-4, 0)",
@@ -385,7 +422,7 @@
           "number": 3,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Find the equation of the straight line (in y = mx + b form) that passes through the points (-3, 11) and (6, -4).",
           "questionKo": "두 점 (-3, 11)과 (6, -4)를 지나는 직선의 방정식을 y = mx + b 꼴로 구하시오.",
           "answer": "y = (-5/3)x + 6",
@@ -404,7 +441,7 @@
           "number": 4,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Midpoint Reverse Problem: Point M(3, -2) is the midpoint of line segment AB. If point A has coordinates (-5, 4), find the coordinates of endpoint B.",
           "questionKo": "중점 역산: 점 M(3, -2)가 선분 AB의 중점이고 점 A의 좌표가 (-5, 4)일 때, 점 B의 좌표를 구하시오.",
           "answer": "B(11, -8)",
@@ -423,7 +460,7 @@
           "number": 5,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Find the equation of the line (in y = mx + b form) that has gradient m = -3 and passes through the point (4, -5).",
           "questionKo": "기울기가 -3이고 점 (4, -5)를 지나는 직선의 방정식을 y = mx + b 꼴로 구하시오.",
           "answer": "y = -3x + 7",
@@ -438,6 +475,24 @@
         },
         {
           "number": 6,
+          "tier": "Warm-Up",
+          "tierKo": "기초 필수",
+          "points": 5,
+          "question": "Find the x-intercept and y-intercept of   4x - 5y = 40, and calculate the area of the triangle formed by this line and the two coordinate axes.",
+          "questionKo": "직선 4x - 5y = 40 의 x절편과 y절편을 각각 구하고, 이 직선과 x축·y축으로 둘러싸인 삼각형의 넓이를 구하시오.",
+          "answer": "x-intercept = (10, 0),  y-intercept = (0, -8),  Area = 40",
+          "answerKo": "x절편 (10, 0),  y절편 (0, -8),  넓이 = 40",
+          "solutionSteps": [
+            "Set y = 0: 4x = 40 ⇒ x = 10. Set x = 0: -5y = 40 ⇒ y = -8.",
+            "Triangle Area = (1/2) × |10| × |-8| = (1/2) × 10 × 8 = 40."
+          ],
+          "solutionStepsKo": [
+            "x절편 (10, 0), y절편 (0, -8)",
+            "삼각형 넓이 = (1/2) × 10 × 8 = 40"
+          ]
+        },
+        {
+          "number": 7,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -456,7 +511,7 @@
           ]
         },
         {
-          "number": 7,
+          "number": 8,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -476,7 +531,7 @@
           ]
         },
         {
-          "number": 8,
+          "number": 9,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -496,7 +551,7 @@
           ]
         },
         {
-          "number": 9,
+          "number": 10,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -515,7 +570,7 @@
           ]
         },
         {
-          "number": 10,
+          "number": 11,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -534,7 +589,7 @@
           ]
         },
         {
-          "number": 11,
+          "number": 12,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -553,10 +608,10 @@
           ]
         },
         {
-          "number": 12,
+          "number": 13,
           "tier": "Challenge",
           "tierKo": "심화 도전",
-          "points": 8,
+          "points": 6,
           "question": "Area Between Intersecting Lines Challenge: Line L₁ has equation  y = 2x + 4  and Line L₂ has equation  y = -x + 10. Both lines intersect the x-axis. Find: (a) the intersection point P of L₁ and L₂, and (b) the area of the triangle formed by L₁, L₂, and the x-axis.",
           "questionKo": "심화(두 직선과 x축으로 둘러싸인 삼각형의 넓이): 두 직선 L₁: y = 2x + 4 와 L₂: y = -x + 10 에 대하여 (a) 두 직선의 교점 P의 좌표를 구하고, (b) 두 직선과 x축으로 둘러싸인 삼각형의 넓이를 구하시오.",
           "answer": "(a) P(2, 8),   (b) Area = 48 square units",
@@ -573,10 +628,10 @@
           ]
         },
         {
-          "number": 13,
+          "number": 14,
           "tier": "Challenge",
           "tierKo": "심화 도전",
-          "points": 8,
+          "points": 6,
           "question": "Area Bisector Challenge: A triangle has vertices at O(0, 0), A(8, 0), and B(0, 6). A line passing through vertex B(0, 6) divides the area of triangle OAB into two equal halves. Find the equation of this line.",
           "questionKo": "심화(넓이를 이등분하는 직선): 세 점 O(0, 0), A(8, 0), B(0, 6)을 꼭짓점으로 하는 삼각형 OAB가 있습니다. 꼭짓점 B(0, 6)을 지나면서 삼각형 OAB의 넓이를 이등분하는 직선의 방정식을 구하시오.",
           "answer": "y = (-3/2)x + 6",
@@ -592,10 +647,10 @@
           ]
         },
         {
-          "number": 14,
+          "number": 15,
           "tier": "Challenge",
           "tierKo": "심화 도전",
-          "points": 9,
+          "points": 6,
           "question": "Quadrilateral Bounded by Lines Challenge: Find the area of the quadrilateral in the first quadrant bounded by the x-axis, the y-axis, and the two lines   x + y = 6   and   2x - y = 6   (vertices at (0,0), (3,0), their intersection P, and (0,6)).",
           "questionKo": "심화(좌표평면 도형의 넓이): 제1사분면에서 x축, y축, 그리고 두 직선 x + y = 6 과 2x - y = 6 으로 둘러싸인 사각형(꼭짓점 (0,0), (3,0), 두 직선의 교점 P, (0,6))의 넓이를 구하시오.",
           "answer": "15 square units",
@@ -610,6 +665,25 @@
             "두 직선을 연립하면 3x = 12 ⇒ 교점 P(4, 2)를 얻습니다.",
             "원점 O(0,0)과 P(4,2)를 잇는 대각선으로 사각형을 두 삼각형으로 나눕니다.",
             "삼각형1 (밑변 3, 높이 2) 넓이 = 3, 삼각형2 (밑변 6, 높이 4) 넓이 = 12. 총 넓이 = 3 + 12 = 15"
+          ]
+        },
+        {
+          "number": 16,
+          "tier": "Challenge",
+          "tierKo": "심화 도전",
+          "points": 7,
+          "question": "Coordinate Rectangle Diagonal Challenge: Three vertices of rectangle ABCD are A(1, 2), B(5, 2), and C(5, 7). Find the coordinates of vertex D and the equation of diagonal BD in y = mx + b form.",
+          "questionKo": "심화(직사각형과 대각선 방정식): 직사각형 ABCD의 세 꼭짓점이 A(1, 2), B(5, 2), C(5, 7)일 때, 꼭짓점 D의 좌표와 대각선 BD의 방정식을 y = mx + b 꼴로 구하시오.",
+          "answer": "D(1, 7),   Diagonal BD: y = (-5/4)x + 33/4",
+          "answerKo": "D(1, 7),   대각선 BD: y = (-5/4)x + 33/4",
+          "solutionSteps": [
+            "Since AB is horizontal and BC is vertical, D shares x-coordinate with A (1) and y-coordinate with C (7): D(1, 7).",
+            "Gradient of BD from B(5, 2) to D(1, 7): m = (7 - 2)/(1 - 5) = -5/4.",
+            "2 = (-5/4)(5) + b  ⇒  b = 2 + 25/4 = 33/4. Equation: y = (-5/4)x + 33/4."
+          ],
+          "solutionStepsKo": [
+            "D의 좌표는 A의 x좌표(1)와 C의 y좌표(7)를 가지므로 D(1, 7)입니다.",
+            "B(5, 2)와 D(1, 7)을 잇는 직선 기울기 m = -5/4, y절편 = 33/4이므로 y = (-5/4)x + 33/4"
           ]
         }
       ]
@@ -646,7 +720,7 @@
           "number": 1,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Solve the simultaneous equations:   3x + 5y = 27   and   4x - 3y = 7",
           "questionKo": "다음 연립방정식을 푸시오:   3x + 5y = 27,   4x - 3y = 7",
           "answer": "(x, y) = (4, 3)",
@@ -665,7 +739,7 @@
           "number": 2,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Clear the fractions and solve the system:   x/3 + y/4 = 4   and   x/2 - y/4 = 1",
           "questionKo": "분모를 없애고 다음 연립방정식을 푸시오:   x/3 + y/4 = 4,   x/2 - y/4 = 1",
           "answer": "(x, y) = (6, 8)",
@@ -684,7 +758,7 @@
           "number": 3,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Solve the system with brackets:   2(x + y) - 3(x - y) = 11   and   3(x + y) + 2(x - y) = 23",
           "questionKo": "괄호를 정리하여 다음 연립방정식을 푸시오:   2(x + y) - 3(x - y) = 11,   3(x + y) + 2(x - y) = 23",
           "answer": "(x, y) = (4, 3)",
@@ -703,7 +777,7 @@
           "number": 4,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Solve by substitution:   y = 3x - 7   and   5x + 2y = 19",
           "questionKo": "대입법을 이용하여 다음 연립방정식을 푸시오:   y = 3x - 7,   5x + 2y = 19",
           "answer": "(x, y) = (3, 2)",
@@ -722,7 +796,7 @@
           "number": 5,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Clear the decimals and solve:   0.2x + 0.3y = 1.9   and   0.5x - 0.2y = 1.9",
           "questionKo": "각 식에 10을 곱하여 소수를 없앤 뒤 연립방정식을 푸시오:   0.2x + 0.3y = 1.9,   0.5x - 0.2y = 1.9",
           "answer": "(x, y) = (5, 3)",
@@ -739,6 +813,24 @@
         },
         {
           "number": 6,
+          "tier": "Warm-Up",
+          "tierKo": "기초 필수",
+          "points": 5,
+          "question": "Solve the simultaneous system by elimination:   5x - 4y = 7   and   2x + 3y = 12",
+          "questionKo": "가감법을 이용하여 다음 연립방정식을 푸시오:   5x - 4y = 7,   2x + 3y = 12",
+          "answer": "(x, y) = (3, 2)",
+          "answerKo": "(x, y) = (3, 2)",
+          "solutionSteps": [
+            "Multiply first by 3 (15x - 12y = 21) and second by 4 (8x + 12y = 48).",
+            "Add: 23x = 69  ⇒  x = 3. Substitute into 2(3) + 3y = 12  ⇒  y = 2."
+          ],
+          "solutionStepsKo": [
+            "첫 식×3: 15x - 12y = 21, 둘째 식×4: 8x + 12y = 48",
+            "더하면 23x = 69  ⇒  x = 3,  y = 2"
+          ]
+        },
+        {
+          "number": 7,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -757,7 +849,7 @@
           ]
         },
         {
-          "number": 7,
+          "number": 8,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -776,7 +868,7 @@
           ]
         },
         {
-          "number": 8,
+          "number": 9,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -796,7 +888,7 @@
           ]
         },
         {
-          "number": 9,
+          "number": 10,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -815,7 +907,7 @@
           ]
         },
         {
-          "number": 10,
+          "number": 11,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -833,7 +925,7 @@
           ]
         },
         {
-          "number": 11,
+          "number": 12,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -851,10 +943,10 @@
           ]
         },
         {
-          "number": 12,
+          "number": 13,
           "tier": "Challenge",
           "tierKo": "심화 도전",
-          "points": 8,
+          "points": 6,
           "question": "Reciprocal Substitution Challenge: Solve the non-linear system by letting u = 1/x and v = 1/y:   (2/x) + (3/y) = 13   and   (5/x) - (2/y) = 4",
           "questionKo": "심화(치환형 연립방정식): 1/x = u, 1/y = v 로 치환하여 다음 연립방정식을 만족시키는 x, y의 값을 구하시오:   (2/x) + (3/y) = 13,   (5/x) - (2/y) = 4",
           "answer": "x = 1/2,  y = 1/3",
@@ -870,10 +962,10 @@
           ]
         },
         {
-          "number": 13,
+          "number": 14,
           "tier": "Challenge",
           "tierKo": "심화 도전",
-          "points": 8,
+          "points": 6,
           "question": "Work-Rate System Challenge: When Pipe A and Pipe B are both open for 4 hours, they fill 60% of a water reservoir. If Pipe A is open for 6 hours and Pipe B is open for 2 hours, they fill 70% of the reservoir. How many hours would it take Pipe A alone to fill 100% of the reservoir?",
           "questionKo": "심화(일의 양 연립방정식): 물탱크에 A 호스와 B 호스를 동시에 4시간 동안 틀면 전체의 60%가 차오릅니다. A 호스를 6시간, B 호스를 2시간 동안 틀면 전체의 70%가 차오릅니다. A 호스만 단독으로 사용하여 빈 물탱크를 가득(100%) 채우려면 몇 시간이 걸립니까?",
           "answer": "10 hours  (Pipe A fills 10% per hour, Pipe B fills 5% per hour)",
@@ -889,10 +981,10 @@
           ]
         },
         {
-          "number": 14,
+          "number": 15,
           "tier": "Challenge",
           "tierKo": "심화 도전",
-          "points": 9,
+          "points": 6,
           "question": "Three-Variable Symmetric System Challenge: Find the values of x, y, and z that satisfy:   x + y = 14,   y + z = 18,   z + x = 16.",
           "questionKo": "심화(순환형 연립방정식): 세 수 x, y, z가 x + y = 14,  y + z = 18,  z + x = 16 을 만족시킬 때, x, y, z의 값을 각각 구하시오.",
           "answer": "x = 6,  y = 8,  z = 10",
@@ -905,6 +997,25 @@
           "solutionStepsKo": [
             "세 식을 모두 더하면 2(x + y + z) = 48  ⇒  x + y + z = 24",
             "여기에 각 식을 빼면 z = 10, x = 6, y = 8입니다."
+          ]
+        },
+        {
+          "number": 16,
+          "tier": "Challenge",
+          "tierKo": "심화 도전",
+          "points": 7,
+          "question": "Catch-Up Motion Challenge: Cyclist A rides at 15 km/h. Forty minutes after Cyclist A departs, Cyclist B starts from the same point along the same route at 20 km/h. How many hours after Cyclist B departs will B catch up to A, and how far from the start?",
+          "questionKo": "심화(추격 거리·속력·시간): 시속 15 km/h로 자전거를 타고 출발한 A를 40분 뒤에 B가 같은 지점에서 시속 20 km/h로 뒤쫓아 출발했습니다. B가 출발한 지 몇 시간 만에 A를 따라잡으며, 출발점으로부터 몇 km 떨어진 지점에서 만나게 됩니까?",
+          "answer": "2 hours after B departs,  40 km from start",
+          "answerKo": "B 출발 후 2시간,  출발점에서 40 km 지점",
+          "solutionSteps": [
+            "40 minutes = 2/3 hour, so A has a head start of 15 × (2/3) = 10 km.",
+            "Closing speed = 20 - 15 = 5 km/h. Time to catch up = 10 ÷ 5 = 2 hours.",
+            "Distance = 20 × 2 = 40 km."
+          ],
+          "solutionStepsKo": [
+            "40분(= 2/3시간) 동안 A가 먼저 간 거리 = 15 × (2/3) = 10 km",
+            "시간당 5 km씩 따라잡으므로 걸리는 시간 = 10 ÷ 5 = 2시간, 거리 = 20 × 2 = 40 km"
           ]
         }
       ]
@@ -941,7 +1052,7 @@
           "number": 1,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Evaluate as an exact fraction:   ((-2/3)⁻² - 4⁰) ÷ 3⁻¹",
           "questionKo": "다음 식의 값을 기약분수로 구하시오:   ((-2/3)⁻² - 4⁰) ÷ 3⁻¹",
           "answer": "15/4",
@@ -961,7 +1072,7 @@
           "number": 2,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Simplify completely using positive exponents only:   ((2x⁻³y²)³ · (3x⁴y⁻⁵)) / (6x⁻²y⁻¹)",
           "questionKo": "양의 지수만 사용하여 다음 식을 간단히 하시오:   ((2x⁻³y²)³ · (3x⁴y⁻⁵)) / (6x⁻²y⁻¹)",
           "answer": "4y² / x³",
@@ -979,7 +1090,7 @@
           "number": 3,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Compute and express in standard form (scientific notation):   (7.2 × 10⁻⁴) ÷ (1.8 × 10⁻⁹)",
           "questionKo": "다음 식을 계산하여 과학적 기수법(c × 10ⁿ, 1 ≤ c < 10)으로 나타내시오:   (7.2 × 10⁻⁴) ÷ (1.8 × 10⁻⁹)",
           "answer": "4.0 × 10⁵",
@@ -996,7 +1107,7 @@
           "number": 4,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Write the number   0.0000458   in standard form, and express   (3.6 × 10⁻⁵) × (5.0 × 10⁻⁴)   in standard form.",
           "questionKo": "(a) 0.0000458 을 과학적 기수법(c × 10ⁿ)으로 나타내고, (b) (3.6 × 10⁻⁵) × (5.0 × 10⁻⁴) 를 계산하여 과학적 기수법으로 나타내시오.",
           "answer": "(a) 4.58 × 10⁻⁵,   (b) 1.8 × 10⁻⁸",
@@ -1014,7 +1125,7 @@
           "number": 5,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Simplify completely with positive exponents:   (3a²b⁻³)⁻² · (9a⁻⁵b⁴)",
           "questionKo": "양의 지수만 사용하여 다음 식을 간단히 하시오:   (3a²b⁻³)⁻² · (9a⁻⁵b⁴)",
           "answer": "b¹⁰ / a⁹",
@@ -1029,6 +1140,23 @@
         },
         {
           "number": 6,
+          "tier": "Warm-Up",
+          "tierKo": "기초 필수",
+          "points": 5,
+          "question": "Evaluate without a calculator:   (2⁻³ + 2⁻²) × 16",
+          "questionKo": "계산기 없이 다음 식의 값을 구하시오:   (2⁻³ + 2⁻²) × 16",
+          "answer": "6",
+          "answerKo": "6",
+          "solutionSteps": [
+            "2⁻³ = 1/8 and 2⁻² = 1/4.",
+            "(1/8 + 1/4) × 16 = (3/8) × 16 = 6."
+          ],
+          "solutionStepsKo": [
+            "(1/8 + 1/4) × 16 = (3/8) × 16 = 6"
+          ]
+        },
+        {
+          "number": 7,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -1046,7 +1174,7 @@
           ]
         },
         {
-          "number": 7,
+          "number": 8,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -1065,7 +1193,7 @@
           ]
         },
         {
-          "number": 8,
+          "number": 9,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -1084,7 +1212,7 @@
           ]
         },
         {
-          "number": 9,
+          "number": 10,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -1103,7 +1231,7 @@
           ]
         },
         {
-          "number": 10,
+          "number": 11,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -1120,7 +1248,7 @@
           ]
         },
         {
-          "number": 11,
+          "number": 12,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -1139,10 +1267,10 @@
           ]
         },
         {
-          "number": 12,
+          "number": 13,
           "tier": "Challenge",
           "tierKo": "심화 도전",
-          "points": 8,
+          "points": 6,
           "question": "Factoring Exponential Sums Challenge: Without a calculator, simplify the exact value of:   (3²⁰²⁷ - 3²⁰²⁵) / (3²⁰²⁴ + 3²⁰²³)",
           "questionKo": "심화(거듭제곱의 인수분해): 계산기 없이 공통인수로 묶어 다음 분수식의 값을 구하시오:   (3²⁰²⁷ - 3²⁰²⁵) / (3²⁰²⁴ + 3²⁰²³)",
           "answer": "18",
@@ -1157,10 +1285,10 @@
           ]
         },
         {
-          "number": 13,
+          "number": 14,
           "tier": "Challenge",
           "tierKo": "심화 도전",
-          "points": 8,
+          "points": 6,
           "question": "Digit Count Challenge: When the number  N = 2¹⁸ × 5¹⁵  is written out as an ordinary integer, how many digits does N have, and what are its leading digits?",
           "questionKo": "심화(자릿수 구하기): 자연수 N = 2¹⁸ × 5¹⁵ 은 몇 자리 자연수이며, 맨 앞자리의 숫자들은 무엇인지 구하시오.",
           "answer": "16 digits  (N = 8 × 10¹⁵ = 8,000,000,000,000,000)",
@@ -1175,10 +1303,10 @@
           ]
         },
         {
-          "number": 14,
+          "number": 15,
           "tier": "Challenge",
           "tierKo": "심화 도전",
-          "points": 9,
+          "points": 6,
           "question": "Exponential Sum Equation Challenge: Solve for x:   5ˣ⁺² - 5ˣ = 600",
           "questionKo": "심화(지수방정식의 인수분해): 5ˣ⁺² - 5ˣ = 600 을 만족시키는 x의 값을 구하시오.",
           "answer": "x = 2",
@@ -1191,6 +1319,24 @@
           "solutionStepsKo": [
             "좌변을 5ˣ로 묶어내면 5ˣ(5² - 1) = 600  ⇒  24 · 5ˣ = 600",
             "5ˣ = 25 = 5² 이므로 x = 2"
+          ]
+        },
+        {
+          "number": 16,
+          "tier": "Challenge",
+          "tierKo": "심화 도전",
+          "points": 7,
+          "question": "Planetary Mass Difference Challenge: Earth’s mass is  5.97 × 10²⁴ kg  and the Moon’s mass is  7.35 × 10²² kg. Find the exact difference  (Earth mass − Moon mass)  in standard form.",
+          "questionKo": "심화(과학적 기수법 뺄셈): 지구의 질량은 5.97 × 10²⁴ kg이고 달의 질량은 7.35 × 10²² kg입니다. 지구와 달의 질량의 차(지구 - 달)를 과학적 기수법으로 구하시오.",
+          "answer": "5.8965 × 10²⁴ kg",
+          "answerKo": "5.8965 × 10²⁴ kg",
+          "solutionSteps": [
+            "Convert Moon’s mass to 10²⁴: 7.35 × 10²² = 0.0735 × 10²⁴.",
+            "Subtract: (5.97 - 0.0735) × 10²⁴ = 5.8965 × 10²⁴ kg."
+          ],
+          "solutionStepsKo": [
+            "달의 질량을 10²⁴ 꼴로 고치면 0.0735 × 10²⁴ kg",
+            "(5.97 - 0.0735) × 10²⁴ = 5.8965 × 10²⁴ kg"
           ]
         }
       ]
@@ -1227,7 +1373,7 @@
           "number": 1,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Simplify the surd expression completely:   2√75 - 3√27 + (12 / √3)",
           "questionKo": "분모를 유리화하여 다음 제곱근 식을 간단히 하시오:   2√75 - 3√27 + (12 / √3)",
           "answer": "5√3",
@@ -1245,7 +1391,7 @@
           "number": 2,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Expand and simplify using algebraic identities:   (2√3 - √5)(2√3 + √5) + (√2 + 3)²",
           "questionKo": "곱셈공식을 이용하여 다음 식을 전개하고 간단히 하시오:   (2√3 - √5)(2√3 + √5) + (√2 + 3)²",
           "answer": "18 + 6√2",
@@ -1264,7 +1410,7 @@
           "number": 3,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Find the exact perimeter and area of an equilateral triangle with side length 8 cm (leave answers in simplified surd form).",
           "questionKo": "한 변의 길이가 8 cm인 정삼각형의 높이 h와 넓이를 제곱근(근호)을 사용하여 정확히 구하시오.",
           "answer": "Height = 4√3 cm,  Area = 16√3 cm²  (Perimeter = 24 cm)",
@@ -1282,7 +1428,7 @@
           "number": 4,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Rationalize the denominator and simplify completely:   (6 + √12) / √3",
           "questionKo": "분모를 유리화하여 다음 식을 간단히 하시오:   (6 + √12) / √3",
           "answer": "2√3 + 2",
@@ -1300,7 +1446,7 @@
           "number": 5,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "A rectangle has a diagonal of length 25 cm and a width of 7 cm. Find its length and its exact area.",
           "questionKo": "대각선의 길이가 25 cm이고 세로 길이가 7 cm인 직사각형의 가로 길이와 넓이를 구하시오.",
           "answer": "Length = 24 cm,  Area = 168 cm²",
@@ -1315,6 +1461,23 @@
         },
         {
           "number": 6,
+          "tier": "Warm-Up",
+          "tierKo": "기초 필수",
+          "points": 5,
+          "question": "Simplify completely:   √98 - √50 + √32",
+          "questionKo": "근호 안을 가장 작은 자연수로 만들어 다음 식을 간단히 하시오:   √98 - √50 + √32",
+          "answer": "6√2",
+          "answerKo": "6√2",
+          "solutionSteps": [
+            "√98 = 7√2,  √50 = 5√2,  √32 = 4√2.",
+            "7√2 - 5√2 + 4√2 = 6√2."
+          ],
+          "solutionStepsKo": [
+            "7√2 - 5√2 + 4√2 = 6√2"
+          ]
+        },
+        {
+          "number": 7,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -1333,7 +1496,7 @@
           ]
         },
         {
-          "number": 7,
+          "number": 8,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -1352,7 +1515,7 @@
           ]
         },
         {
-          "number": 8,
+          "number": 9,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -1370,7 +1533,7 @@
           ]
         },
         {
-          "number": 9,
+          "number": 10,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -1388,7 +1551,7 @@
           ]
         },
         {
-          "number": 10,
+          "number": 11,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -1406,7 +1569,7 @@
           ]
         },
         {
-          "number": 11,
+          "number": 12,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -1423,10 +1586,10 @@
           ]
         },
         {
-          "number": 12,
+          "number": 13,
           "tier": "Challenge",
           "tierKo": "심화 도전",
-          "points": 8,
+          "points": 6,
           "question": "3D Pyramid Height & Volume Challenge: A square-based pyramid has a base side length of 12 cm and four sloping edges (from base corners to apex) each of length 10 cm. Find: (a) the slant height of a triangular face, and (b) the vertical height h of the pyramid in simplified surd form.",
           "questionKo": "심화(정사각뿔의 높이와 피타고라스): 밑면이 한 변의 길이가 12 cm인 정사각형이고 옆모서리의 길이가 모두 10 cm인 정사각뿔이 있습니다. (a) 옆면 이등변삼각형의 높이(빗높이)와 (b) 정사각뿔의 수직 높이 h를 구하시오.",
           "answer": "(a) Slant height = 8 cm,   (b) Vertical height h = 2√7 cm",
@@ -1441,10 +1604,10 @@
           ]
         },
         {
-          "number": 13,
+          "number": 14,
           "tier": "Challenge",
           "tierKo": "심화 도전",
-          "points": 8,
+          "points": 6,
           "question": "Algebraic Pythagoras Challenge: In a right-angled triangle, the shorter leg has length x cm, the longer leg has length (2x + 2) cm, and the hypotenuse has length (2x + 3) cm. Find the value of x and the area of the triangle.",
           "questionKo": "심화: 어떤 직각삼각형의 짧은 변의 길이가 x cm, 긴 변의 길이가 (2x + 2) cm, 빗변의 길이가 (2x + 3) cm일 때, 양수 x의 값과 이 직각삼각형의 넓이를 구하시오.",
           "answer": "x = 5 cm,   Area = 30 cm²  (Sides: 5, 12, 13)",
@@ -1460,10 +1623,10 @@
           ]
         },
         {
-          "number": 14,
+          "number": 15,
           "tier": "Challenge",
           "tierKo": "심화 도전",
-          "points": 9,
+          "points": 6,
           "question": "Spider on Cuboid Wall (Shortest Path) Challenge: A rectangular glass box has dimensions length = 8 cm, width = 6 cm, and height = 10 cm. An ant sits at a bottom front corner and wants to crawl along the outside surface to the opposite top back corner. By unfolding the faces into a net, find the shortest possible surface path length.",
           "questionKo": "심화(직육면체 겉면 최단거리): 가로 8 cm, 세로 6 cm, 높이 10 cm인 직육면체 상자의 아래쪽 앞 모서리에서 겉면을 따라 반대편 위쪽 뒤 모서리까지 이동하는 최단 거리를 전개도를 이용해 구하시오.",
           "answer": "2√74 cm   (≈ 17.2 cm)",
@@ -1478,6 +1641,24 @@
             "전개도에서 가능한 세 가지 직각삼각형의 빗변 길이를 비교합니다.",
             "√((8+6)² + 10²) = √296 = 2√74,  √((8+10)² + 6²) = √360,  √((6+10)² + 8²) = √320",
             "가장 짧은 최단 거리는 √296 = 2√74 cm입니다."
+          ]
+        },
+        {
+          "number": 16,
+          "tier": "Challenge",
+          "tierKo": "심화 도전",
+          "points": 7,
+          "question": "Square Diagonal Challenge: A square has a total perimeter of  24√2 cm. Find the exact length of its diagonal.",
+          "questionKo": "심화(정사각형과 제곱근): 둘레의 길이가 24√2 cm인 정사각형의 대각선 길이를 구하시오.",
+          "answer": "12 cm",
+          "answerKo": "12 cm",
+          "solutionSteps": [
+            "Side length s = (24√2) ÷ 4 = 6√2 cm.",
+            "Diagonal d = √(s² + s²) = s√2 = (6√2) × √2 = 6 × 2 = 12 cm."
+          ],
+          "solutionStepsKo": [
+            "한 변의 길이 = 24√2 ÷ 4 = 6√2 cm",
+            "대각선 길이 = 6√2 × √2 = 12 cm"
           ]
         }
       ]
@@ -1514,7 +1695,7 @@
           "number": 1,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Combine the two ratios  a : b = 4 : 5  and  b : c = 15 : 8  into a single simplified ratio  a : b : c, and divide €350 in that ratio.",
           "questionKo": "두 비 a : b = 4 : 5 와 b : c = 15 : 8 을 가장 간단한 자연수의 연비 a : b : c 로 나타내고, €350를 이 비로 비례배분하시오.",
           "answer": "a : b : c = 12 : 15 : 8   (Shares: €120, €150, €80)",
@@ -1533,7 +1714,7 @@
           "number": 2,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Reverse Percentage (German 19% VAT): A piano in Berlin is sold for €2,856 including 19% Value Added Tax (VAT). Calculate the net price before VAT and the exact euro amount of the tax.",
           "questionKo": "역백분율(독일 19% 부가세): 19%의 부가가치세(VAT)가 포함된 피아노 판매 가격이 €2,856일 때, 세전 원가와 부가세액을 각각 구하시오.",
           "answer": "Net price = €2,400,   VAT amount = €456",
@@ -1551,7 +1732,7 @@
           "number": 3,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Successive Percentage Change: The number of solar panels installed in a city increased by 25% in 2025 and then increased by another 20% in 2026. What is the overall percentage increase over the two years?",
           "questionKo": "연속 증가율: 어떤 도시의 태양광 패널 설치 대수가 2025년에 25% 증가하고, 2026년에 다시 20% 증가했습니다. 2년 동안의 전체 증가율은 몇 %입니까?",
           "answer": "50% overall increase",
@@ -1568,7 +1749,7 @@
           "number": 4,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Inverse Proportion (Work Crew): 12 technicians can assemble a solar array in 15 days. Working at the same individual rate, how many technicians would be needed to complete the exact same job in 10 days?",
           "questionKo": "반비례 활용: 기술자 12명이 함께 작업하면 15일이 걸리는 태양광 발전 시설 설치 공사를 10일 만에 끝내려면 총 몇 명의 기술자가 필요합니까?",
           "answer": "18 technicians",
@@ -1585,7 +1766,7 @@
           "number": 5,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Map Scale & Area Conversion: On a Berlin hiking map with scale  1 : 25,000, a rectangular park measures 4 cm by 6 cm. Find the actual area of the park in square kilometers (km²).",
           "questionKo": "축척과 넓이 단위 변환: 축척이 1 : 25,000 인 지도에서 가로 4 cm, 세로 6 cm인 직사각형 공원의 실제 넓이는 몇 km²입니까?",
           "answer": "1.5 km²",
@@ -1602,6 +1783,23 @@
         },
         {
           "number": 6,
+          "tier": "Warm-Up",
+          "tierKo": "기초 필수",
+          "points": 5,
+          "question": "A winter jacket originally priced at €120 is reduced in a sale to €90. Calculate the percentage discount.",
+          "questionKo": "원래 가격이 €120인 겨울 재킷을 세일 기간에 €90에 판매하고 있습니다. 할인율은 몇 %입니까?",
+          "answer": "25% discount",
+          "answerKo": "25% 할인",
+          "solutionSteps": [
+            "Discount amount = 120 - 90 = €30.",
+            "Percentage discount = (30 / 120) × 100% = 25%."
+          ],
+          "solutionStepsKo": [
+            "할인액 €30 / 원가 €120 × 100% = 25%"
+          ]
+        },
+        {
+          "number": 7,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -1619,7 +1817,7 @@
           ]
         },
         {
-          "number": 7,
+          "number": 8,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -1638,7 +1836,7 @@
           ]
         },
         {
-          "number": 8,
+          "number": 9,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -1656,7 +1854,7 @@
           ]
         },
         {
-          "number": 9,
+          "number": 10,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -1673,7 +1871,7 @@
           ]
         },
         {
-          "number": 10,
+          "number": 11,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -1690,7 +1888,7 @@
           ]
         },
         {
-          "number": 11,
+          "number": 12,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -1706,10 +1904,10 @@
           ]
         },
         {
-          "number": 12,
+          "number": 13,
           "tier": "Challenge",
           "tierKo": "심화 도전",
-          "points": 8,
+          "points": 6,
           "question": "Retail Markup & Discount Challenge: A bookshop marks up the wholesale cost of a book by 40% to set its sticker price. During a weekend sale, the bookshop gives a 15% discount off the sticker price and still makes a net profit of €5.70 on the book. Find the wholesale cost of the book.",
           "questionKo": "심화(원가·정가·할인가): 서점에서 책의 도매 원가에 40%의 이익을 붙여 정가를 정한 뒤, 주말 할인 행사에서 정가의 15%를 할인하여 판매했더니 책 1권당 €5.70의 순이익이 남았습니다. 이 책의 도매 원가는 얼마입니까?",
           "answer": "€30.00",
@@ -1725,10 +1923,10 @@
           ]
         },
         {
-          "number": 13,
+          "number": 14,
           "tier": "Challenge",
           "tierKo": "심화 도전",
-          "points": 8,
+          "points": 6,
           "question": "Alloy Concentration Challenge: An 800 g block of brass alloy is 70% copper and 30% zinc. How many grams of pure copper must be melted and added to this alloy so that the new alloy is 75% copper?",
           "questionKo": "심화(합금 비율 변화): 구리 70%와 아연 30%로 이루어진 황동 합금 800 g이 있습니다. 여기에 순수한 구리 몇 g을 더 녹여 넣어야 구리의 함유량이 75%인 합금이 됩니까?",
           "answer": "160 g of pure copper",
@@ -1744,10 +1942,10 @@
           ]
         },
         {
-          "number": 14,
+          "number": 15,
           "tier": "Challenge",
           "tierKo": "심화 도전",
-          "points": 9,
+          "points": 6,
           "question": "Compound Interest Rate Search Challenge: An investment of €2,500 grows to €2,809 after 2 years of annual compound interest. Find the annual interest rate r%.",
           "questionKo": "심화(복리 이자율 역산): €2,500를 연 복리로 2년간 예치했더니 원리금 합계가 €2,809가 되었습니다. 연이율 r%를 구하시오.",
           "answer": "6% per year",
@@ -1760,6 +1958,23 @@
           "solutionStepsKo": [
             "2,500(1 + r/100)² = 2,809  ⇒  (1 + r/100)² = 2809 / 2500",
             "양변에 양의 제곱근을 취하면 1 + r/100 = 53 / 50 = 1.06 이므로 r = 6%"
+          ]
+        },
+        {
+          "number": 16,
+          "tier": "Challenge",
+          "tierKo": "심화 도전",
+          "points": 7,
+          "question": "Reverse Net Change Challenge: A town’s population increased by 10% in 2024 and then decreased by 10% in 2025, ending at 19,800 residents. What was the population at the start of 2024?",
+          "questionKo": "심화(연속 증감 역산): 어떤 도시의 인구가 2024년에 10% 증가했다가 2025년에 10% 감소하여 19,800명이 되었습니다. 2024년 초의 인구는 몇 명이었습니까?",
+          "answer": "20,000 residents",
+          "answerKo": "20,000명",
+          "solutionSteps": [
+            "Combined multiplier = 1.10 × 0.90 = 0.99.",
+            "Original × 0.99 = 19,800  ⇒  Original = 19,800 ÷ 0.99 = 20,000."
+          ],
+          "solutionStepsKo": [
+            "연속 배수 = 1.10 × 0.90 = 0.99.  원래 인구 = 19,800 ÷ 0.99 = 20,000명"
           ]
         }
       ]
@@ -1796,7 +2011,7 @@
           "number": 1,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Expand and simplify completely:   (3x - 4)² - (2x - 5)(2x + 5)",
           "questionKo": "곱셈공식을 이용하여 다음 식을 전개하고 간단히 하시오:   (3x - 4)² - (2x - 5)(2x + 5)",
           "answer": "5x² - 24x + 41",
@@ -1814,7 +2029,7 @@
           "number": 2,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Factorize each expression completely:   (a) 2x² - 50      (b) x² - 9x + 20",
           "questionKo": "다음 각 다항식을 완전히 인수분해하시오:   (a) 2x² - 50      (b) x² - 9x + 20",
           "answer": "(a) 2(x - 5)(x + 5),   (b) (x - 4)(x - 5)",
@@ -1832,7 +2047,7 @@
           "number": 3,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Mental Math via Identities: Use the difference of squares identity  a² - b² = (a - b)(a + b)  to evaluate  104 × 96  and  73² - 27²  without a calculator.",
           "questionKo": "곱셈공식의 활용: 합차공식 a² - b² = (a - b)(a + b) 를 이용하여 계산기 없이 (a) 104 × 96 과 (b) 73² - 27² 의 값을 구하시오.",
           "answer": "(a) 9,984,   (b) 4,600",
@@ -1850,7 +2065,7 @@
           "number": 4,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Factorize completely by grouping or taking out the common factor first:   (a) 3x² + 18x + 27      (b) ax + ay - bx - by",
           "questionKo": "다음 다항식을 완전히 인수분해하시오:   (a) 3x² + 18x + 27      (b) ax + ay - bx - by",
           "answer": "(a) 3(x + 3)²,   (b) (a - b)(x + y)",
@@ -1868,7 +2083,7 @@
           "number": 5,
           "tier": "Warm-Up",
           "tierKo": "기초 필수",
-          "points": 6,
+          "points": 5,
           "question": "Find the 1st term and the n-th term formula Tₙ for the arithmetic sequence:   11,  17,  23,  29,  35, ...   and calculate T₅₀.",
           "questionKo": "등차수열 11, 17, 23, 29, 35, ... 의 제n항 Tₙ의 일반항 공식과 제50항 T₅₀의 값을 구하시오.",
           "answer": "Tₙ = 6n + 5,   T₅₀ = 305",
@@ -1883,6 +2098,23 @@
         },
         {
           "number": 6,
+          "tier": "Warm-Up",
+          "tierKo": "기초 필수",
+          "points": 5,
+          "question": "Expand and simplify completely:   (2x + 5)² - (4x - 1)(x + 3)",
+          "questionKo": "다음 식을 전개하여 간단히 하시오:   (2x + 5)² - (4x - 1)(x + 3)",
+          "answer": "9x + 28",
+          "answerKo": "9x + 28",
+          "solutionSteps": [
+            "(2x + 5)² = 4x² + 20x + 25,  and  (4x - 1)(x + 3) = 4x² + 11x - 3.",
+            "(4x² + 20x + 25) - (4x² + 11x - 3) = 9x + 28."
+          ],
+          "solutionStepsKo": [
+            "(4x² + 20x + 25) - (4x² + 11x - 3) = 9x + 28"
+          ]
+        },
+        {
+          "number": 7,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -1901,7 +2133,7 @@
           ]
         },
         {
-          "number": 7,
+          "number": 8,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -1919,7 +2151,7 @@
           ]
         },
         {
-          "number": 8,
+          "number": 9,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -1937,7 +2169,7 @@
           ]
         },
         {
-          "number": 9,
+          "number": 10,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -1954,7 +2186,7 @@
           ]
         },
         {
-          "number": 10,
+          "number": 11,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -1971,7 +2203,7 @@
           ]
         },
         {
-          "number": 11,
+          "number": 12,
           "tier": "Standard",
           "tierKo": "표준 응용",
           "points": 7.5,
@@ -1988,10 +2220,10 @@
           ]
         },
         {
-          "number": 12,
+          "number": 13,
           "tier": "Challenge",
           "tierKo": "심화 도전",
-          "points": 8,
+          "points": 6,
           "question": "Reciprocal Identity Challenge: Given that   x + (1/x) = 5, find the exact values of:   (a) x² + (1/x²)   and   (b) (x - (1/x))².",
           "questionKo": "심화(역수 곱셈공식 변형): x + (1/x) = 5 일 때, (a) x² + (1/x²) 의 값과 (b) (x - (1/x))² 의 값을 각각 구하시오.",
           "answer": "(a) 23,   (b) 21",
@@ -2006,10 +2238,10 @@
           ]
         },
         {
-          "number": 13,
+          "number": 14,
           "tier": "Challenge",
           "tierKo": "심화 도전",
-          "points": 8,
+          "points": 6,
           "question": "Telescoping Product Challenge: Using the difference of squares identity  1 - (1/k²) = ((k - 1)/k) · ((k + 1)/k), find the exact simplified fraction value of the product:   (1 - 1/2²)(1 - 1/3²)(1 - 1/4²) ··· (1 - 1/10²).",
           "questionKo": "심화(합차공식을 이용한 연쇄 약분): 1 - (1/k²) = ((k - 1)/k)((k + 1)/k) 로 인수분해되는 성질을 이용하여 다음 곱의 값을 기약분수로 구하시오:   (1 - 1/2²)(1 - 1/3²)(1 - 1/4²) ··· (1 - 1/10²)",
           "answer": "11/20",
@@ -2025,10 +2257,10 @@
           ]
         },
         {
-          "number": 14,
+          "number": 15,
           "tier": "Challenge",
           "tierKo": "심화 도전",
-          "points": 9,
+          "points": 6,
           "question": "Sum & Difference Given Challenge: If   a + b = 9   and   ab = 14, find the exact values of:   (a) a² + b²   and   (b) (a - b)².",
           "questionKo": "심화(곱셈공식 변형): a + b = 9,  ab = 14 일 때, (a) a² + b² 의 값과 (b) (a - b)² 의 값을 각각 구하시오.",
           "answer": "(a) 53,   (b) 25",
@@ -2040,6 +2272,23 @@
           "solutionStepsKo": [
             "(a) a² + b² = (a + b)² - 2ab = 81 - 28 = 53",
             "(b) (a - b)² = (a + b)² - 4ab = 81 - 56 = 25"
+          ]
+        },
+        {
+          "number": 16,
+          "tier": "Challenge",
+          "tierKo": "심화 도전",
+          "points": 7,
+          "question": "Repeated Difference of Squares Challenge: Factorize completely:   x⁴ - 16",
+          "questionKo": "심화(연속 합차공식 인수분해): x⁴ - 16 을 정수 계수 범위에서 완전히 인수분해하시오.",
+          "answer": "(x - 2)(x + 2)(x² + 4)",
+          "answerKo": "(x - 2)(x + 2)(x² + 4)",
+          "solutionSteps": [
+            "Treat as (x²)² - 4² = (x² - 4)(x² + 4).",
+            "Factor (x² - 4) again: (x - 2)(x + 2)(x² + 4)."
+          ],
+          "solutionStepsKo": [
+            "(x² - 4)(x² + 4) = (x - 2)(x + 2)(x² + 4)"
           ]
         }
       ]

@@ -10,8 +10,8 @@ interface Props {
 
 const { sheet, weekId, weekNumber, slideIndex } = Astro.props;
 
-const frontProblems = sheet.problems.slice(0, 6);
-const backProblems = sheet.problems.slice(6, 14);
+const frontProblems = sheet.problems.slice(0, 8);
+const backProblems = sheet.problems.slice(8, 16);
 
 function getTierBadgeClass(tier: string): string {
   if (tier === 'Warm-Up') return 'badge-science';
@@ -164,19 +164,19 @@ function getTierBadgeClass(tier: string): string {
     </div>
 
     <div class="print-only-turn-hint">
-      <span class="lang-en-inline">[Page 1 of 2 — Front Side: Problems #1–#6] ↪ Turn sheet over for Problems #7–#14 (Standard &amp; Challenge)</span>
-      <span class="lang-ko-inline">[1 / 2 페이지 — 앞면: 문제 #1~#6] ↪ 뒷면(2페이지)에 응용·심화 문제 #7~#14번이 이어집니다</span>
+      <span class="lang-en-inline">[Page 1 of 2 — Front Side: Problems #1–#8] ↪ Turn sheet over for Problems #9–#16 (Standard &amp; Challenge)</span>
+      <span class="lang-ko-inline">[1 / 2 페이지 — 앞면: 문제 #1~#8] ↪ 뒷면(2페이지)에 응용·심화 문제 #9~#16번이 이어집니다</span>
     </div>
   </div>
 
   <!-- =================================================================== -->
-  <!-- DUPLEX BACK SIDE (PAGE 2 OF 2): PROBLEMS #7 TO #14 + SCORE STRIP    -->
+  <!-- DUPLEX BACK SIDE (PAGE 2 OF 2): PROBLEMS #9 TO #16 + SCORE STRIP    -->
   <!-- =================================================================== -->
   <div class="duplex-back-page">
     <div class="print-only-sheet-header">
       <div>
-        <strong class="lang-en-inline">AGORA MATH LAB · BIS GRADE 8 (MYP 3) · {sheet.dayLabel.toUpperCase()} [PAGE 2 OF 2 — PROBLEMS #7–#14]</strong>
-        <strong class="lang-ko-inline">AGORA 수학 연구소 · 독일 국제학교(BIS) 8학년 · {sheet.dayLabelKo} [2 / 2 페이지 — 문제 #7~#14]</strong>
+        <strong class="lang-en-inline">AGORA MATH LAB · BIS GRADE 8 (MYP 3) · {sheet.dayLabel.toUpperCase()} [PAGE 2 OF 2 — PROBLEMS #9–#16]</strong>
+        <strong class="lang-ko-inline">AGORA 수학 연구소 · 독일 국제학교(BIS) 8학년 · {sheet.dayLabelKo} [2 / 2 페이지 — 문제 #9~#16]</strong>
       </div>
       <div>
         <span class="lang-en-inline">SCORE: ______ / 100</span>
@@ -248,16 +248,16 @@ function getTierBadgeClass(tier: string): string {
 
     <div class="print-only-check-footer">
       <span>
-        <span class="lang-en-inline">[ &nbsp; ] Part A: Warm-Up (#1–#5 · 30 pts)</span>
-        <span class="lang-ko-inline">[ &nbsp; ] Part A: 기초 필수 (#1~#5 · 30점)</span>
+        <span class="lang-en-inline">[ &nbsp; ] Part A: Warm-Up (#1–#6 · 30 pts)</span>
+        <span class="lang-ko-inline">[ &nbsp; ] Part A: 기초 필수 (#1~#6 · 30점)</span>
       </span>
       <span>
-        <span class="lang-en-inline">[ &nbsp; ] Part B: Standard (#6–#11 · 45 pts)</span>
-        <span class="lang-ko-inline">[ &nbsp; ] Part B: 표준 응용 (#6~#11 · 45점)</span>
+        <span class="lang-en-inline">[ &nbsp; ] Part B: Standard (#7–#12 · 45 pts)</span>
+        <span class="lang-ko-inline">[ &nbsp; ] Part B: 표준 응용 (#7~#12 · 45점)</span>
       </span>
       <span>
-        <span class="lang-en-inline">[ &nbsp; ] Part C: Challenge (#12–#14 · 25 pts)</span>
-        <span class="lang-ko-inline">[ &nbsp; ] Part C: 심화 도전 (#12~#14 · 25점)</span>
+        <span class="lang-en-inline">[ &nbsp; ] Part C: Challenge (#13–#16 · 25 pts)</span>
+        <span class="lang-ko-inline">[ &nbsp; ] Part C: 심화 도전 (#13~#16 · 25점)</span>
       </span>
       <span>
         <span class="lang-en-inline">Check step-by-step solutions online at agora.yocto.kr/math</span>

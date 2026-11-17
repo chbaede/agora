@@ -376,7 +376,7 @@
   }
 
   /* ======================================================================= */
-  /* BIS GRADE 8 MATH WORKSHEET B&W PRINT LAYOUT (14 PROBLEMS OVER 2 PAGES)  */
+  /* BIS GRADE 8 MATH WORKSHEET B&W PRINT LAYOUT (16 PROBLEMS OVER 2 PAGES)  */
   /* ======================================================================= */
   .math-formula-banner {
     display: grid !important;
@@ -384,86 +384,86 @@
     gap: 5pt !important;
     border: 1pt solid #000000 !important;
     border-radius: 0 !important;
-    padding: 4pt 6.5pt !important;
-    margin: 0 0 5pt !important;
-    font-size: 7.5pt !important;
+    padding: 3.5pt 6pt !important;
+    margin: 0 0 4.5pt !important;
+    font-size: 7.2pt !important;
   }
 
   .math-formula-list {
-    font-size: 7.3pt !important;
-    line-height: 1.25 !important;
+    font-size: 7.1pt !important;
+    line-height: 1.22 !important;
     padding-left: 9pt !important;
   }
 
   .math-formula-list li {
-    margin-bottom: 1.5pt !important;
+    margin-bottom: 1pt !important;
   }
 
   .math-worked-example {
     border: 0.75pt solid #000000 !important;
     border-left: 2.5pt solid #000000 !important;
     border-radius: 0 !important;
-    padding: 3.5pt 5.5pt !important;
-    font-size: 7.3pt !important;
-    line-height: 1.25 !important;
+    padding: 3pt 5pt !important;
+    font-size: 7.1pt !important;
+    line-height: 1.22 !important;
   }
 
   .math-problems-grid {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 5pt !important;
+    gap: 4.5pt !important;
     margin: 0 !important;
   }
 
   .math-problem-card {
     border: 0.75pt solid #000000 !important;
     border-radius: 0 !important;
-    padding: 4.5pt 6pt !important;
+    padding: 3.8pt 5.5pt !important;
     break-inside: avoid;
     page-break-inside: avoid;
   }
 
   .math-prob-header {
-    padding-bottom: 2pt !important;
-    margin-bottom: 2.5pt !important;
+    padding-bottom: 1.5pt !important;
+    margin-bottom: 2pt !important;
     border-bottom: 0.5pt solid #000000 !important;
   }
 
   .math-prob-num {
-    font-size: 8pt !important;
+    font-size: 7.8pt !important;
   }
 
   .math-tier-badge {
     border: 0.5pt solid #000000 !important;
-    padding: 0.8pt 4pt !important;
-    font-size: 6.6pt !important;
+    padding: 0.6pt 3.5pt !important;
+    font-size: 6.4pt !important;
   }
 
   .math-prob-question p {
-    font-size: 8.1pt !important;
-    line-height: 1.28 !important;
-    margin: 0 0 3pt !important;
+    font-size: 7.9pt !important;
+    line-height: 1.25 !important;
+    margin: 0 0 2.5pt !important;
   }
 
   .math-work-space {
     border: 0.5pt dashed #555555 !important;
     border-radius: 0 !important;
-    padding: 3pt 5pt !important;
-    min-height: 62pt !important;
-    font-size: 6.8pt !important;
+    padding: 2.5pt 4.5pt !important;
+    min-height: 46pt !important;
+    font-size: 6.6pt !important;
   }
 
   .math-work-front {
-    min-height: 62pt !important;
+    min-height: 46pt !important;
   }
 
   .math-work-back {
-    min-height: 66pt !important;
+    min-height: 68pt !important;
   }
 
   .math-answer-line {
-    font-size: 7.4pt !important;
-    padding-top: 2pt !important;
+    font-size: 7.2pt !important;
+    padding-top: 1.5pt !important;
   }
 
   a {
